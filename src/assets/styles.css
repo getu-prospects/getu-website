@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet');
+:root {
+  --tp-common-white: #ffffff;
+  --tp-common-black: #000000;
+  --color-secondary: #fe7f4c;
+  --color-primary: #1e3737;
+  --tp-grey-1: #f2f7f7;
+  --tp-grey-2: #8b9e9e;
+  --tp-theme-1: #1e3737;
+  --color-text-body: #6e7a7a;
+  --tp-theme-2: #07847f;
+  --tp-theme-3: #8fe1de;
+  --tp-border-1: #385656;
+  --tp-border-2: #edefef;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
