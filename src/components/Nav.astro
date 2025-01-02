@@ -1,13 +1,19 @@
 ---
-import '../assets/styles.css';
-import logo from '../assets/images/getu-logo.png';
-import Cta from '../components/Cta.astro';
 import { Icon } from 'astro-icon/components';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import logo from '../assets/images/getu-logo.png';
+import '../assets/styles.css';
+import Cta from '../components/Cta.astro';
+import { getLangFromLocale, useTranslations } from '../i18n';
+
+const lang = getLangFromLocale(Astro.currentLocale);
+const t = useTranslations(lang);
 
 const navigation = [
-  { name: 'Startseite', href: '/' },
-  { name: 'Über uns', href: '/leitbild' },
-  { name: 'Projekte', href: '/projekte' },
+  { name: t('nav.home'), href: getRelativeLocaleUrl(lang, '/') },
+  { name: t('nav.about'), href: getRelativeLocaleUrl(lang, '/ueber-uns') },
+  { name: t('nav.project'), href: getRelativeLocaleUrl(lang, '/projekte') },
+  { name: t('nav.contact'), href: getRelativeLocaleUrl(lang, '/kontakt') },
 ];
 ---
 
