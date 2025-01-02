@@ -5,6 +5,7 @@ import logo from '../assets/images/getu-logo.png';
 import '../assets/styles.css';
 import Cta from '../components/Cta.astro';
 import { getLangFromLocale, useTranslations } from '../i18n';
+import Container from './Container.astro';
 
 const lang = getLangFromLocale(Astro.currentLocale);
 const t = useTranslations(lang);
@@ -18,9 +19,7 @@ const navigation = [
 ---
 
 <header class="border">
-  <div
-    class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 flex items-center justify-between"
-  >
+  <Container class="flex items-center justify-between">
     <a href={getRelativeLocaleUrl(lang, '/')}>
       <img src={logo.src} alt="GeTu Logo" class="max-w-[100px]" />
     </a>
@@ -61,5 +60,5 @@ const navigation = [
     <div class="hidden md:block">
       <Cta href="/kontakt">Mitmachen</Cta>
     </div>
-  </div>
+  </Container>
 </header>
