@@ -9,6 +9,11 @@ export const translations = {
     'hero.tagline':
       'Als Brückenbauer verbinden wir Kulturen und begleiten Familien und junge Menschen dabei, neue Perspektiven im Leben zu schaffen.',
     'hero.cta-text': 'Unsere Mission',
+    'section.services.title': 'Unsere leistungen',
+    'section.services.subtitle':
+      'Vielfältige Unterstützung für jede Lebenslage',
+    'section.about.title': 'Über uns',
+    'section.about.subtitle': 'Mit Herz und Vision für Menschen.',
   },
   en: {
     'nav.home': 'Home',
@@ -20,5 +25,9 @@ export const translations = {
     'hero.tagline':
       'As bridge builders, we connect cultures and guide families and young people in creating new perspectives in life.',
     'hero.cta-text': 'Our Mission',
+    'section.services.title': 'Our Services',
+    'section.services.subtitle': 'Diverse support for every situation',
+    'section.about.title': 'About Us',
+    'section.about.subtitle': 'With heart and vision for people.',
   },
 } as const;

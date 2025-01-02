@@ -1,9 +1,133 @@
 ---
+import { Icon } from 'astro-icon/components';
 import MainHero from '../../components/main-hero.astro';
+import SectionHeader from '../../components/section-header.astro';
+import Section from '../../components/Section.astro';
+import { getLangFromLocale, useTranslations } from '../../i18n';
 import SiteLayout from '../../layouts/SiteLayout.astro';
+import Erziehungsbeistand from '../../assets/images/services/erziehung.jpg';
+import Familienberatung from '../../assets/images/services/beratung.jpg';
+import Einzelfallhilfe from '../../assets/images/services/hilfe.jpg';
+import ServiceShape from '../../assets/images/services/service-shape.png';
+import AboutUs from '../../assets/images/about-us.jpg';
+import Cta from '../../components/Cta.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const lang = getLangFromLocale(Astro.currentLocale);
+const t = useTranslations(lang);
+
+const services = [
+  {
+    title: 'Educational Support',
+    description:
+      'We guide, advise, and support families on their path to positive development.',
+    icon: 'mdi:book-account-outline',
+    image: Erziehungsbeistand,
+  },
+  {
+    title: 'Family Counseling',
+    description:
+      'Finding paths together, strengthening families – counseling for harmony and understanding.',
+    icon: 'mdi:children-toy',
+    image: Familienberatung,
+  },
+  {
+    title: 'Support',
+    description:
+      'Individual support for families, children, and youth. Because every case is unique.',
+    icon: 'mdi:help-outline',
+    image: Einzelfallhilfe,
+  },
+];
 ---
 
 <SiteLayout>
   <MainHero />
-  <p>Index page</p>
+  <Section>
+    <SectionHeader
+      title={t('section.services.title')}
+      subTitle={t('section.services.subtitle')}
+    />
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 font-light">
+      {
+        services.map((service) => (
+          <div class="flex flex-col items-center text-center shadow-[2px_3.464px_40px_0px_rgba(14,5,1,0.04)] relative group overflow-clip">
+            <div class="relative w-full aspect-[4/3] overflow-hidden">
+              <img
+                src={service.image.src}
+                alt={service.title}
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="w-16 h-16 bg-[#EEF2F1] rounded-full flex items-center justify-center mx-auto -mt-8 relative z-10">
+              <Icon name={service.icon} class="w-8 h-8 text-light-green" />
+            </div>
+
+            <div class="py-12 px-6 overflow-hidden z-10">
+              <h3 class="text-2xl font-bold text-emerald-950 mb-4 group-hover:text-orange transition-colors duration-500 ease-out">
+                {service.title}
+              </h3>
+              <p class="leading-loose text-sm/6">{service.description}</p>
+            </div>
+
+            <span class="absolute bottom-0 right-0 translate-y-1/2 translate-x-full group-hover:translate-x-1/2 group-hover:opacity-100 transition-all duration-500 ease-out">
+              <img src={ServiceShape.src} alt="" />
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+  <Section>
+    <div class="grid md:grid-cols-2 gap-16">
+      <img src={AboutUs.src} alt="" />
+      <div>
+        <SectionHeader
+          title={t('section.about.title')}
+          subTitle={t('section.about.subtitle')}
+          alignment="left"
+        />
+        <div
+          class="mt-8 flex flex-col gap-5 font-light leading-loose text-sm/6"
+        >
+          <p class="">
+            GeTu Prospects e.V. is a Christian organization that welcomes people
+            of all cultures and nations. Our work is rooted in Christian and
+            ethical values: the uniqueness of each individual, loving kindness,
+            forgiveness, mercy, acceptance, and support.
+          </p>
+          <p class="">
+            In a time when many people remain on the margins of society despite
+            state support, we actively work for their integration and
+            participation. We recognize society's challenges and take action:
+          </p>
+          <ul class="list-disc list-inside">
+            <li>Through educational opportunities that create perspectives</li>
+            <li>With social programs that empower people</li>
+            <li>Through intercultural projects that promote understanding</li>
+          </ul>
+          <p class="">
+            Our goal is to break down barriers and build bridges. We support
+            people in developing their full potential and actively participating
+            in society.
+          </p>
+          <p>
+            Together with our dedicated staff and partners, we create a place of
+            encounter, growth, and hope. We believe that every person possesses
+            valuable gifts and, with the right support, can contribute these to
+            the benefit of the community. Your story matters to us – let's shape
+            new paths together.
+            <span
+              class="ml-4 inline-flex text-secondary underline underline-offset-2 hover:text-orange-700"
+            >
+              <a href={getRelativeLocaleUrl(lang, '/ueber-uns')}
+                >Learn more about us -></a
+              >
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </Section>
 </SiteLayout>
