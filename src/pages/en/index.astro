@@ -12,6 +12,10 @@ import ServiceShape from '../../assets/images/services/service-shape.png';
 import AboutUs from '../../assets/images/about-us.jpg';
 import Cta from '../../components/Cta.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import Container from '../../components/Container.astro';
+import Footer from '../../components/Footer.astro';
+import CtaBg from '../../assets/images/cta-bg-3.jpg';
+import CtaIcon from '../../assets/images/cta-icon.png';
 
 const lang = getLangFromLocale(Astro.currentLocale);
 const t = useTranslations(lang);
@@ -130,4 +134,27 @@ const services = [
       </div>
     </div>
   </Section>
+  <section class="relative h-[200px] w-full">
+    <img
+      src={CtaBg.src}
+      alt=""
+      class="absolute -z-50 w-full h-full object-fill"
+    />
+    <Container
+      class="h-full text-3xl font-bold z-100 flex items-center justify-between gap-6"
+    >
+      <img src={CtaIcon.src} alt="" class="size-10" />
+      <h2
+        class="text-emerald-900 font-bold max-w-xl leading-normal tracking-tight"
+      >
+        Volunteer today and help create a brighter tomorrow together.
+      </h2>
+      <div class="flex-1 align-right flex justify-end items-center">
+        <Cta href={getRelativeLocaleUrl(lang, '/kontakt')} class="text-lg"
+          >Join now</Cta
+        >
+      </div>
+    </Container>
+  </section>
+  <Footer />
 </SiteLayout>

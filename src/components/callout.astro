@@ -1,0 +1,26 @@
+---
+import CtaShape3 from '../assets/images/cta-shape-3.png';
+import Container from './Container.astro';
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div
+  class="relative overflow-clip bg-gradient-to-r from-emerald-950 to-[#1e3737] text-white"
+>
+  <Container class="py-28">
+    <div class="flex justify-center items-center">
+      <h2 class="text-5xl text-center font-bold leading-normal tracking-tight">
+        {text}
+      </h2>
+      <img
+        src={CtaShape3.src}
+        alt=""
+        class="absolute -bottom-10 -right-10 animate-shake animate-infinite animate-duration-[5000ms]"
+      />
+    </div>
+  </Container>
+</div>

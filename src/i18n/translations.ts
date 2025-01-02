@@ -14,6 +14,8 @@ export const translations = {
       'Vielfältige Unterstützung für jede Lebenslage',
     'section.about.title': 'Über uns',
     'section.about.subtitle': 'Mit Herz und Vision für Menschen.',
+    'section.callout.text':
+      'Wir schaffen eine Atmosphäre, in der sich jeder willkommen und wertgeschätzt fühlt – die Basis für ein starkes Miteinander.',
   },
   en: {
     'nav.home': 'Home',
@@ -29,5 +31,7 @@ export const translations = {
     'section.services.subtitle': 'Diverse support for every situation',
     'section.about.title': 'About Us',
     'section.about.subtitle': 'With heart and vision for people.',
+    'section.callout.text':
+      'We create an atmosphere where everyone feels welcome and valued – the foundation for a strong community.',
   },
 } as const;

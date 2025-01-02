@@ -10,8 +10,13 @@ import Familienberatung from '../assets/images/services/beratung.jpg';
 import Einzelfallhilfe from '../assets/images/services/hilfe.jpg';
 import ServiceShape from '../assets/images/services/service-shape.png';
 import AboutUs from '../assets/images/about-us.jpg';
-import Cta from '../components/Cta.astro';
+import CtaBg from '../assets/images/cta-bg-3.jpg';
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import Callout from '../components/callout.astro';
+import Container from '../components/Container.astro';
+import Cta from '../components/Cta.astro';
+import CtaIcon from '../assets/images/cta-icon.png';
+import Footer from '../components/Footer.astro';
 
 const lang = getLangFromLocale(Astro.currentLocale);
 const t = useTranslations(lang);
@@ -132,4 +137,29 @@ const services = [
       </div>
     </div>
   </Section>
+  <Callout text={t('section.callout.text')} />
+  <section class="relative h-[200px] w-full">
+    <img
+      src={CtaBg.src}
+      alt=""
+      class="absolute -z-50 w-full h-full object-fill"
+    />
+    <Container
+      class="h-full text-3xl font-bold z-100 flex items-center justify-between gap-6"
+    >
+      <img src={CtaIcon.src} alt="" class="size-10" />
+      <h2
+        class="text-emerald-900 font-bold max-w-xl leading-normal tracking-tight"
+      >
+        Engagieren Sie sich als Freiwilliger für eine gemeinsame, strahlende
+        Zukunft!
+      </h2>
+      <div class="flex-1 align-right flex justify-end items-center">
+        <Cta href={getRelativeLocaleUrl(lang, '/kontakt')} class="text-lg"
+          >Jetzt Beitreten</Cta
+        >
+      </div>
+    </Container>
+  </section>
+  <Footer />
 </SiteLayout>

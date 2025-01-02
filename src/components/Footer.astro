@@ -1,0 +1,64 @@
+---
+import { Icon } from 'astro-icon/components';
+import Container from './Container.astro';
+---
+
+<script>
+  let year = new Date().getFullYear();
+  document.getElementById('year')!.innerHTML = `${year}`;
+</script>
+
+<footer class="">
+  <div class="bg-[#385656] text-white pt-40 pb-20">
+    <Container>
+      <div class="grid grid-cols-3 gap-8">
+        <div class="flex flex-col gap-y-4 text-sm">
+          <h3 class="font-semibold">Kontakt</h3>
+          <p class="text-xs">GeTu Prospects e.V.</p>
+          <span class="inline-flex items-center gap-x-2">
+            <Icon name="mdi:location-radius-outline" class="text-orange" />
+            <a
+              href="https://maps.google.com?q=Avenue Charles de Gaulle 11, 13469 Berlin"
+              target="_blank"
+              class="text-xs">Avenue Charles de Gaulle 11. 13469 Berlin</a
+            >
+          </span>
+          <span class="inline-flex items-center gap-x-2">
+            <Icon name="mdi:email-outline" class="text-orange" />
+            <a class="text-xs" href="mailto:info@getu-prospects.de"
+              >info@getu-prospects.de</a
+            >
+          </span>
+          <span class="inline-flex items-center gap-x-2">
+            <Icon name="mdi:telephone" class="text-orange" />
+            <a href="tel:+491724328326" class="text-xs">+49 (0) 1724328326</a>
+          </span>
+        </div>
+        <div class="flex flex-col gap-y-4 text-xs">
+          <h3 class="font-semibold text-sm">Spendenkonto</h3>
+          <p class="text-xs">GeTu Prospects e.V.</p>
+          <span>IBAN: DE94100100100064071143</span>
+        </div>
+        <div class="flex gap-4 text-white">
+          <span>
+            <a href="http://" class="hover:text-orange">
+              <Icon name="mdi:facebook" />
+            </a>
+          </span>
+          <span>
+            <a href="http://" class="hover:text-orange">
+              <Icon name="mdi:instagram" />
+            </a>
+          </span>
+        </div>
+      </div>
+    </Container>
+  </div>
+  <div class="bg-[#172c2d] text-gray-300 text-sm">
+    <Container class="py-12 flex items-center gap-x-8">
+      <p>© <span id="year"></span> GeTu Prospects e.V.</p>
+      <a href="/impressum" class="hover:text-orange">Impressum</a>
+      <a href="/datenschutz" class="hover:text-orange">Datenschutz</a>
+    </Container>
+  </div>
+</footer>
