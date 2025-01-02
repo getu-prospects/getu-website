@@ -1,14 +1,26 @@
 ---
 interface Props {
   href: string;
+  class?: string;
+  type?: 'default' | 'outline';
 }
 
-const { href } = Astro.props;
+const { href, class: className, type = 'default' } = Astro.props;
+
+const styles = {
+  default: 'bg-secondary hover:bg-[#f56d33] text-white',
+  outline:
+    'border-2 border-secondary hover:bg-secondary text-secondary hover:text-white',
+};
 ---
 
 <a
   href={href}
-  class="bg-secondary hover:bg-[#f56d33] text-white px-8 py-3 font-bold transition-colors"
+  class:list={[
+    'px-8 py-3 font-bold transition-all duration-200',
+    styles[type],
+    className,
+  ]}
 >
   <slot />
 </a>

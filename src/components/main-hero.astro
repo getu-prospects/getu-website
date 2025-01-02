@@ -1,0 +1,56 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import fernsehtum from '../assets/images/main-hero/1.jpg';
+import { getLangFromLocale, useTranslations } from '../i18n';
+import Container from './Container.astro';
+import Cta from './Cta.astro';
+
+const lang = getLangFromLocale(Astro.currentLocale);
+const t = useTranslations(lang);
+---
+
+<section class="relative min-h-[80vh] text-white">
+  <div class="absolute inset-0 -z-100">
+    <img
+      src={fernsehtum.src}
+      alt=""
+      class="w-full h-full object-cover brightness-50"
+    />
+    <Container
+      class="z-10 absolute inset-0 flex flex-col justify-center items-center text-center space-y-8"
+    >
+      <p class="text-xl tracking-wider uppercase text-secondary font-medium">
+        GeTu Prospects e.V.
+      </p>
+      <h1
+        class="animate-fade-up flex flex-col gap-y-4 items-center justify-center"
+      >
+        <span class="text-7xl font-extrabold tracking-tight leading-tight"
+          >{t('hero.title')}</span
+        >
+        <span class="text-5xl font-bold text-white/90 tracking-tight">
+          {t('hero.subtitle')}
+        </span>
+      </h1>
+      <p
+        class="text-center max-w-2xl text-xl leading-relaxed font-light text-white/85 mx-auto"
+      >
+        {t('hero.tagline')}
+      </p>
+      <div class="mt-12 flex gap-4">
+        <Cta
+          href={getRelativeLocaleUrl(lang, '/ueber-uns')}
+          class="hover:transform hover:scale-105 transition-transform"
+        >
+          {t('hero.cta-text')}
+        </Cta>
+
+        <Cta
+          class=""
+          href={getRelativeLocaleUrl(lang, '/kontakt')}
+          type="outline">Mitmachen</Cta
+        >
+      </div>
+    </Container>
+  </div>
+</section>

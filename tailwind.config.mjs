@@ -1,4 +1,5 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
+import tailwindMotion from 'tailwindcss-animated';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -12,8 +13,9 @@ export default {
         primary: 'var(--color-primary)',
         secondary: 'var(--color-secondary)',
         body: 'var(--color-text-body)',
+        deepgreen: 'var(--color-deep-green)',
       },
     },
   },
-  plugins: [],
+  plugins: [tailwindMotion],
 };
