@@ -41,12 +41,12 @@ const projects = [
       projects.map((project) => (
         <div class="rounded-sm px-6 py-12 shadow-[2px_3.464px_40px_0px_rgba(14,5,1,0.04)] flex flex-col gap-6">
           <h2 class="text-3xl text-teal-950 font-bold">{project.title}</h2>
-          <div class="grid grid-cols-4 gap-4">
+          <div class="grid md:grid-cols-3 gap-4">
             {project.images.map((image) => (
               <img src={image.src} alt={image.alt} class="rounded-sm" />
             ))}
           </div>
-          <div class="text-sm/6 leading-loose flex flex-col gap-3 font-light">
+          <div class="leading-loose flex flex-col gap-3 font-light">
             {project.description.map((desc) => (
               <p>{desc}</p>
             ))}

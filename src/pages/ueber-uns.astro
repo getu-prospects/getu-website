@@ -41,14 +41,14 @@ const missionList = [
   <PageHeader section="Über uns" subSection="Wofür wir stehen." />
   <Section>
     <div class="grid md:grid-cols-2 gap-12">
-      <img src={Fernsehturm.src} alt="" />
+      <img src={AboutUs.src} alt="" />
       <div class="space-y-6">
         <SectionHeader
           title="Unsere Vision"
           subTitle="Eine Gesellschaft der Vielfalt und des Miteinanders"
           alignment="left"
         />
-        <div class="flex flex-col gap-6 font-light leading-loose text-sm/6">
+        <div class="flex flex-col gap-6 font-light leading-loose">
           <p class="">
             Unsere Vision von Respekt und Nächstenliebe dient der Achtung des
             Anderen und bestärkt die die Gemeinschaft in unserer Gesellschaft.
@@ -82,7 +82,7 @@ const missionList = [
             Barrieren überwunden werden und ein lebendiges Miteinander
             verschiedener Kulturen zur Selbstverständlichkeit wird.
             <span
-              class="ml-4 inline-flex text-secondary underline underline-offset-2 hover:text-orange-700"
+              class="ml-2 inline text-secondary underline underline-offset-2 hover:text-orange-700"
             >
               <a href={getRelativeLocaleUrl(lang, '/projekte')}
                 >Unsere ehrenamtliche Arbeit -></a
@@ -100,7 +100,7 @@ const missionList = [
       alignment="left"
     />
     <div class="space-y-6 font-light">
-      <p class="leading-loose text-sm/6">
+      <p class="leading-loose">
         Als Brückenbauer verbinden wir Kulturen und begleiten Familien und junge
         Menschen dabei, neue Perspektiven im Leben zu schaffen. Durch Bildung,
         soziale Programme und interkulturelle Projekte bieten wir praktische
@@ -119,7 +119,7 @@ const missionList = [
                   />
                 </div>
               </div>
-              <div class="space-y-4 lg:w-3/5 lg:py-8 text-sm/6">
+              <div class="space-y-4 lg:w-3/5 lg:py-8 ">
                 <h2 class="font-bold text-teal-950 text-2xl">
                   {mission.title}
                 </h2>
@@ -140,7 +140,7 @@ const missionList = [
           subTitle="Das Fundament unserer Arbeit"
           alignment="left"
         />
-        <div class="flex flex-col gap-6 font-light leading-loose text-sm/6">
+        <div class="flex flex-col gap-6 font-light leading-loose">
           <p class="">
             Unser Handeln basiert auf christlichen und ethischen Grundwerten.
             Diese Werte prägen unsere tägliche Arbeit und bestimmen, wie wir
@@ -192,7 +192,7 @@ const missionList = [
           </div>
         </div>
       </div>
-      <img src={AboutUs.src} alt="" class="brightness-90" />
+      <img src={Fernsehturm.src} alt="" class="brightness-90" />
     </div>
   </Section>
   <EngagementCallout />

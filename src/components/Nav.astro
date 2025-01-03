@@ -25,7 +25,7 @@ const navigation = [
       <img src={logo.src} alt="GeTu Logo" class="max-w-[100px]" />
     </a>
     <!-- Mobile Navigation -->
-    <nav class="md:hidden relative">
+    <nav class="md:hidden relative z-999">
       <button
         class="text-2xl text-primary"
         aria-label="Toggle Menu"
@@ -35,7 +35,7 @@ const navigation = [
       </button>
       <ul
         id="mobile-nav"
-        class="hidden absolute right-0 top-full mt-2 bg-white p-4 shadow-lg rounded-lg w-48 flex flex-col gap-y-4 font-semibold"
+        class="z-999 hidden absolute right-0 top-full mt-2 bg-white p-4 shadow-lg rounded-lg w-48 flex flex-col gap-y-4 font-semibold"
       >
         {
           navigation.map((item) => (
