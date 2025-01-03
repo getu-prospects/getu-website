@@ -10,23 +10,23 @@ const lang = getLangFromLocale(Astro.currentLocale);
 const t = useTranslations(lang);
 ---
 
-<section class="relative h-[200px] w-full">
+<section class="relative md:h-[200px] w-full">
   <img
     src={CtaBg.src}
     alt=""
     class="absolute -z-50 w-full h-full object-fill"
   />
   <Container
-    class="h-full text-3xl font-bold z-100 flex items-center justify-between gap-6"
+    class="h-full md:text-3xl font-bold z-100 flex flex-col md:flex-row items-center justify-center md:justify-between gap-6"
   >
     <img src={CtaIcon.src} alt="" class="size-10" />
     <h2
-      class="text-emerald-900 font-bold max-w-xl leading-normal tracking-tight"
+      class="text-center md:text-left text-emerald-900 font-bold md:max-w-xl leading-normal tracking-tight"
     >
       Engagieren Sie sich als Freiwilliger für eine gemeinsame, strahlende
       Zukunft!
     </h2>
-    <div class="flex-1 align-right flex justify-end items-center">
+    <div class="md:flex-1 align-right flex md:justify-end items-center">
       <Cta href={getRelativeLocaleUrl(lang, '/kontakt')} class="text-lg"
         >Jetzt Beitreten</Cta
       >

@@ -80,7 +80,7 @@ const services = [
       }
     </div>
   </Section>
-  <!-- <Section>
+  <Section>
     <div class="grid md:grid-cols-2 gap-16">
       <img src={AboutUs.src} alt="" />
       <div class="">
@@ -89,9 +89,7 @@ const services = [
           subTitle={t('section.about.subtitle')}
           alignment="left"
         />
-        <div
-          class="mt-8 flex flex-col gap-5 font-light leading-loose text-sm/6"
-        >
+        <div class="mt-8 flex flex-col gap-5 font-light leading-loose">
           <p class="">
             GeTu Prospects e.V. ist eine christliche Organisation, die Menschen
             aller Kulturen und Nationen willkommen heißt. Unsere Arbeit wurzelt
@@ -123,7 +121,7 @@ const services = [
             kann. Ihre Geschichte ist uns wichtig – lassen Sie uns gemeinsam
             neue Wege gestalten.
             <span
-              class="ml-4 inline-flex text-secondary underline underline-offset-2 hover:text-orange-700"
+              class="ml-2 inline text-secondary underline underline-offset-2 hover:text-orange-700"
             >
               <a href={getRelativeLocaleUrl(lang, '/ueber-uns')}
                 >Mehr über uns erfahren -></a
@@ -134,7 +132,8 @@ const services = [
       </div>
     </div>
   </Section>
+
   <Callout text={t('section.callout.text')} />
-  <EngagementCallout /> -->
+  <EngagementCallout />
   <Footer />
 </SiteLayout>
