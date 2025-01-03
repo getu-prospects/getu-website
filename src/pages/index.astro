@@ -1,22 +1,19 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import AboutUs from '../assets/images/about-us.jpg';
+import Familienberatung from '../assets/images/services/beratung.jpg';
+import Erziehungsbeistand from '../assets/images/services/erziehung.jpg';
+import Einzelfallhilfe from '../assets/images/services/hilfe.jpg';
+import ServiceShape from '../assets/images/services/service-shape.png';
+import Callout from '../components/callout.astro';
+import EngagementCallout from '../components/engagement-callout.astro';
+import Footer from '../components/Footer.astro';
 import MainHero from '../components/main-hero.astro';
 import SectionHeader from '../components/section-header.astro';
 import Section from '../components/Section.astro';
 import { getLangFromLocale, useTranslations } from '../i18n';
 import SiteLayout from '../layouts/SiteLayout.astro';
-import Erziehungsbeistand from '../assets/images/services/erziehung.jpg';
-import Familienberatung from '../assets/images/services/beratung.jpg';
-import Einzelfallhilfe from '../assets/images/services/hilfe.jpg';
-import ServiceShape from '../assets/images/services/service-shape.png';
-import AboutUs from '../assets/images/about-us.jpg';
-import CtaBg from '../assets/images/cta-bg-3.jpg';
-import { getRelativeLocaleUrl } from 'astro:i18n';
-import Callout from '../components/callout.astro';
-import Container from '../components/Container.astro';
-import Cta from '../components/Cta.astro';
-import CtaIcon from '../assets/images/cta-icon.png';
-import Footer from '../components/Footer.astro';
 
 const lang = getLangFromLocale(Astro.currentLocale);
 const t = useTranslations(lang);
@@ -138,7 +135,8 @@ const services = [
     </div>
   </Section>
   <Callout text={t('section.callout.text')} />
-  <section class="relative h-[200px] w-full">
+  <EngagementCallout />
+  <!-- <section class="relative h-[200px] w-full">
     <img
       src={CtaBg.src}
       alt=""
@@ -160,6 +158,6 @@ const services = [
         >
       </div>
     </Container>
-  </section>
+  </section> -->
   <Footer />
 </SiteLayout>

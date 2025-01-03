@@ -1,23 +1,200 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import Fernsehturm from '../assets/images/fernsehturm.png';
+import Hands from '../assets/images/hands.jpg';
+import KidImg from '../assets/images/kid.jpg';
+import AboutUs from '../assets/images/ueber-uns.jpg';
+import WorldMap from '../assets/images/worldmap.png';
+import EngagementCallout from '../components/engagement-callout.astro';
+import Footer from '../components/Footer.astro';
+import PageHeader from '../components/page-header.astro';
+import SectionHeader from '../components/section-header.astro';
+import Section from '../components/Section.astro';
+import { getLangFromLocale } from '../i18n';
 import SiteLayout from '../layouts/SiteLayout.astro';
+
+const lang = getLangFromLocale(Astro.currentLocale);
+
+const missionList = [
+  {
+    title: 'Familienbegleitung und -beratung',
+    description:
+      'Wir unterstützen Familien in allen Lebenslagen durch professionelle Beratung, Erziehungsbeistand und individuelle Begleitung. Dabei stärken wir vorhandene Bindungen und fördern eine positive Familienatmosphäre.',
+    image: Hands,
+  },
+  {
+    title: 'Bildung und Integration',
+    description:
+      'Durch gezielte Bildungsangebote, Sprachförderung und Lernunterstützung helfen wir Menschen dabei, ihr Potenzial zu entfalten. Wir motivieren zu regelmäßigem Schulbesuch und begleiten beim Aufbau aussichtsreicher Zukunftsperspektiven.',
+    image: KidImg,
+  },
+  {
+    title: 'Interkulturelle Begegnung und Austausch',
+    description:
+      'Wir fördern den interkulturellen Dialog und schaffen Begegnungsräume für Menschen unterschiedlicher Herkunft. Durch kulturelle Veranstaltungen und interkulturelle Projekte fördern wir den Austausch und das gegenseitige Verständnis.',
+    image: WorldMap,
+  },
+];
 ---
 
 <SiteLayout>
-  <h1>Über uns</h1>
-  <p>
-    GeTu Prospects e.V. ist ein gemeinnütziger Verein, der sich für die
-    Förderung von Kindern und Jugendlichen in der Region einsetzt.
-  </p>
-  <p>
-    Unser Ziel ist es, jungen Menschen die Möglichkeit zu geben, ihre Talente zu
-    entdecken und zu entfalten.
-  </p>
-  <p>
-    Wir bieten verschiedene Projekte und Aktivitäten an, die den Kindern und
-    Jugendlichen helfen, ihre Fähigkeiten zu entwickeln und ihre Persönlichkeit
-    zu stärken.
-  </p>
-  <p>
-    Unsere Arbeit wird durch Spenden und ehrenamtliche Mitarbeit unterstützt.
-  </p>
+  <PageHeader section="Über uns" subSection="Wofür wir stehen." />
+  <Section>
+    <div class="grid md:grid-cols-2 gap-12">
+      <img src={Fernsehturm.src} alt="" />
+      <div class="space-y-6">
+        <SectionHeader
+          title="Unsere Vision"
+          subTitle="Eine Gesellschaft der Vielfalt und des Miteinanders"
+          alignment="left"
+        />
+        <div class="flex flex-col gap-6 font-light leading-loose text-sm/6">
+          <p class="">
+            Unsere Vision von Respekt und Nächstenliebe dient der Achtung des
+            Anderen und bestärkt die die Gemeinschaft in unserer Gesellschaft.
+            Als christliche Organisation begegnen wir unseren Mitmenschen mit
+            Nächstenliebe. Jeder Mensch ist wertvoll, dabei wird er respektiert
+            und angenommen wie er ist.
+          </p>
+          <div>
+            <p>Wir glauben en eine Gesellschaft, in der:</p>
+            <ul class="list-disc list-inside px-4">
+              <li>
+                Menschen unabhängig ihrer Herkunft ihr volles Potenzial
+                entfalten können.
+              </li>
+              <li>Kulturelle Vielfalt als Bereicherung gelebt wird.</li>
+              <li>
+                Gegenseitiger Respekt und Verständnis die Grundlage des
+                Zusammenlebens bilden.
+              </li>
+              <li>
+                Jeder Mensch die Chance auf aktive Teilhabe am
+                gesellschaftlichen Leben hat.
+              </li>
+            </ul>
+          </div>
+          <p class="">
+            Unsere Vision basiert auf der Überzeugung, dass jeder Mensch
+            wertvolle Gaben und Fähigkeiten besitzt. Wenn Menschen die richtige
+            Unterstützung und Begleitung erhalten, können sie diese zum Wohle
+            der Gemeinschaft einbringen. Wir sehen eine Zukunft, in der
+            Barrieren überwunden werden und ein lebendiges Miteinander
+            verschiedener Kulturen zur Selbstverständlichkeit wird.
+            <span
+              class="ml-4 inline-flex text-secondary underline underline-offset-2 hover:text-orange-700"
+            >
+              <a href={getRelativeLocaleUrl(lang, '/projekte')}
+                >Unsere ehrenamtliche Arbeit -></a
+              >
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </Section>
+  <Section class="space-y-6">
+    <SectionHeader
+      title="Unser Auftrag"
+      subTitle="Menschen stärke, Perspektiven schaffen"
+      alignment="left"
+    />
+    <div class="space-y-6 font-light">
+      <p class="leading-loose text-sm/6">
+        Als Brückenbauer verbinden wir Kulturen und begleiten Familien und junge
+        Menschen dabei, neue Perspektiven im Leben zu schaffen. Durch Bildung,
+        soziale Programme und interkulturelle Projekte bieten wir praktische
+        Hilfe.
+      </p>
+      <div class="space-y-8">
+        {
+          missionList.map((mission) => (
+            <div class="flex flex-col lg:flex-row gap-12 rounded-sm shadow-[2px_3.464px_40px_0px_rgba(14,5,1,0.04)]">
+              <div class="lg:w-2/5 bg-gray-200">
+                <div class="aspect-[4/3] overflow-hidden bg-gray-200 relative">
+                  <img
+                    src={mission.image.src}
+                    alt=""
+                    class="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div class="space-y-4 lg:w-3/5 lg:py-8 text-sm/6">
+                <h2 class="font-bold text-teal-950 text-2xl">
+                  {mission.title}
+                </h2>
+                <p class="leading-loose pr-12">{mission.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Section>
+
+  <Section>
+    <div class="grid md:grid-cols-2 gap-12">
+      <div class="space-y-6">
+        <SectionHeader
+          title="Unsere Werte"
+          subTitle="Das Fundament unserer Arbeit"
+          alignment="left"
+        />
+        <div class="flex flex-col gap-6 font-light leading-loose text-sm/6">
+          <p class="">
+            Unser Handeln basiert auf christlichen und ethischen Grundwerten.
+            Diese Werte prägen unsere tägliche Arbeit und bestimmen, wie wir
+            Menschen begegnen.
+          </p>
+          <div>
+            <p>Unsere Kernwerte:</p>
+            <ul class="list-disc list-inside px-4 space-y-2">
+              <li>
+                <span class="font-semibold">Respekt und Würde</span>
+                - Wir begegnen jedem Menschen auf Augenhöhe und achten seine einzigartige
+                Würde.
+              </li>
+
+              <li>
+                <span class="font-semibold">Nächstenliebe</span> - Als christliche
+                Organisation leben wir tätige Nächstenliebe und setzen uns für andere
+                ein.
+              </li>
+
+              <li>
+                <span class="font-semibold">Professionalität</span> - Wir verbinden
+                herzliche Zuwendung mit fachlicher Kompetenz und hohen Qualitätsstandards.
+              </li>
+
+              <li>
+                <span class="font-semibold">Vertrauen</span> - Wir schaffen eine
+                Atmosphäre des Vertrauens als Grundlage für nachhaltige Beziehungen.
+              </li>
+
+              <li>
+                <span class="font-semibold">Vielfalt</span> - Wir sehen kulturelle
+                Vielfalt als Bereicherung und fördern das Miteinander verschiedener
+                Kulturen.
+              </li>
+
+              <li>
+                <span class="font-semibold">Verantwortung</span> - Wir übernehmen
+                Verantwortung für unser Handeln und setzen uns für eine gerechte
+                Gesellschaft ein.
+              </li>
+
+              <li>
+                <span class="font-semibold">Nachaltigkeit</span> - Wir arbeiten an
+                langfristigen Lösungen und setzen uns für dauerhafte positive Veränderungen
+                ein.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <img src={AboutUs.src} alt="" class="brightness-90" />
+    </div>
+  </Section>
+  <EngagementCallout />
+  <Footer />
 </SiteLayout>
