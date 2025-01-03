@@ -1,6 +1,10 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Container from './Container.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLangFromLocale } from '../i18n';
+
+const lang = getLangFromLocale(Astro.currentLocale);
 ---
 
 <script>
@@ -57,8 +61,14 @@ import Container from './Container.astro';
   <div class="bg-[#172c2d] text-gray-300 text-sm">
     <Container class="py-12 flex items-center gap-x-8">
       <p>© <span id="year"></span> GeTu Prospects e.V.</p>
-      <a href="/impressum" class="hover:text-orange">Impressum</a>
-      <a href="/datenschutz" class="hover:text-orange">Datenschutz</a>
+      <a
+        href={getRelativeLocaleUrl(lang, '/impressum')}
+        class="hover:text-orange">Impressum</a
+      >
+      <a
+        href={getRelativeLocaleUrl(lang, '/datenschutz')}
+        class="hover:text-orange">Datenschutz</a
+      >
     </Container>
   </div>
 </footer>

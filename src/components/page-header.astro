@@ -1,8 +1,8 @@
 ---
 import Container from './Container.astro';
 interface Props {
-  section: string;
-  subSection: string;
+  section?: string;
+  subSection?: string;
 }
 
 const { section, subSection } = Astro.props;
@@ -13,16 +13,22 @@ const { section, subSection } = Astro.props;
 >
   <Container class="">
     <div class="flex flex-col items-start gap-4">
-      <div
-        class="bg-[rgba(255,255,255,0.078)] text-gray-100 tracking-wide flex py-2 px-4"
-      >
-        <h3>{section}</h3>
-      </div>
-      <div>
-        <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-bold">
-          {subSection}
-        </h1>
-      </div>
+      {
+        section && (
+          <div class="bg-[rgba(255,255,255,0.078)] text-gray-100 tracking-wide flex py-2 px-4">
+            <h3>{section}</h3>
+          </div>
+        )
+      }
+      {
+        subSection && (
+          <div>
+            <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-bold">
+              {subSection}
+            </h1>
+          </div>
+        )
+      }
     </div>
   </Container>
 </section>

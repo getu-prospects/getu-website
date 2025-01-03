@@ -1,0 +1,59 @@
+---
+import { Icon } from 'astro-icon/components';
+import PageHeader from '../components/page-header.astro';
+import Section from '../components/Section.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<SiteLayout>
+  <PageHeader subSection="Impressum" />
+  <Section>
+    <div class="flex flex-col gap-6 font-light leading-loose text-sm/6">
+      <h2 class="font-semibold">Angaben gemäß § 5 TMG</h2>
+      <p>
+        GeTu Prospects e.V.<br />
+        Avenue Charles de Gaulle 11<br />
+        13469 Berlin
+      </p>
+
+      <h2 class="font-semibold">Vertreten durch</h2>
+
+      <p>Paul Adenmosun <br /> Grace Adenmosun</p>
+
+      <h2 class="font-semibold">Kontakt</h2>
+      <p>
+        Telefon: +491724328326<br />
+        E-Mail: info@getu-prospects.de
+      </p>
+
+      <h2 class="font-semibold">Registereintrag</h2>
+      <p>
+        Eintragung im Vereinsregister.<br />
+        Registergericht: Amtsgericht Berlin-Charlottenburg<br />
+        Registernummer: [Ihre Registernummer]
+      </p>
+
+      <h2 class="font-semibold">
+        Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
+      </h2>
+      <p>
+        Oladayo Fagbemi<br />
+        GeTu Prospects e.V.<br />
+        Avenue Charles de Gaulle 11<br />
+        13469 Berlin
+      </p>
+
+      <div>
+        <div class="flex gap-2 items-start">
+          <Icon name="mdi:download" class="mt-1" />
+          <div class="flex flex-col leading-tight justify-center">
+            <a href="/satzung.pdf">Auszug aus der Vereinsatzung</a>
+            <p>(PDF, 343KB)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+  <Footer />
+</SiteLayout>
