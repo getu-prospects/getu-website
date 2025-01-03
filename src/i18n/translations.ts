@@ -4,6 +4,7 @@ export const translations = {
     'nav.about': 'Über uns',
     'nav.contact': 'Kontakt',
     'nav.project': 'Projekte',
+    'nav.youth': 'Jugend',
     'hero.title': 'Vielfalt leben',
     'hero.subtitle': 'Träume stärken',
     'hero.tagline':
@@ -22,6 +23,7 @@ export const translations = {
     'nav.about': 'About',
     'nav.contact': 'Contact',
     'nav.project': 'Projects',
+    'nav.youth': 'Youth',
     'hero.title': 'Embracing Diversity',
     'hero.subtitle': 'Empowering Dreams',
     'hero.tagline':

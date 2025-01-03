@@ -1,0 +1,69 @@
+---
+import PageHeader from '../components/page-header.astro';
+import SectionHeader from '../components/section-header.astro';
+import Section from '../components/Section.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Youth from '../assets/images/youth.jpg';
+import { Icon } from 'astro-icon/components';
+import Callout from '../components/callout.astro';
+import EngagementCallout from '../components/engagement-callout.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<SiteLayout>
+  <PageHeader section="Jugend" subSection="Youth with Perspective" />
+  <Section>
+    <div class="grid md:grid-cols-2 gap-12">
+      <img src={Youth.src} alt="" />
+      <div class="space-y-6">
+        <SectionHeader
+          title="Youth with Perspective"
+          subTitle="Junge Menschen, starke Perspektiven"
+          alignment="left"
+        />
+        <div class="flex flex-col gap-6 font-light leading-loose text-sm/6">
+          <p>
+            Youth with perspective ist ein Forum, das jungen Menschen einen Raum
+            bietet, ihre Lebensziele zu entdecken und ihr volles Potenzial zu
+            entfalten. In regelmäßigen Treffen setzen wir uns mit den
+            grundlegenden Fragen des Lebens auseinander:
+          </p>
+          <ul class="list-disc list-inside px-4">
+            <li>Wer bin ich?</li>
+            <li>Was ist der Sinn meines Lebens?</li>
+            <li>Wie kann ich den Sinn entdecken und erfüllen?</li>
+            <li>Was sind meine Potenziale und Ressourcen?</li>
+            <li>Welche Möglichkeiten stehen mir zu Verfügung?</li>
+            <li>Wie kann ich meine unmittelbare Umgebung beeinflussen?</li>
+          </ul>
+          <p>
+            In einer Gemeinschaft von Gleichgesinnten lernen wir voneinander,
+            ermutigen uns gegenseitig und entwickeln gemeinsam neue
+            Perspektiven. Hier findest du einen Ort, wo du dich austauschen,
+            wachsen und deine eigenen Stärken entdecken kannst.
+          </p>
+          <p>
+            Du bist jeden 3. Samstag im Monat herzlich eingeladen und lass uns
+            gemeinsam den Sinn des Lebens herausfinden.
+          </p>
+
+          <div class="details">
+            <div class="flex gap-2 items-center text-secondary">
+              <Icon name="mdi:location-radius-outline" />
+              <span>Rütlistraße 18</span>
+              <span class="">13407, Berlin</span>
+            </div>
+            <div class="flex gap-2 items-center text-secondary">
+              <Icon name="mdi:clock-time-four-outline" />
+              <span>Jeden 3. Samstag im Monat,</span>
+              <span>16:00 - 17:30</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+  <Callout text="Komm und entdecken mit uns den Sinn des Lebens." />
+  <EngagementCallout />
+  <Footer />
+</SiteLayout>
