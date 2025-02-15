@@ -5,6 +5,9 @@ import Hands from '../assets/images/hands.jpg';
 import KidImg from '../assets/images/kid.jpg';
 import AboutUs from '../assets/images/ueber-uns.jpg';
 import WorldMap from '../assets/images/worldmap.png';
+import Beratung from '../assets/images/services/beratung.jpg';
+import Erziehung from '../assets/images/services/erziehung.jpg';
+import SozialeProgramme from '../assets/images/christmas/gorlitz-3.jpeg';
 import EngagementCallout from '../components/engagement-callout.astro';
 import Footer from '../components/Footer.astro';
 import PageHeader from '../components/page-header.astro';
@@ -12,91 +15,98 @@ import SectionHeader from '../components/section-header.astro';
 import Section from '../components/Section.astro';
 import { getLangFromLocale } from '../i18n';
 import SiteLayout from '../layouts/SiteLayout.astro';
+import { imageConfig } from 'astro:assets';
 
 const lang = getLangFromLocale(Astro.currentLocale);
 
 const missionList = [
   {
-    title: 'Familienbegleitung und -beratung',
+    title: 'Unterstützung bei der Elternschaft',
     description:
-      'Wir unterstützen Familien in allen Lebenslagen durch professionelle Beratung, Erziehungsbeistand und individuelle Begleitung. Dabei stärken wir vorhandene Bindungen und fördern eine positive Familienatmosphäre.',
-    image: Hands,
+      'Praktische Anleitungen und Ressourcen, die Eltern helfen, starke, gesunde Beziehungen zu ihren Kindern aufzubauen.',
+    image: Beratung,
   },
   {
-    title: 'Bildung und Integration',
+    title: 'Familienberatung',
     description:
-      'Durch gezielte Bildungsangebote, Sprachförderung und Lernunterstützung helfen wir Menschen dabei, ihr Potenzial zu entfalten. Wir motivieren zu regelmäßigem Schulbesuch und begleiten beim Aufbau aussichtsreicher Zukunftsperspektiven.',
+      'Vertrauliche Beratung, um die familiären Bindungen zu stärken, Konflikte zu lösen und die Kommunikation zu verbessern.',
+    image: Erziehung,
+  },
+  {
+    title: 'Soziale Programme',
+    description:
+      'Gemeinschaftsinitiativen, die Verbindung, Integration und persönliches Wachstum für alle fördern.',
+    image: SozialeProgramme,
+  },
+  {
+    title: 'Empowerment-Programme',
+    description:
+      'Tools und Ressourcen, die Einzelpersonen, insbesondere Jugendlichen, helfen, Selbstvertrauen, Resilienz und Führungsqualitäten zu entwickeln',
     image: KidImg,
   },
   {
-    title: 'Interkulturelle Begegnung und Austausch',
+    title: 'Allgemeine Unterstützung',
     description:
-      'Wir fördern den interkulturellen Dialog und schaffen Begegnungsräume für Menschen unterschiedlicher Herkunft. Durch kulturelle Veranstaltungen und interkulturelle Projekte fördern wir den Austausch und das gegenseitige Verständnis.',
-    image: WorldMap,
+      'Alltägliche Hilfe bei der Finanzberatung, der Berufsvorbereitung und dem Zugang zu Community-Ressourcen. Wir sind da, um unter die Arme zu greifen und dauerhafte positive Veränderungen zu bewirken.',
+    image: Hands,
   },
 ];
 ---
 
 <SiteLayout>
-  <PageHeader section="Über uns" subSection="Wofür wir stehen." />
-  <Section>
+  <PageHeader section="Über uns" subSection="Was uns antreibt." />
+  <Section class="mt-16">
     <div class="grid md:grid-cols-2 gap-12">
       <img src={AboutUs.src} alt="" />
       <div class="space-y-6">
         <SectionHeader
-          title="Unsere Vision"
-          subTitle="Eine Gesellschaft der Vielfalt und des Miteinanders"
+          title="Unsere Vision und Mission"
           alignment="left"
+          subTitle="Eine Gesellschaft der Vielfalt."
         />
         <div class="flex flex-col gap-6 font-light leading-loose">
-          <p class="">
-            Unsere Vision von Respekt und Nächstenliebe dient der Achtung des
-            Anderen und bestärkt die die Gemeinschaft in unserer Gesellschaft.
-            Als christliche Organisation begegnen wir unseren Mitmenschen mit
-            Nächstenliebe. Jeder Mensch ist wertvoll, dabei wird er respektiert
-            und angenommen wie er ist.
+          <p class="" id="vision">
+            Es ist unsere Vision, eine Gesellschaft zu schaffen, in der jeder
+            Einzelne geschätzt, unterstützt, verbunden und gerüstet ist, um zu
+            wachsen und ein Leben in Würde und mit Sinn zu führen.
           </p>
-          <div>
-            <p>Wir glauben en eine Gesellschaft, in der:</p>
-            <ul class="list-disc list-inside px-4">
-              <li>
-                Menschen unabhängig ihrer Herkunft ihr volles Potenzial
-                entfalten können.
-              </li>
-              <li>Kulturelle Vielfalt als Bereicherung gelebt wird.</li>
-              <li>
-                Gegenseitiger Respekt und Verständnis die Grundlage des
-                Zusammenlebens bilden.
-              </li>
-              <li>
-                Jeder Mensch die Chance auf aktive Teilhabe am
-                gesellschaftlichen Leben hat.
-              </li>
-            </ul>
-          </div>
-          <p class="">
-            Unsere Vision basiert auf der Überzeugung, dass jeder Mensch
-            wertvolle Gaben und Fähigkeiten besitzt. Wenn Menschen die richtige
-            Unterstützung und Begleitung erhalten, können sie diese zum Wohle
-            der Gemeinschaft einbringen. Wir sehen eine Zukunft, in der
-            Barrieren überwunden werden und ein lebendiges Miteinander
-            verschiedener Kulturen zur Selbstverständlichkeit wird.
-            <span
-              class="ml-2 inline text-secondary underline underline-offset-2 hover:text-orange-700"
-            >
-              <a href={getRelativeLocaleUrl(lang, '/projekte')}
-                >Unsere ehrenamtliche Arbeit -></a
+        </div>
+        <div class="space-y-6">
+          <div
+            class="flex flex-col gap-6 font-light leading-loose"
+            id="mission"
+          >
+            <p class="">
+              Gegründet auf den Grundlagen beruflicher Exzellenz und
+              christlicher Werte, ist es unsere Mission, das Leben aller
+              Kulturen und Nationen zu befähigen, zu fördern und zu verändern,
+              damit sie ihr volles Potenzial ausschöpfen und ein qualitativ
+              hochwertiges Leben durch verschiedene Arten von Empowerment,
+              Sozialprogrammen und praktischer Unterstützung genießen können.
+            </p>
+
+            <p class="">
+              Unser Ziel ist es, Barrieren abzubauen und ein Vorbote der
+              Hoffnung für dauerhafte Veränderungen zu sein, welche sich auf je
+              - ein Leben, eine Familie und eine Gemeinschaft nach der anderen
+              auswirken werden.
+              <span
+                class="ml-2 inline text-secondary underline underline-offset-2 hover:text-orange-700"
               >
-            </span>
-          </p>
+                <a href={getRelativeLocaleUrl(lang, '/projekte')}
+                  >Unsere ehrenamtliche Arbeit -></a
+                >
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </Section>
-  <Section class="space-y-6">
+  <Section class="space-y-6 mt-16">
     <SectionHeader
-      title="Unser Auftrag"
-      subTitle="Menschen stärke, Perspektiven schaffen"
+      title="Unsere Dienstleistungen"
+      subTitle="Menschen stärken, Perspektiven schaffen"
       alignment="left"
     />
     <div class="space-y-6 font-light">
@@ -132,7 +142,7 @@ const missionList = [
     </div>
   </Section>
 
-  <Section>
+  <Section class="my-16">
     <div class="grid md:grid-cols-2 gap-12">
       <div class="space-y-6">
         <SectionHeader

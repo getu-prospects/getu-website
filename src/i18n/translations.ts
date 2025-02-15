@@ -9,7 +9,7 @@ export const translations = {
     'hero.subtitle': 'Träume stärken',
     'hero.tagline':
       'Als Brückenbauer verbinden wir Kulturen und begleiten Familien und junge Menschen dabei, neue Perspektiven im Leben zu schaffen.',
-    'hero.cta-text': 'Unsere Mission',
+    'hero.cta-text': 'Unsere Vision',
     'section.services.title': 'Unsere leistungen',
     'section.services.subtitle':
       'Vielfältige Unterstützung für jede Lebenslage',
@@ -28,7 +28,7 @@ export const translations = {
     'hero.subtitle': 'Empowering Dreams',
     'hero.tagline':
       'As bridge builders, we connect cultures and guide families and young people in creating new perspectives in life.',
-    'hero.cta-text': 'Our Mission',
+    'hero.cta-text': 'Our Vision',
     'section.services.title': 'Our Services',
     'section.services.subtitle': 'Diverse support for every situation',
     'section.about.title': 'About Us',
