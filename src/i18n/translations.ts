@@ -14,7 +14,7 @@ export const translations = {
     'section.services.subtitle':
       'Vielfältige Unterstützung für jede Lebenslage',
     'section.about.title': 'Über uns',
-    'section.about.subtitle': 'Mit Herz und Vision für Menschen.',
+    'section.about.subtitle': 'Herz für Menschen.',
     'section.callout.text':
       'Wir schaffen eine Atmosphäre, in der sich jeder willkommen und wertgeschätzt fühlt – die Basis für ein starkes Miteinander.',
   },
