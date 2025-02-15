@@ -6,7 +6,15 @@ import Section from '../components/Section.astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import Gorlitz from '../assets/images/christmas/gorlitz.png';
 import Gorlitz2 from '../assets/images/christmas/gorlitz-2.jpeg';
+import Getuausgabe1 from '../assets/images/christmas/getu-ausgabe-1.jpeg';
+import Getuasgabe2 from '../assets/images/christmas/getu-ausgabe-2.jpeg';
+import Getuasgabe3 from '../assets/images/christmas/getu-ausgabe-3.jpeg';
+import Getuasgabe4 from '../assets/images/christmas/getu-ausgabe-4.jpeg';
+import Getuasgabe5 from '../assets/images/christmas/getu-ausgabe-5.jpg';
+import Getuasgabe6 from '../assets/images/christmas/getu-ausgabe-6.jpeg';
+import Getuasgabe7 from '../assets/images/christmas/getu-ausgabe-7.jpeg';
 import Gorlitz3 from '../assets/images/christmas/gorlitz-3.jpeg';
+import SectionHeader from '../components/section-header.astro';
 
 const projects = [
   {
@@ -22,11 +30,36 @@ const projects = [
         alt: 'Weihnachtsaktion Görlitzer Park',
       },
       {
-        src: Gorlitz2.src,
+        src: Getuasgabe2.src,
+        alt: 'Weihnachtsaktion',
+      },
+      {
+        src: Getuausgabe1.src,
         alt: 'Weihnachtsaktion',
       },
       {
         src: Gorlitz3.src,
+        alt: 'Weihnachtsaktion',
+      },
+      ,
+      {
+        src: Getuasgabe3.src,
+        alt: 'Weihnachtsaktion',
+      },
+      {
+        src: Getuasgabe4.src,
+        alt: 'Weihnachtsaktion',
+      },
+      {
+        src: Gorlitz2.src,
+        alt: 'Weihnachtsaktion Görlitzer Park',
+      },
+      {
+        src: Getuasgabe7.src,
+        alt: 'Weihnachtsaktion',
+      },
+      {
+        src: Getuasgabe5.src,
         alt: 'Weihnachtsaktion',
       },
     ],
@@ -36,19 +69,54 @@ const projects = [
 
 <SiteLayout>
   <PageHeader section="Projekte" subSection="Unsere ehrenamtliche Arbeit" />
+
+  <Section class="mt-16">
+    <div class="grid md:grid-cols-2 gap-12">
+      <img src={Getuasgabe6.src} alt="" />
+      <div class="space-y-6">
+        <SectionHeader title="Weihnachtsaktion 2024" alignment="left" />
+        <div class="flex flex-col gap-6 font-light leading-loose">
+          <p class="" id="vision">
+            Seit 2016 veranstaltet GeTu Prospects e.V. jährlich eine
+            Weihnachtsausgabe-Aktion in Berlin, um der obdachlosen Bevölkerung
+            der Stadt Unterstützung und Weihnachtsfreude zu bieten. Auch in
+            diesem Jahr fand die Aktion am 26. Dezember 2024 statt. Das Ziel war
+            es, die Liebe Christi weiterzugeben und den Bedürftigen sowohl
+            physische als auch spirituelle Nahrung anzubieten. Im Laufe des
+            Tages konnte das Team insgesamt 150 obdachlosen Personen warmes
+            Essen anbieten. Die Resonanz aus der Gemeinschaft war sehr positiv,
+            mit vielen Freiwilligen, die ihre Dankbarkeit für die Möglichkeit
+            zum Mitmachen ausdrückten.
+          </p>
+        </div>
+        <div class="space-y-6">
+          <div
+            class="flex flex-col gap-6 font-light leading-loose"
+            id="mission"
+          >
+            <p class="">
+              Basierend auf dem Feedback der Veranstaltung erwägt GeTu Prospects
+              e.V., die Weihnachtsausgabe-Aktion zur jährlichen Tradition zu
+              machen und die Reichweite und Auswirkungen zu erweitern. Die
+              Organisation untersucht auch Möglichkeiten, die laufende
+              Unterstützung und Gemeinschaftsbildung für Berlins obdachlose
+              Bevölkerung über die Weihnachtszeit hinaus zu fördern. Insgesamt
+              war die Aktion 2024 ein großer Erfolg, der 150 Bedürftigen
+              konkrete Hilfe bot und die Bindungen innerhalb der Berliner
+              Gemeinschaft stärkte.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
   <Section>
     {
       projects.map((project) => (
-        <div class="rounded-sm px-6 py-12 shadow-[2px_3.464px_40px_0px_rgba(14,5,1,0.04)] flex flex-col gap-6">
-          <h2 class="text-3xl text-teal-950 font-bold">{project.title}</h2>
+        <div class="flex flex-col gap-6">
           <div class="grid md:grid-cols-3 gap-4">
-            {project.images.map((image) => (
-              <img src={image.src} alt={image.alt} class="rounded-sm" />
-            ))}
-          </div>
-          <div class="leading-loose flex flex-col gap-3 font-light">
-            {project.description.map((desc) => (
-              <p>{desc}</p>
+            {project!.images.map((image) => (
+              <img src={image?.src} alt={image?.alt} class="rounded-sm" />
             ))}
           </div>
         </div>
