@@ -114,9 +114,9 @@ const projects = [
       projects.map((project) => (
         <div class="flex flex-col gap-6">
           <div class="grid md:grid-cols-3 gap-4">
-            {/* {project.images.map((image) => (
+            {(project?.images || []).map((image) => (
               <img src={image?.src} alt={image?.alt} class="rounded-sm" />
-            ))} */}
+            ))}
           </div>
         </div>
       ))
