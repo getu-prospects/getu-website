@@ -2,7 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero2 from '../components/hero-2.astro';
 import SiteCallout from '../components/SiteCallout.astro';
-import CallToAction from '../components/CallToAction.astro';
+import Familienberatung from '../assets/images/services/beratung.jpg';
+import Erziehungsbeistand from '../assets/images/services/erziehung.jpg';
+import Einzelfallhilfe from '../assets/images/services/hilfe.jpg';
 ---
 
 <BaseLayout>
@@ -104,7 +106,7 @@ import CallToAction from '../components/CallToAction.astro';
         >
           <div class="overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1551516594-56cb78394645?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1216&q=80"
+              src={Erziehungsbeistand.src}
               alt="Erziehungsbeistand"
               class="w-full h-72 object-cover transform transition-transform hover:scale-105 duration-700"
             />
@@ -144,7 +146,7 @@ import CallToAction from '../components/CallToAction.astro';
         >
           <div class="overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1536809188428-e8ecf663d0be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+              src={Familienberatung.src}
               alt="Familienberatung"
               class="w-full h-72 object-cover transform transition-transform hover:scale-105 duration-700"
             />
@@ -184,7 +186,7 @@ import CallToAction from '../components/CallToAction.astro';
         >
           <div class="overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+              src={Einzelfallhilfe.src}
               alt="Einzelfallhilfe"
               class="w-full h-72 object-cover transform transition-transform hover:scale-105 duration-700"
             />
