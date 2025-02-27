@@ -1,0 +1,345 @@
+---
+// index.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import VisionCallout from '../components/VisionCallout.astro';
+import MainHeroImage from '../assets/images/main-hero/1.jpg';
+---
+
+<BaseLayout>
+  <!-- Hero Section with improved layout and spacing -->
+  <section class="relative min-h-screen flex items-center">
+    <!-- Split layout with text and image side by side -->
+    <div class="absolute inset-0 z-0">
+      <div class="grid grid-cols-1 md:grid-cols-2 h-full">
+        <!-- Left side: Deep green background -->
+        <div class="bg-deepgreen hidden md:block"></div>
+        <!-- Right side: Image -->
+        <div class="relative w-full h-full">
+          <img
+            src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+            alt="Diverse community working together"
+            class="w-full h-full object-cover"
+          />
+          <!-- Overlay on mobile only -->
+          <div
+            class="absolute inset-0 bg-deepgreen bg-opacity-85 md:bg-opacity-0"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container mx-auto px-8 py-40 md:py-0 relative z-20">
+      <div class="md:max-w-xl text-white space-y-10 animate-fade-in">
+        <div class="space-y-6">
+          <h6
+            class="text-secondary uppercase tracking-widest text-lg font-semibold"
+          >
+            GETU PROSPECTS E.V.
+          </h6>
+          <div class="space-y-1">
+            <h1
+              class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+            >
+              Vielfalt leben
+            </h1>
+            <h2 class="text-3xl md:text-4xl font-medium pt-2">
+              Träume stärken
+            </h2>
+          </div>
+        </div>
+
+        <div class="h-px w-32 bg-secondary"></div>
+
+        <p class="text-xl font-light leading-relaxed tracking-wide mt-8 mb-8">
+          Als Interkultureller Verein verbinden wir Kulturen und begleiten
+          Familien und junge Menschen dabei, neue Perspektiven im Leben zu
+          schaffen.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-8 pt-6">
+          <a
+            href="/unsere-vision"
+            class="bg-white text-primary py-4 px-10 text-center font-medium transition-all hover:bg-opacity-90 inline-block"
+            >Unsere Vision</a
+          >
+          <a
+            href="/mitmachen"
+            class="bg-secondary text-white py-4 px-10 text-center font-medium transition-all hover:bg-opacity-90 inline-block"
+            >Mitmachen</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Decorative element -->
+    <div class="absolute bottom-12 left-8 md:left-16 z-10 hidden md:block">
+      <div class="w-28 h-28 border-2 border-secondary opacity-70"></div>
+    </div>
+  </section>
+
+  <!-- Services Section with improved spacing and layout -->
+  <section class="bg-tp-grey-1 py-36">
+    <div class="container mx-auto px-8">
+      <div class="max-w-3xl mx-auto text-center mb-24">
+        <h6
+          class="text-secondary uppercase tracking-widest text-sm font-semibold mb-4"
+        >
+          UNSERE UNTERSTÜTZUNG
+        </h6>
+        <h2 class="text-3xl md:text-4xl font-bold text-primary">
+          Vielfältige Unterstützung für jede Lebenslage
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+        <!-- Service 1 -->
+        <div
+          class="bg-white transition-transform hover:-translate-y-2 duration-300"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1551516594-56cb78394645?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1216&q=80"
+              alt="Erziehungsbeistand"
+              class="w-full h-72 object-cover transform transition-transform hover:scale-105 duration-700"
+            />
+          </div>
+          <div class="p-12">
+            <h3 class="text-2xl font-bold text-primary mb-8">
+              Erziehungsbeistand
+            </h3>
+            <p class="text-body font-light mb-10 leading-relaxed">
+              Mit Erziehung und kontinuierliche Begleitung für Familien durch
+              die Entwicklungsphasen.
+            </p>
+            <a
+              href="/erziehungsbeistand"
+              class="group inline-flex items-center text-secondary font-medium"
+            >
+              Mehr erfahren
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div
+          class="bg-white transition-transform hover:-translate-y-2 duration-300"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1536809188428-e8ecf663d0be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+              alt="Familienberatung"
+              class="w-full h-72 object-cover transform transition-transform hover:scale-105 duration-700"
+            />
+          </div>
+          <div class="p-12">
+            <h3 class="text-2xl font-bold text-primary mb-8">
+              Familienberatung
+            </h3>
+            <p class="text-body font-light mb-10 leading-relaxed">
+              Einfühlsame und kompetente Beratung für alle Familienmitglieder.
+            </p>
+            <a
+              href="/familienberatung"
+              class="group inline-flex items-center text-secondary font-medium"
+            >
+              Mehr erfahren
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div
+          class="bg-white transition-transform hover:-translate-y-2 duration-300"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+              alt="Einzelfallhilfe"
+              class="w-full h-72 object-cover transform transition-transform hover:scale-105 duration-700"
+            />
+          </div>
+          <div class="p-12">
+            <h3 class="text-2xl font-bold text-primary mb-8">
+              Einzelfallhilfe
+            </h3>
+            <p class="text-body font-light mb-10 leading-relaxed">
+              Maßgeschneiderte Hilfe für individuelle Herausforderungen.
+            </p>
+            <a
+              href="/einzelfallhilfe"
+              class="group inline-flex items-center text-secondary font-medium"
+            >
+              Mehr erfahren
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section with improved layout -->
+  <section class="py-36">
+    <div class="container mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-16 items-center">
+        <div class="md:col-span-2 order-2 md:order-1">
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1579208570378-8c970854bc23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+              alt="Hands holding a paper family - support concept"
+              class="w-full"
+            />
+            <div
+              class="absolute -bottom-8 -left-8 w-16 h-16 bg-secondary hidden md:block"
+            >
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-3 order-1 md:order-2">
+          <div class="space-y-10 max-w-2xl">
+            <div>
+              <h6
+                class="text-secondary uppercase tracking-widest text-sm font-semibold mb-4"
+              >
+                ÜBER UNS
+              </h6>
+              <h2 class="text-3xl md:text-4xl font-bold text-primary">
+                Herz für Menschen.
+              </h2>
+            </div>
+
+            <div class="h-px w-24 bg-secondary"></div>
+
+            <div class="space-y-6 font-light leading-relaxed text-body">
+              <p>
+                GeTu Prospects e.V. ist eine interkulturelle Non-Profit
+                Organisation mit Sitz in Berlin, die sich der Unterstützung von
+                Menschen aus Kulturen und Ländern verpflichtet hat.
+              </p>
+              <p>
+                Wir verstehen die Herausforderungen und Hindernisse, denen ein
+                jeder Mensch im Integrations- und Wachstumsprozess begegnet, und
+                helfen die gemeinsamen Herausforderungen vereint zu überwinden.
+              </p>
+              <p>
+                In unserer heutigen, zunehmend komplexen Welt stehen viele
+                Menschen – insbesondere Kinder und Familien – vor
+                Herausforderungen, die sie allein nicht bewältigen können.
+              </p>
+            </div>
+            <a
+              href="/ueber-uns"
+              class="group inline-flex items-center text-secondary font-medium mt-8"
+            >
+              Lernen Sie uns kennen
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision Statement with improved design -->
+  <section class="bg-primary py-32 text-white">
+    <div class="container mx-auto px-8">
+      <div class="max-w-4xl mx-auto text-center space-y-10">
+        <div class="flex justify-center">
+          <div class="w-20 h-px bg-secondary"></div>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-light leading-relaxed">
+          "Wir wollen eine positive Atmosphäre des Willkommenseins und der
+          Wertschätzung ausstrahlen und ein gutes soziales Miteinander fördern."
+        </h2>
+        <div class="flex justify-center">
+          <div class="w-20 h-px bg-secondary"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section with improved design -->
+  <section class="bg-tp-grey-1 py-36">
+    <div class="container mx-auto px-8">
+      <div class="bg-white p-16 md:p-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-16 items-center">
+          <div class="md:col-span-2">
+            <div class="flex items-start">
+              <span class="text-secondary mr-8 hidden md:block">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-16 w-16"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="square"
+                    stroke-linejoin="miter"
+                    stroke-width="1.5"
+                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                  ></path>
+                </svg>
+              </span>
+              <h3 class="text-2xl md:text-3xl font-bold text-primary">
+                Engagieren Sie sich als Freiwilliger für eine gemeinsame,
+                strahlende Zukunft!
+              </h3>
+            </div>
+          </div>
+          <div class="md:col-span-1 flex justify-center md:justify-end">
+            <a
+              href="/jetzt-bewerben"
+              class="bg-secondary text-white py-4 px-10 text-center font-medium whitespace-nowrap transition-all hover:bg-opacity-90 transform hover:-translate-y-1"
+              >JETZT BEWERBEN</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

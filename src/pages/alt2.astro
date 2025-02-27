@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/hero-2.astro';
+---
+
+<BaseLayout>
+  <!-- Hero Section with text box for maximum readability -->
+  <Hero />
+
+  <!-- About us section -->
+  <section class="py-36">
+    <div class="container mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-16 items-center">
+        <div class="md:col-span-2 order-2 md:order-1">
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1579208570378-8c970854bc23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+              alt="Hands holding a paper family - support concept"
+              class="w-full"
+            />
+            <div
+              class="absolute -bottom-8 -left-8 w-16 h-16 bg-secondary hidden md:block"
+            >
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-3 order-1 md:order-2">
+          <div class="space-y-10 max-w-2xl">
+            <div>
+              <h6
+                class="text-secondary uppercase tracking-widest text-sm font-semibold mb-4"
+              >
+                ÜBER UNS
+              </h6>
+              <h2 class="text-3xl md:text-4xl font-bold text-primary">
+                Herz für Menschen.
+              </h2>
+            </div>
+
+            <div class="h-px w-24 bg-secondary"></div>
+
+            <div class="space-y-6 font-light leading-relaxed text-body">
+              <p>
+                GeTu Prospects e.V. ist eine interkulturelle Non-Profit
+                Organisation mit Sitz in Berlin, die sich der Unterstützung von
+                Menschen aus Kulturen und Ländern verpflichtet hat.
+              </p>
+              <p>
+                Wir verstehen die Herausforderungen und Hindernisse, denen ein
+                jeder Mensch im Integrations- und Wachstumsprozess begegnet, und
+                helfen die gemeinsamen Herausforderungen vereint zu überwinden.
+              </p>
+              <p>
+                In unserer heutigen, zunehmend komplexen Welt stehen viele
+                Menschen – insbesondere Kinder und Familien – vor
+                Herausforderungen, die sie allein nicht bewältigen können.
+              </p>
+            </div>
+            <a
+              href="/ueber-uns"
+              class="group inline-flex items-center text-secondary font-medium mt-8"
+            >
+              Lernen Sie uns kennen
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

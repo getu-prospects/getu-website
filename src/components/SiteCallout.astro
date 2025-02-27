@@ -1,0 +1,39 @@
+---
+// components/VisionCallout.astro
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<section class="relative bg-primary py-32 text-white">
+  <div class="container mx-auto px-8">
+    <div class="max-w-4xl mx-auto text-center space-y-10">
+      <div class="flex justify-center">
+        <div class="w-20 h-px bg-secondary"></div>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-light leading-relaxed">
+        "{text}"
+      </h2>
+      <div class="flex justify-center">
+        <div class="w-20 h-px bg-secondary"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Optional subtle background pattern -->
+  <div class="absolute inset-0 z-0 opacity-5">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path
+            d="M 0 10 L 40 10 M 10 0 L 10 40"
+            stroke="white"
+            stroke-width="0.5"
+            fill="none"></path>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)"></rect>
+    </svg>
+  </div>
+</section>

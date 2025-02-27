@@ -1,0 +1,74 @@
+---
+// components/CallToAction.astro
+interface Props {
+  title: string;
+  buttonText: string;
+  buttonLink: string;
+  variant?: 'primary' | 'secondary';
+}
+
+const { title, buttonText, buttonLink, variant = 'primary' } = Astro.props;
+
+// Determine background colors based on variant
+const bgColor = variant === 'primary' ? 'bg-[#f0f4f4]' : 'bg-[#eaf5f5]';
+const cardBg = variant === 'primary' ? 'bg-white' : 'bg-[#fafbfc]';
+const accentColor =
+  variant === 'primary' ? 'text-secondary' : 'text-tp-theme-2';
+---
+
+<section class={`${bgColor} py-24 md:py-28`}>
+  <div class="container mx-auto px-8">
+    <div
+      class={`max-w-6xl mx-auto ${cardBg} p-12 md:p-16 shadow-md relative overflow-hidden border-l-4 border-secondary`}
+    >
+      <!-- Decorative elements -->
+      <div class="absolute -right-16 -bottom-16 w-64 h-64 opacity-5 z-0">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill="#1e3737"
+            d="M42.8,-62.2C54.7,-54.3,63.1,-41.2,68.9,-27.1C74.7,-12.9,77.9,2.3,73.7,15.1C69.5,27.8,57.9,38.2,46,47.2C34.1,56.2,22,64,7.9,69.4C-6.2,74.8,-22.3,77.9,-36.7,72.7C-51.2,67.4,-64,53.8,-70.7,37.8C-77.4,21.8,-78.1,3.5,-75.6,-14.2C-73.1,-31.9,-67.3,-49,-55.5,-57.2C-43.7,-65.4,-25.8,-64.8,-9.3,-63.5C7.2,-62.2,31,-70.1,42.8,-62.2Z"
+            transform="translate(100 100)"></path>
+        </svg>
+      </div>
+
+      <div
+        class="flex flex-col md:flex-row justify-between items-center gap-12 relative z-10"
+      >
+        <div class="flex items-center max-w-2xl">
+          <div class={`${accentColor} mr-8 hidden md:block`}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-16 w-16"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="square"
+                stroke-linejoin="miter"
+                stroke-width="1.5"
+                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold text-primary">{title}</h3>
+        </div>
+        <a
+          href={buttonLink}
+          class="bg-secondary text-white py-4 px-10 text-center font-medium whitespace-nowrap transition-all hover:bg-opacity-90 transform hover:-translate-y-1 shadow-md"
+          >{buttonText}</a
+        >
+      </div>
+
+      <!-- Subtle decorative elements -->
+      <div class="absolute top-0 right-0 w-32 h-32 opacity-5">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill="#1e3737"
+            d="M42.8,-62.2C54.7,-54.3,63.1,-41.2,68.9,-27.1C74.7,-12.9,77.9,2.3,73.7,15.1C69.5,27.8,57.9,38.2,46,47.2C34.1,56.2,22,64,7.9,69.4C-6.2,74.8,-22.3,77.9,-36.7,72.7C-51.2,67.4,-64,53.8,-70.7,37.8C-77.4,21.8,-78.1,3.5,-75.6,-14.2C-73.1,-31.9,-67.3,-49,-55.5,-57.2C-43.7,-65.4,-25.8,-64.8,-9.3,-63.5C7.2,-62.2,31,-70.1,42.8,-62.2Z"
+            transform="translate(100 100)"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+---
+// src/components/Button.astro
+interface Props {
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+  [x: string]: any;
+}
+
+const {
+  href,
+  type = 'button',
+  variant = 'primary',
+  size = 'md',
+  class: className = '',
+  ...rest
+} = Astro.props;
+
+// Base classes
+let classes = 'inline-block font-medium transition duration-300 ';
+
+// Size classes
+const sizeClasses = {
+  sm: 'py-2 px-4 text-sm',
+  md: 'py-2.5 px-6 text-base',
+  lg: 'py-3 px-8 text-lg',
+};
+
+// Variant classes
+const variantClasses = {
+  primary: 'bg-primary hover:bg-[#182c2c] text-white',
+  secondary: 'bg-secondary hover:bg-[#e77545] text-white',
+  outline:
+    'bg-transparent border border-secondary text-secondary hover:bg-secondary hover:text-white',
+};
+
+classes += sizeClasses[size] + ' ' + variantClasses[variant] + ' ' + className;
+---
+
+{
+  href ? (
+    <a href={href} class={classes} {...rest}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={classes} {...rest}>
+      <slot />
+    </button>
+  )
+}

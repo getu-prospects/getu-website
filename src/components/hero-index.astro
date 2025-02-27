@@ -1,0 +1,78 @@
+---
+import MainHeroImage from '../assets/images/main-hero/1.jpg';
+---
+
+<section class="relative min-h-screen flex items-center">
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src={MainHeroImage.src}
+      alt="Diverse group collaborating"
+      class="w-full h-full object-cover"
+    />
+    <!-- Subtle darkening overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+  </div>
+
+  <!-- Content with solid background for maximum readability -->
+  <div class="container mx-auto px-4 md:px-8 py-20 relative z-20">
+    <div class="flex flex-col md:flex-row items-center">
+      <!-- Left column - Text box with solid background -->
+      <!--  sm:p-10 md:p-12 lg:p-16 -->
+      <div class="md:w-1/2 lg:w-5/12 bg-white p-10 md:p-16">
+        <div class="space-y-8">
+          <h6
+            class="text-secondary uppercase tracking-widest text-lg font-semibold"
+          >
+            GETU PROSPECTS E.V.
+          </h6>
+
+          <div>
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary"
+            >
+              Vielfalt leben
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-medium pt-2 text-primary">
+              Träume stärken
+            </h2>
+          </div>
+
+          <div class="h-1 w-24 bg-secondary"></div>
+
+          <p class="text-lg text-body leading-relaxed">
+            Als Interkultureller Verein verbinden wir Kulturen und begleiten
+            Familien und junge Menschen dabei, neue Perspektiven im Leben zu
+            schaffen.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-6 pt-4">
+            <a
+              href="/unsere-vision"
+              class="bg-primary text-white py-4 px-10 text-center font-medium transition-all hover:bg-opacity-90 inline-block"
+              >Unsere Vision</a
+            >
+            <a
+              href="/mitmachen"
+              class="bg-secondary text-white py-4 px-10 text-center font-medium transition-all hover:bg-opacity-90 inline-block"
+              >Mitmachen</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side - Empty space to balance the layout -->
+      <div class="md:w-1/2 lg:w-7/12"></div>
+    </div>
+  </div>
+
+  <!-- Decorative element -->
+  <div
+    class="absolute top-32 right-8 md:right-16 lg:right-32 z-10 hidden md:block"
+  >
+    <div class="w-40 h-40 border-2 border-white opacity-30"></div>
+  </div>
+
+  <!-- Bottom decorative accent -->
+  <div class="absolute bottom-0 left-0 right-0 h-4 bg-secondary z-10"></div>
+</section>

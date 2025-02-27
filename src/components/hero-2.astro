@@ -1,0 +1,86 @@
+---
+import MainHeroImage from '../assets/images/main-hero/1.jpg';
+---
+
+<section class="relative min-h-screen flex items-center">
+  <!-- Mobile-only solid background (deep green) -->
+  <div class="absolute inset-0 z-0 bg-deepgreen md:hidden"></div>
+
+  <!-- Desktop-only background image (hidden on mobile) -->
+  <div class="absolute inset-0 z-0 hidden md:block">
+    <img
+      src={MainHeroImage.src}
+      alt="Diverse group collaborating"
+      class="w-full h-full object-cover"
+    />
+    <!-- Subtle darkening overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+  </div>
+
+  <!-- Content container -->
+  <div
+    class="container mx-auto px-4 sm:px-6 md:px-8 py-16 sm:py-20 relative z-20 w-full"
+  >
+    <!-- Text box that spans full width on mobile, partial on desktop -->
+    <div
+      class="bg-white w-full md:w-7/12 lg:w-5/12 p-8 sm:p-10 md:p-16 lg:p-16 animate-fade-down"
+    >
+      <div class="space-y-6 sm:space-y-8">
+        <!-- Organization name -->
+        <h6
+          class="text-secondary uppercase tracking-widest text-base sm:text-lg font-semibold"
+        >
+          GETU PROSPECTS E.V.
+        </h6>
+
+        <!-- Main headings -->
+        <div>
+          <h1
+            class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-primary"
+          >
+            Vielfalt leben
+          </h1>
+          <h2 class="text-2xl sm:text-3xl font-medium pt-2 text-primary">
+            Träume stärken
+          </h2>
+        </div>
+
+        <!-- Divider -->
+        <div class="h-1 w-24 bg-secondary"></div>
+
+        <!-- Description paragraph -->
+        <p class="text-base sm:text-lg text-body leading-relaxed">
+          Als Interkultureller Verein verbinden wir Kulturen und begleiten
+          Familien und junge Menschen dabei, neue Perspektiven im Leben zu
+          schaffen.
+        </p>
+
+        <!-- Buttons with proper vertical alignment -->
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-4">
+          <a
+            href="/unsere-vision"
+            class="bg-primary text-white py-3 px-8 sm:py-4 sm:px-10 text-center font-medium transition-all hover:bg-opacity-90 inline-flex items-center justify-center"
+            >Unsere Vision</a
+          >
+          <a
+            href="/mitmachen"
+            class="bg-secondary text-white py-3 px-8 sm:py-4 sm:px-10 text-center font-medium transition-all hover:bg-opacity-90 inline-flex items-center justify-center"
+            >Mitmachen</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative element - only visible on larger screens -->
+  <!-- <div
+    class="absolute top-32 right-8 md:right-16 lg:right-32 z-10 hidden md:block"
+  >
+    <div class="w-32 h-32 md:w-40 md:h-40 border-2 border-white opacity-30">
+    </div>
+  </div> -->
+
+  <!-- Bottom decorative accent -->
+  <div class="absolute bottom-0 left-0 right-0 h-2 sm:h-4 bg-secondary z-10">
+  </div>
+</section>
