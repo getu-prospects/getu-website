@@ -2,6 +2,7 @@
 // BaseLayout.astro
 import '../assets/global.css';
 import GetuLogo from '../assets/images/getu-logo.png';
+import AltFooter from '../components/AltFooter.astro';
 ---
 
 <html lang="de">
@@ -45,11 +46,11 @@ import GetuLogo from '../assets/images/getu-logo.png';
                 class="text-white hover:text-secondary font-medium py-2 transition-colors duration-300"
                 >Über uns</a
               >
-              <a
+              <!-- <a
                 href="/jugend"
                 class="text-white hover:text-secondary font-medium py-2 transition-colors duration-300"
                 >Jugend</a
-              >
+              > -->
               <a
                 href="/projekte"
                 class="text-white hover:text-secondary font-medium py-2 transition-colors duration-300"
@@ -108,11 +109,11 @@ import GetuLogo from '../assets/images/getu-logo.png';
               >
             </li>
             <li>
-              <a
+              <!-- <a
                 href="/jugend"
                 class="text-white text-2xl font-medium hover:text-secondary block py-2 transition-colors duration-300"
                 >Jugend</a
-              >
+              > -->
             </li>
             <li>
               <a
@@ -137,162 +138,7 @@ import GetuLogo from '../assets/images/getu-logo.png';
     <main>
       <slot />
     </main>
-
-    <!-- Footer - cleaner, more spaced design with muted colors -->
-    <footer class="bg-deepgreen pt-20 pb-10">
-      <div class="container mx-auto px-8">
-        <!-- Main Footer Content -->
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mb-20"
-        >
-          <!-- Contact Information -->
-          <div>
-            <h3 class="text-white font-bold text-xl mb-8">Kontakt</h3>
-            <ul class="space-y-6">
-              <li class="flex items-start">
-                <div class="text-secondary mr-4 mt-1">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="square"
-                      stroke-linejoin="miter"
-                      stroke-width="1.5"
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    ></path>
-                    <path
-                      stroke-linecap="square"
-                      stroke-linejoin="miter"
-                      stroke-width="1.5"
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-white font-medium">GeTu Prospects e.V.</p>
-                  <p class="text-tp-grey-2 font-light mt-1">
-                    Avenue Charles de Gaulle 11, 13407 Berlin
-                  </p>
-                </div>
-              </li>
-              <li class="flex items-start">
-                <div class="text-secondary mr-4 mt-1">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="square"
-                      stroke-linejoin="miter"
-                      stroke-width="1.5"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    ></path>
-                  </svg>
-                </div>
-                <p class="text-tp-grey-2 font-light">info@getu-prospects.de</p>
-              </li>
-              <li class="flex items-start">
-                <div class="text-secondary mr-4 mt-1">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="square"
-                      stroke-linejoin="miter"
-                      stroke-width="1.5"
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    ></path>
-                  </svg>
-                </div>
-                <p class="text-tp-grey-2 font-light">+49 (0) 1752385285</p>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Donation Account -->
-          <div>
-            <h3 class="text-white font-bold text-xl mb-8">Spendenkonto</h3>
-            <ul class="space-y-6">
-              <li>
-                <p class="text-white font-medium">GeTu Prospects e.V.</p>
-              </li>
-              <li>
-                <p class="text-tp-grey-2 font-light">Postbank</p>
-              </li>
-              <li>
-                <p class="text-tp-grey-2 font-light">
-                  IBAN: DE94100100100084917163
-                </p>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Quick Links -->
-          <div>
-            <h3 class="text-white font-bold text-xl mb-8">Links</h3>
-            <ul class="space-y-4">
-              <li>
-                <a
-                  href="/ueber-uns"
-                  class="text-tp-grey-2 font-light hover:text-secondary transition-colors duration-300"
-                  >Über uns</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/projekte"
-                  class="text-tp-grey-2 font-light hover:text-secondary transition-colors duration-300"
-                  >Projekte</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/spenden"
-                  class="text-tp-grey-2 font-light hover:text-secondary transition-colors duration-300"
-                  >Spenden</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/kontakt"
-                  class="text-tp-grey-2 font-light hover:text-secondary transition-colors duration-300"
-                  >Kontakt</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Copyright / Bottom Footer -->
-        <div class="pt-8 border-t border-tp-border-1 text-sm font-light">
-          <div class="flex flex-col md:flex-row justify-between items-center">
-            <p class="text-tp-grey-2">© 2025 GeTu Prospects e.V.</p>
-            <div class="flex mt-6 md:mt-0 space-x-8">
-              <a
-                href="/impressum"
-                class="text-tp-grey-2 hover:text-secondary transition-colors duration-300"
-                >Impressum</a
-              >
-              <a
-                href="/datenschutz"
-                class="text-tp-grey-2 hover:text-secondary transition-colors duration-300"
-                >Datenschutz</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <AltFooter />
 
     <!-- Header and mobile menu script -->
     <script>

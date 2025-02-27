@@ -1,0 +1,91 @@
+<section class="relative py-24 overflow-hidden bg-[var(--color-primary)]">
+  <!-- Decorative Elements -->
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
+    <!-- Abstract Line Pattern -->
+    <div class="absolute w-full h-full opacity-5">
+      <div class="absolute top-0 left-0 w-full h-px bg-white"></div>
+      <div class="absolute top-0 left-0 w-px h-full bg-white"></div>
+      <div class="absolute top-1/3 left-0 w-full h-px bg-white"></div>
+      <div class="absolute top-2/3 left-0 w-full h-px bg-white"></div>
+      <div class="absolute top-0 left-1/3 w-px h-full bg-white"></div>
+      <div class="absolute top-0 left-2/3 w-px h-full bg-white"></div>
+    </div>
+
+    <!-- Circle Elements -->
+    <div
+      class="absolute -top-[150px] -left-[150px] w-[300px] h-[300px] rounded-full border border-white opacity-10"
+    >
+    </div>
+    <div
+      class="absolute -bottom-[100px] -right-[100px] w-[300px] h-[300px] rounded-full border border-white opacity-10"
+    >
+    </div>
+    <div
+      class="absolute top-1/2 -right-[50px] w-[100px] h-[100px] rounded-full bg-[var(--color-secondary)] opacity-10 animate-pulse-slow"
+    >
+    </div>
+  </div>
+
+  <div class="container relative mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-center justify-between">
+      <!-- Icon + Message -->
+      <div class="md:w-2/3 mb-12 md:mb-0 md:pr-10">
+        <div class="flex items-center mb-8">
+          <!-- Icon in colored circle -->
+          <div
+            class="w-16 h-16 mr-6 flex items-center justify-center bg-[var(--color-secondary)]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="1.5"
+              class="w-8 h-8"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M2 12h20"></path>
+              <path
+                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+              ></path>
+            </svg>
+          </div>
+
+          <!-- Heading Line -->
+          <div class="w-16 h-0.5 mr-6 bg-[var(--color-secondary)]"></div>
+
+          <!-- Heading -->
+          <!-- <h2 class="text-white font-manrope font-bold text-xl md:text-2xl">
+            GEMEINSAM FÖRDERN
+          </h2> -->
+        </div>
+
+        <!-- Main Message -->
+        <p
+          class="text-white font-manrope text-3xl md:text-4xl lg:text-5xl font-light leading-tight"
+        >
+          <span class="font-bold">Engagieren</span> Sie sich als freiwilliger für
+          eine gemeinsame, strahlende <span class="font-bold">Zukunft!</span>
+        </p>
+      </div>
+
+      <!-- Button -->
+      <div class="md:w-1/3 md:text-right">
+        <a href="#" class="relative inline-block group">
+          <!-- Button Background -->
+          <span
+            class="absolute inset-0 w-full h-full bg-[var(--color-secondary)] translate-y-0 group-hover:translate-y-1.5 group-hover:translate-x-1.5 transition-transform duration-300"
+          ></span>
+
+          <!-- Button Text Layer -->
+          <span
+            class="relative block bg-transparent border-2 border-white text-white font-medium py-4 px-8 transition-transform duration-300 group-hover:-translate-y-1.5 group-hover:-translate-x-1.5"
+          >
+            <span class="block font-manrope tracking-wide">JETZT MITMACHEN</span
+            >
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

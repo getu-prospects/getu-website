@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero2 from '../components/hero-2.astro';
+import SiteCallout from '../components/SiteCallout.astro';
+import CallToAction from '../components/CallToAction.astro';
+import Projects from '../components/projects.astro';
+---
+
+<BaseLayout>
+  <!-- <section class="hero-section pt-40 pb-20">
+    <div class="container px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <h4 class="text-secondary uppercase tracking-wider mb-4">
+          Unsere Projekte
+        </h4>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-6">
+          Gemeinsam bewirken wir Veränderung
+        </h1>
+        <div class="h-1 w-24 bg-secondary mx-auto mb-8"></div>
+        <p class="text-white text-lg md:text-xl mb-12">
+          Durch gezielte Programme und Initiativen schaffen wir nachhaltige
+          positive Veränderungen in unserer Gemeinschaft und darüber hinaus.
+        </p>
+      </div>
+    </div>
+  </section> -->
+  <section class="bg-primary text-white">
+    <div class="container mx-auto px-8">
+      <!-- Top spacing and subtitle - with improved vertical rhythm -->
+      <div class="pt-40 pb-6 text-center">
+        <span
+          class="text-secondary uppercase tracking-wider text-sm font-medium"
+          >UNSERE EHRENAMTLICHE ARBEIT</span
+        >
+      </div>
+
+      <!-- Main heading with better visual weight -->
+      <div class="text-center">
+        <h1
+          class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+        >
+          Gemeinsam bewirken wir Veränderung
+        </h1>
+
+        <!-- Refined divider - shorter and more elegant -->
+        <div class="flex justify-center">
+          <div class="h-1 w-16 bg-secondary mb-12"></div>
+        </div>
+      </div>
+
+      <!-- Main text with improved width constraints and spacing -->
+      <div class="max-w-3xl mx-auto text-center pb-32">
+        <p class="text-lg md:text-xl font-light leading-relaxed text-gray-100">
+          Durch gezielte Programme und Initiativen schaffen wir nachhaltige
+          positive Veränderungen in unserer Gemeinschaft und darüber hinaus.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Current Projects Section -->
+  <Projects />
+</BaseLayout>

@@ -1,0 +1,331 @@
+---
+// index.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import VisionCallout from '../components/VisionCallout.astro';
+import MainHeroImage from '../assets/images/main-hero/1.jpg';
+---
+
+<BaseLayout>
+  <!-- Hero Section with background image -->
+  <section class="relative min-h-screen flex items-center">
+    <!-- Background image with overlay -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src={MainHeroImage.src}
+        alt="Diverse group of people"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-deepgreen bg-opacity-85"></div>
+    </div>
+    <div class="container mx-auto px-8 py-40 md:py-0 relative z-20">
+      <div class="max-w-2xl text-white space-y-8 animate-fade-in">
+        <div class="space-y-2">
+          <h6 class="text-secondary font-bold tracking-wider text-lg">
+            GETU PROSPECTS E.V.
+          </h6>
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold">
+            Vielfalt leben
+          </h1>
+          <h2 class="text-3xl md:text-4xl font-medium pt-2">Träume stärken</h2>
+        </div>
+        <p class="text-xl font-light leading-relaxed tracking-wide mt-8 mb-12">
+          Als Interkultureller Verein verbinden wir Kulturen und begleiten
+          Familien und junge Menschen dabei, neue Perspektiven im Leben zu
+          schaffen.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-6 pt-4">
+          <a
+            href="/unsere-vision"
+            class="bg-white text-primary py-4 px-10 text-center font-medium transition-all hover:bg-opacity-90 inline-block"
+            >Unsere Vision</a
+          >
+          <a
+            href="/mitmachen"
+            class="bg-secondary text-white py-4 px-10 text-center font-medium transition-all hover:bg-opacity-90 inline-block"
+            >Mitmachen</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section with more breathing room -->
+  <section class="bg-tp-grey-1 py-32">
+    <div class="container mx-auto px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-24">
+        Vielfältige Unterstützung für jede Lebenslage
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <!-- Service 1 -->
+        <div
+          class="bg-white p-12 transition-transform hover:-translate-y-2 duration-300"
+        >
+          <div class="mb-10 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1551516594-56cb78394645?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1216&q=80"
+              alt="Erziehungsbeistand"
+              class="w-full h-64 object-cover transform transition-transform hover:scale-105 duration-700"
+            />
+          </div>
+          <h3 class="text-2xl font-bold text-primary mb-6">
+            Erziehungsbeistand
+          </h3>
+          <p class="text-body font-light mb-8 leading-relaxed">
+            Mit Erziehung und kontinuierliche Begleitung für Familien durch die
+            Entwicklungsphasen.
+          </p>
+          <a
+            href="/erziehungsbeistand"
+            class="group inline-flex items-center text-secondary font-medium"
+          >
+            Mehr erfahren
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Service 2 -->
+        <div
+          class="bg-white p-12 transition-transform hover:-translate-y-2 duration-300"
+        >
+          <div class="mb-10 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1536809188428-e8ecf663d0be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+              alt="Familienberatung"
+              class="w-full h-64 object-cover transform transition-transform hover:scale-105 duration-700"
+            />
+          </div>
+          <h3 class="text-2xl font-bold text-primary mb-6">Familienberatung</h3>
+          <p class="text-body font-light mb-8 leading-relaxed">
+            Einfühlsame und kompetente Beratung für alle Familienmitglieder.
+          </p>
+          <a
+            href="/familienberatung"
+            class="group inline-flex items-center text-secondary font-medium"
+          >
+            Mehr erfahren
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Service 3 -->
+        <div
+          class="bg-white p-12 transition-transform hover:-translate-y-2 duration-300"
+        >
+          <div class="mb-10 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+              alt="Einzelfallhilfe"
+              class="w-full h-64 object-cover transform transition-transform hover:scale-105 duration-700"
+            />
+          </div>
+          <h3 class="text-2xl font-bold text-primary mb-6">Einzelfallhilfe</h3>
+          <p class="text-body font-light mb-8 leading-relaxed">
+            Maßgeschneiderte Hilfe für individuelle Herausforderungen.
+          </p>
+          <a
+            href="/einzelfallhilfe"
+            class="group inline-flex items-center text-secondary font-medium"
+          >
+            Mehr erfahren
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section with ample spacing -->
+  <section class="py-32">
+    <div class="container mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+        <div class="order-2 md:order-1 animate-fade-in-left">
+          <img
+            src="https://images.unsplash.com/photo-1579208570378-8c970854bc23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+            alt="Hands holding a paper family - support concept"
+            class="w-full"
+          />
+        </div>
+        <div class="order-1 md:order-2 animate-fade-in-right">
+          <div class="space-y-8">
+            <h6 class="text-secondary font-semibold tracking-wider text-lg">
+              ÜBER UNS
+            </h6>
+            <h2 class="text-3xl md:text-4xl font-bold text-primary">
+              Herz für Menschen.
+            </h2>
+            <div class="space-y-6 font-light leading-relaxed text-body">
+              <p>
+                GeTu Prospects e.V. ist eine interkulturelle Non-Profit
+                Organisation mit Sitz in Berlin, die sich der Unterstützung von
+                Menschen aus Kulturen und Ländern verpflichtet hat.
+              </p>
+              <p>
+                Wir verstehen die Herausforderungen und Hindernisse, denen ein
+                jeder Mensch im Integrations- und Wachstumsprozess begegnet, und
+                helfen die gemeinsamen Herausforderungen vereint zu überwinden.
+              </p>
+              <p>
+                In unserer heutigen, zunehmend komplexen Welt stehen viele
+                Menschen – insbesondere Kinder und Familien – vor
+                Herausforderungen, die sie allein nicht bewältigen können.
+              </p>
+            </div>
+            <a
+              href="/ueber-uns"
+              class="group inline-flex items-center text-secondary font-medium mt-8"
+            >
+              Lernen Sie uns kennen
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision Statement - using the new component -->
+  <VisionCallout
+    text="Wir wollen eine positive Atmosphäre des Willkommenseins und der Wertschätzung ausstrahlen und ein gutes soziales Miteinander fördern."
+  />
+
+  <!-- CTA Section - more spaced out -->
+  <section class="bg-tp-grey-1 py-28">
+    <div class="container mx-auto px-8">
+      <div class="max-w-6xl mx-auto bg-white p-16">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-12"
+        >
+          <div class="flex items-center max-w-2xl">
+            <span class="text-secondary mr-8 hidden md:block">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-16 w-16"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="square"
+                  stroke-linejoin="miter"
+                  stroke-width="1.5"
+                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                ></path>
+              </svg>
+            </span>
+            <h3 class="text-2xl md:text-3xl font-bold text-primary">
+              Engagieren Sie sich als Freiwilliger für eine gemeinsame,
+              strahlende Zukunft!
+            </h3>
+          </div>
+          <a
+            href="/jetzt-bewerben"
+            class="bg-secondary text-white py-4 px-10 text-center font-medium whitespace-nowrap transition-all hover:bg-opacity-90 transform hover:-translate-y-1"
+            >JETZT BEWERBEN</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add global animation styles -->
+  <style>
+    /* Animation Classes */
+    .animate-fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .animate-fade-in-left {
+      animation: fadeInLeft 1.2s ease-out;
+    }
+
+    .animate-fade-in-right {
+      animation: fadeInRight 1.2s ease-out;
+    }
+
+    .animate-pulse-slow {
+      animation: pulseSlow 7s infinite;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes pulseSlow {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.85;
+      }
+    }
+  </style>
+</BaseLayout>

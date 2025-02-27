@@ -1,221 +1,206 @@
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
-import Fernsehturm from '../assets/images/fernsehturm.png';
-import Hands from '../assets/images/hands.jpg';
-import KidImg from '../assets/images/kid.jpg';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteCallout from '../components/SiteCallout.astro';
+import Services from '../components/services.astro';
 import AboutUs from '../assets/images/ueber-uns.jpg';
-import Beratung from '../assets/images/services/beratung.jpg';
-import Erziehung from '../assets/images/services/erziehung.jpg';
-import SozialeProgramme from '../assets/images/christmas/gorlitz-3.jpeg';
-import EngagementCallout from '../components/engagement-callout.astro';
-import Footer from '../components/Footer.astro';
-import PageHeader from '../components/page-header.astro';
-import SectionHeader from '../components/section-header.astro';
-import Section from '../components/Section.astro';
-import { getLangFromLocale } from '../i18n';
-import SiteLayout from '../layouts/SiteLayout.astro';
-
-const lang = getLangFromLocale(Astro.currentLocale);
-
-const missionList = [
-  {
-    title: 'Unterstützung bei der Elternschaft',
-    description:
-      'Eltern zu sein ist eine wundervolle, aber auch herausfordernde Aufgabe. Wir bieten  praxisnahe Anleitungen, Workshops und Ressourcen, die Eltern dabei helfen, ihre  Erziehungsfähigkeiten zu stärken, gesunde Beziehungen zu ihren Kindern aufzubauen  und ein unterstützendes Familienumfeld zu schaffen. Unsere Angebote richten sich an  Eltern in allen Lebenslagen – von jungen Eltern bis hin zu Alleinerziehenden oder Familien  mit besonderen Herausforderungen. ',
-    image: Beratung,
-  },
-  {
-    title: 'Familienberatung',
-    description:
-      'Eine starke Familie bildet das Fundament für eine stabile Gesellschaft. Unser Team bietet  vertrauliche und einfühlsame Beratungen an, um familiäre Bindungen zu stärken, Konflikte  zu lösen und eine gesunde Kommunikation innerhalb der Familie zu fördern. Ob es um  Erziehungsfragen, Partnerschaftskonflikte oder schwierige Lebensphasen geht – wir  stehen Familien mit professioneller Unterstützung zur Seite, um gemeinsam Lösungen zu  finden.',
-    image: Erziehung,
-  },
-  {
-    title: 'Soziale Programme',
-    description:
-      'Gemeinschaft und Zusammenhalt sind essenziell für persönliche Entwicklung und  gesellschaftliche Integration. Unsere sozialen Programme schaffen Räume, in denen  Menschen aus verschiedenen Hintergründen zusammenkommen, voneinander lernen und  sich gegenseitig unterstützen können. Durch kulturelle Veranstaltungen, Freizeitangebote  und interaktive Workshops fördern wir den Austausch, die Integration und das persönliche  Wachstum jedes Einzelnen.',
-    image: SozialeProgramme,
-  },
-  {
-    title: 'Empowerment-Programme',
-    description:
-      'Unser Ziel ist es, Menschen zu stärken – insbesondere Jugendliche, die oft vor wichtigen  Entscheidungen und Herausforderungen stehen. Unsere Empowerment-Programme  bieten gezielte Unterstützung, um Selbstbewusstsein, Resilienz und Führungsqualitäten  zu entwickeln. Durch Mentoring, Coaching und praxisnahe Trainings helfen wir jungen  Menschen, ihre Stärken zu erkennen, ihre Fähigkeiten zu entfalten und aktiv ihre Zukunft  zu gestalten.',
-    image: KidImg,
-  },
-  {
-    title: 'Allgemeine Unterstützung',
-    description:
-      'Das Leben stellt uns manchmal vor unerwartete Herausforderungen – sei es in finanziellen  Fragen, bei der Berufsorientierung oder beim Zugang zu wichtigen gesellschaftlichen  Ressourcen. Wir bieten praktische Unterstützung in Bereichen wie Budgetplanung,  Bewerbungstraining und Vernetzung mit relevanten Anlaufstellen. Unser Ziel ist es, nicht  nur kurzfristige Hilfe zu leisten, sondern Menschen langfristig zu befähigen, eigenständig  und selbstbestimmt ihr Leben zu gestalten.',
-    image: Hands,
-  },
-];
+import Values from '../components/Values.astro';
 ---
 
-<SiteLayout>
-  <PageHeader section="Über uns" subSection="Was uns treibt." />
-  <Section class="mt-16">
-    <div class="grid md:grid-cols-2 gap-12">
-      <img src={AboutUs.src} alt="" />
-      <div class="space-y-6">
-        <SectionHeader
-          title="Unsere Vision und Mission"
-          alignment="left"
-          subTitle="Eine Gesellschaft der Vielfalt."
-        />
-        <div class="flex flex-col gap-6 font-light leading-loose">
-          <p class="" id="vision">
-            Wir träumen von einer Gesellschaft, in der jeder Mensch
-            wertgeschätzt, unterstützt und befähigt wird, sein volles Potenzial
-            zu entfalten. Eine Gemeinschaft, in der Verbundenheit, Würde und
-            Sinnhaftigkeit das Leben prägen und nachhaltiges Wachstum für alle
-            möglich ist.
-          </p>
+<BaseLayout title="Über uns - GeTu Prospects e.V.">
+  <!-- Hero Section - Fixed to work with navbar -->
+
+  <section class="bg-primary text-white">
+    <div class="container mx-auto px-8">
+      <!-- Top spacing and subtitle - with improved vertical rhythm -->
+      <div class="pt-40 pb-6 text-center">
+        <span
+          class="text-secondary uppercase tracking-wider text-sm font-medium"
+          >ÜBER UNS</span
+        >
+      </div>
+
+      <!-- Main heading with better visual weight -->
+      <div class="text-center">
+        <h1
+          class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+        >
+          Herz für Menschen.
+        </h1>
+
+        <!-- Refined divider - shorter and more elegant -->
+        <div class="flex justify-center">
+          <div class="h-1 w-16 bg-secondary mb-12"></div>
         </div>
-        <div class="space-y-6">
-          <div
-            class="flex flex-col gap-6 font-light leading-loose"
-            id="mission"
+      </div>
+
+      <!-- Main text with improved width constraints and spacing -->
+      <div class="max-w-3xl mx-auto text-center pb-32">
+        <p class="text-lg md:text-xl font-light leading-relaxed text-gray-100">
+          Geprägt von beruflicher Exzellenz und christlichen Werten setzen wir
+          uns dafür ein, Menschen aller Kulturen und Nationen zu stärken, zu
+          fördern und positiv zu verändern.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us section - starts immediately after hero -->
+  <section class="py-32">
+    <div class="container mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+        <div>
+          <div class="relative">
+            <img
+              src={AboutUs.src}
+              alt="Hands joining together- community support"
+              class="w-full"
+            />
+            <div
+              class="absolute -bottom-8 -left-8 w-16 h-16 bg-secondary hidden md:block"
+            >
+            </div>
+          </div>
+        </div>
+        <div>
+          <p
+            class="text-secondary uppercase tracking-wider text-sm font-medium mb-4"
           >
-            <p class="">
-              Geprägt von beruflicher Exzellenz und christlichen Werten setzen
-              wir uns dafür ein, Menschen aller Kulturen und Nationen zu
-              stärken, zu fördern und positiv zu verändern. Unser Ziel ist es,
-              ihnen zu helfen, ihr volles Potenzial zu entfalten und ein
-              erfülltes, qualitativ hochwertiges Leben zu führen – durch
-              gezieltes Empowerment, soziale Programme und praktische
-              Unterstützung.
+            ÜBER UNS
+          </p>
+          <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">
+            Wer wir sind
+          </h2>
+          <div class="h-px w-24 bg-secondary mb-10"></div>
+
+          <div class="space-y-6 font-light leading-relaxed text-body">
+            <p>
+              GeTu Prospects e.V. ist eine christliche Non-Profit-Organisation
+              mit Sitz in Berlin, die sich der Unterstützung von Menschen aller
+              Kulturen und Hintergründe widmet. Geprägt von Professionalität und
+              christlichen Werten wie Nächstenliebe und Respekt, glauben wir
+              daran, dass jeder Mensch einzigartig ist.
+            </p>
+            <p>
+              In unserer heutigen, schnelllebigen Welt stehen viele Menschen –
+              insbesondere Kinder und Familien – vor Herausforderungen, die sie
+              an den Rand der Gesellschaft drängen. Trotz bestehender
+              Möglichkeiten zur Inklusion und Teilhabe bleiben für viele
+              Barrieren bestehen, die ihre Entwicklung behindern.
+            </p>
+            <p>
+              Durch gezielte Empowerment-Programme, soziale Initiativen und
+              praxisnahe Projekte bieten wir konkrete Hilfe, schaffen sichere
+              Räume für persönliche Entfaltung und fördern den interkulturellen
+              Austausch.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- vision latest start -->
+  <section class="py-32 lg:py-40" id="vision">
+    <div class="container mx-auto px-8">
+      <div class="text-center mb-20">
+        <p
+          class="text-secondary uppercase tracking-wider text-sm font-medium mb-5"
+        >
+          UNSERE VISION UND MISSION
+        </p>
+        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+          Eine Gesellschaft der Vielfalt
+        </h2>
+        <div class="flex justify-center">
+          <div class="h-px w-16 bg-secondary"></div>
+        </div>
+      </div>
+
+      <!-- Content with subtle visual enhancements -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-28">
+        <!-- Vision Column -->
+        <div class="relative">
+          <h3 class="text-3xl font-bold text-primary mb-8">Unsere Vision</h3>
+
+          <!-- Orange line with subtle light background -->
+          <div class="relative mb-12">
+            <div class="h-px w-12 bg-secondary"></div>
+            <div
+              class="absolute left-0 -top-3 -bottom-3 -z-10 w-16 bg-orange-50"
+            >
+            </div>
+          </div>
+
+          <div class="space-y-8 font-light leading-relaxed text-body">
+            <p>
+              Wir träumen von einer Gesellschaft, in der jeder Mensch
+              wertgeschätzt, unterstützt und befähigt wird, sein volles
+              Potenzial zu entfalten.
             </p>
 
-            <p class="">
+            <p>
+              Eine Gemeinschaft, in der Verbundenheit, Würde und Sinnhaftigkeit
+              das Leben prägen und nachhaltiges Wachstum für alle möglich ist.
+            </p>
+          </div>
+        </div>
+
+        <!-- Mission Column -->
+        <div class="relative" id="mission">
+          <h3 class="text-3xl font-bold text-primary mb-8">Unsere Mission</h3>
+
+          <!-- Orange line with subtle light background -->
+          <div class="relative mb-12">
+            <div class="h-px w-12 bg-secondary"></div>
+            <div
+              class="absolute left-0 -top-3 -bottom-3 -z-10 w-16 bg-orange-50"
+            >
+            </div>
+          </div>
+
+          <div class="space-y-8 font-light leading-relaxed text-body">
+            <p>
+              Geprägt von beruflicher Exzellenz und christlichen Werten setzen
+              wir uns dafür ein, Menschen aller Kulturen und Nationen zu
+              stärken, zu fördern und positiv zu verändern.
+            </p>
+            <p>
+              Unser Ziel ist es, ihnen zu helfen, ihr volles Potenzial zu
+              entfalten und ein erfülltes, qualitativ hochwertiges Leben zu
+              führen – durch gezieltes Empowerment, soziale Programme und
+              praktische Unterstützung.
+            </p>
+
+            <p>
               Wir brechen Barrieren, schaffen neue Chancen für nachhaltigen
               Wandel – von einem einzelnen Menschen bis hin zu ganzen
               Gemeinschaften.
-              <span
-                class="ml-2 inline text-secondary underline underline-offset-2 hover:text-orange-700"
-              >
-                <a
-                  href={getRelativeLocaleUrl(
-                    lang,
-                    '/projekte/weihnachtsaktion',
-                  )}>Unsere ehrenamtliche Arbeit -></a
-                >
-              </span>
             </p>
           </div>
         </div>
       </div>
+
+      <!-- Decorative divider -->
+      <!-- <div class="flex justify-center gap-4 my-24">
+        <div class="h-px w-24 bg-secondary opacity-30"></div>
+        <div class="h-px w-24 bg-secondary opacity-60"></div>
+        <div class="h-px w-24 bg-secondary opacity-30"></div>
+      </div> -->
+
+      <!-- Quote -->
+      <!-- <div class="max-w-3xl mx-auto text-center">
+        <p class="text-xl italic font-light text-primary">
+          "Eine Gesellschaft, in der jeder Mensch wertgeschätzt, unterstützt und
+          befähigt wird, sein volles Potenzial zu entfalten."
+        </p>
+      </div> -->
     </div>
-  </Section>
-  <Section class="space-y-6 mt-16">
-    <SectionHeader
-      title="Unsere Dienstleistungen"
-      subTitle="Menschen stärken, Perspektiven schaffen"
-      alignment="left"
-    />
-    <div class="space-y-6 font-light">
-      <p class="leading-loose">
-        Bei GeTu Prospects e.V. stehen Menschen im Mittelpunkt. Mit unseren
-        vielfältigen Angeboten unterstützen wir Familien, Jugendliche und
-        Einzelpersonen.
-      </p>
-      <div class="space-y-8">
-        {
-          missionList.map((mission) => (
-            <div class="flex flex-col lg:flex-row gap-12 rounded-sm shadow-[2px_3.464px_40px_0px_rgba(14,5,1,0.04)]">
-              <div class="lg:w-2/5 bg-gray-200">
-                <div class="aspect-[4/3] overflow-hidden bg-gray-200 relative">
-                  <img
-                    src={mission.image.src}
-                    alt=""
-                    class="absolute inset-0 w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <div class="space-y-4 lg:w-3/5 lg:py-8 ">
-                <h2 class="font-bold text-teal-950 text-2xl">
-                  {mission.title}
-                </h2>
-                <p class="leading-loose pr-12">{mission.description}</p>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </Section>
+  </section>
+  <!-- vision latest end -->
 
-  <Section class="my-16">
-    <div class="grid md:grid-cols-2 gap-12">
-      <div class="space-y-6">
-        <SectionHeader
-          title="Unsere Werte"
-          subTitle="Das Fundament unserer Arbeit"
-          alignment="left"
-        />
-        <div class="flex flex-col gap-6 font-light leading-loose">
-          <p class="">
-            Unsere Arbeit ist geprägt von christlichen und ethischen
-            Grundwerten, die unser tägliches Handeln leiten und bestimmen, wie
-            wir Menschen begegnen. Sie sind das Herzstück unserer Mission und
-            die Basis für eine Gesellschaft, in der jeder Mensch mit Würde und
-            Respekt behandelt wird.
-          </p>
-          <div>
-            <p>Unsere Kernwerte:</p>
-            <ul class="list-disc list-inside px-4 space-y-2">
-              <li>
-                <span class="font-semibold">Respekt und Würde</span>
-                - Wir begegnen jedem Menschen auf Augenhöhe und achten seine einzigartige
-                Würde.
-              </li>
-
-              <li>
-                <span class="font-semibold">Nächstenliebe</span> - Als christliche
-                Organisation leben wir tätige Nächstenliebe und setzen uns mit Herz
-                und Tatkraft für andere ein.
-              </li>
-
-              <li>
-                <span class="font-semibold">Professionalität</span> - Unsere Arbeit
-                verbindet herzliche Zuwendung mit fachlicher Kompetenz und höchsten
-                Qualitätsstandards.
-              </li>
-
-              <li>
-                <span class="font-semibold">Vertrauen</span> - Wir schaffen eine
-                Atmosphäre des Vertrauens – die Grundlage für nachhaltige Beziehungen.
-              </li>
-
-              <li>
-                <span class="font-semibold">Vielfalt</span> - Wir sehen kulturelle
-                Vielfalt als Bereicherung und fördern das Miteinander verschiedener
-                Kulturen.
-              </li>
-
-              <li>
-                <span class="font-semibold">Verantwortung</span> - Wir übernehmen
-                Verantwortung für unser Handeln und setzen uns aktiv für eine gerechte
-                Gesellschaft ein.
-              </li>
-
-              <li>
-                <span class="font-semibold">Nachaltigkeit</span> - Unser Fokus liegt
-                auf langfristigen Lösungen, die eine dauerhafte positive Veränderung
-                bewirken.
-              </li>
-            </ul>
-          </div>
-          <div>
-            <p>
-              Diese Werte prägen unser Tun – für eine Welt, in der jeder Mensch
-              sein volles Potenzial entfalten kann.
-            </p>
-          </div>
-        </div>
-      </div>
-      <img src={Fernsehturm.src} alt="" class="brightness-90" />
-    </div>
-  </Section>
-  <EngagementCallout />
-  <Footer />
-</SiteLayout>
+  <!-- Vision Callout using component -->
+  <SiteCallout
+    text="Wir träumen von einer Gesellschaft, in der jeder Mensch wertgeschätzt, unterstützt und befähigt wird, sein volles Potenzial zu entfalten."
+  />
+  <Services />
+  <Values />
+</BaseLayout>

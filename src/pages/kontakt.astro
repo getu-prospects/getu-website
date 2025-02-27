@@ -1,0 +1,228 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+  <section class="bg-primary text-white">
+    <div class="container mx-auto px-8">
+      <!-- Top spacing and subtitle - with improved vertical rhythm -->
+      <div class="pt-40 pb-6 text-center">
+        <span
+          class="text-secondary uppercase tracking-wider text-sm font-medium"
+          >KONTAKT</span
+        >
+      </div>
+
+      <!-- Main heading with better visual weight -->
+      <div class="text-center">
+        <h1
+          class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+        >
+          Kontaktieren Sie uns
+        </h1>
+
+        <!-- Refined divider - shorter and more elegant -->
+        <div class="flex justify-center">
+          <div class="h-1 w-16 bg-secondary mb-12"></div>
+        </div>
+      </div>
+
+      <!-- Main text with improved width constraints and spacing -->
+      <div class="max-w-3xl mx-auto text-center pb-32">
+        <p class="text-lg md:text-xl font-light leading-relaxed text-gray-100">
+          Haben Sie Fragen oder Anliegen? Nutzen Sie gerne unser
+          Kontaktformular, um uns eine Nachricht zu senden. Wir freuen uns, von
+          Ihnen zu hören!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Info Section -->
+  <section class="py-32 bg-white">
+    <div class="container mx-auto px-8">
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Contact Information -->
+        <div>
+          <h2 class="text-primary text-3xl font-bold mb-8">
+            Wie Sie uns erreichen können
+          </h2>
+
+          <div class="space-y-8">
+            <div class="flex items-start">
+              <div class="bg-tp-grey-1 p-4 mr-6">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-secondary"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-primary text-xl font-medium mb-2">Telefon</h3>
+                <p class="text-body text-lg">+49 (0) 1724328326</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="bg-tp-grey-1 p-4 mr-6">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-secondary"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-primary text-xl font-medium mb-2">E-Mail</h3>
+                <p class="text-body text-lg">info@getu-prospects.de</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="bg-tp-grey-1 p-4 mr-6">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-secondary"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-primary text-xl font-medium mb-2">Adresse</h3>
+                <p class="text-body text-lg">
+                  Avenue Charles De Gaulle 11<br />13469, Berlin
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="bg-tp-grey-1 p-4 mr-6">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-secondary"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-primary text-xl font-medium mb-2">
+                  Öffnungszeiten
+                </h3>
+                <p class="text-body text-lg">
+                  Montag - Freitag: 9:00 - 17:00 Uhr
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="bg-tp-grey-1">
+          <h2 class="text-primary text-3xl font-bold mb-8">
+            Schreiben Sie uns
+          </h2>
+
+          <form class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  class="w-full p-4 bg-white border border-tp-border-2 focus:border-primary focus:outline-none text-body"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  type="email"
+                  placeholder="E-Mail"
+                  class="w-full p-4 bg-white border border-tp-border-2 focus:border-primary focus:outline-none text-body"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <input
+                  type="tel"
+                  placeholder="Telefon"
+                  class="w-full p-4 bg-white border border-tp-border-2 focus:border-primary focus:outline-none text-body"
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Betreff"
+                  class="w-full p-4 bg-white border border-tp-border-2 focus:border-primary focus:outline-none text-body"
+                />
+              </div>
+            </div>
+
+            <div>
+              <textarea
+                placeholder="Ihre Nachricht"
+                rows="6"
+                class="w-full p-4 bg-white border border-tp-border-2 focus:border-primary focus:outline-none text-body resize-none"
+                required></textarea>
+            </div>
+
+            <div class="text-right">
+              <button type="submit" class="btn btn-secondary hover-lift">
+                Nachricht Absenden
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="relative w-full">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2423.2240870941673!2d13.317956676686073!3d52.60172027208272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a85482206998cb%3A0xd558e3c5090b8225!2sAvenue%20Charles%20de%20Gaulle%2011%2C%2013469%20Berlin!5e0!3m2!1sde!2sde!4v1704024825751!5m2!1sde!2sde"
+      height="450"
+      style="border:0; width: 100%"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+</BaseLayout>

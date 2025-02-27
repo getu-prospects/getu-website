@@ -2,44 +2,12 @@
 import { Icon } from 'astro-icon/components';
 import PageHeader from '../components/page-header.astro';
 import Section from '../components/Section.astro';
-import SiteLayout from '../layouts/BaseLayout.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
 import Footer from '../components/Footer.astro';
 ---
 
 <SiteLayout>
-  <section class="bg-primary text-white">
-    <div class="container mx-auto px-8">
-      <!-- Top spacing and subtitle - with improved vertical rhythm -->
-      <div class="pt-40 pb-6 text-center">
-        <span
-          class="text-secondary uppercase tracking-wider text-sm font-medium"
-        ></span>
-      </div>
-
-      <!-- Main heading with better visual weight -->
-      <div class="text-center">
-        <h1
-          class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
-        >
-          Impressum
-        </h1>
-
-        <!-- Refined divider - shorter and more elegant -->
-        <div class="flex justify-center">
-          <div class="h-1 w-16 bg-secondary mb-12"></div>
-        </div>
-      </div>
-
-      <!-- Main text with improved width constraints and spacing -->
-      <!-- <div class="max-w-3xl mx-auto text-center pb-32">
-        <p class="text-lg md:text-xl font-light leading-relaxed text-gray-100">
-          Haben Sie Fragen oder Anliegen? Nutzen Sie gerne unser
-          Kontaktformular, um uns eine Nachricht zu senden. Wir freuen uns, von
-          Ihnen zu hören!
-        </p>
-      </div> -->
-    </div>
-  </section>
+  <PageHeader subSection="Impressum" />
   <Section>
     <div class="flex flex-col gap-6 font-light leading-loose">
       <h2 class="font-semibold">Angaben gemäß § 5 TMG</h2>
@@ -80,11 +48,12 @@ import Footer from '../components/Footer.astro';
         <div class="flex gap-2 items-start">
           <Icon name="mdi:download" class="mt-1" />
           <div class="flex flex-col leading-tight justify-center">
-            <a href="/getu-satzung.pdf">Auszug aus der Vereinsatzung</a>
+            <a href="/satzung.pdf">Auszug aus der Vereinsatzung</a>
             <p>(PDF, 79KB)</p>
           </div>
         </div>
       </div>
     </div>
   </Section>
+  <Footer />
 </SiteLayout>

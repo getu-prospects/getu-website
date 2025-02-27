@@ -1,0 +1,225 @@
+---
+import Hands from '../assets/images/hands.jpg';
+import KidImg from '../assets/images/kid.jpg';
+import AboutUs from '../assets/images/ueber-uns.jpg';
+import Beratung from '../assets/images/services/beratung.jpg';
+import Erziehung from '../assets/images/services/erziehung.jpg';
+import SozialeProgramme from '../assets/images/christmas/gorlitz-3.jpeg';
+---
+
+<section class="py-32 bg-white overflow-hidden">
+  <div class="container mx-auto px-8">
+    <!-- Section header -->
+    <div class="text-center mb-24">
+      <p
+        class="text-secondary uppercase tracking-wider text-sm font-medium mb-5"
+      >
+        UNSERE DIENSTLEISTUNGEN
+      </p>
+      <h2 class="text-4xl md:text-5xl font-bold text-primary mb-8">
+        Vielfältige Unterstützung für jede Lebenslage
+      </h2>
+      <div class="flex justify-center">
+        <div class="h-px w-16 bg-secondary mb-10"></div>
+      </div>
+      <p class="max-w-3xl mx-auto font-light text-body">
+        Bei GeTu Prospects e.V. stehen Menschen im Mittelpunkt. Mit unseren
+        vielfältigen Angeboten unterstützen wir Familien, Jugendliche und
+        Einzelpersonen.
+      </p>
+    </div>
+
+    <!-- Service grid with consistent backgrounds -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Left Column -->
+      <div class="lg:col-span-1">
+        <!-- Service 1 -->
+        <div class="group relative mb-12 bg-[#f2f7f7]">
+          <!-- Image with hover effect and number -->
+          <div class="overflow-hidden relative">
+            <img
+              src={Beratung.src}
+              alt="Unterstützung bei der Elternschaft"
+              class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <!-- <img
+              src="https://images.unsplash.com/photo-1551516594-56cb78394645?ixlib=rb-4.0.3&auto=format&fit=crop&w=1216&q=80"
+              alt="Unterstützung bei der Elternschaft"
+              class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105"
+            /> -->
+            <!-- Number overlay -->
+            <div class="absolute top-6 right-6 z-10">
+              <div
+                class="bg-white text-secondary font-bold text-xl py-1 px-3 shadow-sm"
+              >
+                01
+              </div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-primary mb-6">
+              Unterstützung bei der Elternschaft
+            </h3>
+            <p class="font-light text-body leading-relaxed">
+              Eltern zu sein ist eine wundervolle, aber auch herausfordernde
+              Aufgabe. Wir bieten praxisnahe Anleitungen, Workshops und
+              Ressourcen, die Eltern dabei helfen, ihre Erziehungsfähigkeiten zu
+              stärken und ein unterstützendes Familienumfeld zu schaffen.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Middle Column -->
+      <div class="lg:col-span-1">
+        <!-- Service 2 -->
+        <div class="group relative mb-12 bg-orange-50">
+          <!-- Content first, then image (reverse order) -->
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-primary mb-6">
+              Familienberatung
+            </h3>
+            <p class="font-light text-body leading-relaxed">
+              Eine starke Familie bildet das Fundament für eine stabile
+              Gesellschaft. Unser Team bietet vertrauliche und einfühlsame
+              Beratungen an, um familiäre Bindungen zu stärken, Konflikte zu
+              lösen und eine gesunde Kommunikation innerhalb der Familie zu
+              fördern.
+            </p>
+          </div>
+
+          <!-- Image with hover effect and number -->
+          <div class="overflow-hidden relative">
+            <img
+              src={Erziehung.src}
+              alt="Familienberatung"
+              class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <!-- <img
+              src="https://images.unsplash.com/photo-1536809188428-e8ecf663d0be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+              alt="Familienberatung"
+              class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
+            /> -->
+            <!-- Number overlay -->
+            <div class="absolute top-6 left-6 z-10">
+              <div
+                class="bg-white text-secondary font-bold text-xl py-1 px-3 shadow-sm"
+              >
+                02
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="group relative bg-blue-50">
+          <!-- Content first, then image (reverse order) -->
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-primary mb-6">
+              Soziale Programme
+            </h3>
+            <p class="font-light text-body leading-relaxed">
+              Gemeinschaft und Zusammenhalt sind essenziell für persönliche
+              Entwicklung und gesellschaftliche Integration. Unsere sozialen
+              Programme schaffen Räume, in denen Menschen aus verschiedenen
+              Hintergründen zusammenkommen und sich gegenseitig unterstützen.
+            </p>
+          </div>
+
+          <!-- Image with hover effect and number -->
+          <div class="overflow-hidden relative">
+            <img
+              src={SozialeProgramme.src}
+              alt="Soziale Programme"
+              class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <!-- <img
+              src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+              alt="Soziale Programme"
+              class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
+            /> -->
+            <!-- Number overlay -->
+            <div class="absolute top-6 left-6 z-10">
+              <div
+                class="bg-white text-secondary font-bold text-xl py-1 px-3 shadow-sm"
+              >
+                03
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="lg:col-span-1">
+        <!-- Service 4 -->
+        <div class="group relative mb-12 bg-green-50">
+          <!-- Image with hover effect and number -->
+          <div class="overflow-hidden relative">
+            <img
+              src={KidImg.src}
+              alt="Empowerment-Programme für Jugendliche"
+              class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <!-- Number overlay -->
+            <div class="absolute top-6 right-6 z-10">
+              <div
+                class="bg-white text-secondary font-bold text-xl py-1 px-3 shadow-sm"
+              >
+                04
+              </div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-primary mb-6">
+              Empowerment-Programme
+            </h3>
+            <p class="font-light text-body leading-relaxed">
+              Unser Ziel ist es, Menschen zu stärken – insbesondere Jugendliche,
+              die oft vor wichtigen Entscheidungen und Herausforderungen stehen.
+              Unsere Empowerment-Programme bieten gezielte Unterstützung, um
+              Selbstbewusstsein, Resilienz und Führungsqualitäten zu entwickeln.
+            </p>
+          </div>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="group relative bg-orange-50">
+          <!-- Image with hover effect and number -->
+          <div class="overflow-hidden relative">
+            <img
+              src={Hands.src}
+              alt="Allgemeine Unterstützung"
+              class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <!-- Number overlay -->
+            <div class="absolute top-6 right-6 z-10">
+              <div
+                class="bg-white text-secondary font-bold text-xl py-1 px-3 shadow-sm"
+              >
+                05
+              </div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-primary mb-6">
+              Allgemeine Unterstützung
+            </h3>
+            <p class="font-light text-body leading-relaxed">
+              Das Leben stellt uns manchmal vor unerwartete Herausforderungen.
+              Wir bieten praktische Unterstützung in Bereichen wie
+              Budgetplanung, Bewerbungstraining und Vernetzung mit relevanten
+              Anlaufstellen, um langfristig Menschen zu befähigen.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
