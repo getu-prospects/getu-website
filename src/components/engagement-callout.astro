@@ -8,6 +8,20 @@ import { getLangFromLocale, useTranslations } from '../i18n';
 
 const lang = getLangFromLocale(Astro.currentLocale);
 const t = useTranslations(lang);
+
+interface Props {
+  calloutText?: string;
+  CtaText?: string;
+  ctaLink?: string;
+  withCta?: boolean;
+}
+
+const {
+  calloutText = 'Engagieren Sie sich als Freiwilliger für eine gemeinsame, strahlende Zukunft!',
+  CtaText = 'Jetzt Beitreten',
+  ctaLink = '/kontakt',
+  withCta = true,
+} = Astro.props;
 ---
 
 <section class="relative md:h-[200px] w-full">
@@ -23,13 +37,16 @@ const t = useTranslations(lang);
     <h2
       class="text-center md:text-left text-emerald-900 font-bold md:max-w-xl leading-normal tracking-tight"
     >
-      Engagieren Sie sich als Freiwilliger für eine gemeinsame, strahlende
-      Zukunft!
+      {calloutText}
     </h2>
-    <div class="md:flex-1 align-right flex md:justify-end items-center">
-      <Cta href={getRelativeLocaleUrl(lang, '/kontakt')} class="text-lg"
-        >Jetzt Beitreten</Cta
-      >
-    </div>
+    {
+      withCta && (
+        <div class="md:flex-1 align-right flex md:justify-end items-center">
+          <Cta href={getRelativeLocaleUrl(lang, ctaLink)} class="text-lg">
+            {CtaText}
+          </Cta>
+        </div>
+      )
+    }
   </Container>
 </section>

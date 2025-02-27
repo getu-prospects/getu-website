@@ -11,71 +11,214 @@ import Footer from '../components/Footer.astro';
 ---
 
 <SiteLayout>
-  <PageHeader section="Jugend" subSection="Youth with Perspective" />
+  <PageHeader
+    section="Youth with Perspective"
+    subSection="Finde deinen Weg, Entfalte dein Potenzial"
+  />
   <Section>
-    <div class="grid md:grid-cols-2 gap-12">
-      <img src={Youth.src} alt="" />
-      <div class="space-y-6">
-        <SectionHeader title="Youth with Perspective" alignment="left" />
-        <div class="flex flex-col gap-4 -mt-4 font-light leading-loose">
-          <p>
-            Das Leben kann schwierig sein, wenn man kein klares Ziel hat. Ohne
-            eine Richtung fühlt man sich leicht verloren oder unsicher. Aus
-            diesem Grund haben wir Youth with Perspective ins Leben gerufen –
-            einen Raum für junge Menschen, die zusammenzukommen, um die großen
-            Fragen des Lebens zu erforschen und den wahren Sinn ihrer Reise zu
-            entdecken.
-          </p>
-          <p>
-            Youth with Perspective ist mehr als nur ein Forum – es ist eine
-            Gemeinschaft, in der junge Menschen Antworten auf Fragen finden
-            können wie:
-          </p>
-          <ul class="list-disc list-inside px-4">
-            <li>Wer bin ich?</li>
-            <li>Was ist der Sinn meines Lebens?</li>
-            <li>Wie kann ich mein Potenzial entdecken und ausschöpfen?</li>
-            <li>Was sind meine Potenziale und Ressourcen?</li>
-            <li>Welche Ressourcen und Stärken trage ich in mir?</li>
-            <li>Welche Möglichkeiten stehen mir derzeit zur Verfügung?</li>
-            <li>
-              Wie kann ich einen positiven Einfluss auf die Welt um mich
-              herumhaben?
-            </li>
-          </ul>
-          <p>
-            Wir glauben, dass das Leben reicher wird, wenn es mit anderen
-            geteilt wird, die eine ähnliche Vision haben. Deshalb treffen wir
-            uns als Gruppe, lernen voneinander, ermutigen uns gegenseitig und
-            wachsen zusammen. Indem wir uns gegenseitig unterstützen, wollen wir
-            in jedem Bereich unseres Lebens unser volles Potenzial ausschöpfen
-            und die Welt verändern.
-          </p>
-          <p>
-            <span class="text-secondary">Mache mit!</span> Werde <span
-              class="font-semibold">jeden 3. Samstag im Monat</span
-            > Teil von Youth with Perspective. Lasst uns gemeinsam den Sinn des Lebens
-            erforschen, unseren Glauben stärken und uns gegenseitig inspirieren,
-            zielgerichtet zu leben.
-          </p>
-
-          <div class="details -mt-2">
-            <div class="flex gap-2 items-center text-secondary">
-              <Icon name="mdi:location-radius-outline" />
-              <span>Rütlistraße 18</span>
-              <span class="">13407, Berlin</span>
-            </div>
-            <div class="flex gap-2 items-center text-secondary">
-              <Icon name="mdi:clock-time-four-outline" />
-              <span>Jeden 3. Samstag im Monat,</span>
-              <span>16:00 - 17:30</span>
+    <div class="space-y-6">
+      <div class="grid md:grid-cols-2 gap-12">
+        <img src={Youth.src} alt="" />
+        <div class="space-y-6">
+          <SectionHeader
+            title="Mehr als ein Forum"
+            alignment="left"
+            subTitle="Eine Gemeinschaft, die dich stärkt"
+          />
+          <div class="flex flex-col gap-4 -mt-4 font-light leading-loose">
+            <p>
+              Das Leben kann herausfordernd sein, besonders wenn man keinen
+              klaren Weg vor Augen hat. Ohne eine Richtung fühlt man sich
+              schnell unsicher, verloren oder orientierungslos. Doch genau hier
+              setzt Youth with Perspective an – ein Raum für junge Menschen, die
+              gemeinsam Antworten auf die großen Fragen des Lebens suchen und
+              ihren eigenen, einzigartigen Weg entdecken wollen.
+            </p>
+            <p>
+              Youth with Perspective ist mehr als nur ein Treffpunkt oder eine
+              Diskussionsrunde. Es ist eine inspirierende Gemeinschaft, in der
+              junge Menschen zusammenkommen, sich austauschen und gegenseitig
+              ermutigen. Hier hast du die Möglichkeit, tief-gehende Fragen zu
+              erforschen, neue Perspektiven zu gewinnen und dich mit anderen zu
+              verbinden, die ähnliche Werte und Visionen teilen.
+            </p>
+            <div>
+              <p>Wir beschäftigen uns mit Themen wie:</p>
+              <ul class="list-disc list-inside px-4">
+                <li>
+                  Wer bin ich wirklich? – Entdecke deine Identität, deine Werte
+                  und deine Einzigartigkeit.
+                </li>
+                <li>
+                  Was ist der Sinn meines Lebens? – Finde heraus, was dich
+                  antreibt und was deine Berufung sein könnte.
+                </li>
+                <li>
+                  Wie kann ich mein Potenzial entfalten? – Erkenne deine Stärken
+                  und lerne, wie du sie gezielt einsetzen kannst.
+                </li>
+                <li>
+                  Welche Möglichkeiten stehen mir offen? – Erfahre, wie du
+                  Chancen ergreifen und deinen Horizont erweitern kannst.
+                </li>
+                <li>
+                  Wie kann ich die Welt positiv beeinflussen? – Entdecke Wege,
+                  dein Umfeld aktiv mitzugestalten und Gutes zu bewirken.
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
+      <div class="font-light leading-loose space-y-4">
+        <p>
+          Wir glauben daran, dass das Leben reicher wird, wenn man es mit
+          Menschen teilt, die ähnliche Ziele verfolgen. Deshalb treffen wir uns
+          regelmäßig als Gruppe, um voneinander zu lernen, uns zu inspirieren
+          und gemeinsam zu wachsen. In einem unterstützenden und offenen Umfeld
+          ermutigen wir uns gegenseitig, unser volles Potenzial zu entfalten –
+          in unserem Glauben, unserer Persönlichkeit und in unserer Wirkung auf
+          die Welt.
+        </p>
+        <p>
+          <span class="text-secondary font-bold">Mache mit!</span>
+          Sei dabei und werde Teil von Youth with Perspective! Wir treffen uns <span
+            class="font-bold">jeden dritten Samstag im Monat,</span
+          >
+          dritten Samstag im Monat, um gemeinsam den Sinn des Lebens zu erforschen,
+          unseren Glauben zu stärken und uns gegenseitig zu inspirieren, zielgerichtet
+          zu leben. Egal, wo du gerade stehst – hier findest du eine Gemeinschaft,
+          die dich unterstützt, motiviert und begleitet. Lass uns gemeinsam wachsen
+          und die Welt positiv verändern!
+        </p>
+      </div>
     </div>
   </Section>
-  <Callout text="Komm und entdecken mit uns den Sinn des Lebens." />
+  <!-- <Callout text="Komm und entdecken mit uns den Sinn des Lebens." /> -->
+  <!-- In your .svelte file -->
+  <!-- In your .svelte file -->
+  <div class="bg-[#0F2828] text-white p-8 md:p-16 relative overflow-hidden">
+    <!-- Section header -->
+    <h2 class="text-2xl md:text-3xl font-bold mb-8">Join Our Community</h2>
+
+    <!-- Grid for location and time -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+      <div class="flex items-center">
+        <span class="text-[#F89880] mr-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          </svg>
+        </span>
+        <div>
+          <p class="text-lg md:text-xl font-medium">Rütlistraße 18</p>
+          <p class="text-base md:text-lg">13407, Berlin</p>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <span class="text-[#F89880] mr-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </span>
+        <div>
+          <p class="text-lg md:text-xl font-medium">
+            Jeden 3. Samstag im Monat,
+          </p>
+          <p class="text-base md:text-lg">16:00 - 17:30</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional content -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+      <!-- Next event info -->
+      <div class="bg-[#0A1F1F] p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-3">
+          Next Event: <span class="text-[#F89880]">March 18</span>
+        </h3>
+        <p class="text-base mb-4">
+          Join us for our monthly gathering focusing on mindfulness and
+          community connection.
+        </p>
+        <button
+          class="bg-[#F89880] hover:bg-[#E57E67] text-white font-medium py-2 px-6 rounded-lg transition duration-300"
+        >
+          Register Now
+        </button>
+      </div>
+
+      <!-- Contact info -->
+      <div class="bg-[#0A1F1F] p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-3">Get in Touch</h3>
+        <p class="flex items-center mb-3 text-base">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 mr-3 text-[#F89880]"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            ></path>
+          </svg>
+          contact@example.com
+        </p>
+        <p class="flex items-center text-base">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 mr-3 text-[#F89880]"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+            ></path>
+          </svg>
+          +49 30 1234567
+        </p>
+      </div>
+    </div>
+
+    <!-- Decorative curve at the bottom right -->
+    <div
+      class="absolute bottom-0 right-0 w-64 h-64 bg-[#F89880] rounded-full opacity-30 transform translate-x-1/3 translate-y-1/3"
+    >
+    </div>
+  </div>
   <EngagementCallout />
   <Footer />
 </SiteLayout>
