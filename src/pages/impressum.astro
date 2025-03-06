@@ -1,12 +1,10 @@
 ---
 import { Icon } from 'astro-icon/components';
-import PageHeader from '../components/page-header.astro';
 import Section from '../components/Section.astro';
-import SiteLayout from '../layouts/BaseLayout.astro';
-import Footer from '../components/Footer.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<SiteLayout>
+<BaseLayout title="Impressum">
   <section class="bg-primary text-white">
     <div class="container mx-auto px-8">
       <!-- Top spacing and subtitle - with improved vertical rhythm -->
@@ -45,8 +43,8 @@ import Footer from '../components/Footer.astro';
       <h2 class="font-semibold">Angaben gemäß § 5 TMG</h2>
       <p>
         GeTu Prospects e.V.<br />
-        Avenue Charles de Gaulle 11<br />
-        13469 Berlin
+        Lange Enden 29<br />
+        13437 Berlin
       </p>
 
       <h2 class="font-semibold">Vertreten durch</h2>
@@ -63,7 +61,7 @@ import Footer from '../components/Footer.astro';
       <p>
         Eintragung im Vereinsregister.<br />
         Registergericht: Amtsgericht Berlin-Charlottenburg<br />
-        Registernummer: [Ihre Registernummer]
+        Registernummer: VR 37009 B
       </p>
 
       <h2 class="font-semibold">
@@ -72,19 +70,61 @@ import Footer from '../components/Footer.astro';
       <p>
         Oladayo Fagbemi<br />
         GeTu Prospects e.V.<br />
-        Avenue Charles de Gaulle 11<br />
-        13469 Berlin
+        Lange Enden 29<br />
+        13437 Berlin
       </p>
 
       <div>
         <div class="flex gap-2 items-start">
           <Icon name="mdi:download" class="mt-1" />
           <div class="flex flex-col leading-tight justify-center">
-            <a href="/getu-satzung.pdf">Auszug aus der Vereinsatzung</a>
-            <p>(PDF, 79KB)</p>
+            <a href="/getu_satzung.pdf">Auszug aus der Vereinsatzung</a>
+            <p>(PDF, 8,1MB)</p>
           </div>
         </div>
       </div>
+
+      <div>
+        <h2 class="font-semibold">Bildnachweis</h2>
+        <ul>
+          <li>
+            <em>Two Person holding heart</em> von <a
+              href="https://unsplash.com/@kellysikkema?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+              >Kelly Sikkema</a
+            > über <a
+              href="https://unsplash.com/photos/two-person-holding-papercut-heart-4le7k9XVYjE?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+              >Unsplash</a
+            >
+          </li>
+          <li>
+            Foto von <a
+              href="https://unsplash.com/@grievek1610begur?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+              >Kevin Grieve</a
+            > über <a
+              href="https://unsplash.com/photos/text-1zPBRHhwz7A?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+              >Unsplash</a
+            >
+          </li>
+          <li>
+            <em>People holding shoulders sitting on wall</em> von <a
+              href="https://unsplash.com/@miinyuii?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+              >Duy Pham</a
+            > über <a
+              href="https://unsplash.com/photos/people-holding-shoulders-sitting-on-wall-Cecb0_8Hx-o?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+              >Unsplash</a
+            >
+          </li>
+          <li>
+            <em>Four PErson holding each others waist at daytime</em> von <a
+              href="https://unsplash.com/@voneciacarswell?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+              >Vonecia Carswell</a
+            > über <a
+              href="https://unsplash.com/photos/four-person-holding-each-others-waist-at-daytime-0aMMMUjiiEQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+              >Unsplash</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
   </Section>
-</SiteLayout>
+</BaseLayout>
