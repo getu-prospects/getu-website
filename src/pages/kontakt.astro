@@ -161,12 +161,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             Schreiben Sie uns
           </h2>
 
-          <form class="space-y-6">
+          <form class="space-y-6" data-netlify="true">
             <div class="grid md:grid-cols-2 gap-6">
               <div>
                 <input
                   type="text"
                   placeholder="Name"
+                  name="name"
                   class="w-full p-4 bg-white border border-tp-border-2 focus:border-primary focus:outline-none text-body"
                   required
                 />
@@ -174,6 +175,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <div>
                 <input
                   type="email"
+                  name="email"
                   placeholder="E-Mail"
                   class="w-full p-4 bg-white border border-tp-border-2 focus:border-primary focus:outline-none text-body"
                   required
@@ -184,6 +186,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="grid md:grid-cols-2 gap-6">
               <div>
                 <input
+                  name="phone"
                   type="tel"
                   placeholder="Telefon"
                   class="w-full p-4 bg-white border border-tp-border-2 focus:border-primary focus:outline-none text-body"
@@ -191,6 +194,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </div>
               <div>
                 <input
+                  name="subject"
                   type="text"
                   placeholder="Betreff"
                   class="w-full p-4 bg-white border border-tp-border-2 focus:border-primary focus:outline-none text-body"
@@ -200,6 +204,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
             <div>
               <textarea
+                name="message"
                 placeholder="Ihre Nachricht"
                 rows="6"
                 class="w-full p-4 bg-white border border-tp-border-2 focus:border-primary focus:outline-none text-body resize-none"
