@@ -4,9 +4,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="Seite nicht gefunden - GeTu Prospects e.V.">
   <section class="bg-primary text-white">
-    <div class="container mx-auto px-8">
+    <div class="container mx-auto px-4 sm:px-8">
       <!-- Top spacing and subtitle - with improved vertical rhythm -->
-      <div class="pt-40 pb-6 text-center">
+      <div class="pt-24 sm:pt-32 md:pt-40 pb-4 sm:pb-6 text-center">
         <span
           class="text-secondary uppercase tracking-wider text-sm font-medium"
           >404 FEHLER</span
@@ -28,7 +28,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <!-- Main text with improved width constraints and spacing -->
-      <div class="max-w-3xl mx-auto text-center pb-32">
+      <div class="max-w-3xl mx-auto text-center pb-16 sm:pb-24 md:pb-32">
         <p class="text-lg md:text-xl font-light leading-relaxed text-gray-100">
           Die von Ihnen gesuchte Seite existiert leider nicht oder wurde verschoben.
         </p>
@@ -37,19 +37,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- 404 Message Section -->
-  <section class="py-32 bg-white">
-    <div class="container mx-auto px-8">
+  <section class="py-16 sm:py-24 md:py-32 bg-white">
+    <div class="container mx-auto px-4 sm:px-8">
       <div class="max-w-3xl mx-auto text-center">
         <!-- Creative 404 icon with layered design -->
-        <div class="flex justify-center mb-10 relative">
+        <div class="flex justify-center mb-8 sm:mb-10 relative">
           <!-- Outer decorative element -->
-          <div class="absolute -top-4 -left-4 w-24 h-24 border-t-4 border-l-4 border-secondary"></div>
+          <div class="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-16 h-16 sm:w-20 md:w-24 sm:h-20 md:h-24 border-t-3 sm:border-t-4 border-l-3 sm:border-l-4 border-secondary"></div>
           
           <!-- Main icon container with gradient background -->
-          <div class="bg-primary p-8 relative z-10">
+          <div class="bg-primary p-5 sm:p-6 md:p-8 rounded-lg relative z-10">
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
-              class="h-16 w-16 text-white" 
+              class="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 text-white" 
               fill="none" 
               viewBox="0 0 24 24" 
               stroke="currentColor"
@@ -64,11 +64,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
           
           <!-- Bottom right decorative element -->
-          <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-4 border-r-4 border-secondary"></div>
+          <div class="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-16 h-16 sm:w-20 md:w-24 sm:h-20 md:h-24 border-b-3 sm:border-b-4 border-r-3 sm:border-r-4 border-secondary"></div>
         </div>
         
         <!-- 404 message content -->
-        <div class="bg-tp-grey-1 p-12">
+        <div class="bg-tp-grey-1 p-6 sm:p-8 md:p-12 rounded-lg">
           <h2 class="text-primary text-3xl font-bold mb-6">
             Diese Seite wurde nicht gefunden
           </h2>
@@ -87,10 +87,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </p>
           
           <!-- Navigation button -->
-          <div class="mt-12 flex justify-center">
+          <div class="mt-8 sm:mt-10 md:mt-12 flex justify-center">
             <a 
               href="/kontakt" 
-              class="btn btn-secondary hover-lift text-lg flex items-center justify-center"
+              class="btn btn-secondary hover-lift text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 flex items-center justify-center"
             >
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
