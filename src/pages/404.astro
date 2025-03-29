@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Seite nicht gefunden - GeTu Prospects e.V.">
+  <section class="bg-primary text-white">
+    <div class="container mx-auto px-8">
+      <!-- Top spacing and subtitle - with improved vertical rhythm -->
+      <div class="pt-40 pb-6 text-center">
+        <span
+          class="text-secondary uppercase tracking-wider text-sm font-medium"
+          >404 FEHLER</span
+        >
+      </div>
+
+      <!-- Main heading with better visual weight -->
+      <div class="text-center">
+        <h1
+          class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+        >
+          Seite nicht gefunden
+        </h1>
+
+        <!-- Refined divider - shorter and more elegant -->
+        <div class="flex justify-center">
+          <div class="h-1 w-16 bg-secondary mb-12"></div>
+        </div>
+      </div>
+
+      <!-- Main text with improved width constraints and spacing -->
+      <div class="max-w-3xl mx-auto text-center pb-32">
+        <p class="text-lg md:text-xl font-light leading-relaxed text-gray-100">
+          Die von Ihnen gesuchte Seite existiert leider nicht oder wurde verschoben.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 404 Message Section -->
+  <section class="py-32 bg-white">
+    <div class="container mx-auto px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <!-- Creative 404 icon with layered design -->
+        <div class="flex justify-center mb-10 relative">
+          <!-- Outer decorative element -->
+          <div class="absolute -top-4 -left-4 w-24 h-24 border-t-4 border-l-4 border-secondary"></div>
+          
+          <!-- Main icon container with gradient background -->
+          <div class="bg-primary p-8 relative z-10">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              class="h-16 w-16 text-white" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                stroke-width="2" 
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" 
+              />
+            </svg>
+          </div>
+          
+          <!-- Bottom right decorative element -->
+          <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-4 border-r-4 border-secondary"></div>
+        </div>
+        
+        <!-- 404 message content -->
+        <div class="bg-tp-grey-1 p-12">
+          <h2 class="text-primary text-3xl font-bold mb-6">
+            Diese Seite wurde nicht gefunden
+          </h2>
+          
+          <!-- Divider matching the header section -->
+          <div class="flex justify-center mb-8">
+            <div class="h-1 w-16 bg-secondary"></div>
+          </div>
+          
+          <p class="text-body text-lg mb-4">
+            Die von Ihnen angeforderte Seite existiert nicht oder wurde verschoben.
+          </p>
+          
+          <p class="text-body text-lg mb-10">
+            Sie werden in <span id="countdown" class="text-secondary font-bold text-xl">10</span> Sekunden zur Startseite weitergeleitet.
+          </p>
+          
+          <!-- Navigation button -->
+          <div class="mt-12 flex justify-center">
+            <a 
+              href="/kontakt" 
+              class="btn btn-secondary hover-lift text-lg flex items-center justify-center"
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                class="h-5 w-5 mr-2" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round" 
+                  stroke-width="2" 
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+              Kontakt aufnehmen
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Countdown timer and redirect
+    document.addEventListener('DOMContentLoaded', () => {
+      const countdownElement = document.getElementById('countdown');
+      let secondsLeft = 10;
+      
+      const countdownInterval = setInterval(() => {
+        secondsLeft -= 1;
+        
+        if (countdownElement) {
+          countdownElement.textContent = secondsLeft.toString();
+        }
+        
+        if (secondsLeft <= 0) {
+          clearInterval(countdownInterval);
+          window.location.href = '/';
+        }
+      }, 1000);
+    });
+  </script>
+</BaseLayout>
