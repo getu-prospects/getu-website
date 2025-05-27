@@ -1,0 +1,338 @@
+---
+// UpcomingEvents.astro - Live countdown component for "Gemeinsam statt einsam" project
+import BuergermeisterinPhoto from '../assets/images/buergermeisterin.png';
+import KatharinaSchulzPhoto from '../assets/images/katharina-schulz.png';
+---
+
+<!-- Upcoming Events Section - Eye-catching and prominent -->
+<section
+  class="bg-gradient-to-r from-secondary to-primary py-32 relative overflow-hidden"
+>
+  <!-- Breaking News Banner -->
+  <div
+    class="absolute top-0 left-0 right-0 bg-secondary text-white py-3 z-20 overflow-hidden"
+  >
+    <div class="container mx-auto px-8">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-2 flex-shrink-0">
+          <div class="w-3 h-3 bg-white rounded-full animate-pulse"></div>
+          <span class="font-bold uppercase tracking-wider text-sm">LIVE</span>
+        </div>
+        <div class="flex-1 overflow-hidden ml-8">
+          <div class="animate-marquee whitespace-nowrap">
+            <span class="font-medium"
+              >Neues Projekt "Gemeinsam statt einsam" startet am 30. Juni 2025
+              um 15:00 Uhr - Jetzt anmelden!</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dynamic Background Elements -->
+  <div class="absolute inset-0">
+    <div
+      class="absolute top-20 left-10 w-32 h-32 bg-white bg-opacity-10 rounded-full animate-pulse-slow"
+    >
+    </div>
+    <div
+      class="absolute bottom-20 right-10 w-24 h-24 bg-white bg-opacity-10 rounded-full animate-pulse-slow"
+      style="animation-delay: 2s;"
+    >
+    </div>
+    <div
+      class="absolute top-1/2 left-1/4 w-16 h-16 bg-white bg-opacity-10 rounded-full animate-pulse-slow"
+      style="animation-delay: 4s;"
+    >
+    </div>
+  </div>
+
+  <div class="container mx-auto px-8 relative z-10 pt-8">
+    <div class="max-w-5xl mx-auto text-center text-white">
+      <!-- Attention-grabbing header -->
+      <div class="mb-16">
+        <div
+          class="inline-block bg-white bg-opacity-20 backdrop-blur-sm px-6 py-3 rounded-full mb-6 relative"
+        >
+          <div
+            class="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full animate-ping"
+          >
+          </div>
+          <div
+            class="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full"
+          >
+          </div>
+          <span class="text-white font-bold tracking-wider text-sm uppercase">
+            🚀 Es geht los!
+          </span>
+        </div>
+        <h2 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+          Gemeinsam statt einsam
+        </h2>
+        <p class="text-xl md:text-2xl font-light mb-4">
+          Unser neues Projekt startet am
+        </p>
+        <p class="text-3xl md:text-4xl font-bold">30. Juni 2025, 15:00</p>
+      </div>
+
+      <!-- Live Countdown with Seconds -->
+      <div
+        class="bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl p-8 mb-16 relative"
+      >
+        <div class="flex items-center justify-center mb-6">
+          <div class="w-3 h-3 bg-secondary rounded-full animate-pulse mr-3">
+          </div>
+          <h3 class="text-2xl font-bold">Countdown zum Start</h3>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <div class="text-center">
+            <div
+              class="bg-white text-primary rounded-xl p-4 mb-3 transform transition-all duration-300 hover:scale-105"
+            >
+              <div
+                class="text-3xl md:text-4xl font-bold countdown-number"
+                id="hero-days"
+              >
+                --
+              </div>
+            </div>
+            <div class="text-sm md:text-base font-medium">Tage</div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-white text-primary rounded-xl p-4 mb-3 transform transition-all duration-300 hover:scale-105"
+            >
+              <div
+                class="text-3xl md:text-4xl font-bold countdown-number"
+                id="hero-hours"
+              >
+                --
+              </div>
+            </div>
+            <div class="text-sm md:text-base font-medium">Stunden</div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-white text-primary rounded-xl p-4 mb-3 transform transition-all duration-300 hover:scale-105"
+            >
+              <div
+                class="text-3xl md:text-4xl font-bold countdown-number"
+                id="hero-minutes"
+              >
+                --
+              </div>
+            </div>
+            <div class="text-sm md:text-base font-medium">Minuten</div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-white text-secondary rounded-xl p-4 mb-3 transform transition-all duration-300 hover:scale-105"
+            >
+              <div
+                class="text-3xl md:text-4xl font-bold countdown-number"
+                id="hero-seconds"
+              >
+                --
+              </div>
+            </div>
+            <div class="text-sm md:text-base font-medium">Sekunden</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event Teaser -->
+      <div class="max-w-4xl mx-auto mb-16">
+        <div
+          class="bg-white bg-opacity-15 backdrop-blur-sm rounded-2xl p-8 text-center"
+        >
+          <p class="text-xl leading-relaxed mb-8 text-white text-opacity-95">
+            Ein neues Kapitel beginnt! Wir starten unser innovatives Projekt
+            gegen Einsamkeit und schaffen Räume für echte Begegnungen in unserer
+            Gemeinschaft.
+          </p>
+
+          <!-- Special Guests Highlight -->
+          <div class="bg-white bg-opacity-10 rounded-xl p-6 mb-6">
+            <h4 class="text-lg font-bold mb-6 flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 mr-2 text-secondary"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                ></path>
+              </svg>
+              Besondere Ehrengäste erwartet
+            </h4>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <!-- Katharina Schulz -->
+              <div class="text-center">
+                <div
+                  class="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden border-2 border-white border-opacity-50"
+                >
+                  <img
+                    src={KatharinaSchulzPhoto.src}
+                    alt="Katharina Schulz"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <p class="text-white text-opacity-90 text-sm">
+                  <strong>Katharina Schulz</strong><br />
+                  Einsamkeitsbeauftragte Reinickendorf
+                </p>
+              </div>
+
+              <!-- Bezirksbürgermeisterin -->
+              <div class="text-center">
+                <div
+                  class="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden border-2 border-white border-opacity-50"
+                >
+                  <img
+                    src={BuergermeisterinPhoto.src}
+                    alt="Emine Demirbüken-Wegner"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <p class="text-white text-opacity-90 text-sm">
+                  <strong>Emine Demirbüken-Wegner</strong><br />
+                  Bezirksbürgermeisterin<br />
+                  Bezirk Reinickendorf
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Strong Call to Action -->
+      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <a
+          href="/projekte"
+          class="bg-white text-primary py-4 px-8 font-bold text-lg hover:bg-opacity-90 transition-all transform hover:scale-105 relative overflow-hidden group"
+        >
+          <span class="relative z-10">Alle Details erfahren →</span>
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-10 transition-opacity"
+          >
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Live Countdown Script -->
+<script>
+  // Live Countdown Timer for Homepage with Seconds
+  function updateHomeCountdown() {
+    const kickoffDate = new Date('2025-06-30T15:00:00').getTime();
+    const now = new Date().getTime();
+    const timeLeft = kickoffDate - now;
+
+    if (timeLeft > 0) {
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+      );
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      const daysEl = document.getElementById('hero-days');
+      const hoursEl = document.getElementById('hero-hours');
+      const minutesEl = document.getElementById('hero-minutes');
+      const secondsEl = document.getElementById('hero-seconds');
+
+      // Add animation when numbers change
+      function updateWithAnimation(
+        element: HTMLElement | null,
+        newValue: string,
+      ) {
+        if (element && element.textContent !== newValue) {
+          element.style.transform = 'scale(1.1)';
+          element.textContent = newValue;
+          setTimeout(() => {
+            element.style.transform = 'scale(1)';
+          }, 150);
+        }
+      }
+
+      if (daysEl) updateWithAnimation(daysEl, days.toString());
+      if (hoursEl)
+        updateWithAnimation(hoursEl, hours.toString().padStart(2, '0'));
+      if (minutesEl)
+        updateWithAnimation(minutesEl, minutes.toString().padStart(2, '0'));
+      if (secondsEl)
+        updateWithAnimation(secondsEl, seconds.toString().padStart(2, '0'));
+    } else {
+      const daysEl = document.getElementById('hero-days');
+      const hoursEl = document.getElementById('hero-hours');
+      const minutesEl = document.getElementById('hero-minutes');
+      const secondsEl = document.getElementById('hero-seconds');
+
+      if (daysEl) daysEl.textContent = '0';
+      if (hoursEl) hoursEl.textContent = '00';
+      if (minutesEl) minutesEl.textContent = '00';
+      if (secondsEl) secondsEl.textContent = '00';
+    }
+  }
+
+  // Update countdown immediately and then every second
+  updateHomeCountdown();
+  setInterval(updateHomeCountdown, 1000);
+</script>
+
+<!-- Custom Animations and Styles -->
+<style>
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+
+  .countdown-number {
+    transition: transform 0.15s ease-in-out;
+  }
+
+  /* Animation Classes */
+  .animate-fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  .animate-pulse-slow {
+    animation: pulseSlow 7s infinite;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes pulseSlow {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.85;
+    }
+  }
+</style>

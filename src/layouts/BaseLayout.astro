@@ -9,6 +9,9 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+// Get current path to determine active page
+const currentPath = Astro.url.pathname;
 ---
 
 <html lang="de">
@@ -89,13 +92,19 @@ const { title } = Astro.props;
             <nav class="flex space-x-10">
               <a
                 href="/"
-                class="text-white hover:text-secondary font-medium py-2 transition-colors duration-300"
-                >Startseite</a
+                class={`font-medium py-2 transition-colors duration-300 ${
+                  currentPath === '/'
+                    ? 'text-secondary'
+                    : 'text-white hover:text-secondary'
+                }`}>Startseite</a
               >
               <a
                 href="/ueber-uns"
-                class="text-white hover:text-secondary font-medium py-2 transition-colors duration-300"
-                >Über uns</a
+                class={`font-medium py-2 transition-colors duration-300 ${
+                  currentPath === '/ueber-uns'
+                    ? 'text-secondary'
+                    : 'text-white hover:text-secondary'
+                }`}>Über uns</a
               >
               <!-- <a
                 href="/jugend"
@@ -104,13 +113,19 @@ const { title } = Astro.props;
               > -->
               <a
                 href="/projekte"
-                class="text-white hover:text-secondary font-medium py-2 transition-colors duration-300"
-                >Projekte</a
+                class={`font-medium py-2 transition-colors duration-300 ${
+                  currentPath === '/projekte'
+                    ? 'text-secondary'
+                    : 'text-white hover:text-secondary'
+                }`}>Projekte</a
               >
               <a
                 href="/kontakt"
-                class="text-white hover:text-secondary font-medium py-2 transition-colors duration-300"
-                >Kontakt</a
+                class={`font-medium py-2 transition-colors duration-300 ${
+                  currentPath === '/kontakt'
+                    ? 'text-secondary'
+                    : 'text-white hover:text-secondary'
+                }`}>Kontakt</a
               >
             </nav>
           </div>
@@ -148,15 +163,21 @@ const { title } = Astro.props;
             <li>
               <a
                 href="/"
-                class="text-white text-2xl font-medium hover:text-secondary block py-2 transition-colors duration-300"
-                >Startseite</a
+                class={`text-2xl font-medium block py-2 transition-colors duration-300 ${
+                  currentPath === '/'
+                    ? 'text-secondary'
+                    : 'text-white hover:text-secondary'
+                }`}>Startseite</a
               >
             </li>
             <li>
               <a
                 href="/ueber-uns"
-                class="text-white text-2xl font-medium hover:text-secondary block py-2 transition-colors duration-300"
-                >Über uns</a
+                class={`text-2xl font-medium block py-2 transition-colors duration-300 ${
+                  currentPath === '/ueber-uns'
+                    ? 'text-secondary'
+                    : 'text-white hover:text-secondary'
+                }`}>Über uns</a
               >
             </li>
             <li>
@@ -169,15 +190,21 @@ const { title } = Astro.props;
             <li>
               <a
                 href="/projekte"
-                class="text-white text-2xl font-medium hover:text-secondary block py-2 transition-colors duration-300"
-                >Projekte</a
+                class={`text-2xl font-medium block py-2 transition-colors duration-300 ${
+                  currentPath === '/projekte'
+                    ? 'text-secondary'
+                    : 'text-white hover:text-secondary'
+                }`}>Projekte</a
               >
             </li>
             <li>
               <a
                 href="/kontakt"
-                class="text-white text-2xl font-medium hover:text-secondary block py-2 transition-colors duration-300"
-                >Kontakt</a
+                class={`text-2xl font-medium block py-2 transition-colors duration-300 ${
+                  currentPath === '/kontakt'
+                    ? 'text-secondary'
+                    : 'text-white hover:text-secondary'
+                }`}>Kontakt</a
               >
             </li>
           </ul>
