@@ -1,0 +1,85 @@
+---
+// Hero section - Full-bleed photography with bold typography
+---
+
+<section class="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden">
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <img
+      src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80"
+      alt="Diverse community members together"
+      class="w-full h-full object-cover"
+      loading="eager"
+    />
+    <!-- Gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/70 to-charcoal/40"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 container-wide py-20 lg:py-32">
+    <div class="max-w-3xl">
+      <!-- Label -->
+      <div class="animate-fade-up">
+        <span class="inline-flex items-center gap-2 px-4 py-2 bg-terracotta/20 backdrop-blur-sm rounded-full text-terracotta-light text-sm font-medium mb-8">
+          <span class="w-2 h-2 bg-terracotta rounded-full animate-pulse"></span>
+          Interkultureller Verein in Berlin
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="headline-hero text-white mb-6 animate-fade-up delay-100">
+        Gemeinsam fur eine
+        <span class="text-terracotta-light italic">bessere</span>
+        Zukunft
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="text-xl lg:text-2xl text-white/80 mb-10 leading-relaxed max-w-2xl animate-fade-up delay-200">
+        Wir verbinden Menschen, fordern Jugendliche und bauen Brucken zwischen Kulturen.
+        Werde Teil unserer Geschichte.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-wrap gap-4 animate-fade-up delay-300">
+        <a href="/kontakt#volunteer" class="btn btn-primary btn-lg">
+          Mitmachen
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a href="/projekte" class="btn bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 btn-lg">
+          Unsere Projekte
+        </a>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="mt-16 pt-8 border-t border-white/20 animate-fade-up delay-400">
+        <div class="flex flex-wrap gap-8 lg:gap-16">
+          <div>
+            <span class="block text-4xl lg:text-5xl font-display text-white">10+</span>
+            <span class="text-white/60 text-sm">Jahre Engagement</span>
+          </div>
+          <div>
+            <span class="block text-4xl lg:text-5xl font-display text-white">500+</span>
+            <span class="text-white/60 text-sm">Menschen erreicht</span>
+          </div>
+          <div>
+            <span class="block text-4xl lg:text-5xl font-display text-white">4</span>
+            <span class="text-white/60 text-sm">Aktive Projekte</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float hidden lg:block">
+    <div class="flex flex-col items-center gap-2 text-white/50">
+      <span class="text-xs uppercase tracking-widest">Scroll</span>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+      </svg>
+    </div>
+  </div>
+</section>

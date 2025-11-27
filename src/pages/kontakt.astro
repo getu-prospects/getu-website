@@ -3,234 +3,317 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Kontakt - GeTu Prospects e.V.">
-  <section class="bg-primary text-white">
-    <div class="container mx-auto px-8">
-      <!-- Top spacing and subtitle - with improved vertical rhythm -->
-      <div class="pt-40 pb-6 text-center">
-        <span
-          class="text-secondary uppercase tracking-wider text-sm font-medium"
-          >KONTAKT</span
-        >
-      </div>
+  <!-- Hero Section -->
+  <section class="relative min-h-[50vh] flex items-center overflow-hidden bg-charcoal">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&q=80"
+        alt="Team collaboration"
+        class="w-full h-full object-cover opacity-25"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/90 to-charcoal/70"></div>
+    </div>
 
-      <!-- Main heading with better visual weight -->
-      <div class="text-center">
-        <h1
-          class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
-        >
-          Kontaktieren Sie uns
+    <div class="relative container-wide py-20">
+      <div class="max-w-3xl">
+        <span class="label-sm text-terracotta mb-4 block animate-fade-up">Kontakt</span>
+        <h1 class="headline-hero text-white mb-6 animate-fade-up delay-100">
+          Wir freuen uns auf
+          <span class="italic text-terracotta-light">Sie</span>
         </h1>
-
-        <!-- Refined divider - shorter and more elegant -->
-        <div class="flex justify-center">
-          <div class="h-1 w-16 bg-secondary mb-12"></div>
-        </div>
-      </div>
-
-      <!-- Main text with improved width constraints and spacing -->
-      <div class="max-w-3xl mx-auto text-center pb-32">
-        <p class="text-lg md:text-xl font-light leading-relaxed text-gray-100">
-          Haben Sie Fragen oder Anliegen? Nutzen Sie gerne unser
-          Kontaktformular, um uns eine Nachricht zu senden. Wir freuen uns, von
-          Ihnen zu hören!
+        <p class="text-xl text-white/80 leading-relaxed animate-fade-up delay-200">
+          Haben Sie Fragen oder mochten Sie sich engagieren? Wir sind fur Sie da
+          und helfen Ihnen gerne weiter.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Contact Info Section -->
-  <section class="py-32 bg-white">
-    <div class="container mx-auto px-8">
-      <div class="grid md:grid-cols-2 gap-12">
+  <!-- Contact Section -->
+  <section class="section-padding bg-cream">
+    <div class="container-wide">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
         <!-- Contact Information -->
-        <div>
-          <h2 class="text-primary text-3xl font-bold mb-8">
-            Wie Sie uns erreichen können
-          </h2>
+        <div class="reveal">
+          <span class="label-sm text-terracotta mb-4 block">So erreichen Sie uns</span>
+          <h2 class="headline-section text-charcoal mb-8">Kontaktdaten</h2>
 
           <div class="space-y-8">
-            <div class="flex items-start">
-              <div class="bg-tp-grey-1 p-4 mr-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-secondary"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  ></path>
+            <!-- Phone -->
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 bg-terracotta/10 rounded-xl flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                 </svg>
               </div>
               <div>
-                <h3 class="text-primary text-xl font-medium mb-2">Telefon</h3>
-                <p class="text-body text-lg">+49 (0) 1724328326</p>
+                <h3 class="font-display text-xl text-charcoal mb-1">Telefon</h3>
+                <a href="tel:+4901724328326" class="text-charcoal-light hover:text-terracotta transition-colors text-lg">
+                  +49 (0) 172 432 8326
+                </a>
               </div>
             </div>
 
-            <div class="flex items-start">
-              <div class="bg-tp-grey-1 p-4 mr-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-secondary"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  ></path>
+            <!-- Email -->
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 bg-sage/20 rounded-xl flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-sage-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                 </svg>
               </div>
               <div>
-                <h3 class="text-primary text-xl font-medium mb-2">E-Mail</h3>
-                <p class="text-body text-lg">info@getu-prospects.de</p>
+                <h3 class="font-display text-xl text-charcoal mb-1">E-Mail</h3>
+                <a href="mailto:info@getu-prospects.de" class="text-charcoal-light hover:text-terracotta transition-colors text-lg">
+                  info@getu-prospects.de
+                </a>
               </div>
             </div>
 
-            <div class="flex items-start">
-              <div class="bg-tp-grey-1 p-4 mr-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-secondary"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  ></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            <!-- Address -->
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 bg-gold/20 rounded-xl flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-gold-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                 </svg>
               </div>
               <div>
-                <h3 class="text-primary text-xl font-medium mb-2">Adresse</h3>
-                <p class="text-body text-lg">Lange Enden 29</p>
-                <p class="text-body text-lg">Aufgang 2, 2. Etage (Raum 2.05)</p>
-                <p class="text-body text-lg">13437 Berlin</p>
+                <h3 class="font-display text-xl text-charcoal mb-1">Adresse</h3>
+                <address class="text-charcoal-light text-lg not-italic leading-relaxed">
+                  Lange Enden 29<br/>
+                  Aufgang 2, 2. Etage (Raum 2.05)<br/>
+                  13437 Berlin
+                </address>
               </div>
             </div>
 
-            <div class="flex items-start">
-              <div class="bg-tp-grey-1 p-4 mr-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-secondary"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            <!-- Hours -->
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 bg-terracotta/10 rounded-xl flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
               </div>
               <div>
-                <h3 class="text-primary text-xl font-medium mb-2">
-                  Öffnungszeiten
-                </h3>
-                <div>
-                  <p>Termin nach Vereinbarung</p>
-                  <!-- <p class="text-body text-lg">Montag: 10:00 - 17:00 Uhr</p>
-                  <p class="text-body text-lg">Freitag: 10:00 - 17:00 Uhr</p>
-                  <small class="text-body">Und nach Vereinbarung</small> -->
-                </div>
+                <h3 class="font-display text-xl text-charcoal mb-1">Offnungszeiten</h3>
+                <p class="text-charcoal-light text-lg">Termin nach Vereinbarung</p>
               </div>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="mt-12 pt-8 border-t border-charcoal/10">
+            <h3 class="font-display text-lg text-charcoal mb-4">Folgen Sie uns</h3>
+            <div class="flex gap-4">
+              <a
+                href="https://www.instagram.com/getuprospects/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-12 h-12 bg-charcoal/5 rounded-xl flex items-center justify-center text-charcoal hover:bg-terracotta hover:text-white transition-all"
+                aria-label="Instagram"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+              <a
+                href="https://www.facebook.com/getuprospects"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-12 h-12 bg-charcoal/5 rounded-xl flex items-center justify-center text-charcoal hover:bg-terracotta hover:text-white transition-all"
+                aria-label="Facebook"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/getu-prospects"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-12 h-12 bg-charcoal/5 rounded-xl flex items-center justify-center text-charcoal hover:bg-terracotta hover:text-white transition-all"
+                aria-label="LinkedIn"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
             </div>
           </div>
         </div>
 
         <!-- Contact Form -->
-        <div class="bg-tp-grey-1">
-          <h2 class="text-primary text-3xl font-bold mb-8">
-            Schreiben Sie uns
-          </h2>
+        <div class="reveal" style="animation-delay: 150ms">
+          <div class="bg-white rounded-2xl shadow-soft-lg p-8 lg:p-10">
+            <h2 class="headline-card text-charcoal mb-2">Schreiben Sie uns</h2>
+            <p class="text-charcoal-light mb-8">
+              Wir melden uns schnellstmoglich bei Ihnen.
+            </p>
 
-          <form class="space-y-6" data-netlify="true" action="/erfolg">
-            <div class="grid md:grid-cols-2 gap-6">
+            <form class="space-y-6" data-netlify="true" name="contact" action="/erfolg" method="POST">
+              <input type="hidden" name="form-name" value="contact" />
+
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label for="name" class="block text-sm font-medium text-charcoal mb-2">Name *</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="w-full px-4 py-3 bg-sand/50 border border-charcoal/10 rounded-lg focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 focus:outline-none transition-all text-charcoal placeholder:text-charcoal/40"
+                    placeholder="Ihr Name"
+                  />
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-medium text-charcoal mb-2">E-Mail *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full px-4 py-3 bg-sand/50 border border-charcoal/10 rounded-lg focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 focus:outline-none transition-all text-charcoal placeholder:text-charcoal/40"
+                    placeholder="ihre@email.de"
+                  />
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label for="phone" class="block text-sm font-medium text-charcoal mb-2">Telefon</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    class="w-full px-4 py-3 bg-sand/50 border border-charcoal/10 rounded-lg focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 focus:outline-none transition-all text-charcoal placeholder:text-charcoal/40"
+                    placeholder="+49 123 456 789"
+                  />
+                </div>
+                <div>
+                  <label for="subject" class="block text-sm font-medium text-charcoal mb-2">Betreff</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    class="w-full px-4 py-3 bg-sand/50 border border-charcoal/10 rounded-lg focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 focus:outline-none transition-all text-charcoal placeholder:text-charcoal/40"
+                    placeholder="Worum geht es?"
+                  />
+                </div>
+              </div>
+
               <div>
-                <input
-                  type="text"
-                  placeholder="Name"
-                  name="name"
-                  class="w-full p-4 bg-white border border-tp-border-2 focus:border-primary focus:outline-none text-body"
+                <label for="message" class="block text-sm font-medium text-charcoal mb-2">Nachricht *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
                   required
-                />
+                  class="w-full px-4 py-3 bg-sand/50 border border-charcoal/10 rounded-lg focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 focus:outline-none transition-all text-charcoal placeholder:text-charcoal/40 resize-none"
+                  placeholder="Ihre Nachricht an uns..."
+                ></textarea>
               </div>
-              <div>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="E-Mail"
-                  class="w-full p-4 bg-white border border-tp-border-2 focus:border-primary focus:outline-none text-body"
-                  required
-                />
-              </div>
-            </div>
 
-            <div class="grid md:grid-cols-2 gap-6">
-              <div>
-                <input
-                  name="phone"
-                  type="tel"
-                  placeholder="Telefon"
-                  class="w-full p-4 bg-white border border-tp-border-2 focus:border-primary focus:outline-none text-body"
-                />
-              </div>
-              <div>
-                <input
-                  name="subject"
-                  type="text"
-                  placeholder="Betreff"
-                  class="w-full p-4 bg-white border border-tp-border-2 focus:border-primary focus:outline-none text-body"
-                />
-              </div>
-            </div>
-
-            <div>
-              <textarea
-                name="message"
-                placeholder="Ihre Nachricht"
-                rows="6"
-                class="w-full p-4 bg-white border border-tp-border-2 focus:border-primary focus:outline-none text-body resize-none"
-                required></textarea>
-            </div>
-
-            <div class="text-right">
-              <button type="submit" class="btn btn-secondary hover-lift">
-                Nachricht Absenden
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg w-full justify-center"
+              >
+                Nachricht senden
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
               </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Volunteer Section -->
+  <section id="volunteer" class="section-padding bg-charcoal text-white scroll-mt-20">
+    <div class="container-wide">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="reveal">
+          <span class="label-sm text-terracotta mb-4 block">Mitmachen</span>
+          <h2 class="headline-section text-white mb-6">
+            Freiwillig engagieren
+          </h2>
+          <p class="text-xl text-white/80 leading-relaxed mb-6">
+            Sie mochten Teil unseres Teams werden und Menschen in unserer
+            Gemeinschaft unterstutzen? Wir freuen uns uber engagierte Freiwillige!
+          </p>
+          <p class="text-white/70 leading-relaxed mb-8">
+            Als Freiwilliger bei GeTu Prospects e.V. konnen Sie in verschiedenen
+            Bereichen tatig werden: Mentoring, Jugendarbeit, Veranstaltungen oder
+            administrative Unterstutzung.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-terracotta" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-white/80">Flexible Zeiteinteilung</span>
             </div>
-          </form>
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-terracotta" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-white/80">Sinnvolle Tatigkeit</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-terracotta" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-white/80">Teil einer warmherzigen Gemeinschaft</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal" style="animation-delay: 150ms">
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 lg:p-10 border border-white/10">
+            <h3 class="font-display text-2xl text-white mb-6">Interesse geweckt?</h3>
+            <p class="text-white/70 mb-8">
+              Schreiben Sie uns eine Nachricht mit dem Betreff "Ehrenamt" und erzahlen
+              Sie uns kurz uber sich und Ihre Motivation.
+            </p>
+            <a
+              href="mailto:info@getu-prospects.de?subject=Ehrenamt%20bei%20GeTu%20Prospects"
+              class="btn bg-terracotta text-white hover:bg-terracotta-dark btn-lg w-full justify-center"
+            >
+              E-Mail schreiben
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Map Section -->
-  <section class="relative w-full">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2423.49850971731!2d13.316103476824148!3d52.59675953054361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a854800be5647b%3A0x35f7037a88f32bcc!2sLange%20Enden%2029%2C%2013437%20Berlin!5e0!3m2!1sde!2sde!4v1740695258141!5m2!1sde!2sde"
-      height="450"
-      style="border:0; width: 100%"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <section class="relative">
+    <div class="bg-sand py-12">
+      <div class="container-wide">
+        <div class="text-center max-w-2xl mx-auto mb-8 reveal">
+          <span class="label-sm text-terracotta mb-4 block">Standort</span>
+          <h2 class="headline-section text-charcoal">So finden Sie uns</h2>
+        </div>
+      </div>
+    </div>
+    <div class="w-full h-[450px]">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2423.49850971731!2d13.316103476824148!3d52.59675953054361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a854800be5647b%3A0x35f7037a88f32bcc!2sLange%20Enden%2029%2C%2013437%20Berlin!5e0!3m2!1sde!2sde!4v1740695258141!5m2!1sde!2sde"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Karte zu GeTu Prospects e.V."
+        class="grayscale hover:grayscale-0 transition-all duration-700"
+      ></iframe>
+    </div>
   </section>
 </BaseLayout>

@@ -1,171 +1,162 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { getRelativeLocaleUrl } from 'astro:i18n';
-import logo from '../assets/images/getu-logo.png';
-import '../assets/styles.css';
-import Cta from '../components/Cta.astro';
-import { getLangFromLocale, useTranslations } from '../i18n';
-import Container from './Container.astro';
-
-const lang = getLangFromLocale(Astro.currentLocale);
-const t = useTranslations(lang);
-
-const navigation = [
-  { name: t('nav.home'), href: getRelativeLocaleUrl(lang, '/') },
-  { name: t('nav.about'), href: getRelativeLocaleUrl(lang, '/ueber-uns') },
-  { name: t('nav.youth'), href: getRelativeLocaleUrl(lang, '/jugend') },
-  {
-    name: t('nav.project'),
-    href: getRelativeLocaleUrl(lang, '/projekte'),
-    dropdown: [
-      {
-        name: 'Weihnachtsaktion',
-        href: getRelativeLocaleUrl(lang, '/projekte/weihnachtsaktion'),
-      },
-      {
-        name: 'Projekt Einsamkeit',
-        href: getRelativeLocaleUrl(lang, '/projekte/einsamkeit'),
-      },
-    ],
-  },
-  // { name: t('nav.contact'), href: getRelativeLocaleUrl(lang, '/kontakt') },
+const navLinks = [
+  { href: '/', label: 'Start' },
+  { href: '/projekte', label: 'Projekte' },
+  { href: '/ueber-uns', label: 'Uber uns' },
+  { href: '/kontakt', label: 'Kontakt' },
 ];
 ---
 
-<header class="border">
-  <Container class="flex items-center justify-between">
-    <a href={getRelativeLocaleUrl(lang, '/')}>
-      <img src={logo.src} alt="GeTu Logo" class="max-w-[100px]" />
-    </a>
-    <!-- Mobile Navigation -->
-    <!-- <nav class="md:hidden relative z-999">
+<header id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <nav class="container-wide py-4 lg:py-5">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 lg:w-12 lg:h-12 bg-terracotta rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+          <span class="text-white font-display text-xl lg:text-2xl">G</span>
+        </div>
+        <div class="hidden sm:block">
+          <span class="block font-display text-lg lg:text-xl text-charcoal leading-tight">GeTu Prospects</span>
+          <span class="block text-xs text-charcoal-light">e.V. Berlin</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center gap-8">
+        {navLinks.map(({ href, label }) => (
+          <a href={href} class="nav-link text-sm">{label}</a>
+        ))}
+      </div>
+
+      <!-- CTA Button -->
+      <div class="hidden lg:block">
+        <a href="/kontakt#volunteer" class="btn btn-primary btn-sm">
+          Mitmachen
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
       <button
-        class="text-2xl text-primary"
-        aria-label="Toggle Menu"
-        id="menu-toggle"
+        id="mobile-menu-btn"
+        class="lg:hidden w-10 h-10 flex items-center justify-center text-charcoal"
+        aria-label="Menu offnen"
+        aria-expanded="false"
       >
-        <Icon name="mdi:hamburger-menu" />
+        <svg class="w-6 h-6 menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg class="w-6 h-6 close-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
       </button>
-      <ul
-        id="mobile-nav"
-        class="z-999 hidden absolute right-0 top-full mt-2 bg-white p-4 shadow-lg rounded-lg w-48 md:flex flex-col gap-y-4 font-semibold"
-      >
-        {
-          navigation.map((item) => (
-            <li class="hover:text-secondary">
-              <a href={item.href}>{item.name}</a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav> -->
-    <!-- Mobile Navigation -->
-    <nav class="md:hidden relative z-50">
-      <button
-        class="text-2xl text-primary"
-        aria-label="Toggle Menu"
-        id="menu-toggle"
-      >
-        <Icon name="mdi:hamburger-menu" />
-      </button>
-      <ul
-        id="mobile-nav"
-        class="z-50 hidden absolute right-0 top-full mt-2 bg-white p-4 shadow-lg rounded-lg w-48 flex-col gap-y-4 font-semibold"
-        style="display: none;"
-      >
-        {
-          navigation.map((item) => (
-            <li>
-              {item.dropdown ? (
-                <div class="relative">
-                  <button
-                    class="hover:text-secondary w-full text-left flex items-center justify-between"
-                    data-dropdown-toggle
-                  >
-                    {item.name}
-                    <Icon name="mdi:chevron-down" class="w-4 h-4" />
-                  </button>
-                  <ul class="hidden pl-4 mt-2 space-y-2">
-                    {item.dropdown.map((dropdownItem) => (
-                      <li>
-                        <a href={dropdownItem.href} class="block w-full py-1">
-                          {dropdownItem.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : (
-                <a href={item.href} class="hover:text-secondary">
-                  {item.name}
-                </a>
-              )}
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-    <!-- Desktop Navigation -->
-    <nav class="hidden md:block">
-      <ul class="flex gap-x-4 font-semibold md:text-lg">
-        {
-          navigation.map((item) => (
-            <li class="relative group">
-              {item.dropdown ? (
-                <>
-                  <a href={item.href} class="flex items-center gap-1 peer">
-                    {item.name}
-                    <Icon name="mdi:chevron-down" class="w-4 h-4" />
-                  </a>
-                  <ul class="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute left-0 mt-2 bg-white p-2 shadow-lg rounded-lg w-48 space-y-2 transition-all duration-300 transform z-50">
-                    {item.dropdown.map((dropdownItem) => (
-                      <li class="hover:text-secondary">
-                        <a href={dropdownItem.href} class="block w-full py-2">
-                          {dropdownItem.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              ) : (
-                <a href={item.href}>{item.name}</a>
-              )}
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-    <div class="hidden md:block">
-      <Cta href="/kontakt">Mitmachen</Cta>
     </div>
-  </Container>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="lg:hidden fixed inset-0 top-[72px] bg-cream/98 backdrop-blur-md transform translate-x-full transition-transform duration-300 ease-out"
+  >
+    <div class="container-wide py-8">
+      <div class="flex flex-col gap-2">
+        {navLinks.map(({ href, label }, index) => (
+          <a
+            href={href}
+            class="mobile-nav-link block py-4 text-2xl font-display text-charcoal border-b border-sand transition-colors hover:text-terracotta"
+            style={`transition-delay: ${index * 50}ms`}
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-8">
+        <a href="/kontakt#volunteer" class="btn btn-primary btn-lg w-full justify-center">
+          Mitmachen
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Contact info -->
+      <div class="mt-12 pt-8 border-t border-sand">
+        <p class="label-sm text-charcoal-light mb-4">Kontakt</p>
+        <a href="mailto:info@getu-prospects.de" class="block text-charcoal hover:text-terracotta transition-colors">
+          info@getu-prospects.de
+        </a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileNav = document.getElementById('mobile-nav');
+  function initNav() {
+    const nav = document.getElementById('main-nav');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = mobileMenuBtn?.querySelector('.menu-icon');
+    const closeIcon = mobileMenuBtn?.querySelector('.close-icon');
 
-    if (menuToggle && mobileNav) {
-      menuToggle.addEventListener('click', () => {
-        mobileNav.style.display =
-          mobileNav.style.display === 'none' ? 'flex' : 'none';
-        console.log('Menu clicked', mobileNav.style.display); // For debugging
-      });
-    }
+    if (!nav || !mobileMenuBtn || !mobileMenu) return;
 
-    const dropdownToggles = document.querySelectorAll('[data-dropdown-toggle]');
-    dropdownToggles.forEach((toggle) => {
-      toggle.addEventListener('click', (e) => {
-        const dropdownMenu = toggle.nextElementSibling;
-        if (dropdownMenu) {
-          dropdownMenu.classList.toggle('hidden');
-          const icon = toggle.querySelector('svg');
-          if (icon) {
-            icon.classList.toggle('rotate-180');
-          }
-        }
+    let isOpen = false;
+
+    // Scroll handler for nav background
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        nav.classList.add('nav-scrolled');
+      } else {
+        nav.classList.remove('nav-scrolled');
+      }
+    };
+
+    // Mobile menu toggle
+    const toggleMenu = () => {
+      isOpen = !isOpen;
+      mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+
+      if (isOpen) {
+        mobileMenu.classList.remove('translate-x-full');
+        menuIcon?.classList.add('hidden');
+        closeIcon?.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      } else {
+        mobileMenu.classList.add('translate-x-full');
+        menuIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    };
+
+    // Close menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (isOpen) toggleMenu();
       });
     });
-  });
+
+    window.addEventListener('scroll', handleScroll);
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+    handleScroll();
+  }
+
+  initNav();
+  document.addEventListener('astro:page-load', initNav);
 </script>
+
+<style>
+  .mobile-nav-link {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  #mobile-menu:not(.translate-x-full) .mobile-nav-link {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+</style>

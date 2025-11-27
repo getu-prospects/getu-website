@@ -1,77 +1,161 @@
 ---
-import { Icon } from 'astro-icon/components';
-import Container from './Container.astro';
-import { getRelativeLocaleUrl } from 'astro:i18n';
-import { getLangFromLocale } from '../i18n';
+const footerLinks = [
+  { href: '/ueber-uns', label: 'Uber uns' },
+  { href: '/projekte', label: 'Projekte' },
+  { href: '/kontakt', label: 'Kontakt' },
+];
 
-const lang = getLangFromLocale(Astro.currentLocale);
+const legalLinks = [
+  { href: '/datenschutz', label: 'Datenschutz' },
+  { href: '/impressum', label: 'Impressum' },
+];
 ---
 
-<script>
-  let year = new Date().getFullYear();
-  document.getElementById('year')!.innerHTML = `${year}`;
-</script>
-
-<footer class="">
-  <div class="bg-[#385656] text-white py-10 md:py-20">
-    <Container>
-      <div class="grid md:grid-cols-3 gap-24 md:gap-8">
-        <div class="flex flex-col gap-y-4">
-          <h3 class="font-semibold">Kontakt</h3>
-          <p class="text-sm">GeTu Prospects e.V.</p>
-          <span class="inline-flex items-center gap-x-2">
-            <Icon name="mdi:location-radius-outline" class="text-orange" />
-            <a
-              href="https://maps.google.com?q=Avenue Charles de Gaulle 11, 13469 Berlin"
-              target="_blank"
-              class="text-sm">Avenue Charles de Gaulle 11. 13469 Berlin</a
-            >
-          </span>
-          <span class="inline-flex items-center gap-x-2">
-            <Icon name="mdi:email-outline" class="text-orange" />
-            <a class="text-sm" href="mailto:info@getu-prospects.de"
-              >info@getu-prospects.de</a
-            >
-          </span>
-          <span class="inline-flex items-center gap-x-2">
-            <Icon name="mdi:telephone" class="text-orange" />
-            <a href="tel:+491724328326" class="text-sm">+49 (0) 1724328326</a>
-          </span>
+<footer class="bg-charcoal text-white">
+  <!-- Main CTA Banner -->
+  <div class="bg-terracotta py-16 lg:py-20">
+    <div class="container-wide">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div class="text-center lg:text-left">
+          <h2 class="font-display text-3xl lg:text-4xl text-white mb-3">
+            Werde Teil unserer Geschichte
+          </h2>
+          <p class="text-white/80 text-lg">
+            Gemeinsam gestalten wir eine Zukunft voller Moglichkeiten.
+          </p>
         </div>
-        <div class="flex flex-col gap-y-4 text-sm">
-          <h3 class="font-semibold text-sm">Spendenkonto</h3>
-          <p class="text-sm">GeTu Prospects e.V.</p>
-          <p class="text-sm">Postbank</p>
-          <span>IBAN: DE94100100100064071143</span>
-        </div>
-        <!-- <div class="flex gap-4 text-white">
-          <span>
-            <a href="http://" class="hover:text-orange">
-              <Icon name="mdi:facebook" />
-            </a>
-          </span>
-          <span>
-            <a href="http://" class="hover:text-orange">
-              <Icon name="mdi:instagram" />
-            </a>
-          </span>
-        </div> -->
+        <a
+          href="/kontakt#volunteer"
+          class="btn bg-white text-terracotta hover:bg-cream btn-lg shrink-0"
+        >
+          Jetzt mitmachen
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
       </div>
-    </Container>
+    </div>
   </div>
-  <div class="bg-[#172c2d] text-gray-300 text-sm">
-    <Container
-      class="py-12 flex flex-col md:flex-row md:items-center gap-4 md:gap-8"
-    >
-      <p>© <span id="year"></span> GeTu Prospects e.V.</p>
-      <a
-        href={getRelativeLocaleUrl(lang, '/impressum')}
-        class="hover:text-orange">Impressum</a
-      >
-      <a
-        href={getRelativeLocaleUrl(lang, '/datenschutz')}
-        class="hover:text-orange">Datenschutz</a
-      >
-    </Container>
+
+  <!-- Footer Content -->
+  <div class="py-16 lg:py-20">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <!-- Brand Column -->
+        <div class="lg:col-span-1">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-terracotta rounded-full flex items-center justify-center">
+              <span class="text-white font-display text-2xl">G</span>
+            </div>
+            <div>
+              <span class="block font-display text-xl leading-tight">GeTu Prospects</span>
+              <span class="block text-sm text-white/60">e.V. Berlin</span>
+            </div>
+          </div>
+          <p class="text-white/70 text-sm leading-relaxed mb-6">
+            Interkultureller Verein in Berlin, der sich fur gemeinsame Zukunft und Unterstutzung Jugendlicher einsetzt.
+          </p>
+
+          <!-- Social Links -->
+          <div class="flex gap-3">
+            <a
+              href="https://instagram.com/getu_prospects"
+              target="_blank"
+              rel="noopener"
+              class="w-10 h-10 bg-white/10 hover:bg-terracotta rounded-full flex items-center justify-center transition-colors"
+              aria-label="Instagram"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <a
+              href="mailto:info@getu-prospects.de"
+              class="w-10 h-10 bg-white/10 hover:bg-terracotta rounded-full flex items-center justify-center transition-colors"
+              aria-label="Email"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Column -->
+        <div>
+          <h3 class="font-display text-lg mb-6">Kontakt</h3>
+          <div class="space-y-4 text-sm text-white/70">
+            <div>
+              <p class="text-white mb-1">GeTu Prospects e.V.</p>
+              <p>Lange Enden 29</p>
+              <p>Aufgang 2, 2. Etage</p>
+              <p>13437 Berlin</p>
+            </div>
+            <div>
+              <a href="mailto:info@getu-prospects.de" class="hover:text-terracotta transition-colors">
+                info@getu-prospects.de
+              </a>
+            </div>
+            <div>
+              <a href="tel:+4901724328326" class="hover:text-terracotta transition-colors">
+                +49 172 432 8326
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Links Column -->
+        <div>
+          <h3 class="font-display text-lg mb-6">Navigation</h3>
+          <div class="space-y-3">
+            {footerLinks.map(({ href, label }) => (
+              <a
+                href={href}
+                class="block text-sm text-white/70 hover:text-terracotta transition-colors"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Donation Column -->
+        <div>
+          <h3 class="font-display text-lg mb-6">Spendenkonto</h3>
+          <div class="space-y-2 text-sm text-white/70">
+            <p class="text-white">GeTu Prospects e.V.</p>
+            <p>Postbank</p>
+            <p class="font-mono text-xs mt-3 bg-white/5 p-3 rounded-lg">
+              IBAN: DE94 1001 0010 0064 0711 43
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-sm text-white/50">
+          &copy; <span id="footer-year"></span> GeTu Prospects e.V. Alle Rechte vorbehalten.
+        </p>
+        <div class="flex gap-6">
+          {legalLinks.map(({ href, label }) => (
+            <a
+              href={href}
+              class="text-sm text-white/50 hover:text-white transition-colors"
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
   </div>
 </footer>
+
+<script>
+  const yearEl = document.getElementById('footer-year');
+
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear().toString();
+  }
+</script>

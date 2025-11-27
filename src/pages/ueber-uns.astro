@@ -1,403 +1,173 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import AboutUs from '../assets/images/ueber-uns.jpg';
-import Services from '../components/services.astro';
 ---
 
-<BaseLayout title="Über uns - GeTu Prospects e.V.">
-  <!-- Hero - Split screen editorial -->
-  <section class="about-hero min-h-screen flex flex-col lg:flex-row overflow-hidden">
-    <!-- Left: Content -->
-    <div class="lg:w-1/2 bg-[#1a1a1a] text-white flex items-center relative">
-      <!-- Decorative elements -->
-      <div class="absolute top-20 right-12 w-24 h-24 border border-[#e85d3b]/20 hidden lg:block"></div>
-      <div class="absolute bottom-32 left-8 w-16 h-16 bg-[#e85d3b]/10 hidden lg:block"></div>
+<BaseLayout title="Uber uns">
+  <!-- Hero Section -->
+  <section class="relative min-h-[70vh] flex items-center overflow-hidden bg-charcoal">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1920&q=80"
+        alt="Community gathering"
+        class="w-full h-full object-cover opacity-30"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/90 to-charcoal/70"></div>
+    </div>
 
-      <div class="px-8 md:px-16 lg:px-20 py-24 lg:py-16 w-full">
-        <span class="hero-label opacity-0 label-editorial text-[#e85d3b] tracking-[0.3em]">Über uns</span>
-
-        <h1 class="hero-headline opacity-0 mt-8 headline-large text-white">
-          Herz für<br/>Menschen.
+    <div class="relative container-wide py-20">
+      <div class="max-w-3xl">
+        <span class="label-sm text-terracotta mb-4 block animate-fade-up">Uber uns</span>
+        <h1 class="headline-hero text-white mb-6 animate-fade-up delay-100">
+          Herz fur
+          <span class="italic text-terracotta-light">Menschen</span>
         </h1>
-
-        <div class="hero-line mt-8 h-1 w-20 bg-[#e85d3b] origin-left scale-x-0"></div>
-
-        <p class="hero-text opacity-0 mt-10 text-xl text-white/80 leading-relaxed max-w-lg">
+        <p class="text-xl text-white/80 leading-relaxed animate-fade-up delay-200">
           Geprägt von beruflicher Exzellenz und christlichen Werten setzen wir
-          uns dafür ein, Menschen aller Kulturen und Nationen zu stärken und zu fördern.
+          uns dafur ein, Menschen aller Kulturen und Nationen zu stärken und zu fordern.
         </p>
-
-        <!-- Quick stats -->
-        <div class="hero-stats opacity-0 mt-16 flex gap-12">
-          <div class="stat-item">
-            <span class="block text-4xl md:text-5xl font-display font-semibold text-white">2016</span>
-            <span class="block mt-2 text-sm text-white/60 uppercase tracking-wider">Gegründet</span>
-          </div>
-          <div class="stat-item">
-            <span class="block text-4xl md:text-5xl font-display font-semibold text-white">Berlin</span>
-            <span class="block mt-2 text-sm text-white/60 uppercase tracking-wider">Standort</span>
-          </div>
-        </div>
       </div>
     </div>
-
-    <!-- Right: Image -->
-    <div class="hero-image lg:w-1/2 min-h-[50vh] lg:min-h-screen relative overflow-hidden">
-      <img
-        src={AboutUs.src}
-        alt="Gemeinschaft und Zusammenhalt"
-        class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] ease-out"
-      />
-      <!-- Subtle overlay -->
-      <div class="absolute inset-0 bg-[#1a1a1a]/20"></div>
-    </div>
   </section>
-
-  <style>
-    /* About Hero Animations */
-    .about-hero.animate .hero-label {
-      animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
-    }
-
-    .about-hero.animate .hero-headline {
-      animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
-    }
-
-    .about-hero.animate .hero-line {
-      animation: lineExpand 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
-    }
-
-    .about-hero.animate .hero-text {
-      animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
-    }
-
-    .about-hero.animate .hero-stats {
-      animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
-    }
-
-    .about-hero.animate .hero-image img {
-      transform: scale(1.05);
-    }
-
-    @keyframes revealUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes lineExpand {
-      from { transform: scaleX(0); }
-      to { transform: scaleX(1); }
-    }
-  </style>
-
-  <script>
-    function initAboutHero() {
-      const hero = document.querySelector('.about-hero');
-
-      if (hero) {
-        setTimeout(() => hero.classList.add('animate'), 100);
-      }
-    }
-
-    initAboutHero();
-    document.addEventListener('astro:page-load', initAboutHero);
-  </script>
 
   <!-- Story Section -->
-  <section class="py-32 bg-[#fffcf7]">
-    <div class="container mx-auto px-8 md:px-16">
-      <div class="max-w-4xl mx-auto">
-        <span class="label-editorial text-[#e85d3b]">Unsere Geschichte</span>
+  <section class="section-padding bg-cream">
+    <div class="container-wide">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Image -->
+        <div class="reveal-left relative">
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
+            alt="Team collaboration"
+            class="w-full aspect-[4/3] object-cover rounded-2xl shadow-soft-xl"
+          />
+          <div class="absolute -bottom-6 -right-6 bg-terracotta text-white p-6 rounded-xl hidden md:block">
+            <span class="block text-3xl font-display">2014</span>
+            <span class="text-sm text-white/80">Gegrundet</span>
+          </div>
+        </div>
 
-        <h2 class="mt-6 headline-medium text-[#1a1a1a]">
-          Wer wir sind
-        </h2>
+        <!-- Content -->
+        <div class="reveal-right">
+          <span class="label-sm text-terracotta mb-4 block">Unsere Geschichte</span>
+          <h2 class="headline-section text-charcoal mb-8">Wer wir sind</h2>
 
-        <div class="mt-12 space-y-8 text-lg text-[#4a4a4a] leading-relaxed">
-          <p class="text-xl text-[#1a1a1a] font-medium">
-            GeTu Prospects e.V. ist eine Non-Profit-Organisation mit Sitz in Berlin,
-            die sich der Unterstützung von Menschen aller Kulturen und Hintergründe widmet.
+          <div class="space-y-6 text-lead">
+            <p class="text-xl text-charcoal font-medium">
+              GeTu Prospects e.V. ist ein interkultureller Verein mit Sitz in Berlin,
+              der sich der Unterstutzung von Menschen aller Kulturen und Hintergrunde widmet.
+            </p>
+            <p>
+              Geprägt von Professionalität und christlichen Werten wie Nächstenliebe und Respekt,
+              glauben wir daran, dass jeder Mensch einzigartig ist und das Potenzial hat,
+              Grosses zu erreichen.
+            </p>
+            <p>
+              Durch gezielte Empowerment-Programme, soziale Initiativen und praxisnahe Projekte
+              bieten wir konkrete Hilfe, schaffen sichere Räume fur personliche Entfaltung
+              und fordern den interkulturellen Austausch.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision & Mission -->
+  <section class="section-padding bg-sand/50">
+    <div class="container-wide">
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Vision -->
+        <div class="reveal bg-white p-10 lg:p-12 rounded-2xl shadow-soft-md">
+          <div class="w-16 h-16 bg-sage/20 rounded-xl flex items-center justify-center mb-8">
+            <svg class="w-8 h-8 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+          </div>
+          <span class="label-sm text-sage mb-4 block">Vision</span>
+          <h3 class="headline-card text-charcoal mb-6">
+            Eine Gesellschaft voller Moglichkeiten
+          </h3>
+          <p class="text-charcoal-light leading-relaxed">
+            Eine Gesellschaft, in der jeder Mensch wertgeschätzt, unterstutzt und befähigt wird,
+            sein volles Potenzial zu entfalten. Eine Gemeinschaft, in der Verbundenheit,
+            Wurde und Sinnhaftigkeit das Leben prägen.
           </p>
+        </div>
 
-          <p>
-            Geprägt von Professionalität und christlichen Werten wie Nächstenliebe und Respekt,
-            glauben wir daran, dass jeder Mensch einzigartig ist und das Potenzial hat,
-            Großes zu erreichen.
-          </p>
-
-          <p>
-            In unserer heutigen, schnelllebigen Welt stehen viele Menschen – insbesondere
-            Kinder und Familien – vor Herausforderungen, die sie an den Rand der Gesellschaft
-            drängen. Trotz bestehender Möglichkeiten zur Inklusion und Teilhabe bleiben für
-            viele Barrieren bestehen, die ihre Entwicklung behindern.
-          </p>
-
-          <p>
-            <strong class="text-[#1a1a1a]">Das ist unser Antrieb.</strong> Durch gezielte
-            Empowerment-Programme, soziale Initiativen und praxisnahe Projekte bieten wir
-            konkrete Hilfe, schaffen sichere Räume für persönliche Entfaltung und fördern
-            den interkulturellen Austausch.
+        <!-- Mission -->
+        <div class="reveal bg-charcoal text-white p-10 lg:p-12 rounded-2xl" style="animation-delay: 150ms">
+          <div class="w-16 h-16 bg-terracotta/20 rounded-xl flex items-center justify-center mb-8">
+            <svg class="w-8 h-8 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <span class="label-sm text-terracotta mb-4 block">Mission</span>
+          <h3 class="headline-card text-white mb-6">
+            Stärken, fordern, verändern
+          </h3>
+          <p class="text-white/70 leading-relaxed">
+            Menschen aller Kulturen und Nationen stärken, fordern und positiv verändern.
+            Geprägt von beruflicher Exzellenz und christlichen Werten brechen wir Barrieren
+            und schaffen neue Chancen fur nachhaltigen Wandel.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Vision & Mission - Manifesto Style -->
-  <section class="vision-mission-manifesto relative overflow-hidden" id="vision">
-    <!-- Vision Section - Light -->
-    <div class="vision-block relative bg-[#fffcf7] py-32 lg:py-40">
-      <!-- Decorative large text background -->
-      <div class="absolute top-1/2 -translate-y-1/2 -left-20 pointer-events-none select-none hidden lg:block">
-        <span class="text-[20rem] font-display font-bold text-[#f5f0e8] leading-none">V</span>
-      </div>
-
-      <div class="container mx-auto px-8 md:px-16 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <!-- Left: Label + Number -->
-          <div class="lg:col-span-3 vision-label opacity-0">
-            <div class="flex items-center gap-4 lg:flex-col lg:items-start lg:gap-6">
-              <span class="text-8xl lg:text-[10rem] font-display font-bold text-[#e85d3b]/20">01</span>
-              <div>
-                <span class="text-[#e85d3b] text-sm font-semibold uppercase tracking-[0.3em]">Unsere</span>
-                <h3 class="text-3xl lg:text-4xl font-display font-semibold text-[#1a1a1a]">Vision</h3>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right: Content -->
-          <div class="lg:col-span-8 lg:col-start-5 vision-content opacity-0">
-            <blockquote class="relative">
-              <!-- Quote mark -->
-              <div class="absolute -top-8 -left-4 lg:-left-12 text-[#e85d3b]/10">
-                <svg class="w-16 h-16 lg:w-24 lg:h-24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
-                </svg>
-              </div>
-
-              <p class="text-2xl md:text-3xl lg:text-4xl font-display font-medium text-[#1a1a1a] leading-tight">
-                Eine Gesellschaft, in der jeder Mensch wertgeschätzt, unterstützt und befähigt wird,
-                sein <span class="text-[#e85d3b]">volles Potenzial</span> zu entfalten.
-              </p>
-            </blockquote>
-
-            <div class="mt-10 lg:mt-12 h-px bg-[#1a1a1a]/10 vision-line scale-x-0 origin-left"></div>
-
-            <p class="mt-8 text-lg text-[#4a4a4a] leading-relaxed max-w-2xl">
-              Eine Gemeinschaft, in der Verbundenheit, Würde und Sinnhaftigkeit das Leben prägen
-              und nachhaltiges Wachstum für alle möglich ist.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Diagonal connector -->
-      <div class="absolute bottom-0 left-0 right-0 h-32 bg-[#1a1a1a] transform -skew-y-2 origin-bottom-left translate-y-16 hidden lg:block"></div>
-    </div>
-
-    <!-- Mission Section - Dark -->
-    <div class="mission-block relative bg-[#1a1a1a] text-white py-32 lg:py-40 lg:pt-48">
-      <!-- Decorative large text background -->
-      <div class="absolute top-1/2 -translate-y-1/2 -right-20 pointer-events-none select-none hidden lg:block">
-        <span class="text-[20rem] font-display font-bold text-white/[0.03] leading-none">M</span>
-      </div>
-
-      <!-- Accent corner -->
-      <div class="absolute top-0 right-0 w-32 h-32 lg:w-48 lg:h-48">
-        <div class="absolute top-0 right-0 w-full h-full border-t-4 border-r-4 border-[#e85d3b]/30"></div>
-      </div>
-
-      <div class="container mx-auto px-8 md:px-16 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <!-- Left: Content (reversed layout) -->
-          <div class="lg:col-span-8 mission-content opacity-0 order-2 lg:order-1">
-            <blockquote class="relative">
-              <p class="text-2xl md:text-3xl lg:text-4xl font-display font-medium text-white leading-tight">
-                Menschen aller Kulturen und Nationen <span class="text-[#e85d3b]">stärken, fördern</span> und
-                positiv verändern.
-              </p>
-            </blockquote>
-
-            <div class="mt-10 lg:mt-12 h-px bg-white/20 mission-line scale-x-0 origin-left"></div>
-
-            <p class="mt-8 text-lg text-white/70 leading-relaxed max-w-2xl">
-              Geprägt von beruflicher Exzellenz und christlichen Werten brechen wir Barrieren
-              und schaffen neue Chancen für nachhaltigen Wandel – von einem einzelnen Menschen
-              bis hin zu ganzen Gemeinschaften.
-            </p>
-
-            <!-- Action indicators -->
-            <div class="mt-12 flex flex-wrap gap-6">
-              <div class="flex items-center gap-3">
-                <span class="w-3 h-3 bg-[#e85d3b]"></span>
-                <span class="text-white/60 text-sm uppercase tracking-wider">Barrieren brechen</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="w-3 h-3 bg-[#e85d3b]"></span>
-                <span class="text-white/60 text-sm uppercase tracking-wider">Chancen schaffen</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="w-3 h-3 bg-[#e85d3b]"></span>
-                <span class="text-white/60 text-sm uppercase tracking-wider">Wandel bewirken</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right: Label + Number -->
-          <div class="lg:col-span-3 lg:col-start-10 mission-label opacity-0 order-1 lg:order-2">
-            <div class="flex items-center gap-4 lg:flex-col lg:items-end lg:gap-6 lg:text-right">
-              <span class="text-8xl lg:text-[10rem] font-display font-bold text-[#e85d3b]/20">02</span>
-              <div>
-                <span class="text-[#e85d3b] text-sm font-semibold uppercase tracking-[0.3em]">Unsere</span>
-                <h3 class="text-3xl lg:text-4xl font-display font-semibold text-white">Mission</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bottom accent line -->
-      <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#e85d3b] via-[#e85d3b]/50 to-transparent"></div>
-    </div>
-  </section>
-
-  <style>
-    .vision-mission-manifesto.animate .vision-label {
-      animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    .vision-mission-manifesto.animate .vision-content {
-      animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
-    }
-
-    .vision-mission-manifesto.animate .vision-line {
-      animation: lineExpand 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
-    }
-
-    .vision-mission-manifesto.animate .mission-label {
-      animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
-    }
-
-    .vision-mission-manifesto.animate .mission-content {
-      animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
-    }
-
-    .vision-mission-manifesto.animate .mission-line {
-      animation: lineExpand 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
-    }
-
-    @keyframes slideInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-60px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes slideInRight {
-      from {
-        opacity: 0;
-        transform: translateX(60px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes lineExpand {
-      from { transform: scaleX(0); }
-      to { transform: scaleX(1); }
-    }
-  </style>
-
-  <script>
-    function initVisionMission() {
-      const section = document.querySelector('.vision-mission-manifesto');
-
-      if (!section) return;
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('animate');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.15 }
-      );
-
-      observer.observe(section);
-    }
-
-    initVisionMission();
-    document.addEventListener('astro:page-load', initVisionMission);
-  </script>
-
-  <!-- What We Do - Impact areas -->
-  <section class="py-32 bg-[#fffcf7]">
-    <div class="container mx-auto px-8 md:px-16">
-      <div class="max-w-4xl mx-auto text-center mb-20">
-        <span class="label-editorial text-[#e85d3b]">Unser Ansatz</span>
-        <h2 class="mt-6 headline-medium text-[#1a1a1a]">
-          Was wir tun
-        </h2>
-        <p class="mt-6 text-lg text-[#4a4a4a] max-w-2xl mx-auto">
-          Durch gezielte Programme und persönliche Begleitung unterstützen wir
+  <!-- What We Do -->
+  <section class="section-padding bg-cream">
+    <div class="container-wide">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <span class="label-sm text-terracotta mb-4 block">Unser Ansatz</span>
+        <h2 class="headline-section text-charcoal mb-6">Was wir tun</h2>
+        <p class="text-lead">
+          Durch gezielte Programme und personliche Begleitung unterstutzen wir
           Menschen auf ihrem Weg zu einem selbstbestimmten Leben.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-3 gap-8">
         <!-- Area 1 -->
-        <div class="text-center p-8">
-          <div class="w-20 h-20 mx-auto bg-[#e85d3b]/10 flex items-center justify-center mb-6">
-            <svg class="w-10 h-10 text-[#e85d3b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+        <div class="reveal bg-white p-8 rounded-2xl shadow-soft-md text-center hover:shadow-soft-lg transition-shadow">
+          <div class="w-16 h-16 mx-auto bg-terracotta/10 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
           </div>
-          <h3 class="text-xl font-display font-semibold text-[#1a1a1a] mb-4">Familienbegleitung</h3>
-          <p class="text-[#4a4a4a]">
-            Wir unterstützen Familien bei der Bewältigung von Herausforderungen
+          <h3 class="font-display text-xl text-charcoal mb-4">Familienbegleitung</h3>
+          <p class="text-charcoal-light">
+            Wir unterstutzen Familien bei der Bewältigung von Herausforderungen
             und stärken familiäre Bindungen.
           </p>
         </div>
 
         <!-- Area 2 -->
-        <div class="text-center p-8">
-          <div class="w-20 h-20 mx-auto bg-[#e85d3b]/10 flex items-center justify-center mb-6">
-            <svg class="w-10 h-10 text-[#e85d3b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        <div class="reveal bg-white p-8 rounded-2xl shadow-soft-md text-center hover:shadow-soft-lg transition-shadow" style="animation-delay: 100ms">
+          <div class="w-16 h-16 mx-auto bg-sage/10 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
             </svg>
           </div>
-          <h3 class="text-xl font-display font-semibold text-[#1a1a1a] mb-4">Jugendförderung</h3>
-          <p class="text-[#4a4a4a]">
+          <h3 class="font-display text-xl text-charcoal mb-4">Jugendforderung</h3>
+          <p class="text-charcoal-light">
             Wir begleiten junge Menschen bei der Identitätsfindung
             und bereiten sie auf ihre Zukunft vor.
           </p>
         </div>
 
         <!-- Area 3 -->
-        <div class="text-center p-8">
-          <div class="w-20 h-20 mx-auto bg-[#e85d3b]/10 flex items-center justify-center mb-6">
-            <svg class="w-10 h-10 text-[#e85d3b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+        <div class="reveal bg-white p-8 rounded-2xl shadow-soft-md text-center hover:shadow-soft-lg transition-shadow" style="animation-delay: 200ms">
+          <div class="w-16 h-16 mx-auto bg-gold/20 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-gold-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/>
             </svg>
           </div>
-          <h3 class="text-xl font-display font-semibold text-[#1a1a1a] mb-4">Integration</h3>
-          <p class="text-[#4a4a4a]">
-            Wir fördern interkulturellen Austausch und helfen Menschen,
+          <h3 class="font-display text-xl text-charcoal mb-4">Integration</h3>
+          <p class="text-charcoal-light">
+            Wir fordern interkulturellen Austausch und helfen Menschen,
             in der deutschen Gesellschaft anzukommen.
           </p>
         </div>
@@ -406,76 +176,63 @@ import Services from '../components/services.astro';
   </section>
 
   <!-- Values Section -->
-  <section class="py-32 bg-[#1a1a1a] text-white">
-    <div class="container mx-auto px-8 md:px-16">
-      <div class="max-w-4xl mx-auto text-center mb-20">
-        <span class="label-editorial text-[#e85d3b]">Wofür wir stehen</span>
-        <h2 class="mt-6 headline-medium text-white">
-          Unsere Werte
-        </h2>
+  <section class="section-padding bg-charcoal text-white">
+    <div class="container-wide">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <span class="label-sm text-terracotta mb-4 block">Wofur wir stehen</span>
+        <h2 class="headline-section text-white">Unsere Werte</h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="text-center">
-          <span class="text-5xl font-display text-[#e85d3b]">01</span>
-          <h4 class="mt-4 text-xl font-semibold">Respekt</h4>
-          <p class="mt-3 text-white/70">Jeder Mensch verdient Würde und Anerkennung.</p>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="reveal text-center">
+          <span class="text-5xl font-display text-terracotta/40">01</span>
+          <h4 class="mt-4 text-xl font-display">Respekt</h4>
+          <p class="mt-3 text-white/60 text-sm">Jeder Mensch verdient Wurde und Anerkennung.</p>
         </div>
 
-        <div class="text-center">
-          <span class="text-5xl font-display text-[#e85d3b]">02</span>
-          <h4 class="mt-4 text-xl font-semibold">Empathie</h4>
-          <p class="mt-3 text-white/70">Wir hören zu, verstehen und handeln mit Mitgefühl.</p>
+        <div class="reveal text-center" style="animation-delay: 100ms">
+          <span class="text-5xl font-display text-terracotta/40">02</span>
+          <h4 class="mt-4 text-xl font-display">Empathie</h4>
+          <p class="mt-3 text-white/60 text-sm">Wir horen zu, verstehen und handeln mit Mitgefuhl.</p>
         </div>
 
-        <div class="text-center">
-          <span class="text-5xl font-display text-[#e85d3b]">03</span>
-          <h4 class="mt-4 text-xl font-semibold">Nachhaltigkeit</h4>
-          <p class="mt-3 text-white/70">Unsere Arbeit schafft langfristige Veränderung.</p>
+        <div class="reveal text-center" style="animation-delay: 200ms">
+          <span class="text-5xl font-display text-terracotta/40">03</span>
+          <h4 class="mt-4 text-xl font-display">Nachhaltigkeit</h4>
+          <p class="mt-3 text-white/60 text-sm">Unsere Arbeit schafft langfristige Veränderung.</p>
         </div>
 
-        <div class="text-center">
-          <span class="text-5xl font-display text-[#e85d3b]">04</span>
-          <h4 class="mt-4 text-xl font-semibold">Gemeinschaft</h4>
-          <p class="mt-3 text-white/70">Zusammen erreichen wir mehr als allein.</p>
+        <div class="reveal text-center" style="animation-delay: 300ms">
+          <span class="text-5xl font-display text-terracotta/40">04</span>
+          <h4 class="mt-4 text-xl font-display">Gemeinschaft</h4>
+          <p class="mt-3 text-white/60 text-sm">Zusammen erreichen wir mehr als allein.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="py-32 bg-[#f5f0e8]">
-    <div class="container mx-auto px-8 md:px-16">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="headline-medium text-[#1a1a1a]">
-          Werden Sie Teil<br/>unserer Mission
+  <section class="section-padding bg-sand">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto text-center reveal">
+        <h2 class="headline-section text-charcoal mb-6">
+          Werden Sie Teil unserer Mission
         </h2>
-
-        <p class="mt-8 text-lg text-[#4a4a4a]">
-          Ob als Ehrenamtlicher, Spender oder Partner – gemeinsam können wir mehr bewirken.
+        <p class="text-lead mb-10">
+          Ob als Ehrenamtlicher, Spender oder Partner - gemeinsam konnen wir mehr bewirken.
         </p>
-
-        <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center">
-          <a
-            href="/kontakt"
-            class="inline-flex items-center justify-center px-10 py-5 bg-[#1a1a1a] text-white font-medium transition-colors hover:bg-[#2d5a4a]"
-          >
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/kontakt" class="btn btn-primary btn-lg">
             Kontakt aufnehmen
-            <svg class="ml-3 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </a>
-
-          <a
-            href="/projekte"
-            class="inline-flex items-center justify-center px-10 py-5 border-2 border-[#1a1a1a] text-[#1a1a1a] font-medium transition-colors hover:bg-[#1a1a1a] hover:text-white"
-          >
+          <a href="/projekte" class="btn btn-outline btn-lg">
             Unsere Projekte
           </a>
         </div>
       </div>
     </div>
   </section>
-
-  <Services />
 </BaseLayout>

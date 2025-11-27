@@ -1,0 +1,116 @@
+---
+// Projects showcase section
+const projects = [
+  {
+    title: 'Youth with Perspective',
+    description: 'Ein Programm fur Jugendliche, die ihren Weg finden und ihr Potenzial entfalten wollen.',
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80',
+    tag: 'Jugendarbeit',
+    color: 'terracotta',
+    href: '/projekte/youth',
+  },
+  {
+    title: 'Mentoring-Programm',
+    description: 'Erfahrene Mentoren begleiten junge Menschen auf ihrem personlichen und beruflichen Weg.',
+    image: 'https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=600&q=80',
+    tag: 'Begleitung',
+    color: 'sage',
+    href: '/projekte/mentoring',
+  },
+  {
+    title: 'Stammtisch',
+    description: 'Regelmasige Treffen zum Austausch, Kennenlernen und gemeinsamen Wachsen.',
+    image: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&q=80',
+    tag: 'Community',
+    color: 'gold',
+    href: '/projekte/stammtisch',
+  },
+  {
+    title: 'Weihnachtsaktion',
+    description: 'Freude schenken - unsere jahrliche Aktion fur Familien in schwierigen Situationen.',
+    image: 'https://images.unsplash.com/photo-1512909006721-3d6018887383?w=600&q=80',
+    tag: 'Soziales',
+    color: 'terracotta',
+    href: '/projekte/weihnachtsaktion',
+  },
+];
+---
+
+<section class="section-padding bg-sand/50">
+  <div class="container-wide">
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+      <span class="label-sm text-terracotta mb-4 block">Unsere Arbeit</span>
+      <h2 class="headline-section text-charcoal mb-6">
+        Projekte, die
+        <span class="italic text-sage-dark">verbinden</span>
+      </h2>
+      <p class="text-lead">
+        Durch unsere vielfaltigen Programme schaffen wir Raume fur Begegnung,
+        Lernen und personliches Wachstum.
+      </p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid md:grid-cols-2 gap-8">
+      {projects.map((project, index) => (
+        <a
+          href={project.href}
+          class={`reveal group relative bg-white rounded-2xl overflow-hidden shadow-soft-md hover:shadow-soft-xl transition-all duration-500`}
+          style={`animation-delay: ${index * 100}ms`}
+        >
+          <!-- Image -->
+          <div class="relative h-64 overflow-hidden">
+            <img
+              src={project.image}
+              alt={project.title}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent"></div>
+
+            <!-- Tag -->
+            <span
+              class={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-medium ${
+                project.color === 'terracotta'
+                  ? 'bg-terracotta text-white'
+                  : project.color === 'sage'
+                  ? 'bg-sage text-white'
+                  : 'bg-gold text-charcoal'
+              }`}
+            >
+              {project.tag}
+            </span>
+          </div>
+
+          <!-- Content -->
+          <div class="p-6 lg:p-8">
+            <h3 class="headline-card text-charcoal mb-3 group-hover:text-terracotta transition-colors">
+              {project.title}
+            </h3>
+            <p class="text-charcoal-light mb-6">
+              {project.description}
+            </p>
+
+            <!-- Link indicator -->
+            <div class="flex items-center gap-2 text-terracotta font-medium text-sm">
+              Mehr erfahren
+              <svg class="w-4 h-4 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- View All Link -->
+    <div class="text-center mt-12 reveal">
+      <a href="/projekte" class="btn btn-secondary">
+        Alle Projekte ansehen
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

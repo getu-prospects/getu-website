@@ -1,171 +1,25 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroEditorial from '../components/HeroEditorial.astro';
-import AboutEditorial from '../components/AboutEditorial.astro';
-import ServicesEditorial from '../components/ServicesEditorial.astro';
-import VolunteerCTA from '../components/VolunteerCTA.astro';
-import QuoteCallout from '../components/QuoteCallout.astro';
+import Hero from '../components/home/Hero.astro';
+import Mission from '../components/home/Mission.astro';
+import Projects from '../components/home/Projects.astro';
+import Testimonial from '../components/home/Testimonial.astro';
+import Volunteer from '../components/home/Volunteer.astro';
 ---
 
-<BaseLayout title="GeTu Prospects e.V. - Interkultureller Verein in Berlin">
-  <!-- Editorial Hero -->
-  <HeroEditorial />
+<BaseLayout title="Interkultureller Verein in Berlin">
+  <!-- Hero Section -->
+  <Hero />
 
-  <!-- About Section - Asymmetric -->
-  <AboutEditorial />
+  <!-- Mission/About Preview -->
+  <Mission />
 
-  <!-- Services - Magazine Style -->
-  <ServicesEditorial />
+  <!-- Projects Showcase -->
+  <Projects />
 
-  <!-- Quote Callout -->
-  <QuoteCallout
-    quote="Wir träumen von einer Gesellschaft, in der jeder Mensch wertgeschätzt, unterstützt und befähigt wird, sein volles Potenzial zu entfalten."
-  />
+  <!-- Testimonial/Vision Quote -->
+  <Testimonial />
 
-  <!-- Volunteer CTA -->
-  <VolunteerCTA />
-
-  <!-- Project Highlight Section -->
-  <section class="project-highlight py-32 md:py-40 bg-[var(--color-cream)] relative overflow-hidden">
-    <!-- Decorative elements -->
-    <div class="absolute top-20 right-20 w-48 h-48 border border-[var(--color-primary)]/5 hidden lg:block"></div>
-
-    <div class="container mx-auto px-8 md:px-16 relative z-10">
-      <!-- Section header -->
-      <div class="text-center max-w-3xl mx-auto mb-20 project-header opacity-0">
-        <span class="label-editorial text-[var(--color-secondary)]">Aktuelles Projekt</span>
-        <h2 class="headline-large text-[var(--color-primary)] mt-6">
-          Youth with<br/>Perspective
-        </h2>
-        <p class="mt-6 text-xl text-[var(--color-text-body)]">
-          Finde deinen Weg. Entfalte dein Potenzial.
-        </p>
-      </div>
-
-      <!-- Project content - asymmetric -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <!-- Image -->
-        <div class="project-image relative opacity-0">
-          <img
-            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=900&q=80"
-            alt="Youth with Perspective - Jugendliche in Diskussion"
-            class="w-full aspect-[4/3] object-cover"
-          />
-          <!-- Floating badge -->
-          <div class="absolute -bottom-6 -right-6 lg:right-8 bg-[var(--color-secondary)] text-white p-6 hidden md:block">
-            <span class="block text-3xl font-display font-semibold">2024</span>
-            <span class="block text-sm uppercase tracking-wider mt-1">Aktiv</span>
-          </div>
-        </div>
-
-        <!-- Content -->
-        <div class="project-content opacity-0">
-          <div class="space-y-6 text-lg text-[var(--color-text-body)] leading-relaxed">
-            <p>
-              Das Leben kann herausfordernd sein, besonders wenn man als junger Mensch
-              keinen klaren Weg vor Augen hat. <strong class="text-[var(--color-primary)]">Youth with Perspective</strong>
-              schafft einen inspirierenden Raum, in dem Jugendliche gemeinsam ihre Zukunft gestalten können.
-            </p>
-            <p>
-              Mehr als nur ein Treffpunkt bietet dieses Programm eine unterstützende Gemeinschaft,
-              in der junge Menschen zusammenkommen, um wichtige Lebensfragen zu erkunden,
-              Perspektiven zu teilen und sich gegenseitig auf ihrem Weg zu bestärken.
-            </p>
-          </div>
-
-          <!-- Features list -->
-          <ul class="mt-10 space-y-4">
-            <li class="flex items-start gap-4">
-              <span class="flex-shrink-0 w-10 h-10 bg-[var(--color-secondary)]/10 flex items-center justify-center">
-                <svg class="w-5 h-5 text-[var(--color-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-              </span>
-              <span class="text-[var(--color-text-body)]">Identitätsentwicklung und Selbstfindung</span>
-            </li>
-            <li class="flex items-start gap-4">
-              <span class="flex-shrink-0 w-10 h-10 bg-[var(--color-secondary)]/10 flex items-center justify-center">
-                <svg class="w-5 h-5 text-[var(--color-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-              </span>
-              <span class="text-[var(--color-text-body)]">Orientierung in wichtigen Lebensfragen</span>
-            </li>
-            <li class="flex items-start gap-4">
-              <span class="flex-shrink-0 w-10 h-10 bg-[var(--color-secondary)]/10 flex items-center justify-center">
-                <svg class="w-5 h-5 text-[var(--color-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-              </span>
-              <span class="text-[var(--color-text-body)]">Aufbau einer unterstützenden Gemeinschaft</span>
-            </li>
-          </ul>
-
-          <!-- CTA -->
-          <a
-            href="/projekte#youth"
-            class="inline-flex items-center mt-12 px-10 py-5 bg-[var(--color-primary)] text-white font-medium group transition-all duration-300 hover:bg-[var(--color-accent)]"
-          >
-            Mehr über das Projekt
-            <svg class="ml-3 w-5 h-5 transform transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Volunteer Recruitment -->
+  <Volunteer />
 </BaseLayout>
-
-<script>
-  function initProjectHighlight() {
-    const section = document.querySelector('.project-highlight');
-
-    if (!section) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const header = entry.target.querySelector('.project-header');
-            const image = entry.target.querySelector('.project-image');
-            const content = entry.target.querySelector('.project-content');
-
-            if (header) {
-              header.style.animation = 'revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards';
-            }
-
-            if (image) {
-              image.style.animation = 'revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards';
-            }
-
-            if (content) {
-              content.style.animation = 'revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards';
-            }
-
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    observer.observe(section);
-  }
-
-  initProjectHighlight();
-  document.addEventListener('astro:page-load', initProjectHighlight);
-</script>
-
-<style>
-  @keyframes revealUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>

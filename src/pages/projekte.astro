@@ -3,208 +3,158 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 ---
 
-<BaseLayout title="Projekte - GeTu Prospects e.V.">
-  <!-- Hero - Full-bleed editorial with impact statement -->
-  <section class="projects-hero relative min-h-[70vh] lg:min-h-[80vh] flex items-end bg-[#1a1a1a] overflow-hidden">
-    <!-- Background image with overlay -->
+<BaseLayout title="Projekte">
+  <!-- Hero Section -->
+  <section class="relative min-h-[60vh] flex items-center overflow-hidden bg-charcoal">
+    <!-- Background Image -->
     <div class="absolute inset-0">
       <img
         src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&q=80"
         alt="Volunteers working together"
-        class="w-full h-full object-cover opacity-40"
+        class="w-full h-full object-cover opacity-30"
       />
-      <div class="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-[#1a1a1a]/70 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/80 to-charcoal/60"></div>
     </div>
 
-    <!-- Decorative elements -->
-    <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#1a1a1a] to-transparent z-10"></div>
-    <div class="absolute top-1/4 right-0 w-px h-48 bg-[#e85d3b]/30 hidden lg:block"></div>
-    <div class="absolute bottom-1/3 left-12 w-24 h-px bg-[#e85d3b]/30 hidden lg:block"></div>
-
-    <!-- Content -->
-    <div class="relative z-20 container mx-auto px-8 md:px-16 pb-16 lg:pb-24">
-      <div class="max-w-5xl">
-        <!-- Label -->
-        <div class="hero-label opacity-0 mb-6">
-          <span class="label-editorial text-[#e85d3b] tracking-[0.3em] text-sm font-semibold uppercase">
-            Unsere Ehrenamtliche Arbeit
-          </span>
-        </div>
-
-        <!-- Main headline -->
-        <h1 class="hero-headline opacity-0 mb-6">
-          <span class="headline-giant text-white block text-4xl md:text-5xl lg:text-6xl font-display font-semibold leading-tight">Gemeinsam</span>
-          <span class="headline-giant text-white block text-4xl md:text-5xl lg:text-6xl font-display font-semibold leading-tight">bewirken wir</span>
-          <span class="headline-large text-[#e85d3b] block mt-2 text-3xl md:text-4xl lg:text-5xl font-display font-semibold">Veranderung.</span>
+    <div class="relative container-wide py-20">
+      <div class="max-w-3xl">
+        <span class="label-sm text-terracotta mb-4 block animate-fade-up">Unsere Arbeit</span>
+        <h1 class="headline-hero text-white mb-6 animate-fade-up delay-100">
+          Gemeinsam bewirken wir
+          <span class="italic text-terracotta-light">Veränderung</span>
         </h1>
-
-        <!-- Accent line -->
-        <div class="hero-line w-20 h-1 bg-[#e85d3b] mb-8 scale-x-0 origin-left"></div>
-
-        <!-- Subtext -->
-        <p class="hero-subtext opacity-0 text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed">
+        <p class="text-xl text-white/80 leading-relaxed animate-fade-up delay-200">
           Durch gezielte Programme und Initiativen schaffen wir nachhaltige
-          positive Veranderungen in unserer Gemeinschaft und daruber hinaus.
+          positive Veränderungen in unserer Gemeinschaft.
         </p>
 
         <!-- Impact stats -->
-        <div class="hero-stats opacity-0 mt-12 flex flex-wrap gap-8 lg:gap-16">
-          <div class="stat-item">
-            <span class="block text-3xl md:text-4xl font-display font-semibold text-white">4</span>
-            <span class="block mt-1 text-sm text-white/60 uppercase tracking-wider">Aktive Projekte</span>
+        <div class="mt-12 flex flex-wrap gap-8 lg:gap-12 animate-fade-up delay-300">
+          <div>
+            <span class="block text-4xl font-display text-white">4</span>
+            <span class="text-sm text-white/60">Aktive Projekte</span>
           </div>
-          <div class="stat-item">
-            <span class="block text-3xl md:text-4xl font-display font-semibold text-white">150+</span>
-            <span class="block mt-1 text-sm text-white/60 uppercase tracking-wider">Menschen erreicht</span>
+          <div>
+            <span class="block text-4xl font-display text-white">150+</span>
+            <span class="text-sm text-white/60">Menschen erreicht</span>
           </div>
-          <div class="stat-item">
-            <span class="block text-3xl md:text-4xl font-display font-semibold text-white">8+</span>
-            <span class="block mt-1 text-sm text-white/60 uppercase tracking-wider">Jahre Erfahrung</span>
+          <div>
+            <span class="block text-4xl font-display text-white">8+</span>
+            <span class="text-sm text-white/60">Jahre Erfahrung</span>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 hero-scroll opacity-0">
-      <span class="text-white/40 text-xs uppercase tracking-widest">Entdecken</span>
-      <div class="w-px h-8 bg-gradient-to-b from-[#e85d3b] to-transparent animate-pulse"></div>
-    </div>
   </section>
 
-  <!-- Projects Overview - Scannable Cards -->
-  <section class="projects-overview py-20 lg:py-32 bg-[#fffcf7]">
-    <div class="container mx-auto px-8 md:px-16">
+  <!-- Projects List -->
+  <section class="section-padding bg-cream">
+    <div class="container-wide">
       <!-- Section header -->
-      <div class="section-header opacity-0 max-w-3xl mb-16">
-        <span class="text-[#e85d3b] text-sm font-semibold uppercase tracking-[0.3em]">
-          Projekt-Ubersicht
-        </span>
-        <h2 class="mt-4 text-3xl md:text-4xl lg:text-5xl font-display font-semibold text-[#1a1a1a] leading-tight">
-          Vier Wege, wie wir<br/>Veranderung schaffen
+      <div class="max-w-2xl mb-16 reveal">
+        <span class="label-sm text-terracotta mb-4 block">Projekt-Ubersicht</span>
+        <h2 class="headline-section text-charcoal mb-6">
+          Vier Wege, wie wir Veränderung schaffen
         </h2>
-        <p class="mt-6 text-lg text-[#4a4a4a] leading-relaxed">
-          Wahlen Sie ein Projekt, um mehr uber unsere Arbeit zu erfahren. Jedes Programm
-          bietet einzigartige Moglichkeiten zur Beteiligung und Unterstutzung.
+        <p class="text-lead">
+          Wählen Sie ein Projekt, um mehr uber unsere Arbeit zu erfahren.
         </p>
       </div>
 
-      <!-- Project Cards Grid -->
-      <div class="projects-grid space-y-8 lg:space-y-12">
+      <!-- Project Cards -->
+      <div class="space-y-8 lg:space-y-12">
         <!-- Project 1: Mentoring -->
-        <div class="project-item opacity-0" style="--item-delay: 0ms">
+        <div class="reveal">
           <ProjectCard
             number="01"
             title="Mentoring-Programm"
             tagline="Gemeinsam ankommen, gemeinsam wachsen"
-            summary="Unser Mentoring-Programm verbindet Neuankommlinge mit erfahrenen Mentor*innen, die ihnen helfen, in Deutschland Fub zu fassen und sich heimisch zu fuhlen. Individuelle Beratung, praktische Unterstutzung und emotionale Begleitung."
+            summary="Unser Mentoring-Programm verbindet Neuankommlinge mit erfahrenen Mentor*innen, die ihnen helfen, in Deutschland Fuss zu fassen und sich heimisch zu fuhlen."
             image="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80"
             href="/projekte/mentoring"
             category="Neues Programm"
             badge="Neu"
             facts={[
               { icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>', label: 'Seit Oktober 2025' },
-              { icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>', label: '100% Kostenlos' },
-              { icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>', label: 'Fur Mentees & Mentoren' }
+              { icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>', label: '100% Kostenlos' }
             ]}
-            theme="light"
           />
         </div>
 
         <!-- Project 2: Stammtisch -->
-        <div class="project-item opacity-0" style="--item-delay: 100ms">
+        <div class="reveal" style="animation-delay: 100ms">
           <ProjectCard
             number="02"
             title="Stammtisch gegen Einsamkeit"
             tagline="Ein offener Treffpunkt fur alle"
-            summary="Einsamkeit betrifft Menschen aller Altersgruppen. Mit unserem Stammtisch schaffen wir jeden dritten Freitag im Monat einen Raum fur Begegnung und Austausch in gemutlicher Atmosphare bei kostenfreiem Kaffee und Kuchen."
+            summary="Einsamkeit betrifft Menschen aller Altersgruppen. Mit unserem Stammtisch schaffen wir jeden dritten Freitag im Monat einen Raum fur Begegnung."
             image="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1200&q=80"
             href="/projekte/stammtisch"
-            category="Gemeinschaftsprojekt"
+            category="Gemeinschaft"
             facts={[
               { icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>', label: 'Jeden 3. Freitag' },
-              { icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>', label: '15:00 - 18:00 Uhr' },
-              { icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>', label: 'Alte Fasanerie Lubars' }
+              { icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>', label: '15:00 - 18:00 Uhr' }
             ]}
-            theme="light"
           />
         </div>
 
         <!-- Project 3: Weihnachtsaktion -->
-        <div class="project-item opacity-0" style="--item-delay: 200ms">
+        <div class="reveal" style="animation-delay: 200ms">
           <ProjectCard
             number="03"
             title="Weihnachtsaktion"
             tagline="Hoffnung fur Berlins Obdachlose"
-            summary="Seit 2016 organisieren wir jedes Jahr eine Weihnachtsausgabe-Aktion in Berlin, um obdachlosen Menschen Unterstutzung und Weihnachtsfreude zu schenken. 2024 konnten wir 150 Menschen mit warmen Mahlzeiten versorgen."
+            summary="Seit 2016 organisieren wir jedes Jahr eine Weihnachtsausgabe-Aktion in Berlin, um obdachlosen Menschen Unterstutzung und Weihnachtsfreude zu schenken."
             image="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1200&q=80"
             href="/projekte/weihnachtsaktion"
             category="Jahrliche Aktion"
             facts={[
               { icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>', label: 'Seit 2016' },
-              { icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>', label: '150+ Menschen erreicht' },
-              { icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>', label: '26. Dezember' }
+              { icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7"/></svg>', label: '150+ Menschen' }
             ]}
-            theme="light"
           />
         </div>
 
         <!-- Project 4: Youth -->
-        <div class="project-item opacity-0" style="--item-delay: 300ms">
+        <div class="reveal" style="animation-delay: 300ms">
           <ProjectCard
             number="04"
             title="Youth with Perspective"
             tagline="Finde deinen Weg, entfalte dein Potenzial"
-            summary="Ein Raum fur junge Menschen, die gemeinsam Antworten auf die groben Fragen des Lebens suchen. Wir beschaftigen uns mit Identitat, Lebenssinn, Potenzialentfaltung und wie wir die Welt positiv beeinflussen konnen."
+            summary="Ein Raum fur junge Menschen, die gemeinsam Antworten auf die grossen Fragen des Lebens suchen: Identität, Lebenssinn und Potenzialentfaltung."
             image="https://images.unsplash.com/photo-1529390079861-591f8a33b1e1?w=1200&q=80"
             href="/projekte/youth"
             category="Jugendprogramm"
             facts={[
               { icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>', label: 'Jeden 3. Samstag' },
-              { icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>', label: '16:00 - 17:30 Uhr' },
-              { icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>', label: 'Berlin-Reinickendorf' }
+              { icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>', label: '16:00 - 17:30 Uhr' }
             ]}
-            theme="light"
           />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Final CTA Section -->
-  <section class="cta-section py-20 lg:py-28 bg-[#1a1a1a] relative overflow-hidden">
-    <!-- Decorative background -->
-    <div class="absolute inset-0 opacity-5">
-      <div class="absolute top-0 left-1/4 w-96 h-96 bg-[#e85d3b] rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-[#e85d3b] rounded-full blur-3xl"></div>
-    </div>
-
-    <div class="container mx-auto px-8 md:px-16 relative z-10">
-      <div class="max-w-3xl mx-auto text-center">
-        <span class="text-[#e85d3b] text-sm font-semibold uppercase tracking-[0.3em]">
-          Mitmachen
-        </span>
-        <h2 class="mt-4 text-3xl md:text-4xl lg:text-5xl font-display font-semibold text-white leading-tight">
-          Werde Teil unserer<br/>Gemeinschaft
+  <!-- CTA Section -->
+  <section class="section-padding bg-charcoal text-white">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto text-center reveal">
+        <span class="label-sm text-terracotta mb-4 block">Mitmachen</span>
+        <h2 class="headline-section text-white mb-6">
+          Werde Teil unserer Gemeinschaft
         </h2>
-        <p class="mt-6 text-lg text-white/70 leading-relaxed">
+        <p class="text-xl text-white/70 mb-10 leading-relaxed">
           Ob als Freiwilliger, Mentor*in oder Unterstutzer - es gibt viele Wege,
-          bei GeTu Prospects e.V. mitzuwirken und Veranderung zu bewirken.
+          bei GeTu Prospects e.V. mitzuwirken.
         </p>
-        <div class="mt-10 flex flex-wrap justify-center gap-4">
-          <a
-            href="/ehrenamtliche-arbeit"
-            class="inline-flex items-center gap-2 bg-[#e85d3b] text-white px-8 py-4 font-medium hover:bg-[#d14e2e] transition-colors duration-300"
-          >
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/kontakt#volunteer" class="btn btn-primary btn-lg">
             Freiwillig engagieren
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </a>
-          <a
-            href="/kontakt"
-            class="inline-flex items-center gap-2 border border-white/30 text-white px-8 py-4 font-medium hover:bg-white/10 transition-colors duration-300"
-          >
+          <a href="/kontakt" class="btn bg-white/10 text-white hover:bg-white/20 btn-lg">
             Kontakt aufnehmen
           </a>
         </div>
@@ -212,96 +162,3 @@ import ProjectCard from '../components/ProjectCard.astro';
     </div>
   </section>
 </BaseLayout>
-
-<style>
-  /* Hero animations */
-  .projects-hero.animate .hero-label {
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  .projects-hero.animate .hero-headline {
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
-  }
-
-  .projects-hero.animate .hero-line {
-    animation: lineExpand 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
-  }
-
-  .projects-hero.animate .hero-subtext {
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
-  }
-
-  .projects-hero.animate .hero-stats {
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
-  }
-
-  .projects-hero.animate .hero-scroll {
-    animation: fadeIn 1s ease-out 1.2s forwards;
-  }
-
-  /* Overview section animations */
-  .projects-overview.animate .section-header {
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  .projects-overview.animate .project-item {
-    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: calc(0.2s + var(--item-delay));
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes lineExpand {
-    from { transform: scaleX(0); }
-    to { transform: scaleX(1); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  /* Stat items stagger */
-  .projects-hero.animate .stat-item:nth-child(1) { animation-delay: 0.7s; }
-  .projects-hero.animate .stat-item:nth-child(2) { animation-delay: 0.8s; }
-  .projects-hero.animate .stat-item:nth-child(3) { animation-delay: 0.9s; }
-</style>
-
-<script>
-  function initProjectsPage() {
-    const hero = document.querySelector('.projects-hero');
-    const overview = document.querySelector('.projects-overview');
-
-    if (hero) {
-      setTimeout(() => hero.classList.add('animate'), 100);
-    }
-
-    if (overview) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('animate');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-
-      observer.observe(overview);
-    }
-  }
-
-  initProjectsPage();
-  document.addEventListener('astro:page-load', initProjectsPage);
-</script>

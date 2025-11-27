@@ -9,61 +9,35 @@ interface Props {
   category: string;
   facts: Array<{ icon: string; label: string }>;
   badge?: string;
-  theme?: 'light' | 'dark';
 }
 
-const {
-  number,
-  title,
-  tagline,
-  summary,
-  image,
-  href,
-  category,
-  facts,
-  badge,
-  theme = 'light'
-} = Astro.props;
-
-const isDark = theme === 'dark';
+const { number, title, tagline, summary, image, href, category, facts, badge } = Astro.props;
 ---
 
-<article class:list={[
-  "project-card group relative",
-  isDark ? "bg-[#1a1a1a]" : "bg-white"
-]}>
-  <!-- Main card layout - horizontal on desktop -->
+<article class="project-card group bg-white rounded-2xl overflow-hidden shadow-soft-md hover:shadow-soft-xl transition-all duration-500">
   <a href={href} class="block lg:grid lg:grid-cols-2 lg:gap-0">
     <!-- Image Section -->
-    <div class="relative overflow-hidden aspect-[16/10] lg:aspect-auto lg:h-full">
+    <div class="relative overflow-hidden aspect-[16/10] lg:aspect-auto lg:min-h-[320px]">
       <img
         src={image}
         alt={title}
         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
       />
-      <!-- Image overlay gradient -->
-      <div class:list={[
-        "absolute inset-0 transition-opacity duration-500",
-        isDark
-          ? "bg-gradient-to-r from-[#1a1a1a]/60 via-transparent to-[#1a1a1a]"
-          : "bg-gradient-to-r from-white/40 via-transparent to-white"
-      ]}></div>
+      <!-- Overlay gradient -->
+      <div class="absolute inset-0 bg-gradient-to-t from-charcoal/40 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-white/80"></div>
 
-      <!-- Number badge - positioned over image -->
-      <div class="absolute top-6 left-6 lg:top-8 lg:left-8">
-        <span class:list={[
-          "text-6xl lg:text-7xl font-display font-bold",
-          isDark ? "text-white/20" : "text-[#1a1a1a]/10"
-        ]}>{number}</span>
+      <!-- Number badge -->
+      <div class="absolute top-6 left-6">
+        <span class="text-6xl font-display font-bold text-white/30">{number}</span>
       </div>
 
       <!-- Category + Badge -->
-      <div class="absolute top-6 right-6 lg:top-8 lg:right-auto lg:left-8 lg:top-24 flex items-center gap-3">
-        <span class="text-[#e85d3b] text-xs font-semibold uppercase tracking-[0.2em] bg-white/90 px-3 py-1.5 backdrop-blur-sm">
+      <div class="absolute top-6 right-6 flex items-center gap-2">
+        <span class="text-xs font-semibold uppercase tracking-wider bg-white/90 text-charcoal px-3 py-1.5 rounded-full backdrop-blur-sm">
           {category}
         </span>
         {badge && (
-          <span class="bg-[#e85d3b] text-white text-xs font-semibold uppercase tracking-wider px-3 py-1.5">
+          <span class="bg-terracotta text-white text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full">
             {badge}
           </span>
         )}
@@ -71,55 +45,35 @@ const isDark = theme === 'dark';
     </div>
 
     <!-- Content Section -->
-    <div class:list={[
-      "relative p-8 lg:p-12 lg:flex lg:flex-col lg:justify-center",
-      isDark ? "bg-[#1a1a1a]" : "bg-white"
-    ]}>
-      <!-- Decorative line -->
-      <div class="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 w-px h-24 bg-[#e85d3b]/30"></div>
-
+    <div class="p-8 lg:p-10 lg:flex lg:flex-col lg:justify-center">
       <!-- Title group -->
       <div class="mb-6">
-        <h3 class:list={[
-          "text-2xl lg:text-3xl font-display font-semibold leading-tight mb-2 group-hover:text-[#e85d3b] transition-colors duration-300",
-          isDark ? "text-white" : "text-[#1a1a1a]"
-        ]}>
+        <h3 class="text-2xl lg:text-3xl font-display text-charcoal leading-tight mb-2 group-hover:text-terracotta transition-colors duration-300">
           {title}
         </h3>
-        <p class="text-[#e85d3b] text-lg font-medium">{tagline}</p>
+        <p class="text-terracotta font-medium">{tagline}</p>
       </div>
 
       <!-- Summary -->
-      <p class:list={[
-        "text-base leading-relaxed mb-8 line-clamp-3",
-        isDark ? "text-white/70" : "text-[#4a4a4a]"
-      ]}>
+      <p class="text-charcoal-light leading-relaxed mb-6 line-clamp-3">
         {summary}
       </p>
 
-      <!-- Key Facts - At a Glance -->
-      <div class="flex flex-wrap gap-3 mb-8">
+      <!-- Key Facts -->
+      <div class="flex flex-wrap gap-2 mb-6">
         {facts.map((fact) => (
-          <div class:list={[
-            "flex items-center gap-2 px-4 py-2 text-sm",
-            isDark
-              ? "bg-white/5 border border-white/10 text-white/80"
-              : "bg-[#f5f0e8] text-[#1a1a1a]"
-          ]}>
-            <span class="text-[#e85d3b]" set:html={fact.icon} />
+          <div class="flex items-center gap-2 px-3 py-1.5 text-sm bg-sand rounded-lg text-charcoal">
+            <span class="text-terracotta" set:html={fact.icon} />
             <span>{fact.label}</span>
           </div>
         ))}
       </div>
 
       <!-- CTA -->
-      <div class="flex items-center gap-3 text-[#e85d3b] font-medium group/cta">
-        <span class="relative">
-          Mehr erfahren
-          <span class="absolute left-0 bottom-0 w-0 h-px bg-[#e85d3b] transition-all duration-300 group-hover/cta:w-full group-hover:w-full"></span>
-        </span>
+      <div class="flex items-center gap-2 text-terracotta font-medium">
+        <span>Mehr erfahren</span>
         <svg
-          class="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-2"
+          class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-2"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -133,7 +87,7 @@ const isDark = theme === 'dark';
 
 <style>
   .project-card {
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
   }
 
   @media (min-width: 1024px) {

@@ -1,28 +1,22 @@
 ---
-// BaseLayout.astro
 import '../assets/global.css';
-import NavEditorial from '../components/NavEditorial.astro';
-import AltFooter from '../components/AltFooter.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description = 'GeTu Prospects e.V. - Interkultureller Verein in Berlin, der sich fur gemeinsame Zukunft und Unterstutzung Jugendlicher einsetzt.' } = Astro.props;
 ---
 
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="GeTu Prospects e.V. - Interkultureller Verein in Berlin, der sich für gemeinsame Zukunft und Unterstützung Jugendlicher einsetzt."
-    />
-    <meta
-      name="keywords"
-      content="GeTu Prospects, Berlin, Interkulturell, Verein, Jugendförderung, Gemeinnützig, Youth with Perspective"
-    />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="GeTu Prospects, Berlin, Interkulturell, Verein, Jugendförderung, Gemeinnützig, Youth with Perspective, Ehrenamt, Volunteer" />
     <meta name="author" content="GeTu Prospects e.V." />
     <meta name="language" content="de" />
     <meta name="robots" content="index, follow" />
@@ -32,26 +26,19 @@ const { title } = Astro.props;
     <link rel="icon" type="images/png" href="/getu.png" />
     <link rel="canonical" href="https://getu-prospects.de" />
 
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://getu-prospects.de" />
-    <meta
-      property="og:title"
-      content={title
-        ? `${title} | GeTu Prospects e.V.`
-        : 'GeTu Prospects e.V. - Interkultureller Verein in Berlin'}
-    />
-    <meta
-      property="og:description"
-      content="GeTu Prospects e.V. - Interkultureller Verein in Berlin, der sich für gemeinsame Zukunft und Unterstützung Jugendlicher einsetzt."
-    />
+    <meta property="og:title" content={`${title} | GeTu Prospects e.V.`} />
+    <meta property="og:description" content={description} />
     <meta property="og:image" content="https://getu-prospects.de/getu.png" />
     <meta property="og:locale" content="de_DE" />
     <meta property="og:site_name" content="GeTu Prospects e.V." />
-    <script
-      is:inline
-      defer
-      data-domain="getu-prospects.de"
-      src="https://plausible.io/js/script.js"></script>
+
+    <!-- Analytics -->
+    <script is:inline defer data-domain="getu-prospects.de" src="https://plausible.io/js/script.js"></script>
+
+    <!-- Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -59,6 +46,7 @@ const { title } = Astro.props;
         "name": "GeTu Prospects e.V.",
         "url": "https://getu-prospects.de",
         "logo": "https://getu-prospects.de/logo.png",
+        "description": "Interkultureller Verein in Berlin fur gemeinsame Zukunft und Unterstutzung Jugendlicher.",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Lange Enden 29",
@@ -71,57 +59,70 @@ const { title } = Astro.props;
       }
     </script>
   </head>
-  <body class="font-sans text-body antialiased">
-    <!-- Editorial Navigation -->
-    <NavEditorial />
+  <body class="font-sans antialiased bg-cream">
+    <Nav />
 
-    <!-- Main Content -->
-    <main>
+    <main class="pt-[72px] lg:pt-[80px]">
       <slot />
     </main>
 
-    <AltFooter />
+    <Footer />
+
+    <!-- Scroll reveal script -->
+    <script>
+      function initScrollReveal() {
+        const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+        );
+
+        reveals.forEach((el) => observer.observe(el));
+      }
+
+      initScrollReveal();
+      document.addEventListener('astro:page-load', initScrollReveal);
+    </script>
 
     <!-- Back to top button -->
     <button
       id="backToTop"
-      class="back-to-top"
+      class="fixed bottom-8 right-8 w-12 h-12 bg-terracotta text-white rounded-full flex items-center justify-center shadow-soft-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-terracotta-dark z-40"
       aria-label="Nach oben scrollen"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        class="w-6 h-6"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
       </svg>
     </button>
 
-    <!-- Back to top script -->
     <script>
       function initBackToTop() {
-        const backToTop = document.getElementById('backToTop');
+        const btn = document.getElementById('backToTop');
 
-        if (!backToTop) return;
+        if (!btn) return;
 
         const handleScroll = () => {
           if (window.scrollY > 500) {
-            backToTop.classList.add('visible');
+            btn.classList.remove('opacity-0', 'pointer-events-none');
+            btn.classList.add('opacity-100');
           } else {
-            backToTop.classList.remove('visible');
+            btn.classList.add('opacity-0', 'pointer-events-none');
+            btn.classList.remove('opacity-100');
           }
         };
 
         window.addEventListener('scroll', handleScroll);
         handleScroll();
 
-        backToTop.addEventListener('click', () => {
+        btn.addEventListener('click', () => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       }
