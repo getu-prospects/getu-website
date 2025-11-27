@@ -3,305 +3,373 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Youth with Perspective - GeTu Prospects e.V.">
-  <!-- Breadcrumb -->
-  <nav class="bg-charcoal py-4 border-b border-white/10">
-    <div class="container mx-auto px-8 md:px-16">
-      <ol class="flex items-center gap-2 text-sm">
-        <li><a href="/" class="text-white/60 hover:text-white transition-colors">Startseite</a></li>
-        <li class="text-white/40">/</li>
-        <li><a href="/projekte" class="text-white/60 hover:text-white transition-colors">Projekte</a></li>
-        <li class="text-white/40">/</li>
-        <li class="text-terracotta">Youth with Perspective</li>
-      </ol>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="project-hero relative min-h-[60vh] lg:min-h-[70vh] flex items-end bg-charcoal overflow-hidden">
+  <!-- Hero - Editorial Cinematic -->
+  <section class="youth-hero relative min-h-[85vh] flex items-end bg-charcoal overflow-hidden">
+    <!-- Background with Ken Burns -->
     <div class="absolute inset-0">
       <img
         src="https://images.unsplash.com/photo-1529390079861-591f8a33b1e1?w=1920&q=80"
         alt="Youth with Perspective - Junge Menschen"
-        class="w-full h-full object-cover opacity-50"
+        class="w-full h-full object-cover opacity-40 scale-105 animate-ken-burns"
       />
-      <div class="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-[#1a1a1a]/60 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-charcoal/80 to-transparent"></div>
     </div>
 
+    <!-- Decorative elements -->
     <div class="absolute top-1/4 right-0 w-px h-48 bg-terracotta/30 hidden lg:block"></div>
+    <div class="absolute bottom-1/3 left-12 w-32 h-px bg-terracotta/30 hidden lg:block"></div>
+    <div class="absolute top-32 right-24 w-20 h-20 border border-terracotta/20 hidden xl:block"></div>
 
-    <div class="relative z-10 container mx-auto px-8 md:px-16 pb-16 lg:pb-24">
+    <!-- Content -->
+    <div class="relative z-10 container mx-auto px-8 md:px-16 pb-20 lg:pb-28">
       <div class="max-w-4xl">
-        <div class="hero-meta opacity-0 flex items-center gap-4 mb-6">
-          <span class="text-6xl lg:text-7xl font-display font-bold text-white/20">04</span>
-          <span class="bg-terracotta text-white text-xs font-semibold uppercase tracking-wider px-3 py-1.5">
+        <!-- Label -->
+        <div class="hero-label opacity-0 flex items-center gap-4 mb-6">
+          <span class="text-6xl lg:text-8xl font-display font-bold text-white/15">04</span>
+          <span class="text-terracotta text-sm font-semibold uppercase tracking-[0.3em]">
             Jugendprogramm
           </span>
         </div>
 
-        <h1 class="hero-title opacity-0 text-4xl md:text-5xl lg:text-6xl font-display font-semibold text-white leading-tight mb-4">
-          Youth with Perspective
+        <!-- Main headline -->
+        <h1 class="hero-headline opacity-0">
+          <span class="block text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white leading-[0.95]">Youth with</span>
+          <span class="block text-4xl md:text-5xl lg:text-7xl font-display font-bold text-terracotta leading-[0.95] mt-2">Perspective</span>
         </h1>
 
-        <p class="hero-tagline opacity-0 text-xl md:text-2xl text-terracotta font-medium mb-8">
-          Finde deinen Weg, entfalte dein Potenzial
-        </p>
+        <!-- Accent line -->
+        <div class="hero-line mt-8 w-24 h-1 bg-terracotta scale-x-0 origin-left"></div>
 
-        <div class="hero-line w-20 h-1 bg-terracotta scale-x-0 origin-left"></div>
+        <!-- Tagline -->
+        <p class="hero-tagline opacity-0 mt-8 text-xl md:text-2xl text-white/80 font-light max-w-2xl leading-relaxed">
+          Finde deinen Weg, entfalte dein Potenzial - in einer
+          Gemeinschaft, die dich starkt.
+        </p>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 hero-scroll opacity-0">
+      <span class="text-xs uppercase tracking-[0.3em] text-white/40">Entdecken</span>
+      <div class="w-px h-10 bg-white/20 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-4 bg-terracotta animate-scroll-line"></div>
       </div>
     </div>
   </section>
 
   <!-- Quick Facts Bar -->
-  <section class="bg-terracotta py-6">
+  <section class="bg-terracotta py-8">
     <div class="container mx-auto px-8 md:px-16">
-      <div class="flex flex-wrap justify-center gap-8 lg:gap-16 text-white">
-        <div class="flex items-center gap-3">
-          <svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-          </svg>
-          <span class="font-medium">Jeden 3. Samstag im Monat</span>
+      <div class="flex flex-wrap justify-center lg:justify-between gap-6 lg:gap-8 text-white">
+        <div class="flex items-center gap-3 group">
+          <div class="w-10 h-10 border border-white/30 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <span class="font-medium">Jeden 3. Samstag</span>
         </div>
-        <div class="flex items-center gap-3">
-          <svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
+        <div class="flex items-center gap-3 group">
+          <div class="w-10 h-10 border border-white/30 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
           <span class="font-medium">16:00 - 17:30 Uhr</span>
         </div>
-        <div class="flex items-center gap-3">
-          <svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-          </svg>
+        <div class="flex items-center gap-3 group">
+          <div class="w-10 h-10 border border-white/30 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
           <span class="font-medium">Berlin-Reinickendorf</span>
+        </div>
+        <div class="flex items-center gap-3 group">
+          <div class="w-10 h-10 border border-white/30 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <span class="font-medium">Kostenfrei</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Main Content -->
-  <article class="py-16 lg:py-24 bg-charcoal">
+  <!-- Introduction - Editorial Asymmetric -->
+  <section class="py-24 lg:py-32 bg-cream">
     <div class="container mx-auto px-8 md:px-16">
-      <!-- Introduction -->
-      <div class="max-w-3xl mx-auto mb-20">
-        <p class="text-xl lg:text-2xl text-white leading-relaxed mb-8 first-letter:text-5xl first-letter:font-display first-letter:font-semibold first-letter:text-terracotta first-letter:float-left first-letter:mr-3 first-letter:mt-1">
-          Das Leben kann herausfordernd sein - besonders wenn man keinen klaren Weg
-          vor Augen hat. Ohne eine Richtung fuhlt man sich schnell unsicher,
-          verloren oder orientierungslos.
-        </p>
-        <p class="text-lg text-white/70 leading-relaxed">
-          Doch genau hier setzt Youth with Perspective an - ein Raum fur junge
-          Menschen, die gemeinsam Antworten auf die groben Fragen des Lebens
-          suchen und ihren eigenen, einzigartigen Weg entdecken wollen.
-        </p>
-      </div>
-
-      <!-- Visual + About Section -->
-      <section class="mb-20">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <div class="relative">
-            <img
-              src="/jugend.jpg"
-              alt="Junge Menschen bei einer gemeinsamen Aktivitat"
-              class="w-full aspect-[4/3] object-cover"
-            />
-            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-terracotta/20 -z-10 hidden lg:block"></div>
-          </div>
-          <div>
-            <h2 class="text-2xl font-display font-semibold text-white mb-6 pb-4 border-b border-[#e85d3b]/30">
-              Mehr als ein Forum - eine Gemeinschaft, die dich starkt
-            </h2>
-            <p class="text-white/70 leading-relaxed mb-6">
-              Youth with Perspective ist mehr als nur ein Treffpunkt oder eine
-              Diskussionsrunde. Es ist eine inspirierende Gemeinschaft, in der junge
-              Menschen zusammenkommen, sich austauschen und gegenseitig ermutigen.
-            </p>
-            <p class="text-white/70 leading-relaxed">
-              Hier hast du die Moglichkeit, tiefgehende Fragen zu erforschen, neue
-              Perspektiven zu gewinnen und dich mit anderen zu verbinden, die
-              ahnliche Werte und Visionen teilen.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Topics We Cover -->
-      <section class="mb-20 bg-white/5 -mx-8 md:-mx-16 px-8 md:px-16 py-16 lg:py-20">
-        <div class="max-w-3xl mx-auto mb-12 text-center">
-          <span class="text-terracotta text-sm font-semibold uppercase tracking-[0.3em]">
-            Unsere Themen
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 intro-section opacity-0">
+        <div class="lg:col-span-5">
+          <span class="text-terracotta text-sm font-semibold uppercase tracking-[0.3em] block mb-4">
+            Die Herausforderung
           </span>
-          <h2 class="mt-4 text-3xl md:text-4xl font-display font-semibold text-white">
-            Wir beschaftigen uns mit Fragen wie:
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-semibold text-charcoal leading-[1.05]">
+            Orientierung<br/>
+            <span class="italic text-sage-dark">finden</span>
           </h2>
         </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <div class="bg-white/5 border border-white/10 p-8">
-            <div class="w-10 h-10 bg-terracotta text-white flex items-center justify-center font-bold mb-6">
-              1
-            </div>
-            <h3 class="text-lg font-display font-semibold text-white mb-3">
-              Wer bin ich wirklich?
-            </h3>
-            <p class="text-white/60">
-              Entdecke deine Identitat, deine Werte und deine Einzigartigkeit.
-            </p>
-          </div>
-
-          <div class="bg-white/5 border border-white/10 p-8">
-            <div class="w-10 h-10 bg-terracotta text-white flex items-center justify-center font-bold mb-6">
-              2
-            </div>
-            <h3 class="text-lg font-display font-semibold text-white mb-3">
-              Was ist der Sinn meines Lebens?
-            </h3>
-            <p class="text-white/60">
-              Finde heraus, was dich antreibt und was deine Berufung sein konnte.
-            </p>
-          </div>
-
-          <div class="bg-white/5 border border-white/10 p-8">
-            <div class="w-10 h-10 bg-terracotta text-white flex items-center justify-center font-bold mb-6">
-              3
-            </div>
-            <h3 class="text-lg font-display font-semibold text-white mb-3">
-              Wie entfalte ich mein Potenzial?
-            </h3>
-            <p class="text-white/60">
-              Erkenne deine Starken und lerne, wie du sie gezielt einsetzen kannst.
-            </p>
-          </div>
-
-          <div class="bg-white/5 border border-white/10 p-8">
-            <div class="w-10 h-10 bg-terracotta text-white flex items-center justify-center font-bold mb-6">
-              4
-            </div>
-            <h3 class="text-lg font-display font-semibold text-white mb-3">
-              Welche Moglichkeiten stehen mir offen?
-            </h3>
-            <p class="text-white/60">
-              Erfahre, wie du Chancen ergreifen und deinen Horizont erweitern kannst.
-            </p>
-          </div>
-
-          <div class="bg-white/5 border border-white/10 p-8 md:col-span-2 lg:col-span-2">
-            <div class="w-10 h-10 bg-terracotta text-white flex items-center justify-center font-bold mb-6">
-              5
-            </div>
-            <h3 class="text-lg font-display font-semibold text-white mb-3">
-              Wie kann ich die Welt positiv beeinflussen?
-            </h3>
-            <p class="text-white/60">
-              Entdecke Wege, dein Umfeld aktiv mitzugestalten und Gutes zu bewirken.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Growing Together -->
-      <section class="mb-20">
-        <div class="grid lg:grid-cols-2 gap-8">
-          <div class="bg-white/10 p-10 lg:p-12">
-            <h2 class="text-2xl font-display font-semibold text-white mb-6 pb-4 border-b border-[#e85d3b]/30">
-              Gemeinsam wachsen und Veranderung bewirken
-            </h2>
-            <p class="text-white/70 leading-relaxed mb-6">
-              Wir glauben daran, dass das Leben reicher wird, wenn man es mit
-              Menschen teilt, die ahnliche Ziele verfolgen. Deshalb treffen wir
-              uns regelmagig als Gruppe, um voneinander zu lernen, uns zu
-              inspirieren und gemeinsam zu wachsen.
-            </p>
-            <p class="text-white/70 leading-relaxed">
-              In einem unterstutzenden und offenen Umfeld ermutigen wir uns
-              gegenseitig, unser volles Potenzial zu entfalten - in unserem
-              Glauben, unserer Personlichkeit und in unserer Wirkung auf die Welt.
-            </p>
-          </div>
-
-          <div class="relative">
-            <img
-              src="/youth-holding.jpg"
-              alt="Junge Menschen im Gesprach"
-              class="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
-      <!-- Join Us CTA -->
-      <section class="mb-20">
-        <div class="bg-terracotta p-10 lg:p-16 max-w-4xl mx-auto">
-          <div class="flex items-center gap-3 mb-6">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
-            </svg>
-            <h2 class="text-2xl font-display font-semibold text-white">
-              Mach mit!
-            </h2>
-          </div>
-
-          <p class="text-white/90 text-lg leading-relaxed mb-8">
-            Sei dabei und werde Teil von Youth with Perspective! Wir treffen uns
-            jeden dritten Samstag im Monat, um gemeinsam den Sinn des Lebens zu
-            erforschen, unseren Glauben zu starken und uns gegenseitig zu
-            inspirieren, zielgerichtet zu leben.
+        <div class="lg:col-span-7">
+          <p class="text-xl text-charcoal leading-relaxed mb-6 first-letter:text-5xl first-letter:font-display first-letter:font-semibold first-letter:text-terracotta first-letter:float-left first-letter:mr-3 first-letter:mt-1">
+            Das Leben kann herausfordernd sein - besonders wenn man keinen klaren Weg
+            vor Augen hat. Ohne eine Richtung fuhlt man sich schnell unsicher,
+            verloren oder orientierungslos.
           </p>
+          <p class="text-lg text-charcoal-light leading-relaxed">
+            Doch genau hier setzt Youth with Perspective an - ein Raum fur junge
+            Menschen, die gemeinsam Antworten auf die groben Fragen des Lebens
+            suchen und ihren eigenen, einzigartigen Weg entdecken wollen.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <div class="grid md:grid-cols-2 gap-8 pt-8 border-t border-white/30">
-            <div>
-              <h3 class="font-semibold text-white mb-4">Wann</h3>
-              <p class="text-white/90">
-                Jeden 3. Samstag im Monat<br/>
-                <span class="text-xl font-semibold">16:00 - 17:30 Uhr</span>
+  <!-- About + Image - Overlapping Editorial -->
+  <section class="py-24 lg:py-32 bg-charcoal relative">
+    <div class="container mx-auto px-8 md:px-16">
+      <div class="relative">
+        <!-- Background image -->
+        <div class="about-image opacity-0 relative lg:absolute lg:left-0 lg:top-0 lg:bottom-0 lg:w-7/12">
+          <img
+            src="/jugend.jpg"
+            alt="Junge Menschen bei einer gemeinsamen Aktivitat"
+            class="w-full h-[400px] lg:h-full object-cover"
+          />
+          <!-- Year badge -->
+          <div class="absolute bottom-0 left-0 bg-terracotta p-6 text-white">
+            <span class="block text-4xl font-display">2019</span>
+            <span class="text-xs uppercase tracking-wider text-white/80">Gegrundet</span>
+          </div>
+        </div>
+
+        <!-- Content card - overlapping -->
+        <div class="about-content opacity-0 relative lg:ml-auto lg:w-6/12 lg:py-16">
+          <div class="bg-cream text-charcoal p-8 lg:p-12">
+            <div class="max-w-lg">
+              <span class="text-terracotta text-sm font-semibold uppercase tracking-[0.3em] block mb-4">
+                Unsere Mission
+              </span>
+              <h3 class="font-display text-2xl lg:text-3xl font-semibold mb-6 text-charcoal">
+                Mehr als ein Forum - eine Gemeinschaft
+              </h3>
+              <p class="text-charcoal-light leading-relaxed mb-6">
+                Youth with Perspective ist mehr als nur ein Treffpunkt oder eine
+                Diskussionsrunde. Es ist eine inspirierende Gemeinschaft, in der junge
+                Menschen zusammenkommen, sich austauschen und gegenseitig ermutigen.
               </p>
-            </div>
-            <div>
-              <h3 class="font-semibold text-white mb-4">Wo</h3>
-              <p class="text-white/90">
-                Gorkistrage 127<br/>
-                13509 Berlin
+              <p class="text-charcoal-light leading-relaxed">
+                Hier hast du die Moglichkeit, tiefgehende Fragen zu erforschen, neue
+                Perspektiven zu gewinnen und dich mit anderen zu verbinden, die
+                ahnliche Werte und Visionen teilen.
               </p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <!-- Final CTA -->
-      <section class="text-center">
-        <h2 class="text-2xl md:text-3xl font-display font-semibold text-white mb-4">
+  <!-- Topics - Magazine Grid -->
+  <section class="py-24 lg:py-32 bg-cream">
+    <div class="container mx-auto px-8 md:px-16">
+      <div class="topics-header opacity-0 text-center max-w-3xl mx-auto mb-16">
+        <span class="text-terracotta text-sm font-semibold uppercase tracking-[0.3em]">
+          Unsere Themen
+        </span>
+        <h2 class="mt-4 text-3xl md:text-4xl font-display font-semibold text-charcoal">
+          Fragen, die uns bewegen
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-charcoal/10">
+        <div class="topic-card opacity-0 bg-cream p-10 group" style="--topic-delay: 0ms">
+          <span class="text-6xl font-display font-bold text-charcoal/10 group-hover:text-terracotta/20 transition-colors">01</span>
+          <h3 class="mt-4 text-xl font-display font-semibold text-charcoal group-hover:text-terracotta transition-colors">
+            Wer bin ich wirklich?
+          </h3>
+          <p class="mt-3 text-charcoal-light leading-relaxed">
+            Entdecke deine Identitat, deine Werte und deine Einzigartigkeit.
+          </p>
+        </div>
+
+        <div class="topic-card opacity-0 bg-cream p-10 group" style="--topic-delay: 100ms">
+          <span class="text-6xl font-display font-bold text-charcoal/10 group-hover:text-terracotta/20 transition-colors">02</span>
+          <h3 class="mt-4 text-xl font-display font-semibold text-charcoal group-hover:text-terracotta transition-colors">
+            Was ist mein Sinn?
+          </h3>
+          <p class="mt-3 text-charcoal-light leading-relaxed">
+            Finde heraus, was dich antreibt und was deine Berufung sein konnte.
+          </p>
+        </div>
+
+        <div class="topic-card opacity-0 bg-cream p-10 group" style="--topic-delay: 200ms">
+          <span class="text-6xl font-display font-bold text-charcoal/10 group-hover:text-terracotta/20 transition-colors">03</span>
+          <h3 class="mt-4 text-xl font-display font-semibold text-charcoal group-hover:text-terracotta transition-colors">
+            Wie entfalte ich mein Potenzial?
+          </h3>
+          <p class="mt-3 text-charcoal-light leading-relaxed">
+            Erkenne deine Starken und lerne, wie du sie gezielt einsetzen kannst.
+          </p>
+        </div>
+
+        <div class="topic-card opacity-0 bg-cream p-10 group" style="--topic-delay: 300ms">
+          <span class="text-6xl font-display font-bold text-charcoal/10 group-hover:text-terracotta/20 transition-colors">04</span>
+          <h3 class="mt-4 text-xl font-display font-semibold text-charcoal group-hover:text-terracotta transition-colors">
+            Welche Wege stehen offen?
+          </h3>
+          <p class="mt-3 text-charcoal-light leading-relaxed">
+            Erfahre, wie du Chancen ergreifen und deinen Horizont erweitern kannst.
+          </p>
+        </div>
+
+        <div class="topic-card opacity-0 bg-cream p-10 md:col-span-2 group" style="--topic-delay: 400ms">
+          <span class="text-6xl font-display font-bold text-charcoal/10 group-hover:text-terracotta/20 transition-colors">05</span>
+          <h3 class="mt-4 text-xl font-display font-semibold text-charcoal group-hover:text-terracotta transition-colors">
+            Wie kann ich die Welt positiv beeinflussen?
+          </h3>
+          <p class="mt-3 text-charcoal-light leading-relaxed">
+            Entdecke Wege, dein Umfeld aktiv mitzugestalten und Gutes zu bewirken.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Growing Together - Split Section -->
+  <section class="grow-section opacity-0 relative min-h-[80vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="/youth-holding.jpg"
+        alt="Junge Menschen im Gesprach"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-charcoal/70"></div>
+    </div>
+
+    <div class="relative z-10 container mx-auto px-8 md:px-16">
+      <div class="max-w-3xl">
+        <span class="text-terracotta text-sm font-semibold uppercase tracking-[0.3em] block mb-6">
+          Gemeinsam wachsen
+        </span>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-8">
+          Veranderung<br/>
+          <span class="italic font-normal text-white/80">gemeinsam bewirken</span>
+        </h2>
+        <p class="text-xl text-white/80 leading-relaxed mb-6">
+          Wir glauben daran, dass das Leben reicher wird, wenn man es mit
+          Menschen teilt, die ahnliche Ziele verfolgen. Deshalb treffen wir
+          uns regelmagig als Gruppe, um voneinander zu lernen, uns zu
+          inspirieren und gemeinsam zu wachsen.
+        </p>
+        <p class="text-xl text-white/80 leading-relaxed">
+          In einem unterstutzenden und offenen Umfeld ermutigen wir uns
+          gegenseitig, unser volles Potenzial zu entfalten.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Us CTA - Editorial -->
+  <section class="py-24 lg:py-32 bg-terracotta relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-0 w-48 h-48 border border-white/10"></div>
+      <div class="absolute bottom-0 right-0 w-64 h-64 border border-white/10"></div>
+    </div>
+
+    <div class="container mx-auto px-8 md:px-16 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 cta-content opacity-0">
+          <span class="text-white/60 text-sm font-semibold uppercase tracking-[0.3em] block mb-4">
+            Mach mit
+          </span>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-6">
+            Sei dabei und werde Teil<br/>
+            <span class="italic font-normal text-white/80">von Youth with Perspective!</span>
+          </h2>
+          <p class="text-xl text-white/80 leading-relaxed">
+            Wir treffen uns jeden dritten Samstag im Monat, um gemeinsam den
+            Sinn des Lebens zu erforschen, unseren Glauben zu starken und uns
+            gegenseitig zu inspirieren, zielgerichtet zu leben.
+          </p>
+        </div>
+
+        <div class="lg:col-span-5 cta-details opacity-0">
+          <div class="bg-white p-10">
+            <div class="space-y-8">
+              <div>
+                <span class="text-terracotta text-sm font-semibold uppercase tracking-wider">Wann</span>
+                <p class="mt-2 text-charcoal">
+                  Jeden 3. Samstag im Monat<br/>
+                  <span class="text-2xl font-display font-semibold">16:00 - 17:30 Uhr</span>
+                </p>
+              </div>
+              <div class="pt-6 border-t border-charcoal/10">
+                <span class="text-terracotta text-sm font-semibold uppercase tracking-wider">Wo</span>
+                <p class="mt-2 text-charcoal">
+                  <span class="font-semibold">Gorkistrage 127</span><br/>
+                  13509 Berlin
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-20 lg:py-24 bg-cream">
+    <div class="container mx-auto px-8 md:px-16">
+      <div class="final-cta opacity-0 max-w-2xl mx-auto text-center">
+        <h2 class="text-2xl md:text-3xl font-display font-semibold text-charcoal mb-4">
           Fragen? Wir sind fur dich da!
         </h2>
-        <p class="text-lg text-white/70 mb-8 max-w-2xl mx-auto">
+        <p class="text-lg text-charcoal-light mb-10">
           Melde dich bei uns, wenn du mehr uber Youth with Perspective erfahren mochtest.
         </p>
         <a
           href="/kontakt"
-          class="inline-flex items-center gap-2 bg-white text-charcoal px-8 py-4 font-medium hover:bg-white/90 transition-colors"
+          class="inline-flex items-center gap-3 px-10 py-5 bg-charcoal text-white font-semibold group transition-all duration-300 hover:bg-terracotta"
         >
           Kontakt aufnehmen
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 transform transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
         </a>
-      </section>
+      </div>
     </div>
-  </article>
+  </section>
 
-  <!-- Navigation to Other Projects -->
-  <section class="py-16 bg-[#0f0f0f]">
+  <!-- Navigation - Editorial Style -->
+  <section class="py-16 lg:py-20 bg-charcoal">
     <div class="container mx-auto px-8 md:px-16">
       <div class="flex justify-between items-center">
-        <a href="/projekte/weihnachtsaktion" class="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
-          <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
-          </svg>
-          <span>Weihnachtsaktion</span>
+        <a href="/projekte/weihnachtsaktion" class="flex items-center gap-4 text-white/60 hover:text-white transition-colors group">
+          <div class="w-12 h-12 border border-white/20 flex items-center justify-center group-hover:border-terracotta group-hover:bg-terracotta transition-all">
+            <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
+            </svg>
+          </div>
+          <div>
+            <span class="block text-xs uppercase tracking-wider text-white/40">Vorheriges</span>
+            <span class="block mt-1 font-medium">Weihnachtsaktion</span>
+          </div>
         </a>
-        <a href="/projekte" class="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
-          <span>Alle Projekte</span>
-          <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
+        <a href="/projekte" class="flex items-center gap-4 text-white/60 hover:text-white transition-colors group text-right">
+          <div>
+            <span class="block text-xs uppercase tracking-wider text-white/40">Ubersicht</span>
+            <span class="block mt-1 font-medium">Alle Projekte</span>
+          </div>
+          <div class="w-12 h-12 border border-white/20 flex items-center justify-center group-hover:border-terracotta group-hover:bg-terracotta transition-all">
+            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </div>
         </a>
       </div>
     </div>
@@ -309,30 +377,57 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
-  .project-hero.animate .hero-meta {
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  /* Ken Burns animation */
+  @keyframes kenBurns {
+    0% { transform: scale(1.05) translate(0, 0); }
+    100% { transform: scale(1.15) translate(-2%, -1%); }
   }
 
-  .project-hero.animate .hero-title {
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+  .animate-ken-burns {
+    animation: kenBurns 20s ease-in-out infinite alternate;
   }
 
-  .project-hero.animate .hero-tagline {
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+  /* Scroll line animation */
+  @keyframes scrollLine {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(400%); }
   }
 
-  .project-hero.animate .hero-line {
-    animation: lineExpand 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+  .animate-scroll-line {
+    animation: scrollLine 2s ease-in-out infinite;
   }
 
-  @keyframes fadeInUp {
+  /* Hero animations */
+  .youth-hero.animate .hero-label {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  }
+
+  .youth-hero.animate .hero-headline {
+    animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  }
+
+  .youth-hero.animate .hero-line {
+    animation: lineExpand 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+  }
+
+  .youth-hero.animate .hero-tagline {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
+  }
+
+  .youth-hero.animate .hero-scroll {
+    animation: fadeIn 1s ease-out 1.5s forwards;
+  }
+
+  @keyframes revealUp {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(60px);
+      filter: blur(10px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
+      filter: blur(0);
     }
   }
 
@@ -340,17 +435,66 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     from { transform: scaleX(0); }
     to { transform: scaleX(1); }
   }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Section animations */
+  .intro-section.animate,
+  .about-image.animate,
+  .about-content.animate,
+  .topics-header.animate,
+  .grow-section.animate,
+  .cta-content.animate,
+  .cta-details.animate,
+  .final-cta.animate {
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Stagger topic cards */
+  .topic-card.animate {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--topic-delay);
+  }
 </style>
 
 <script>
-  function initProjectPage() {
-    const hero = document.querySelector('.project-hero');
+  function initYouthPage() {
+    const hero = document.querySelector('.youth-hero');
+    const sections = document.querySelectorAll('.intro-section, .about-image, .about-content, .topics-header, .topic-card, .grow-section, .cta-content, .cta-details, .final-cta');
 
     if (hero) {
       setTimeout(() => hero.classList.add('animate'), 100);
     }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
   }
 
-  initProjectPage();
-  document.addEventListener('astro:page-load', initProjectPage);
+  initYouthPage();
+  document.addEventListener('astro:page-load', initYouthPage);
 </script>
