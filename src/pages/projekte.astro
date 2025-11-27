@@ -4,43 +4,42 @@ import ProjectCard from '../components/ProjectCard.astro';
 ---
 
 <BaseLayout title="Projekte">
-  <!-- Hero Section -->
-  <section class="relative min-h-[60vh] flex items-center overflow-hidden bg-charcoal">
-    <!-- Background Image -->
-    <div class="absolute inset-0">
-      <img
-        src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&q=80"
-        alt="Volunteers working together"
-        class="w-full h-full object-cover opacity-30"
-      />
-      <div class="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/80 to-charcoal/60"></div>
-    </div>
+  <!-- Hero Section - Editorial style -->
+  <section class="relative bg-cream pt-32 pb-20 lg:pt-40 lg:pb-28">
+    <div class="container-wide">
+      <div class="grid lg:grid-cols-12 gap-8 lg:gap-16">
+        <!-- Left: Title -->
+        <div class="lg:col-span-5 reveal">
+          <span class="label-sm text-terracotta mb-4 block">Unsere Arbeit</span>
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-display text-charcoal leading-[0.95]">
+            Gemeinsam<br/>
+            <span class="italic text-sage-dark">Veränderung</span><br/>
+            bewirken
+          </h1>
+        </div>
 
-    <div class="relative container-wide py-20">
-      <div class="max-w-3xl">
-        <span class="label-sm text-terracotta mb-4 block animate-fade-up">Unsere Arbeit</span>
-        <h1 class="headline-hero text-white mb-6 animate-fade-up delay-100">
-          Gemeinsam bewirken wir
-          <span class="italic text-terracotta-light">Veränderung</span>
-        </h1>
-        <p class="text-xl text-white/80 leading-relaxed animate-fade-up delay-200">
-          Durch gezielte Programme und Initiativen schaffen wir nachhaltige
-          positive Veränderungen in unserer Gemeinschaft.
-        </p>
+        <!-- Right: Description + Stats -->
+        <div class="lg:col-span-6 lg:col-start-7 flex flex-col justify-end reveal" style="animation-delay: 100ms">
+          <p class="text-xl text-charcoal-light leading-relaxed mb-12">
+            Durch gezielte Programme und Initiativen schaffen wir nachhaltige
+            positive Veränderungen in unserer Gemeinschaft. Jedes Projekt hat
+            seine eigene Geschichte - entdecken Sie sie.
+          </p>
 
-        <!-- Impact stats -->
-        <div class="mt-12 flex flex-wrap gap-8 lg:gap-12 animate-fade-up delay-300">
-          <div>
-            <span class="block text-4xl font-display text-white">4</span>
-            <span class="text-sm text-white/60">Aktive Projekte</span>
-          </div>
-          <div>
-            <span class="block text-4xl font-display text-white">150+</span>
-            <span class="text-sm text-white/60">Menschen erreicht</span>
-          </div>
-          <div>
-            <span class="block text-4xl font-display text-white">8+</span>
-            <span class="text-sm text-white/60">Jahre Erfahrung</span>
+          <!-- Impact stats -->
+          <div class="grid grid-cols-3 gap-8 pt-8 border-t border-charcoal/10">
+            <div>
+              <span class="block text-4xl lg:text-5xl font-display text-charcoal">4</span>
+              <span class="text-sm text-charcoal-light">Aktive Projekte</span>
+            </div>
+            <div>
+              <span class="block text-4xl lg:text-5xl font-display text-charcoal">150+</span>
+              <span class="text-sm text-charcoal-light">Menschen erreicht</span>
+            </div>
+            <div>
+              <span class="block text-4xl lg:text-5xl font-display text-charcoal">8+</span>
+              <span class="text-sm text-charcoal-light">Jahre Erfahrung</span>
+            </div>
           </div>
         </div>
       </div>
@@ -48,21 +47,10 @@ import ProjectCard from '../components/ProjectCard.astro';
   </section>
 
   <!-- Projects List -->
-  <section class="section-padding bg-cream">
+  <section class="bg-cream pb-24 lg:pb-32">
     <div class="container-wide">
-      <!-- Section header -->
-      <div class="max-w-2xl mb-16 reveal">
-        <span class="label-sm text-terracotta mb-4 block">Projekt-Ubersicht</span>
-        <h2 class="headline-section text-charcoal mb-6">
-          Vier Wege, wie wir Veränderung schaffen
-        </h2>
-        <p class="text-lead">
-          Wählen Sie ein Projekt, um mehr uber unsere Arbeit zu erfahren.
-        </p>
-      </div>
-
       <!-- Project Cards -->
-      <div class="space-y-8 lg:space-y-12">
+      <div class="border-t border-charcoal/10">
         <!-- Project 1: Mentoring -->
         <div class="reveal">
           <ProjectCard
@@ -136,27 +124,39 @@ import ProjectCard from '../components/ProjectCard.astro';
   </section>
 
   <!-- CTA Section -->
-  <section class="section-padding bg-charcoal text-white">
-    <div class="container-wide">
-      <div class="max-w-3xl mx-auto text-center reveal">
-        <span class="label-sm text-terracotta mb-4 block">Mitmachen</span>
-        <h2 class="headline-section text-white mb-6">
-          Werde Teil unserer Gemeinschaft
-        </h2>
-        <p class="text-xl text-white/70 mb-10 leading-relaxed">
-          Ob als Freiwilliger, Mentor*in oder Unterstutzer - es gibt viele Wege,
-          bei GeTu Prospects e.V. mitzuwirken.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="/kontakt#volunteer" class="btn btn-primary btn-lg">
-            Freiwillig engagieren
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
-          <a href="/kontakt" class="btn bg-white/10 text-white hover:bg-white/20 btn-lg">
-            Kontakt aufnehmen
-          </a>
+  <section class="py-24 lg:py-32 bg-charcoal relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-0 w-48 h-48 border border-white/5"></div>
+      <div class="absolute bottom-0 right-0 w-64 h-64 border border-white/5"></div>
+    </div>
+
+    <div class="container-wide relative">
+      <div class="grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 reveal">
+          <span class="label-sm text-terracotta mb-4 block">Mitmachen</span>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-display text-white leading-[1.05] mb-6">
+            Werde Teil unserer<br/>
+            <span class="italic text-terracotta-light">Gemeinschaft</span>
+          </h2>
+          <p class="text-xl text-white/70 leading-relaxed">
+            Ob als Freiwilliger, Mentor*in oder Unterstutzer - es gibt viele Wege,
+            bei GeTu Prospects e.V. mitzuwirken.
+          </p>
+        </div>
+
+        <div class="lg:col-span-4 lg:col-start-9 reveal" style="animation-delay: 100ms">
+          <div class="flex flex-col gap-4">
+            <a href="/kontakt#volunteer" class="btn btn-primary btn-lg justify-center">
+              Freiwillig engagieren
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+            <a href="/kontakt" class="btn bg-white/10 text-white hover:bg-white/20 btn-lg justify-center">
+              Kontakt aufnehmen
+            </a>
+          </div>
         </div>
       </div>
     </div>

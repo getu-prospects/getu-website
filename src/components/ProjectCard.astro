@@ -14,55 +14,53 @@ interface Props {
 const { number, title, tagline, summary, image, href, category, facts, badge } = Astro.props;
 ---
 
-<article class="project-card group bg-white rounded-2xl overflow-hidden shadow-soft-md hover:shadow-soft-xl transition-all duration-500">
-  <a href={href} class="block lg:grid lg:grid-cols-2 lg:gap-0">
+<article class="group bg-cream border-b border-charcoal/10 last:border-b-0">
+  <a href={href} class="block lg:grid lg:grid-cols-12 lg:gap-0">
     <!-- Image Section -->
-    <div class="relative overflow-hidden aspect-[16/10] lg:aspect-auto lg:min-h-[320px]">
+    <div class="relative overflow-hidden aspect-[16/10] lg:aspect-auto lg:min-h-[400px] lg:col-span-7">
       <img
         src={image}
         alt={title}
         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
       />
-      <!-- Overlay gradient -->
-      <div class="absolute inset-0 bg-gradient-to-t from-charcoal/40 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-white/80"></div>
 
       <!-- Number badge -->
-      <div class="absolute top-6 left-6">
-        <span class="text-6xl font-display font-bold text-white/30">{number}</span>
+      <div class="absolute bottom-6 left-6">
+        <span class="text-7xl font-display text-white/20">{number}</span>
       </div>
 
-      <!-- Category + Badge -->
-      <div class="absolute top-6 right-6 flex items-center gap-2">
-        <span class="text-xs font-semibold uppercase tracking-wider bg-white/90 text-charcoal px-3 py-1.5 rounded-full backdrop-blur-sm">
-          {category}
+      <!-- Badge if new -->
+      {badge && (
+        <span class="absolute top-6 left-6 bg-terracotta text-white text-xs font-semibold uppercase tracking-wider px-3 py-1.5">
+          {badge}
         </span>
-        {badge && (
-          <span class="bg-terracotta text-white text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full">
-            {badge}
-          </span>
-        )}
-      </div>
+      )}
     </div>
 
     <!-- Content Section -->
-    <div class="p-8 lg:p-10 lg:flex lg:flex-col lg:justify-center">
+    <div class="lg:col-span-5 p-8 lg:p-12 flex flex-col justify-center">
+      <!-- Category -->
+      <span class="text-xs font-semibold uppercase tracking-wider text-terracotta mb-4">
+        {category}
+      </span>
+
       <!-- Title group -->
       <div class="mb-6">
         <h3 class="text-2xl lg:text-3xl font-display text-charcoal leading-tight mb-2 group-hover:text-terracotta transition-colors duration-300">
           {title}
         </h3>
-        <p class="text-terracotta font-medium">{tagline}</p>
+        <p class="text-sage-dark font-medium italic">{tagline}</p>
       </div>
 
       <!-- Summary -->
-      <p class="text-charcoal-light leading-relaxed mb-6 line-clamp-3">
+      <p class="text-charcoal-light leading-relaxed mb-8">
         {summary}
       </p>
 
       <!-- Key Facts -->
-      <div class="flex flex-wrap gap-2 mb-6">
+      <div class="flex flex-wrap gap-4 mb-8 text-sm text-charcoal-light">
         {facts.map((fact) => (
-          <div class="flex items-center gap-2 px-3 py-1.5 text-sm bg-sand rounded-lg text-charcoal">
+          <div class="flex items-center gap-2">
             <span class="text-terracotta" set:html={fact.icon} />
             <span>{fact.label}</span>
           </div>
@@ -70,7 +68,7 @@ const { number, title, tagline, summary, image, href, category, facts, badge } =
       </div>
 
       <!-- CTA -->
-      <div class="flex items-center gap-2 text-terracotta font-medium">
+      <div class="flex items-center gap-2 text-charcoal font-medium group-hover:text-terracotta transition-colors">
         <span>Mehr erfahren</span>
         <svg
           class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-2"
@@ -84,15 +82,3 @@ const { number, title, tagline, summary, image, href, category, facts, badge } =
     </div>
   </a>
 </article>
-
-<style>
-  .project-card {
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
-  }
-
-  @media (min-width: 1024px) {
-    .project-card:hover {
-      transform: translateY(-4px);
-    }
-  }
-</style>
