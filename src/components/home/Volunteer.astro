@@ -1,85 +1,90 @@
 ---
-// Volunteer recruitment section
+// Volunteer recruitment section - Split editorial layout
 const benefits = [
   {
-    icon: 'heart',
+    number: '01',
     title: 'Sinnvolle Arbeit',
     description: 'Gestalte aktiv die Zukunft junger Menschen mit',
   },
   {
-    icon: 'users',
+    number: '02',
     title: 'Tolle Gemeinschaft',
     description: 'Werde Teil eines engagierten, herzlichen Teams',
   },
   {
-    icon: 'star',
+    number: '03',
     title: 'Personliche Entwicklung',
     description: 'Lerne Neues und wachse an deinen Aufgaben',
   },
   {
-    icon: 'calendar',
+    number: '04',
     title: 'Flexible Zeiten',
     description: 'Engagiere dich so, wie es zu deinem Leben passt',
   },
 ];
 ---
 
-<section class="relative overflow-hidden">
-  <!-- Background -->
-  <div class="absolute inset-0 bg-charcoal">
-    <img
-      src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&q=80"
-      alt="Volunteers working together"
-      class="w-full h-full object-cover opacity-20"
-    />
-    <div class="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/95 to-charcoal/80"></div>
-  </div>
+<section class="relative bg-charcoal overflow-hidden">
+  <div class="grid lg:grid-cols-2">
+    <!-- Left: Image with quote -->
+    <div class="relative min-h-[500px] lg:min-h-[700px] reveal">
+      <img
+        src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1200&q=80"
+        alt="Volunteers working together"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent"></div>
 
-  <div class="relative container-wide section-padding">
-    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-      <!-- Content -->
-      <div class="reveal">
+      <!-- Quote overlay -->
+      <div class="absolute bottom-0 left-0 right-0 p-8 lg:p-12">
+        <div class="max-w-md">
+          <svg class="w-10 h-10 text-white/20 mb-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+          </svg>
+          <blockquote class="text-xl lg:text-2xl text-white font-display italic leading-relaxed mb-4">
+            "Bei GeTu habe ich nicht nur eine Aufgabe gefunden, sondern eine zweite Familie."
+          </blockquote>
+          <div class="flex items-center gap-4">
+            <div class="w-px h-8 bg-terracotta"></div>
+            <div>
+              <span class="block text-white font-medium">Maria K.</span>
+              <span class="block text-white/50 text-sm">Ehrenamtliche seit 2021</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Content -->
+    <div class="flex flex-col justify-center p-8 lg:p-16 xl:p-20">
+      <div class="max-w-xl reveal" style="animation-delay: 100ms">
         <span class="label-sm text-terracotta mb-4 block">Mitmachen</span>
-        <h2 class="headline-section text-white mb-6">
-          Werde Teil unserer
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-display text-white leading-[1.05] mb-6">
+          Werde Teil unserer<br/>
           <span class="italic text-terracotta-light">Geschichte</span>
         </h2>
 
-        <p class="text-xl text-white/80 mb-8 leading-relaxed">
+        <p class="text-lg text-white/70 mb-12 leading-relaxed">
           Du mochtest dich ehrenamtlich engagieren und etwas Sinnvolles bewirken?
           Bei uns findest du nicht nur eine Aufgabe, sondern eine Gemeinschaft,
           die dich tragt und inspiriert.
         </p>
 
-        <!-- Benefits Grid -->
-        <div class="grid sm:grid-cols-2 gap-6 mb-10">
-          {benefits.map((benefit) => (
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-terracotta/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                {benefit.icon === 'heart' && (
-                  <svg class="w-5 h-5 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                  </svg>
-                )}
-                {benefit.icon === 'users' && (
-                  <svg class="w-5 h-5 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
-                  </svg>
-                )}
-                {benefit.icon === 'star' && (
-                  <svg class="w-5 h-5 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
-                  </svg>
-                )}
-                {benefit.icon === 'calendar' && (
-                  <svg class="w-5 h-5 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                  </svg>
-                )}
-              </div>
-              <div>
-                <h3 class="font-medium text-white mb-1">{benefit.title}</h3>
-                <p class="text-sm text-white/60">{benefit.description}</p>
+        <!-- Benefits - numbered list style -->
+        <div class="space-y-6 mb-12">
+          {benefits.map((benefit, index) => (
+            <div
+              class="flex items-start gap-6 group reveal"
+              style={`animation-delay: ${(index + 2) * 100}ms`}
+            >
+              <span class="text-3xl font-display text-terracotta/30 group-hover:text-terracotta transition-colors">
+                {benefit.number}
+              </span>
+              <div class="flex-1 pt-1">
+                <h3 class="font-display text-lg text-white mb-1 group-hover:text-terracotta-light transition-colors">
+                  {benefit.title}
+                </h3>
+                <p class="text-white/50 text-sm">{benefit.description}</p>
               </div>
             </div>
           ))}
@@ -92,37 +97,11 @@ const benefits = [
           </svg>
         </a>
       </div>
-
-      <!-- Image/Testimonial Column -->
-      <div class="reveal-right relative hidden lg:block">
-        <div class="relative">
-          <img
-            src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&q=80"
-            alt="Volunteer smiling"
-            class="w-full aspect-[3/4] object-cover rounded-2xl"
-          />
-
-          <!-- Quote card -->
-          <div class="absolute -bottom-8 -left-8 bg-white p-6 rounded-xl shadow-soft-xl max-w-sm">
-            <svg class="w-8 h-8 text-terracotta/20 mb-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-            </svg>
-            <p class="text-charcoal italic mb-4">
-              "Bei GeTu habe ich nicht nur eine Aufgabe gefunden, sondern eine zweite Familie.
-              Gemeinsam konnen wir wirklich etwas bewegen."
-            </p>
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-sage/20 rounded-full flex items-center justify-center">
-                <span class="font-display text-sage-dark">M</span>
-              </div>
-              <div>
-                <span class="block font-medium text-charcoal text-sm">Maria K.</span>
-                <span class="block text-xs text-charcoal-light">Ehrenamtliche seit 2021</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
+  </div>
+
+  <!-- Decorative elements -->
+  <div class="absolute top-12 right-12 hidden xl:block">
+    <div class="w-32 h-32 border border-white/10"></div>
   </div>
 </section>

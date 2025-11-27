@@ -1,113 +1,117 @@
 ---
-// Projects showcase section
+// Projects section - Alternating/zigzag editorial layout
 const projects = [
   {
+    number: '01',
     title: 'Youth with Perspective',
-    description: 'Ein Programm fur Jugendliche, die ihren Weg finden und ihr Potenzial entfalten wollen.',
-    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80',
-    tag: 'Jugendarbeit',
-    color: 'terracotta',
+    tagline: 'Finde deinen Weg',
+    description: 'Ein Programm fur junge Menschen, die gemeinsam Antworten auf die grossen Fragen des Lebens suchen: Identitat, Lebenssinn und Potenzialentfaltung.',
+    image: 'https://images.unsplash.com/photo-1529390079861-591f8a33b1e1?w=900&q=80',
     href: '/projekte/youth',
+    schedule: 'Jeden 3. Samstag • 16:00 Uhr',
   },
   {
+    number: '02',
     title: 'Mentoring-Programm',
-    description: 'Erfahrene Mentoren begleiten junge Menschen auf ihrem personlichen und beruflichen Weg.',
-    image: 'https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=600&q=80',
-    tag: 'Begleitung',
-    color: 'sage',
+    tagline: 'Gemeinsam ankommen',
+    description: 'Wir verbinden Neuankommlinge mit erfahrenen Mentor*innen, die ihnen helfen, in Deutschland Fuss zu fassen und sich heimisch zu fuhlen.',
+    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=80',
     href: '/projekte/mentoring',
+    schedule: 'Seit Oktober 2025',
+    isNew: true,
   },
   {
-    title: 'Stammtisch',
-    description: 'Regelmasige Treffen zum Austausch, Kennenlernen und gemeinsamen Wachsen.',
-    image: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&q=80',
-    tag: 'Community',
-    color: 'gold',
+    number: '03',
+    title: 'Stammtisch gegen Einsamkeit',
+    tagline: 'Ein offener Treffpunkt',
+    description: 'Einsamkeit betrifft Menschen aller Altersgruppen. Mit unserem Stammtisch schaffen wir einen Raum fur Begegnung und echte Gesprache.',
+    image: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=900&q=80',
     href: '/projekte/stammtisch',
+    schedule: 'Jeden 3. Freitag • 15:00 Uhr',
   },
   {
+    number: '04',
     title: 'Weihnachtsaktion',
-    description: 'Freude schenken - unsere jahrliche Aktion fur Familien in schwierigen Situationen.',
-    image: 'https://images.unsplash.com/photo-1512909006721-3d6018887383?w=600&q=80',
-    tag: 'Soziales',
-    color: 'terracotta',
+    tagline: 'Hoffnung schenken',
+    description: 'Seit 2016 organisieren wir jedes Jahr eine Weihnachtsausgabe-Aktion in Berlin, um obdachlosen Menschen Unterstutzung und Warme zu schenken.',
+    image: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=900&q=80',
     href: '/projekte/weihnachtsaktion',
+    schedule: 'Jahrlich im Dezember',
   },
 ];
 ---
 
-<section class="section-padding bg-sand/50">
+<section class="py-24 lg:py-32 bg-sand">
   <div class="container-wide">
-    <!-- Section Header -->
-    <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+    <!-- Section header -->
+    <div class="max-w-3xl mb-16 reveal">
       <span class="label-sm text-terracotta mb-4 block">Unsere Arbeit</span>
-      <h2 class="headline-section text-charcoal mb-6">
-        Projekte, die
-        <span class="italic text-sage-dark">verbinden</span>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-display text-charcoal leading-[1.05] mb-6">
+        Vier Wege, wie wir<br/>
+        <span class="italic text-sage-dark">Veranderung schaffen</span>
       </h2>
-      <p class="text-lead">
-        Durch unsere vielfaltigen Programme schaffen wir Raume fur Begegnung,
-        Lernen und personliches Wachstum.
+      <p class="text-xl text-charcoal-light">
+        Durch gezielte Programme und personliche Begleitung unterstutzen wir
+        Menschen auf ihrem Weg.
       </p>
     </div>
 
-    <!-- Projects Grid -->
-    <div class="grid md:grid-cols-2 gap-8">
+    <!-- Projects - alternating layout -->
+    <div class="space-y-16 lg:space-y-0">
       {projects.map((project, index) => (
         <a
           href={project.href}
-          class={`reveal group relative bg-white rounded-2xl overflow-hidden shadow-soft-md hover:shadow-soft-xl transition-all duration-500`}
+          class={`group block reveal ${index % 2 === 0 ? '' : 'lg:text-right'}`}
           style={`animation-delay: ${index * 100}ms`}
         >
-          <!-- Image -->
-          <div class="relative h-64 overflow-hidden">
-            <img
-              src={project.image}
-              alt={project.title}
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent"></div>
+          <div class={`grid lg:grid-cols-12 gap-8 lg:gap-0 items-center ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
+            <!-- Image -->
+            <div class={`lg:col-span-7 ${index % 2 === 0 ? 'lg:col-start-1' : 'lg:col-start-6'} ${index > 0 ? 'lg:-mt-32' : ''}`}>
+              <div class="relative overflow-hidden aspect-[4/3]">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {project.isNew && (
+                  <span class="absolute top-4 left-4 bg-terracotta text-white px-3 py-1 text-xs font-semibold uppercase tracking-wider">
+                    Neu
+                  </span>
+                )}
+                <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-charcoal/50 to-transparent"></div>
+              </div>
+            </div>
 
-            <!-- Tag -->
-            <span
-              class={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-medium ${
-                project.color === 'terracotta'
-                  ? 'bg-terracotta text-white'
-                  : project.color === 'sage'
-                  ? 'bg-sage text-white'
-                  : 'bg-gold text-charcoal'
-              }`}
-            >
-              {project.tag}
-            </span>
-          </div>
-
-          <!-- Content -->
-          <div class="p-6 lg:p-8">
-            <h3 class="headline-card text-charcoal mb-3 group-hover:text-terracotta transition-colors">
-              {project.title}
-            </h3>
-            <p class="text-charcoal-light mb-6">
-              {project.description}
-            </p>
-
-            <!-- Link indicator -->
-            <div class="flex items-center gap-2 text-terracotta font-medium text-sm">
-              Mehr erfahren
-              <svg class="w-4 h-4 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
+            <!-- Content -->
+            <div class={`lg:col-span-6 ${index % 2 === 0 ? 'lg:col-start-7 lg:-ml-16' : 'lg:col-start-1 lg:-mr-16 lg:row-start-1'} relative z-10`}>
+              <div class={`bg-white p-8 lg:p-10 border-l-4 border-terracotta ${index % 2 === 0 ? '' : 'lg:text-left'}`}>
+                <div class="flex items-center gap-4 mb-4">
+                  <span class="text-5xl font-display text-charcoal/10">{project.number}</span>
+                  <span class="text-xs uppercase tracking-wider text-charcoal-light">{project.schedule}</span>
+                </div>
+                <h3 class="text-2xl lg:text-3xl font-display text-charcoal mb-2 group-hover:text-terracotta transition-colors">
+                  {project.title}
+                </h3>
+                <p class="text-terracotta font-medium mb-4">{project.tagline}</p>
+                <p class="text-charcoal-light leading-relaxed mb-6">{project.description}</p>
+                <span class="inline-flex items-center gap-2 text-charcoal font-medium text-sm group-hover:text-terracotta transition-colors">
+                  Mehr erfahren
+                  <svg class="w-4 h-4 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </span>
+              </div>
             </div>
           </div>
         </a>
       ))}
     </div>
 
-    <!-- View All Link -->
-    <div class="text-center mt-12 reveal">
-      <a href="/projekte" class="btn btn-secondary">
-        Alle Projekte ansehen
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <!-- View all -->
+    <div class="text-center mt-16 reveal">
+      <a href="/projekte" class="btn btn-secondary btn-lg">
+        Alle Projekte entdecken
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
         </svg>
       </a>
