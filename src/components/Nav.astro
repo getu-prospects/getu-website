@@ -1,4 +1,6 @@
 ---
+import getuLogo from '../assets/images/getu-logo.png';
+
 const navLinks = [
   { href: '/', label: 'Start' },
   { href: '/projekte', label: 'Projekte' },
@@ -12,9 +14,11 @@ const navLinks = [
     <div class="flex items-center justify-between">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 lg:w-12 lg:h-12 bg-terracotta rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-          <span class="text-white font-display text-xl lg:text-2xl">G</span>
-        </div>
+        <img
+          src={getuLogo.src}
+          alt="GeTu Prospects"
+          class="w-10 h-10 lg:w-12 lg:h-12 object-contain transition-transform duration-300 group-hover:scale-110"
+        />
         <div class="hidden sm:block">
           <span class="block font-display text-lg lg:text-xl text-charcoal leading-tight">GeTu Prospects</span>
           <span class="block text-xs text-charcoal-light">e.V. Berlin</span>
