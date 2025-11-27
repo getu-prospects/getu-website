@@ -19,7 +19,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <!-- Centered headline -->
       <div class="text-center max-w-4xl mx-auto mb-16">
         <div class="hero-badge opacity-0 inline-flex items-center gap-2 bg-terracotta/20 border border-[#e85d3b]/40 px-4 py-2 mb-8">
-          <span class="w-2 h-2 bg-terracotta rounded-full animate-pulse"></span>
+          <span class="w-2 h-2 bg-terracotta animate-pulse"></span>
           <span class="text-terracotta text-sm font-medium">100% Kostenlos - 50+ erfolgreiche Matches</span>
         </div>
 
@@ -121,9 +121,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
 
     <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-      <span class="text-white/40 text-xs uppercase tracking-widest">Wahle deinen Weg</span>
-      <div class="w-px h-8 bg-gradient-to-b from-[#e85d3b] to-transparent animate-pulse"></div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
+      <span class="text-white/40 text-xs uppercase tracking-[0.2em]">Wahle deinen Weg</span>
+      <div class="w-px h-10 bg-white/20 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-4 bg-terracotta animate-bounce"></div>
+      </div>
     </div>
   </section>
 
@@ -544,10 +546,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   <!-- Final CTA - Both Audiences -->
   <section class="py-24 lg:py-32 bg-terracotta relative overflow-hidden">
-    <!-- Background pattern -->
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+    <!-- Decorative elements -->
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-0 w-48 h-48 border border-white/10"></div>
+      <div class="absolute bottom-0 right-0 w-64 h-64 border border-white/10"></div>
     </div>
 
     <div class="container mx-auto px-8 md:px-16 relative z-10">
