@@ -1,0 +1,192 @@
+---
+interface Project {
+  number: string;
+  title: string;
+  shortTitle: string;
+  href: string;
+}
+
+interface Props {
+  currentProject: string;
+}
+
+const { currentProject } = Astro.props;
+
+const projects: Project[] = [
+  { number: '01', title: 'Mentoring-Programm', shortTitle: 'Mentoring', href: '/projekte/mentoring' },
+  { number: '02', title: 'Stammtisch gegen Einsamkeit', shortTitle: 'Stammtisch', href: '/projekte/stammtisch' },
+  { number: '03', title: 'Weihnachtsaktion', shortTitle: 'Weihnachtsaktion', href: '/projekte/weihnachtsaktion' },
+  { number: '04', title: 'Youth with Perspective', shortTitle: 'Youth', href: '/projekte/youth' },
+];
+
+const currentIndex = projects.findIndex(p => p.href.includes(currentProject));
+const current = projects[currentIndex];
+const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
+const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
+---
+
+<nav class="project-subnav fixed top-0 left-0 right-0 z-40 bg-charcoal -translate-y-full transition-transform duration-300" aria-label="Projektnavigation">
+  <div class="container mx-auto px-4 md:px-8">
+    <div class="flex items-center justify-between h-14">
+      <!-- Left: Breadcrumb + Back -->
+      <div class="flex items-center gap-4">
+        <a
+          href="/projekte"
+          class="flex items-center gap-2 text-white/60 hover:text-white transition-colors group"
+        >
+          <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
+          </svg>
+          <span class="text-sm font-medium hidden sm:inline">Alle Projekte</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-2 text-white/40">
+          <span>/</span>
+          <span class="text-white text-sm font-medium">{current?.shortTitle}</span>
+        </div>
+      </div>
+
+      <!-- Center: Project Selector (Dropdown) -->
+      <div class="relative project-selector">
+        <button
+          class="flex items-center gap-2 px-4 py-2 text-sm text-white/80 hover:text-white transition-colors group"
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          <span class="text-terracotta font-display font-bold">{current?.number}</span>
+          <span class="hidden sm:inline">{current?.shortTitle}</span>
+          <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+
+        <!-- Dropdown -->
+        <div class="project-dropdown absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-charcoal border border-white/10 opacity-0 invisible translate-y-2 transition-all duration-200">
+          <div class="py-2">
+            {projects.map((project) => (
+              <a
+                href={project.href}
+                class={`flex items-center gap-4 px-4 py-3 transition-colors ${
+                  project.href.includes(currentProject)
+                    ? 'bg-terracotta/20 text-white'
+                    : 'text-white/70 hover:bg-white/5 hover:text-white'
+                }`}
+              >
+                <span class={`font-display font-bold ${project.href.includes(currentProject) ? 'text-terracotta' : 'text-white/40'}`}>
+                  {project.number}
+                </span>
+                <div>
+                  <span class="block text-sm font-medium">{project.shortTitle}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+          <div class="border-t border-white/10 px-4 py-3">
+            <a href="/projekte" class="flex items-center gap-2 text-sm text-white/50 hover:text-terracotta transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+              </svg>
+              <span>Alle Projekte anzeigen</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Prev/Next -->
+      <div class="flex items-center gap-2">
+        {prevProject ? (
+          <a
+            href={prevProject.href}
+            class="flex items-center gap-2 px-3 py-2 text-white/60 hover:text-white transition-colors group"
+            title={prevProject.title}
+          >
+            <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
+            </svg>
+            <span class="text-sm hidden lg:inline">{prevProject.shortTitle}</span>
+          </a>
+        ) : (
+          <span class="w-10"></span>
+        )}
+
+        <div class="w-px h-4 bg-white/20 hidden sm:block"></div>
+
+        {nextProject ? (
+          <a
+            href={nextProject.href}
+            class="flex items-center gap-2 px-3 py-2 text-white/60 hover:text-white transition-colors group"
+            title={nextProject.title}
+          >
+            <span class="text-sm hidden lg:inline">{nextProject.shortTitle}</span>
+            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        ) : (
+          <a
+            href="/projekte"
+            class="flex items-center gap-2 px-3 py-2 text-white/60 hover:text-white transition-colors group"
+            title="Alle Projekte"
+          >
+            <span class="text-sm hidden lg:inline">Ubersicht</span>
+            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+            </svg>
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* Show dropdown on hover */
+  .project-selector:hover .project-dropdown,
+  .project-selector:focus-within .project-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Show nav when scrolled */
+  .project-subnav.visible {
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function initProjectSubNav() {
+    const subnav = document.querySelector('.project-subnav');
+
+    if (!subnav) return;
+
+    let lastScrollY = 0;
+    let heroHeight = 0;
+
+    // Get hero height
+    const hero = document.querySelector('section:first-of-type');
+
+    if (hero) {
+      heroHeight = hero.offsetHeight * 0.5;
+    }
+
+    function handleScroll() {
+      const currentScrollY = window.scrollY;
+
+      // Show nav after scrolling past hero
+      if (currentScrollY > heroHeight) {
+        subnav.classList.add('visible');
+      } else {
+        subnav.classList.remove('visible');
+      }
+
+      lastScrollY = currentScrollY;
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
+
+  initProjectSubNav();
+  document.addEventListener('astro:page-load', initProjectSubNav);
+</script>

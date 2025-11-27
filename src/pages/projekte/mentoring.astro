@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectSubNav from '../../components/ProjectSubNav.astro';
+import ProjectBottomNav from '../../components/ProjectBottomNav.astro';
 ---
 
 <BaseLayout title="Mentoring-Programm - GeTu Prospects e.V.">
+  <ProjectSubNav currentProject="mentoring" />
   <!-- Hero - Balanced for Both Audiences -->
   <section class="hero relative min-h-screen flex items-center bg-charcoal overflow-hidden">
     <!-- Background -->
@@ -536,25 +539,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- Navigation -->
-  <section class="py-16 bg-charcoal">
-    <div class="container mx-auto px-8 md:px-16">
-      <div class="flex justify-between items-center">
-        <a href="/projekte" class="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
-          <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
-          </svg>
-          <span>Alle Projekte</span>
-        </a>
-        <a href="/projekte/stammtisch" class="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
-          <span>Nachstes Projekt</span>
-          <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
+  <ProjectBottomNav currentProject="mentoring" />
 </BaseLayout>
 
 <style>

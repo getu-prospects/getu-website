@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectSubNav from '../../components/ProjectSubNav.astro';
+import ProjectBottomNav from '../../components/ProjectBottomNav.astro';
 import Gorlitz from '../../assets/images/christmas/gorlitz.png';
 import Gorlitz2 from '../../assets/images/christmas/gorlitz-2.jpeg';
 import Getuausgabe1 from '../../assets/images/christmas/getu-ausgabe-1.jpeg';
@@ -25,6 +27,8 @@ const galleryImages = [
 ---
 
 <BaseLayout title="Weihnachtsaktion - GeTu Prospects e.V.">
+  <ProjectSubNav currentProject="weihnachtsaktion" />
+
   <!-- Cinematic Hero -->
   <section class="hero relative h-screen bg-charcoal overflow-hidden">
     <!-- Background with Ken Burns -->
@@ -465,35 +469,7 @@ const galleryImages = [
     </div>
   </section>
 
-  <!-- Navigation - Editorial Style -->
-  <section class="py-16 lg:py-20 bg-charcoal">
-    <div class="container mx-auto px-8 md:px-16">
-      <div class="flex justify-between items-center">
-        <a href="/projekte/stammtisch" class="flex items-center gap-4 text-white/60 hover:text-white transition-colors group">
-          <div class="w-12 h-12 border border-white/20 flex items-center justify-center group-hover:border-terracotta group-hover:bg-terracotta transition-all">
-            <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
-            </svg>
-          </div>
-          <div>
-            <span class="block text-xs uppercase tracking-wider text-white/40">Vorheriges</span>
-            <span class="block mt-1 font-medium">Stammtisch</span>
-          </div>
-        </a>
-        <a href="/projekte/youth" class="flex items-center gap-4 text-white/60 hover:text-white transition-colors group text-right">
-          <div>
-            <span class="block text-xs uppercase tracking-wider text-white/40">Nachstes</span>
-            <span class="block mt-1 font-medium">Youth with Perspective</span>
-          </div>
-          <div class="w-12 h-12 border border-white/20 flex items-center justify-center group-hover:border-terracotta group-hover:bg-terracotta transition-all">
-            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
+  <ProjectBottomNav currentProject="weihnachtsaktion" />
 </BaseLayout>
 
 <style>

@@ -3,84 +3,103 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Kontakt - GeTu Prospects e.V.">
-  <!-- Hero Section -->
-  <section class="relative min-h-[50vh] flex items-center overflow-hidden bg-charcoal">
-    <!-- Background Image -->
+  <!-- Editorial Hero -->
+  <section class="contact-hero relative min-h-[60vh] flex items-end bg-charcoal overflow-hidden">
+    <!-- Background with Ken Burns -->
     <div class="absolute inset-0">
       <img
         src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&q=80"
         alt="Team collaboration"
-        class="w-full h-full object-cover opacity-25"
+        class="w-full h-full object-cover opacity-30 scale-105 animate-ken-burns"
       />
-      <div class="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/90 to-charcoal/70"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-charcoal/80 to-transparent"></div>
     </div>
 
-    <div class="relative container-wide py-20">
+    <!-- Decorative elements -->
+    <div class="absolute top-1/4 right-0 w-px h-32 bg-terracotta/30 hidden lg:block"></div>
+    <div class="absolute bottom-1/3 left-12 w-24 h-px bg-terracotta/30 hidden lg:block"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 container mx-auto px-8 md:px-16 pb-16 lg:pb-24">
       <div class="max-w-3xl">
-        <span class="label-sm text-terracotta mb-4 block animate-fade-up">Kontakt</span>
-        <h1 class="headline-hero text-white mb-6 animate-fade-up delay-100">
-          Wir freuen uns auf
-          <span class="italic text-terracotta-light">Sie</span>
+        <!-- Label -->
+        <div class="hero-label opacity-0 flex items-center gap-4 mb-6">
+          <div class="w-12 h-px bg-terracotta"></div>
+          <span class="text-terracotta text-sm font-semibold uppercase tracking-[0.3em]">
+            Kontakt
+          </span>
+        </div>
+
+        <!-- Main headline -->
+        <h1 class="hero-headline opacity-0">
+          <span class="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white leading-[0.95]">
+            Wir freuen uns
+          </span>
+          <span class="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[0.95] mt-2">
+            <span class="text-white">auf </span>
+            <span class="italic text-terracotta">Sie</span>
+          </span>
         </h1>
-        <p class="text-xl text-white/80 leading-relaxed animate-fade-up delay-200">
+
+        <!-- Tagline -->
+        <p class="hero-tagline opacity-0 mt-8 text-xl text-white/70 max-w-xl leading-relaxed">
           Haben Sie Fragen oder mochten Sie sich engagieren? Wir sind fur Sie da
           und helfen Ihnen gerne weiter.
         </p>
       </div>
     </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hero-scroll opacity-0 flex flex-col items-center gap-3">
+      <span class="text-xs uppercase tracking-[0.3em] text-white/40">Mehr</span>
+      <div class="w-px h-8 bg-white/20 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-3 bg-terracotta animate-scroll-line"></div>
+      </div>
+    </div>
   </section>
 
-  <!-- Contact Section -->
-  <section class="section-padding bg-cream">
-    <div class="container-wide">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
-        <!-- Contact Information -->
-        <div class="reveal">
-          <span class="label-sm text-terracotta mb-4 block">So erreichen Sie uns</span>
-          <h2 class="headline-section text-charcoal mb-8">Kontaktdaten</h2>
+  <!-- Contact Section - Editorial Grid -->
+  <section class="py-24 lg:py-32 bg-cream">
+    <div class="container mx-auto px-8 md:px-16">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
+        <!-- Contact Information - Magazine Style -->
+        <div class="lg:col-span-5 contact-info opacity-0">
+          <span class="text-terracotta text-sm font-semibold uppercase tracking-[0.3em] block mb-4">
+            So erreichen Sie uns
+          </span>
+          <h2 class="text-3xl md:text-4xl font-display font-semibold text-charcoal leading-[1.05] mb-12">
+            Kontakt<br/>
+            <span class="italic text-sage-dark">aufnehmen</span>
+          </h2>
 
+          <!-- Contact items - numbered magazine style -->
           <div class="space-y-8">
-            <!-- Phone -->
-            <div class="flex items-start gap-5">
-              <div class="w-14 h-14 bg-terracotta/10 rounded-xl flex items-center justify-center shrink-0">
-                <svg class="w-6 h-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-display text-xl text-charcoal mb-1">Telefon</h3>
-                <a href="tel:+4901724328326" class="text-charcoal-light hover:text-terracotta transition-colors text-lg">
+            <a href="tel:+4901724328326" class="contact-item opacity-0 flex items-start gap-6 group" style="--contact-delay: 0ms">
+              <span class="text-4xl font-display font-bold text-charcoal/10 group-hover:text-terracotta/30 transition-colors">01</span>
+              <div class="pt-1">
+                <span class="block text-xs uppercase tracking-wider text-charcoal/50 mb-1">Telefon</span>
+                <span class="block text-xl text-charcoal group-hover:text-terracotta transition-colors">
                   +49 (0) 172 432 8326
-                </a>
+                </span>
               </div>
-            </div>
+            </a>
 
-            <!-- Email -->
-            <div class="flex items-start gap-5">
-              <div class="w-14 h-14 bg-sage/20 rounded-xl flex items-center justify-center shrink-0">
-                <svg class="w-6 h-6 text-sage-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-display text-xl text-charcoal mb-1">E-Mail</h3>
-                <a href="mailto:info@getu-prospects.de" class="text-charcoal-light hover:text-terracotta transition-colors text-lg">
+            <a href="mailto:info@getu-prospects.de" class="contact-item opacity-0 flex items-start gap-6 group" style="--contact-delay: 100ms">
+              <span class="text-4xl font-display font-bold text-charcoal/10 group-hover:text-terracotta/30 transition-colors">02</span>
+              <div class="pt-1">
+                <span class="block text-xs uppercase tracking-wider text-charcoal/50 mb-1">E-Mail</span>
+                <span class="block text-xl text-charcoal group-hover:text-terracotta transition-colors">
                   info@getu-prospects.de
-                </a>
+                </span>
               </div>
-            </div>
+            </a>
 
-            <!-- Address -->
-            <div class="flex items-start gap-5">
-              <div class="w-14 h-14 bg-gold/20 rounded-xl flex items-center justify-center shrink-0">
-                <svg class="w-6 h-6 text-gold-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-display text-xl text-charcoal mb-1">Adresse</h3>
-                <address class="text-charcoal-light text-lg not-italic leading-relaxed">
+            <div class="contact-item opacity-0 flex items-start gap-6 group" style="--contact-delay: 200ms">
+              <span class="text-4xl font-display font-bold text-charcoal/10">03</span>
+              <div class="pt-1">
+                <span class="block text-xs uppercase tracking-wider text-charcoal/50 mb-1">Adresse</span>
+                <address class="text-lg text-charcoal not-italic leading-relaxed">
                   Lange Enden 29<br/>
                   Aufgang 2, 2. Etage (Raum 2.05)<br/>
                   13437 Berlin
@@ -88,29 +107,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </div>
             </div>
 
-            <!-- Hours -->
-            <div class="flex items-start gap-5">
-              <div class="w-14 h-14 bg-terracotta/10 rounded-xl flex items-center justify-center shrink-0">
-                <svg class="w-6 h-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-display text-xl text-charcoal mb-1">Offnungszeiten</h3>
-                <p class="text-charcoal-light text-lg">Termin nach Vereinbarung</p>
+            <div class="contact-item opacity-0 flex items-start gap-6 group" style="--contact-delay: 300ms">
+              <span class="text-4xl font-display font-bold text-charcoal/10">04</span>
+              <div class="pt-1">
+                <span class="block text-xs uppercase tracking-wider text-charcoal/50 mb-1">Offnungszeiten</span>
+                <span class="block text-lg text-charcoal">Termin nach Vereinbarung</span>
               </div>
             </div>
           </div>
 
-          <!-- Social Links -->
-          <div class="mt-12 pt-8 border-t border-charcoal/10">
-            <h3 class="font-display text-lg text-charcoal mb-4">Folgen Sie uns</h3>
-            <div class="flex gap-4">
+          <!-- Social Links - Editorial -->
+          <div class="mt-16 pt-8 border-t border-charcoal/10">
+            <span class="text-xs uppercase tracking-wider text-charcoal/50 block mb-6">Folgen Sie uns</span>
+            <div class="flex gap-3">
               <a
                 href="https://www.instagram.com/getuprospects/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-12 h-12 bg-charcoal/5 rounded-xl flex items-center justify-center text-charcoal hover:bg-terracotta hover:text-white transition-all"
+                class="w-12 h-12 border border-charcoal/10 flex items-center justify-center text-charcoal/60 hover:border-terracotta hover:text-terracotta hover:bg-terracotta/5 transition-all"
                 aria-label="Instagram"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -121,7 +135,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 href="https://www.facebook.com/getuprospects"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-12 h-12 bg-charcoal/5 rounded-xl flex items-center justify-center text-charcoal hover:bg-terracotta hover:text-white transition-all"
+                class="w-12 h-12 border border-charcoal/10 flex items-center justify-center text-charcoal/60 hover:border-terracotta hover:text-terracotta hover:bg-terracotta/5 transition-all"
                 aria-label="Facebook"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -132,7 +146,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 href="https://www.linkedin.com/company/getu-prospects"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-12 h-12 bg-charcoal/5 rounded-xl flex items-center justify-center text-charcoal hover:bg-terracotta hover:text-white transition-all"
+                class="w-12 h-12 border border-charcoal/10 flex items-center justify-center text-charcoal/60 hover:border-terracotta hover:text-terracotta hover:bg-terracotta/5 transition-all"
                 aria-label="LinkedIn"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -143,11 +157,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
         </div>
 
-        <!-- Contact Form -->
-        <div class="reveal" style="animation-delay: 150ms">
-          <div class="bg-white rounded-2xl shadow-soft-lg p-8 lg:p-10">
-            <h2 class="headline-card text-charcoal mb-2">Schreiben Sie uns</h2>
-            <p class="text-charcoal-light mb-8">
+        <!-- Contact Form - Editorial Style -->
+        <div class="lg:col-span-7 contact-form opacity-0">
+          <div class="bg-white p-8 lg:p-12 border border-charcoal/5">
+            <span class="text-terracotta text-sm font-semibold uppercase tracking-[0.3em] block mb-4">
+              Nachricht
+            </span>
+            <h2 class="text-2xl md:text-3xl font-display font-semibold text-charcoal mb-2">
+              Schreiben Sie uns
+            </h2>
+            <p class="text-charcoal/60 mb-10">
               Wir melden uns schnellstmoglich bei Ihnen.
             </p>
 
@@ -155,74 +174,76 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <input type="hidden" name="form-name" value="contact" />
 
               <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label for="name" class="block text-sm font-medium text-charcoal mb-2">Name *</label>
+                <div class="form-group">
+                  <label for="name" class="block text-xs uppercase tracking-wider text-charcoal/50 mb-3">Name *</label>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     required
-                    class="w-full px-4 py-3 bg-sand/50 border border-charcoal/10 rounded-lg focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 focus:outline-none transition-all text-charcoal placeholder:text-charcoal/40"
+                    class="w-full px-0 py-3 bg-transparent border-0 border-b border-charcoal/20 focus:border-terracotta focus:outline-none transition-colors text-charcoal placeholder:text-charcoal/30"
                     placeholder="Ihr Name"
                   />
                 </div>
-                <div>
-                  <label for="email" class="block text-sm font-medium text-charcoal mb-2">E-Mail *</label>
+                <div class="form-group">
+                  <label for="email" class="block text-xs uppercase tracking-wider text-charcoal/50 mb-3">E-Mail *</label>
                   <input
                     type="email"
                     id="email"
                     name="email"
                     required
-                    class="w-full px-4 py-3 bg-sand/50 border border-charcoal/10 rounded-lg focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 focus:outline-none transition-all text-charcoal placeholder:text-charcoal/40"
+                    class="w-full px-0 py-3 bg-transparent border-0 border-b border-charcoal/20 focus:border-terracotta focus:outline-none transition-colors text-charcoal placeholder:text-charcoal/30"
                     placeholder="ihre@email.de"
                   />
                 </div>
               </div>
 
               <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label for="phone" class="block text-sm font-medium text-charcoal mb-2">Telefon</label>
+                <div class="form-group">
+                  <label for="phone" class="block text-xs uppercase tracking-wider text-charcoal/50 mb-3">Telefon</label>
                   <input
                     type="tel"
                     id="phone"
                     name="phone"
-                    class="w-full px-4 py-3 bg-sand/50 border border-charcoal/10 rounded-lg focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 focus:outline-none transition-all text-charcoal placeholder:text-charcoal/40"
+                    class="w-full px-0 py-3 bg-transparent border-0 border-b border-charcoal/20 focus:border-terracotta focus:outline-none transition-colors text-charcoal placeholder:text-charcoal/30"
                     placeholder="+49 123 456 789"
                   />
                 </div>
-                <div>
-                  <label for="subject" class="block text-sm font-medium text-charcoal mb-2">Betreff</label>
+                <div class="form-group">
+                  <label for="subject" class="block text-xs uppercase tracking-wider text-charcoal/50 mb-3">Betreff</label>
                   <input
                     type="text"
                     id="subject"
                     name="subject"
-                    class="w-full px-4 py-3 bg-sand/50 border border-charcoal/10 rounded-lg focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 focus:outline-none transition-all text-charcoal placeholder:text-charcoal/40"
+                    class="w-full px-0 py-3 bg-transparent border-0 border-b border-charcoal/20 focus:border-terracotta focus:outline-none transition-colors text-charcoal placeholder:text-charcoal/30"
                     placeholder="Worum geht es?"
                   />
                 </div>
               </div>
 
-              <div>
-                <label for="message" class="block text-sm font-medium text-charcoal mb-2">Nachricht *</label>
+              <div class="form-group">
+                <label for="message" class="block text-xs uppercase tracking-wider text-charcoal/50 mb-3">Nachricht *</label>
                 <textarea
                   id="message"
                   name="message"
                   rows="5"
                   required
-                  class="w-full px-4 py-3 bg-sand/50 border border-charcoal/10 rounded-lg focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 focus:outline-none transition-all text-charcoal placeholder:text-charcoal/40 resize-none"
+                  class="w-full px-0 py-3 bg-transparent border-0 border-b border-charcoal/20 focus:border-terracotta focus:outline-none transition-colors text-charcoal placeholder:text-charcoal/30 resize-none"
                   placeholder="Ihre Nachricht an uns..."
                 ></textarea>
               </div>
 
-              <button
-                type="submit"
-                class="btn btn-primary btn-lg w-full justify-center"
-              >
-                Nachricht senden
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-              </button>
+              <div class="pt-4">
+                <button
+                  type="submit"
+                  class="group inline-flex items-center gap-4 bg-charcoal text-white px-8 py-4 font-semibold hover:bg-terracotta transition-colors"
+                >
+                  Nachricht senden
+                  <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </button>
+              </div>
             </form>
           </div>
         </div>
@@ -230,90 +251,278 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- Volunteer Section -->
-  <section id="volunteer" class="section-padding bg-charcoal text-white scroll-mt-20">
-    <div class="container-wide">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <div class="reveal">
-          <span class="label-sm text-terracotta mb-4 block">Mitmachen</span>
-          <h2 class="headline-section text-white mb-6">
-            Freiwillig engagieren
+  <!-- Volunteer Section - Editorial Split -->
+  <section id="volunteer" class="relative overflow-hidden scroll-mt-20">
+    <div class="grid lg:grid-cols-2">
+      <!-- Left: Image -->
+      <div class="volunteer-image opacity-0 relative h-[50vh] lg:h-auto lg:min-h-[600px]">
+        <img
+          src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1200&q=80"
+          alt="Freiwillige bei der Arbeit"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-charcoal/30"></div>
+        <!-- Floating badge -->
+        <div class="absolute bottom-8 left-8 bg-terracotta text-white p-6">
+          <span class="block text-4xl font-display font-bold">50+</span>
+          <span class="text-sm text-white/80">Aktive Freiwillige</span>
+        </div>
+      </div>
+
+      <!-- Right: Content -->
+      <div class="volunteer-content opacity-0 bg-charcoal text-white p-8 md:p-12 lg:p-16 xl:p-20 flex items-center">
+        <div class="max-w-lg">
+          <span class="text-terracotta text-sm font-semibold uppercase tracking-[0.3em] block mb-6">
+            Mitmachen
+          </span>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight mb-8">
+            Freiwillig<br/>
+            <span class="italic font-normal text-white/70">engagieren</span>
           </h2>
-          <p class="text-xl text-white/80 leading-relaxed mb-6">
+          <p class="text-lg text-white/70 leading-relaxed mb-8">
             Sie mochten Teil unseres Teams werden und Menschen in unserer
-            Gemeinschaft unterstutzen? Wir freuen uns uber engagierte Freiwillige!
+            Gemeinschaft unterstutzen? Wir freuen uns uber engagierte Freiwillige
+            in verschiedenen Bereichen.
           </p>
-          <p class="text-white/70 leading-relaxed mb-8">
-            Als Freiwilliger bei GeTu Prospects e.V. konnen Sie in verschiedenen
-            Bereichen tatig werden: Mentoring, Jugendarbeit, Veranstaltungen oder
-            administrative Unterstutzung.
-          </p>
-          <div class="space-y-4">
-            <div class="flex items-center gap-3">
-              <svg class="w-5 h-5 text-terracotta" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-              </svg>
+
+          <!-- Benefits - Magazine numbered list -->
+          <div class="space-y-4 mb-10">
+            <div class="flex items-center gap-4">
+              <span class="text-2xl font-display font-bold text-white/20">01</span>
               <span class="text-white/80">Flexible Zeiteinteilung</span>
             </div>
-            <div class="flex items-center gap-3">
-              <svg class="w-5 h-5 text-terracotta" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-              </svg>
+            <div class="flex items-center gap-4">
+              <span class="text-2xl font-display font-bold text-white/20">02</span>
               <span class="text-white/80">Sinnvolle Tatigkeit</span>
             </div>
-            <div class="flex items-center gap-3">
-              <svg class="w-5 h-5 text-terracotta" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-              </svg>
+            <div class="flex items-center gap-4">
+              <span class="text-2xl font-display font-bold text-white/20">03</span>
               <span class="text-white/80">Teil einer warmherzigen Gemeinschaft</span>
             </div>
           </div>
-        </div>
 
-        <div class="reveal" style="animation-delay: 150ms">
-          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 lg:p-10 border border-white/10">
-            <h3 class="font-display text-2xl text-white mb-6">Interesse geweckt?</h3>
-            <p class="text-white/70 mb-8">
-              Schreiben Sie uns eine Nachricht mit dem Betreff "Ehrenamt" und erzahlen
-              Sie uns kurz uber sich und Ihre Motivation.
+          <a
+            href="mailto:info@getu-prospects.de?subject=Ehrenamt%20bei%20GeTu%20Prospects"
+            class="group inline-flex items-center gap-4 bg-terracotta text-white px-8 py-4 font-semibold hover:bg-white hover:text-charcoal transition-colors"
+          >
+            E-Mail schreiben
+            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section - Editorial -->
+  <section class="relative">
+    <div class="bg-cream py-16 lg:py-20">
+      <div class="container mx-auto px-8 md:px-16">
+        <div class="map-header opacity-0 grid lg:grid-cols-12 gap-8 items-end">
+          <div class="lg:col-span-5">
+            <span class="text-terracotta text-sm font-semibold uppercase tracking-[0.3em] block mb-4">
+              Standort
+            </span>
+            <h2 class="text-3xl md:text-4xl font-display font-semibold text-charcoal leading-[1.05]">
+              So finden<br/>
+              <span class="italic text-sage-dark">Sie uns</span>
+            </h2>
+          </div>
+          <div class="lg:col-span-7">
+            <p class="text-lg text-charcoal/70 leading-relaxed">
+              Unser Buro befindet sich in Berlin-Reinickendorf. Vereinbaren Sie gerne
+              einen Termin, um uns personlich kennenzulernen.
             </p>
-            <a
-              href="mailto:info@getu-prospects.de?subject=Ehrenamt%20bei%20GeTu%20Prospects"
-              class="btn bg-terracotta text-white hover:bg-terracotta-dark btn-lg w-full justify-center"
-            >
-              E-Mail schreiben
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-            </a>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Map with editorial frame -->
+    <div class="relative">
+      <div class="absolute top-0 left-8 md:left-16 w-px h-16 bg-terracotta"></div>
+      <div class="w-full h-[500px]">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2423.49850971731!2d13.316103476824148!3d52.59675953054361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a854800be5647b%3A0x35f7037a88f32bcc!2sLange%20Enden%2029%2C%2013437%20Berlin!5e0!3m2!1sde!2sde!4v1740695258141!5m2!1sde!2sde"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Karte zu GeTu Prospects e.V."
+          class="grayscale hover:grayscale-0 transition-all duration-700"
+        ></iframe>
+      </div>
+    </div>
   </section>
 
-  <!-- Map Section -->
-  <section class="relative">
-    <div class="bg-sand py-12">
-      <div class="container-wide">
-        <div class="text-center max-w-2xl mx-auto mb-8 reveal">
-          <span class="label-sm text-terracotta mb-4 block">Standort</span>
-          <h2 class="headline-section text-charcoal">So finden Sie uns</h2>
+  <!-- Final CTA -->
+  <section class="py-20 lg:py-24 bg-terracotta">
+    <div class="container mx-auto px-8 md:px-16">
+      <div class="final-cta opacity-0 max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-6">
+          Gemeinsam konnen wir<br/>
+          <span class="italic font-normal text-white/80">Gropes bewirken</span>
+        </h2>
+        <p class="text-lg text-white/70 mb-10 max-w-xl mx-auto">
+          Ob als Freiwilliger, Spender oder Partner - jede Unterstutzung zahlt
+          und macht einen Unterschied in unserer Gemeinschaft.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/spenden"
+            class="group inline-flex items-center justify-center gap-3 bg-white text-terracotta px-8 py-4 font-semibold hover:bg-cream transition-colors"
+          >
+            Jetzt spenden
+            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <a
+            href="/projekte"
+            class="group inline-flex items-center justify-center gap-3 border border-white/30 text-white px-8 py-4 font-semibold hover:bg-white/10 transition-colors"
+          >
+            Unsere Projekte
+            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
-    <div class="w-full h-[450px]">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2423.49850971731!2d13.316103476824148!3d52.59675953054361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a854800be5647b%3A0x35f7037a88f32bcc!2sLange%20Enden%2029%2C%2013437%20Berlin!5e0!3m2!1sde!2sde!4v1740695258141!5m2!1sde!2sde"
-        width="100%"
-        height="100%"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Karte zu GeTu Prospects e.V."
-        class="grayscale hover:grayscale-0 transition-all duration-700"
-      ></iframe>
-    </div>
   </section>
 </BaseLayout>
+
+<style>
+  /* Ken Burns animation */
+  @keyframes kenBurns {
+    0% { transform: scale(1.05) translate(0, 0); }
+    100% { transform: scale(1.15) translate(-2%, -1%); }
+  }
+
+  .animate-ken-burns {
+    animation: kenBurns 20s ease-in-out infinite alternate;
+  }
+
+  /* Scroll line animation */
+  @keyframes scrollLine {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(400%); }
+  }
+
+  .animate-scroll-line {
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+
+  /* Hero animations */
+  .contact-hero.animate .hero-label {
+    animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  }
+
+  .contact-hero.animate .hero-headline {
+    animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  }
+
+  .contact-hero.animate .hero-tagline {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+  }
+
+  .contact-hero.animate .hero-scroll {
+    animation: fadeIn 1s ease-out 1.2s forwards;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes revealUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Section animations */
+  .contact-info.animate,
+  .contact-form.animate,
+  .volunteer-image.animate,
+  .volunteer-content.animate,
+  .map-header.animate,
+  .final-cta.animate {
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Contact items stagger */
+  .contact-item.animate {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--contact-delay);
+  }
+
+  /* Form input focus animation */
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #c4704a;
+  }
+
+  .form-group input:focus + label,
+  .form-group textarea:focus + label {
+    color: #c4704a;
+  }
+</style>
+
+<script>
+  function initContactPage() {
+    const hero = document.querySelector('.contact-hero');
+    const sections = document.querySelectorAll('.contact-info, .contact-form, .contact-item, .volunteer-image, .volunteer-content, .map-header, .final-cta');
+
+    if (hero) {
+      setTimeout(() => hero.classList.add('animate'), 100);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  }
+
+  initContactPage();
+  document.addEventListener('astro:page-load', initContactPage);
+</script>

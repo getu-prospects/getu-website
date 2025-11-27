@@ -1,201 +1,357 @@
 ---
-import { Icon } from 'astro-icon/components';
-import PageHeader from '../components/page-header.astro';
-import Section from '../components/Section.astro';
-import SiteLayout from '../layouts/BaseLayout.astro';
-import Footer from '../components/Footer.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<SiteLayout title="Datenschutz">
-  <section class="bg-primary text-white">
-    <div class="container mx-auto px-8">
-      <!-- Top spacing and subtitle - with improved vertical rhythm -->
-      <div class="pt-40 pb-6 text-center">
-        <span
-          class="text-secondary uppercase tracking-wider text-sm font-medium"
-        ></span>
-      </div>
+<BaseLayout title="Datenschutz - GeTu Prospects e.V.">
+  <!-- Editorial Hero - Compact for legal pages -->
+  <section class="legal-hero relative bg-charcoal overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute top-0 right-0 w-px h-full bg-white/5"></div>
+    <div class="absolute bottom-0 left-0 w-1/3 h-px bg-white/5"></div>
 
-      <!-- Main heading with better visual weight -->
-      <div class="text-center">
-        <h1
-          class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
-        >
+    <div class="container mx-auto px-8 md:px-16 pt-32 pb-16 lg:pt-40 lg:pb-20">
+      <div class="max-w-4xl">
+        <!-- Label -->
+        <div class="hero-label opacity-0 flex items-center gap-4 mb-6">
+          <div class="w-12 h-px bg-terracotta"></div>
+          <span class="text-terracotta text-sm font-semibold uppercase tracking-[0.3em]">
+            Rechtliches
+          </span>
+        </div>
+
+        <!-- Main headline -->
+        <h1 class="hero-headline opacity-0 text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-[0.95]">
           Datenschutz
         </h1>
 
-        <!-- Refined divider - shorter and more elegant -->
-        <div class="flex justify-center">
-          <div class="h-1 w-16 bg-secondary mb-12"></div>
-        </div>
-      </div>
-
-      <!-- Main text with improved width constraints and spacing -->
-      <!-- <div class="max-w-3xl mx-auto text-center pb-32">
-        <p class="text-lg md:text-xl font-light leading-relaxed text-gray-100">
-          Haben Sie Fragen oder Anliegen? Nutzen Sie gerne unser
-          Kontaktformular, um uns eine Nachricht zu senden. Wir freuen uns, von
-          Ihnen zu hören!
+        <!-- Subtitle -->
+        <p class="hero-tagline opacity-0 mt-6 text-lg text-white/60 max-w-xl">
+          Informationen zum Umgang mit Ihren personenbezogenen Daten
         </p>
-      </div> -->
+      </div>
     </div>
   </section>
-  <Section class="font-light leading-loose space-y-4">
-    <div>
-      <h2 class="text-lg">1. Datenschutz auf einen Blick</h2>
 
-      <div class="space-y-4 mt-4">
-        <div>
-          <h3 class="font-semibold">Allgemeine Hinweise</h3>
-          <p>
-            Die folgenden Hinweise geben einen einfachen Überblick darüber, was
-            mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website
-            besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie
-            persönlich identifiziert werden können.
-          </p>
+  <!-- Content Section -->
+  <section class="py-16 lg:py-24 bg-cream">
+    <div class="container mx-auto px-8 md:px-16">
+      <div class="max-w-3xl">
+
+        <!-- Section 1: Overview -->
+        <div class="mb-16">
+          <div class="flex items-start gap-6 mb-6">
+            <span class="text-5xl font-display font-bold text-charcoal/10">01</span>
+            <div>
+              <h2 class="text-xl font-display font-semibold text-charcoal">Datenschutz auf einen Blick</h2>
+            </div>
+          </div>
+          <div class="pl-16 lg:pl-20 space-y-6">
+            <div>
+              <h3 class="text-sm uppercase tracking-wider text-charcoal/50 mb-2">Allgemeine Hinweise</h3>
+              <p class="text-charcoal/80 leading-relaxed">
+                Die folgenden Hinweise geben einen einfachen Uberblick daruber, was
+                mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website
+                besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie
+                personlich identifiziert werden konnen.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-sm uppercase tracking-wider text-charcoal/50 mb-2">Datenerfassung auf dieser Website</h3>
+              <p class="text-charcoal/80 leading-relaxed">
+                Die Datenverarbeitung auf dieser Website erfolgt durch den
+                Websitebetreiber. Die Kontaktdaten konnen Sie dem Impressum dieser
+                Website entnehmen.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-sm uppercase tracking-wider text-charcoal/50 mb-2">Wie erfassen wir Ihre Daten?</h3>
+              <p class="text-charcoal/80 leading-relaxed">
+                Wir erfassen nur die Daten, die Sie uns aktiv uber das
+                Kontaktformular mitteilen. Daruber hinaus werden keine personlichen
+                Daten erfasst oder gespeichert.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-sm uppercase tracking-wider text-charcoal/50 mb-2">Wofur nutzen wir Ihre Daten?</h3>
+              <p class="text-charcoal/80 leading-relaxed">
+                Die Daten aus dem Kontaktformular werden ausschließlich zur
+                Bearbeitung Ihrer Anfrage verwendet. Daruber hinaus werden nur
+                technisch notwendige Daten zur fehlerfreien Bereitstellung der
+                Website verarbeitet.
+              </p>
+            </div>
+          </div>
         </div>
-        <div>
-          <h3 class="font-semibold">Datenerfassung auf dieser Website</h3>
-          <p>
-            Die Datenverarbeitung auf dieser Website erfolgt durch den
-            Websitebetreiber. Die Kontaktdaten können Sie dem Impressum dieser
-            Website entnehmen.
-          </p>
+
+        <!-- Section 2: Contact Form -->
+        <div class="mb-16">
+          <div class="flex items-start gap-6 mb-6">
+            <span class="text-5xl font-display font-bold text-charcoal/10">02</span>
+            <div>
+              <h2 class="text-xl font-display font-semibold text-charcoal">Kontaktformular</h2>
+            </div>
+          </div>
+          <div class="pl-16 lg:pl-20 space-y-4">
+            <p class="text-charcoal/80 leading-relaxed">
+              Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre
+              Angaben aus dem Anfrageformular inklusive der von Ihnen dort
+              angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und fur den
+              Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir
+              nicht ohne Ihre Einwilligung weiter.
+            </p>
+            <p class="text-charcoal/80 leading-relaxed">
+              Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1
+              lit. b DSGVO, sofern Ihre Anfrage mit der Erfullung eines Vertrags
+              zusammenhangt oder zur Durchfuhrung vorvertraglicher Maßnahmen
+              erforderlich ist. In allen ubrigen Fallen beruht die Verarbeitung auf
+              unserem berechtigten Interesse an der effektiven Bearbeitung der an
+              uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer
+              Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).
+            </p>
+          </div>
         </div>
-        <div>
-          <h3 class="font-semibold">Wie erfassen wir Ihre Daten?</h3>
-          <p>
-            Wir erfassen nur die Daten, die Sie uns aktiv über das
-            Kontaktformular mitteilen. Darüber hinaus werden keine persönlichen
-            Daten erfasst oder gespeichert.
-          </p>
+
+        <!-- Section 3: Website Provision -->
+        <div class="mb-16">
+          <div class="flex items-start gap-6 mb-6">
+            <span class="text-5xl font-display font-bold text-charcoal/10">03</span>
+            <div>
+              <h2 class="text-xl font-display font-semibold text-charcoal">Bereitstellung der Website</h2>
+            </div>
+          </div>
+          <div class="pl-16 lg:pl-20 space-y-4">
+            <p class="text-charcoal/80 leading-relaxed">
+              Zur Bereitstellung unserer Website werden technisch notwendige Daten
+              verarbeitet. Dies umfasst:
+            </p>
+            <ul class="space-y-2 text-charcoal/80">
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-terracotta mt-2 shrink-0"></span>
+                <span>IP-Adresse</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-terracotta mt-2 shrink-0"></span>
+                <span>Datum und Uhrzeit der Anfrage</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-terracotta mt-2 shrink-0"></span>
+                <span>Inhalt der Anforderung</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-terracotta mt-2 shrink-0"></span>
+                <span>HTTP-Statuscode</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-terracotta mt-2 shrink-0"></span>
+                <span>Ubertragene Datenmenge</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-terracotta mt-2 shrink-0"></span>
+                <span>Informationen zu Browser und Betriebssystem</span>
+              </li>
+            </ul>
+            <p class="text-charcoal/80 leading-relaxed">
+              Diese technische Verarbeitung ist erforderlich, um unsere Website
+              anzuzeigen und die Stabilitat und Sicherheit zu gewahrleisten. Dies
+              entspricht unserem berechtigten Interesse im Sinne des Art. 6 Abs. 1 S.
+              1 lit. f DSGVO.
+            </p>
+          </div>
         </div>
-        <div>
-          <h3 class="font-semibold">Wofür nutzen wir Ihre Daten?</h3>
-          <p>
-            Die Daten aus dem Kontaktformular werden ausschließlich zur
-            Bearbeitung Ihrer Anfrage verwendet. Darüber hinaus werden nur
-            technisch notwendige Daten zur fehlerfreien Bereitstellung der
-            Website verarbeitet.
-          </p>
+
+        <!-- Section 4: Your Rights -->
+        <div class="mb-16">
+          <div class="flex items-start gap-6 mb-6">
+            <span class="text-5xl font-display font-bold text-charcoal/10">04</span>
+            <div>
+              <h2 class="text-xl font-display font-semibold text-charcoal">Ihre Rechte bezuglich Ihrer Daten</h2>
+            </div>
+          </div>
+          <div class="pl-16 lg:pl-20 space-y-4">
+            <p class="text-charcoal/80 leading-relaxed">Sie haben folgende Rechte:</p>
+            <ul class="space-y-2 text-charcoal/80">
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-terracotta mt-2 shrink-0"></span>
+                <span>Recht auf Auskunft uber die bei uns zu Ihrer Person gespeicherten Daten</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-terracotta mt-2 shrink-0"></span>
+                <span>Recht auf Berichtigung oder Loschung</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-terracotta mt-2 shrink-0"></span>
+                <span>Recht auf Einschrankung der Verarbeitung</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-terracotta mt-2 shrink-0"></span>
+                <span>Recht auf Widerspruch gegen die Verarbeitung</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-terracotta mt-2 shrink-0"></span>
+                <span>Recht auf Datenubertragbarkeit</span>
+              </li>
+            </ul>
+            <p class="text-charcoal/80 leading-relaxed">
+              Wenn Sie diese Rechte ausuben mochten, wenden Sie sich bitte jederzeit
+              an uns uber die im Impressum angegebenen Kontaktdaten.
+            </p>
+            <p class="text-charcoal/80 leading-relaxed">
+              Außerdem haben Sie ein Beschwerderecht bei der zustandigen
+              Datenschutzaufsichtsbehorde.
+            </p>
+          </div>
         </div>
+
+        <!-- Section 5: Responsible -->
+        <div class="mb-16">
+          <div class="flex items-start gap-6 mb-6">
+            <span class="text-5xl font-display font-bold text-charcoal/10">05</span>
+            <div>
+              <h2 class="text-xl font-display font-semibold text-charcoal">Verantwortlicher fur die Datenverarbeitung</h2>
+            </div>
+          </div>
+          <div class="pl-16 lg:pl-20">
+            <address class="text-charcoal/80 not-italic leading-relaxed">
+              GeTu Prospects e.V.<br/>
+              Lange Enden 29<br/>
+              13437 Berlin<br/>
+              E-Mail: <a href="mailto:info@getu-prospects.de" class="hover:text-terracotta transition-colors">info@getu-prospects.de</a><br/>
+              Tel.: <a href="tel:+491724328326" class="hover:text-terracotta transition-colors">+49 172 432 8326</a>
+            </address>
+          </div>
+        </div>
+
+        <!-- Section 6: Cookies -->
+        <div class="mb-16">
+          <div class="flex items-start gap-6 mb-6">
+            <span class="text-5xl font-display font-bold text-charcoal/10">06</span>
+            <div>
+              <h2 class="text-xl font-display font-semibold text-charcoal">Cookies und Analyse-Tools</h2>
+            </div>
+          </div>
+          <div class="pl-16 lg:pl-20">
+            <p class="text-charcoal/80 leading-relaxed">
+              Diese Website verwendet keine Cookies und keine Analyse-Tools. Es werden
+              keine Tracking- oder Analysemechanismen eingesetzt, die Ihr
+              Nutzerverhalten aufzeichnen.
+            </p>
+          </div>
+        </div>
+
+        <!-- Section 7: Updates -->
+        <div class="mb-16">
+          <div class="flex items-start gap-6 mb-6">
+            <span class="text-5xl font-display font-bold text-charcoal/10">07</span>
+            <div>
+              <h2 class="text-xl font-display font-semibold text-charcoal">Aktualitat und Anderung dieser Datenschutzerklarung</h2>
+            </div>
+          </div>
+          <div class="pl-16 lg:pl-20 space-y-4">
+            <p class="text-charcoal/80 leading-relaxed">
+              Diese Datenschutzerklarung ist aktuell gultig und hat den Stand Januar, 2025.
+            </p>
+            <p class="text-charcoal/80 leading-relaxed">
+              Durch die Weiterentwicklung unserer Website oder aufgrund geanderter
+              gesetzlicher bzw. behordlicher Vorgaben kann es notwendig werden, diese
+              Datenschutzerklarung zu andern. Die jeweils aktuelle
+              Datenschutzerklarung kann jederzeit auf dieser Website abgerufen werden.
+            </p>
+          </div>
+        </div>
+
+        <!-- Section 8: Questions -->
+        <div class="mb-16">
+          <div class="flex items-start gap-6 mb-6">
+            <span class="text-5xl font-display font-bold text-charcoal/10">08</span>
+            <div>
+              <h2 class="text-xl font-display font-semibold text-charcoal">Fragen zum Datenschutz</h2>
+            </div>
+          </div>
+          <div class="pl-16 lg:pl-20">
+            <p class="text-charcoal/80 leading-relaxed">
+              Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine
+              E-Mail an <a href="mailto:info@getu-prospects.de" class="text-charcoal hover:text-terracotta transition-colors font-medium">info@getu-prospects.de</a> oder wenden Sie sich direkt an die fur
+              den Datenschutz verantwortliche Person in unserer Organisation.
+            </p>
+          </div>
+        </div>
+
+        <!-- Section 9: Storage Duration -->
+        <div>
+          <div class="flex items-start gap-6 mb-6">
+            <span class="text-5xl font-display font-bold text-charcoal/10">09</span>
+            <div>
+              <h2 class="text-xl font-display font-semibold text-charcoal">Dauer der Speicherung</h2>
+            </div>
+          </div>
+          <div class="pl-16 lg:pl-20">
+            <p class="text-charcoal/80 leading-relaxed">
+              Wir speichern Ihre Daten aus dem Kontaktformular nur so lange, wie es
+              fur die Bearbeitung Ihrer Anfrage erforderlich ist oder gesetzliche
+              Aufbewahrungsfristen dies vorschreiben.
+            </p>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div class="">
-      <h2 class="text-lg">2. Kontaktformular</h2>
-      <div>
-        <p>
-          Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre
-          Angaben aus dem Anfrageformular inklusive der von Ihnen dort
-          angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den
-          Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir
-          nicht ohne Ihre Einwilligung weiter.
-        </p>
+  </section>
 
-        <p>
-          Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1
-          lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags
-          zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen
-          erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf
-          unserem berechtigten Interesse an der effektiven Bearbeitung der an
-          uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer
-          Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).
-        </p>
+  <!-- Back to top / Related links -->
+  <section class="py-12 bg-charcoal">
+    <div class="container mx-auto px-8 md:px-16">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <a href="/impressum" class="text-white/60 hover:text-white transition-colors flex items-center gap-3">
+          <span>Impressum</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a href="#" class="text-white/40 hover:text-white/60 transition-colors text-sm flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+          </svg>
+          Nach oben
+        </a>
       </div>
     </div>
-    <div>
-      <h2 class="text-lg">3. Bereitstellung der Website</h2>
-      <p>
-        Zur Bereitstellung unserer Website werden technisch notwendige Daten
-        verarbeitet. Dies umfasst:
-      </p>
+  </section>
+</BaseLayout>
 
-      <ul class="list-disc list-inside px-4">
-        <li>IP-Adresse</li>
-        <li>Datum und Uhrzeit der Anfrage</li>
-        <li>Inhalt der Anforderung</li>
-        <li>HTTP-Statuscode</li>
-        <li>Übertragene Datenmenge</li>
-        <li>Informationen zu Browser und Betriebssystem</li>
-      </ul>
+<style>
+  /* Hero animations */
+  .legal-hero .hero-label {
+    animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  }
 
-      <p>
-        Diese technische Verarbeitung ist erforderlich, um unsere Website
-        anzuzeigen und die Stabilität und Sicherheit zu gewährleisten. Dies
-        entspricht unserem berechtigten Interesse im Sinne des Art. 6 Abs. 1 S.
-        1 lit. f DSGVO.
-      </p>
-    </div>
-    <div>
-      <h2 class="text-lg">4. Ihre Rechte bezüglich Ihrer Daten</h2>
-      <p>Sie haben folgende Rechte:</p>
-      <ul class="list-disc list-inside px-4">
-        <li>
-          Recht auf Auskunft über die bei uns zu Ihrer Person gespeicherten
-          Daten
-        </li>
-        <li>Recht auf Berichtigung oder Löschung</li>
-        <li>Recht auf Einschränkung der Verarbeitung</li>
-        <li>Recht auf Widerspruch gegen die Verarbeitung</li>
-        <li>Recht auf Datenübertragbarkeit</li>
-      </ul>
-      <p>
-        Wenn Sie diese Rechte ausüben möchten, wenden Sie sich bitte jederzeit
-        an uns über die im Impressum angegebenen Kontaktdaten.
-      </p>
-      <p>
-        Außerdem haben Sie ein Beschwerderecht bei der zuständigen
-        Datenschutzaufsichtsbehörde.
-      </p>
-    </div>
-    <div>
-      <h2 class="text-lg">5. Verantwortlicher für die Datenverarbeitung</h2>
-      <p>
-        GeTu Prospects e.V.<br />
-        Lange Enden 29<br />
-        13437 Berlin<br />
-        E-Mail: info@getu-prospects.de<br />
-        Tel.: +491724328326
-      </p>
-    </div>
-    <div>
-      <h2 class="text-lg">6. Cookies und Analyse-Tools</h2>
-      <p>
-        Diese Website verwendet keine Cookies und keine Analyse-Tools. Es werden
-        keine Tracking- oder Analysemechanismen eingesetzt, die Ihr
-        Nutzerverhalten aufzeichnen.
-      </p>
-    </div>
-    <div>
-      <h2 class="text-lg">
-        7. Aktualität und Änderung dieser Datenschutzerklärung
-      </h2>
-      <p>
-        Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Januar,
-        2025.
-      </p>
-      <p>
-        Durch die Weiterentwicklung unserer Website oder aufgrund geänderter
-        gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese
-        Datenschutzerklärung zu ändern. Die jeweils aktuelle
-        Datenschutzerklärung kann jederzeit auf dieser Website abgerufen werden.
-      </p>
-    </div>
-    <div>
-      <h2 class="text-lg">8. Fragen zum Datenschutz</h2>
-      <p>
-        Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine
-        E-Mail an info@getu-prospects.de oder wenden Sie sich direkt an die für
-        den Datenschutz verantwortliche Person in unserer Organisation.
-      </p>
-    </div>
-    <div>
-      <h2 class="text-lg">9. Dauer der Speicherung</h2>
-      <p>
-        Wir speichern Ihre Daten aus dem Kontaktformular nur so lange, wie es
-        für die Bearbeitung Ihrer Anfrage erforderlich ist oder gesetzliche
-        Aufbewahrungsfristen dies vorschreiben.
-      </p>
-    </div>
-  </Section>
-</SiteLayout>
+  .legal-hero .hero-headline {
+    animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  }
+
+  .legal-hero .hero-tagline {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes revealUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+</style>

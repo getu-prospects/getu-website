@@ -1,0 +1,118 @@
+---
+interface Project {
+  number: string;
+  title: string;
+  shortTitle: string;
+  href: string;
+}
+
+interface Props {
+  currentProject: string;
+}
+
+const { currentProject } = Astro.props;
+
+const projects: Project[] = [
+  { number: '01', title: 'Mentoring-Programm', shortTitle: 'Mentoring', href: '/projekte/mentoring' },
+  { number: '02', title: 'Stammtisch gegen Einsamkeit', shortTitle: 'Stammtisch', href: '/projekte/stammtisch' },
+  { number: '03', title: 'Weihnachtsaktion', shortTitle: 'Weihnachtsaktion', href: '/projekte/weihnachtsaktion' },
+  { number: '04', title: 'Youth with Perspective', shortTitle: 'Youth', href: '/projekte/youth' },
+];
+
+const currentIndex = projects.findIndex(p => p.href.includes(currentProject));
+const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
+const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
+---
+
+<section class="py-16 lg:py-20 bg-charcoal">
+  <div class="container mx-auto px-8 md:px-16">
+    <!-- Section header -->
+    <div class="hidden lg:flex items-center justify-center gap-6 mb-8">
+      <div class="h-px w-16 bg-white/10"></div>
+      <span class="text-white/40 text-xs uppercase tracking-[0.3em]">Weitere Projekte</span>
+      <div class="h-px w-16 bg-white/10"></div>
+    </div>
+
+    <!-- Project thumbnails row -->
+    <div class="hidden lg:flex justify-center gap-2 mb-12">
+      {projects.map((project) => (
+        <a
+          href={project.href}
+          class={`group relative flex items-center gap-3 px-5 py-3 border transition-all duration-300 ${
+            project.href.includes(currentProject)
+              ? 'border-terracotta bg-terracotta/10 text-white'
+              : 'border-white/10 text-white/60 hover:border-terracotta hover:text-white'
+          }`}
+        >
+          <span class={`font-display font-bold ${project.href.includes(currentProject) ? 'text-terracotta' : 'text-white/30 group-hover:text-terracotta'}`}>
+            {project.number}
+          </span>
+          <span class="text-sm">{project.shortTitle}</span>
+        </a>
+      ))}
+    </div>
+
+    <!-- Prev/Next navigation -->
+    <div class="flex justify-between items-center">
+      {prevProject ? (
+        <a href={prevProject.href} class="flex items-center gap-4 text-white/60 hover:text-white transition-colors group">
+          <div class="w-12 h-12 border border-white/20 flex items-center justify-center group-hover:border-terracotta group-hover:bg-terracotta transition-all">
+            <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
+            </svg>
+          </div>
+          <div>
+            <span class="block text-xs uppercase tracking-wider text-white/40">Vorheriges</span>
+            <span class="block mt-1 font-medium">{prevProject.shortTitle}</span>
+          </div>
+        </a>
+      ) : (
+        <a href="/projekte" class="flex items-center gap-4 text-white/60 hover:text-white transition-colors group">
+          <div class="w-12 h-12 border border-white/20 flex items-center justify-center group-hover:border-terracotta group-hover:bg-terracotta transition-all">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+            </svg>
+          </div>
+          <div>
+            <span class="block text-xs uppercase tracking-wider text-white/40">Ubersicht</span>
+            <span class="block mt-1 font-medium">Alle Projekte</span>
+          </div>
+        </a>
+      )}
+
+      <!-- Center: All projects link -->
+      <a href="/projekte" class="hidden md:flex items-center gap-2 text-white/40 hover:text-terracotta transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+        </svg>
+        <span class="text-sm">Alle Projekte</span>
+      </a>
+
+      {nextProject ? (
+        <a href={nextProject.href} class="flex items-center gap-4 text-white/60 hover:text-white transition-colors group text-right">
+          <div>
+            <span class="block text-xs uppercase tracking-wider text-white/40">Nachstes</span>
+            <span class="block mt-1 font-medium">{nextProject.shortTitle}</span>
+          </div>
+          <div class="w-12 h-12 border border-white/20 flex items-center justify-center group-hover:border-terracotta group-hover:bg-terracotta transition-all">
+            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </div>
+        </a>
+      ) : (
+        <a href="/projekte" class="flex items-center gap-4 text-white/60 hover:text-white transition-colors group text-right">
+          <div>
+            <span class="block text-xs uppercase tracking-wider text-white/40">Ubersicht</span>
+            <span class="block mt-1 font-medium">Alle Projekte</span>
+          </div>
+          <div class="w-12 h-12 border border-white/20 flex items-center justify-center group-hover:border-terracotta group-hover:bg-terracotta transition-all">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+            </svg>
+          </div>
+        </a>
+      )}
+    </div>
+  </div>
+</section>
