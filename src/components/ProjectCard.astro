@@ -9,15 +9,16 @@ interface Props {
   category: string;
   facts: Array<{ icon: string; label: string }>;
   badge?: string;
+  reversed?: boolean;
 }
 
-const { number, title, tagline, summary, image, href, category, facts, badge } = Astro.props;
+const { number, title, tagline, summary, image, href, category, facts, badge, reversed = false } = Astro.props;
 ---
 
 <article class="group bg-cream border-b border-charcoal/10 last:border-b-0">
   <a href={href} class="block lg:grid lg:grid-cols-12 lg:gap-0">
     <!-- Image Section -->
-    <div class="relative overflow-hidden aspect-[16/10] lg:aspect-auto lg:min-h-[400px] lg:col-span-7">
+    <div class={`relative overflow-hidden aspect-[16/10] lg:aspect-auto lg:min-h-[400px] lg:col-span-7 ${reversed ? 'lg:col-start-6 lg:order-2' : ''}`}>
       <img
         src={image}
         alt={title}
@@ -38,7 +39,7 @@ const { number, title, tagline, summary, image, href, category, facts, badge } =
     </div>
 
     <!-- Content Section -->
-    <div class="lg:col-span-5 p-8 lg:p-12 flex flex-col justify-center">
+    <div class={`lg:col-span-5 p-8 lg:p-12 flex flex-col justify-center ${reversed ? 'lg:col-start-1 lg:order-1' : ''}`}>
       <!-- Category -->
       <span class="text-xs font-semibold uppercase tracking-wider text-terracotta mb-4">
         {category}
