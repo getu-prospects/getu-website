@@ -1,0 +1,67 @@
+---
+interface Props {
+  animation?: 'fade-up' | 'fade-left' | 'fade-right' | 'scale-in';
+  delay?: number;
+  threshold?: number;
+  class?: string;
+  tag?: 'div' | 'section' | 'article' | 'aside';
+}
+
+const {
+  animation = 'fade-up',
+  delay = 0,
+  threshold = 0.1,
+  class: className = '',
+  tag = 'div',
+} = Astro.props;
+
+const Tag = tag;
+---
+
+<Tag
+  class={`scroll-reveal ${className}`}
+  data-animation={animation}
+  data-delay={delay}
+  data-threshold={threshold}
+>
+  <slot />
+</Tag>
+
+<script>
+  function initScrollReveal() {
+    const elements = document.querySelectorAll('.scroll-reveal:not(.revealed)');
+
+    if (elements.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const element = entry.target as HTMLElement;
+            const delay = parseInt(element.dataset.delay || '0', 10);
+
+            setTimeout(() => {
+              element.classList.add('revealed');
+            }, delay);
+
+            observer.unobserve(element);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
+
+    elements.forEach((element) => {
+      observer.observe(element);
+    });
+  }
+
+  // Run on initial load
+  initScrollReveal();
+
+  // Run on Astro page transitions (View Transitions)
+  document.addEventListener('astro:page-load', initScrollReveal);
+</script>

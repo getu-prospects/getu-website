@@ -1,0 +1,178 @@
+---
+// ServicesEditorial.astro - Magazine-style services with dramatic hovers
+import Familienberatung from '../assets/images/services/beratung.jpg';
+import Erziehungsbeistand from '../assets/images/services/erziehung.jpg';
+import Einzelfallhilfe from '../assets/images/services/hilfe.jpg';
+
+const services = [
+  {
+    number: '01',
+    title: 'Erziehungsbeistand',
+    subtitle: 'Begleitung & Unterstützung',
+    description: 'Kontinuierliche Begleitung für Familien durch alle Entwicklungsphasen. Wir stehen an Ihrer Seite.',
+    image: Erziehungsbeistand.src,
+    link: '/erziehungsbeistand'
+  },
+  {
+    number: '02',
+    title: 'Familienberatung',
+    subtitle: 'Vertrauen & Stärke',
+    description: 'Vertrauliche Beratung zur Stärkung familiärer Bindungen und Lösung von Konflikten.',
+    image: Familienberatung.src,
+    link: '/ueber-uns'
+  },
+  {
+    number: '03',
+    title: 'Soziale Programme',
+    subtitle: 'Gemeinschaft & Integration',
+    description: 'Workshops und Aktivitäten, die Austausch und Integration zwischen Kulturen fördern.',
+    image: Einzelfallhilfe.src,
+    link: '/projekte'
+  }
+];
+---
+
+<section class="services-editorial py-32 md:py-40 bg-[var(--color-warmth)] relative overflow-hidden">
+  <!-- Clean background -->
+  <div class="absolute top-0 right-0 w-1/3 h-full bg-[#e8e0d5]/30"></div>
+  <div class="absolute bottom-20 left-10 w-64 h-64 border border-[var(--color-primary)]/5 hidden lg:block"></div>
+
+  <div class="container mx-auto px-8 md:px-16 relative z-10">
+    <!-- Section header - asymmetric -->
+    <div class="section-header flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-20">
+      <div class="max-w-2xl opacity-0 header-content">
+        <span class="label-editorial text-[var(--color-secondary)]">Was wir tun</span>
+        <h2 class="headline-large text-[var(--color-primary)] mt-6">
+          Unterstützung,<br/>die ankommt.
+        </h2>
+      </div>
+      <div class="lg:max-w-md opacity-0 header-text">
+        <p class="text-lg text-[var(--color-text-body)] leading-relaxed">
+          Unsere Angebote sind so vielfältig wie die Menschen, die wir begleiten.
+          Individuell. Persönlich. Nachhaltig.
+        </p>
+      </div>
+    </div>
+
+    <!-- Services grid - magazine style -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+      {services.map((service, index) => (
+        <article
+          class="service-card group relative bg-white overflow-hidden opacity-0"
+          style={`--card-delay: ${index * 150}ms`}
+        >
+          <!-- Image container -->
+          <div class="relative h-80 overflow-hidden">
+            <img
+              src={service.image}
+              alt={service.title}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <!-- Hover overlay -->
+            <div class="absolute inset-0 bg-[#1a1a1a]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+            <!-- Number badge -->
+            <div class="absolute top-6 left-6 w-14 h-14 bg-[var(--color-secondary)] flex items-center justify-center">
+              <span class="font-display text-white text-xl font-semibold">{service.number}</span>
+            </div>
+
+            <!-- Hover content -->
+            <div class="absolute bottom-0 left-0 right-0 p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <p class="text-white/90 leading-relaxed">{service.description}</p>
+              <a
+                href={service.link}
+                class="inline-flex items-center mt-6 text-[var(--color-secondary)] font-medium"
+              >
+                Mehr erfahren
+                <svg class="ml-2 w-5 h-5 transform transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="p-8">
+            <span class="text-sm text-[var(--color-text-muted)] uppercase tracking-wider">{service.subtitle}</span>
+            <h3 class="mt-3 text-2xl font-display font-semibold text-[var(--color-primary)] group-hover:text-[var(--color-accent)] transition-colors">
+              {service.title}
+            </h3>
+
+            <!-- Animated underline -->
+            <div class="mt-6 h-0.5 bg-[var(--color-sand)] relative overflow-hidden">
+              <div class="absolute inset-y-0 left-0 w-0 bg-[var(--color-secondary)] group-hover:w-full transition-all duration-500"></div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="mt-20 text-center opacity-0 bottom-cta">
+      <a
+        href="/ueber-uns#leistungen"
+        class="inline-flex items-center px-12 py-5 bg-[var(--color-primary)] text-white font-medium transition-all duration-300 hover:bg-[var(--color-accent)] group"
+      >
+        Alle Leistungen entdecken
+        <svg class="ml-3 w-5 h-5 transform transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-editorial.animate .header-content {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .services-editorial.animate .header-text {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  }
+
+  .services-editorial.animate .service-card {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: calc(0.4s + var(--card-delay));
+  }
+
+  .services-editorial.animate .bottom-cta {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+  }
+
+  @keyframes revealUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  function initServicesEditorial() {
+    const section = document.querySelector('.services-editorial');
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(section);
+  }
+
+  initServicesEditorial();
+  document.addEventListener('astro:page-load', initServicesEditorial);
+</script>

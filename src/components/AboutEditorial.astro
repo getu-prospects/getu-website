@@ -1,0 +1,160 @@
+---
+// AboutEditorial.astro - Asymmetric editorial about section
+---
+
+<section class="about-editorial py-32 md:py-40 bg-[var(--color-cream)] relative overflow-hidden">
+  <!-- Clean background split -->
+  <div class="absolute top-0 left-0 w-1/2 h-full bg-[#f5f0e8]"></div>
+
+  <div class="container mx-auto px-8 md:px-16 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+      <!-- Left: Image stack -->
+      <div class="lg:col-span-5 relative about-images opacity-0">
+        <!-- Main image -->
+        <div class="relative z-10">
+          <img
+            src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80"
+            alt="Beratung und Unterstützung"
+            class="w-full aspect-[4/5] object-cover"
+          />
+        </div>
+
+        <!-- Overlapping secondary image -->
+        <div class="absolute -bottom-12 -right-8 lg:-right-16 w-2/3 z-20 hidden md:block">
+          <img
+            src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=600&q=80"
+            alt="Gemeinschaft"
+            class="w-full aspect-square object-cover border-8 border-[var(--color-cream)]"
+          />
+        </div>
+
+        <!-- Decorative accent -->
+        <div class="absolute -top-6 -left-6 w-24 h-24 bg-[var(--color-secondary)] z-0"></div>
+
+        <!-- Stats floating card -->
+        <div class="absolute bottom-4 left-4 lg:-left-8 bg-white p-6 z-30 hidden lg:block">
+          <span class="block text-4xl font-display font-semibold text-[var(--color-primary)]">8+</span>
+          <span class="block text-sm text-[var(--color-text-muted)] uppercase tracking-wider mt-1">Jahre Erfahrung</span>
+        </div>
+      </div>
+
+      <!-- Right: Content -->
+      <div class="lg:col-span-6 lg:col-start-7 about-content opacity-0">
+        <span class="label-editorial text-[var(--color-secondary)]">Über uns</span>
+
+        <h2 class="headline-large text-[var(--color-primary)] mt-6">
+          Herz für<br/>Menschen.
+        </h2>
+
+        <!-- Accent line -->
+        <div class="about-line mt-8 h-1 w-20 bg-[var(--color-secondary)] origin-left scale-x-0"></div>
+
+        <div class="mt-10 space-y-6 text-lg text-[var(--color-text-body)] leading-relaxed">
+          <p>
+            <strong class="text-[var(--color-primary)]">GeTu Prospects e.V.</strong> ist eine
+            Non-Profit-Organisation mit Sitz in Berlin. Wir unterstützen Menschen aus
+            verschiedenen Kulturen und Ländern bei ihrer Integration in die deutsche Gesellschaft.
+          </p>
+          <p>
+            Wir kennen die Herausforderungen, die jeder im Integrationsprozess erlebt.
+            Unsere Stärke liegt darin, dass wir gemeinsam arbeiten, um diese Hindernisse
+            zu überwinden und persönliches Wachstum zu fördern.
+          </p>
+          <p>
+            In unserer komplexen Welt stehen viele Menschen, besonders Kinder und Familien,
+            vor Problemen, die sie allein nicht lösen können. Unser Verein bietet die
+            nötige Unterstützung und Begleitung auf diesem Weg.
+          </p>
+        </div>
+
+        <!-- Values pills -->
+        <div class="mt-10 flex flex-wrap gap-3">
+          <span class="px-5 py-2 bg-[var(--color-warmth-medium)] text-[var(--color-primary)] text-sm font-medium">Interkulturell</span>
+          <span class="px-5 py-2 bg-[var(--color-warmth-medium)] text-[var(--color-primary)] text-sm font-medium">Empathisch</span>
+          <span class="px-5 py-2 bg-[var(--color-warmth-medium)] text-[var(--color-primary)] text-sm font-medium">Nachhaltig</span>
+        </div>
+
+        <!-- CTA -->
+        <a
+          href="/ueber-uns"
+          class="inline-flex items-center mt-12 group"
+        >
+          <span class="relative text-[var(--color-primary)] font-medium text-lg">
+            Lernen Sie uns kennen
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-[var(--color-secondary)] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+          </span>
+          <svg class="ml-3 w-5 h-5 text-[var(--color-secondary)] transform transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-editorial.animate .about-images {
+    animation: slideInLeft 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .about-editorial.animate .about-content {
+    animation: slideInRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+  }
+
+  .about-editorial.animate .about-line {
+    animation: lineExpand 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes lineExpand {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+</style>
+
+<script>
+  function initAboutEditorial() {
+    const section = document.querySelector('.about-editorial');
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(section);
+  }
+
+  initAboutEditorial();
+  document.addEventListener('astro:page-load', initAboutEditorial);
+</script>

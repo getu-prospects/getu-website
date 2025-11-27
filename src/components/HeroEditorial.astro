@@ -1,0 +1,192 @@
+---
+// HeroEditorial.astro - Bold split-screen editorial hero
+import MainHeroImage from '../assets/images/main-hero/1.jpg';
+---
+
+<section class="hero-editorial relative min-h-screen overflow-hidden bg-[var(--color-cream)]">
+  <!-- Split layout container -->
+  <div class="flex flex-col lg:flex-row min-h-screen">
+
+    <!-- LEFT: Content side -->
+    <div class="relative z-20 lg:w-[55%] flex flex-col justify-center px-8 md:px-16 lg:px-20 xl:px-28 py-24 lg:py-16">
+
+      <!-- Floating decorative elements -->
+      <div class="absolute top-20 left-8 w-24 h-24 border border-[var(--color-secondary)]/20 animate-float delay-500 hidden lg:block"></div>
+      <div class="absolute bottom-32 right-16 w-16 h-16 bg-[var(--color-secondary)]/10 animate-float delay-700 hidden lg:block"></div>
+
+      <!-- Label -->
+      <div class="hero-label opacity-0">
+        <span class="label-editorial text-[var(--color-secondary)] tracking-[0.3em]">
+          Interkultureller Verein Berlin
+        </span>
+      </div>
+
+      <!-- Giant headline -->
+      <h1 class="hero-headline mt-8 opacity-0">
+        <span class="headline-giant text-[var(--color-primary)] block">
+          Vielfalt
+        </span>
+        <span class="headline-giant text-[var(--color-primary)] block mt-2">
+          leben.
+        </span>
+        <span class="headline-large text-[var(--color-accent)] block mt-4 italic">
+          Träume stärken.
+        </span>
+      </h1>
+
+      <!-- Animated divider line -->
+      <div class="hero-line mt-10 h-1 bg-[var(--color-secondary)] origin-left scale-x-0"></div>
+
+      <!-- Description -->
+      <p class="hero-text mt-10 text-xl md:text-2xl font-light leading-relaxed text-[var(--color-text-body)] max-w-xl opacity-0">
+        Wir verbinden Kulturen und begleiten Menschen dabei,
+        neue Perspektiven zu entdecken und ihr Potenzial zu entfalten.
+      </p>
+
+      <!-- CTAs -->
+      <div class="hero-ctas mt-12 flex flex-col sm:flex-row gap-6 opacity-0">
+        <a
+          href="/kontakt"
+          class="group relative inline-flex items-center justify-center px-10 py-5 bg-[var(--color-primary)] text-white font-medium overflow-hidden transition-all duration-500 hover:bg-[var(--color-accent)]"
+        >
+          <span class="relative z-10">Jetzt mitmachen</span>
+          <svg class="ml-3 w-5 h-5 transform transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a
+          href="/projekte"
+          class="group inline-flex items-center justify-center px-10 py-5 border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-medium transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-white"
+        >
+          Unsere Projekte
+        </a>
+      </div>
+
+      <!-- Floating stats -->
+      <div class="hero-stats mt-16 flex gap-12 opacity-0">
+        <div class="stat-item">
+          <span class="block text-4xl md:text-5xl font-display font-semibold text-[var(--color-primary)]">150+</span>
+          <span class="block mt-2 text-sm text-[var(--color-text-muted)] uppercase tracking-wider">Menschen begleitet</span>
+        </div>
+        <div class="stat-item">
+          <span class="block text-4xl md:text-5xl font-display font-semibold text-[var(--color-primary)]">8+</span>
+          <span class="block mt-2 text-sm text-[var(--color-text-muted)] uppercase tracking-wider">Jahre Erfahrung</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Image side with diagonal cut -->
+    <div class="hero-image-container relative lg:w-[45%] min-h-[50vh] lg:min-h-screen">
+      <!-- Diagonal overlay shape -->
+      <div class="absolute inset-0 z-10 bg-[var(--color-cream)] lg:clip-diagonal-reverse hidden lg:block" style="width: 100px; left: -50px;"></div>
+
+      <!-- Image with Ken Burns -->
+      <div class="absolute inset-0 overflow-hidden">
+        <img
+          src={MainHeroImage.src}
+          alt="Menschen in Zusammenarbeit"
+          class="w-full h-full object-cover scale-105 animate-ken-burns"
+        />
+        <!-- Simple dark overlay for text readability on mobile -->
+        <div class="absolute inset-0 bg-[#1a1a1a]/30 lg:bg-transparent"></div>
+      </div>
+
+      <!-- Floating accent shape -->
+      <div class="absolute bottom-12 left-8 lg:bottom-20 lg:left-auto lg:right-12 z-20 bg-[var(--color-secondary)] w-20 h-20 md:w-28 md:h-28 flex items-center justify-center animate-float">
+        <span class="text-white font-display text-3xl md:text-4xl font-semibold">GeTu</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 hidden lg:flex flex-col items-center gap-3 opacity-0 scroll-indicator">
+    <span class="text-xs uppercase tracking-[0.3em] text-[var(--color-text-muted)]">Scroll</span>
+    <div class="w-px h-12 bg-[var(--color-primary)]/30 relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-full h-4 bg-[var(--color-secondary)] animate-scroll-line"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes scrollLine {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(400%); }
+  }
+
+  .animate-scroll-line {
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+
+  /* Staggered entrance animations */
+  .hero-editorial.animate .hero-label {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  }
+
+  .hero-editorial.animate .hero-headline {
+    animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  }
+
+  .hero-editorial.animate .hero-line {
+    animation: lineExpand 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+  }
+
+  .hero-editorial.animate .hero-text {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
+  }
+
+  .hero-editorial.animate .hero-ctas {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+  }
+
+  .hero-editorial.animate .hero-stats {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards;
+  }
+
+  .hero-editorial.animate .scroll-indicator {
+    animation: fadeIn 1s ease-out 2s forwards;
+  }
+
+  @keyframes revealUp {
+    from {
+      opacity: 0;
+      transform: translateY(60px);
+      filter: blur(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes lineExpand {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Custom diagonal clip for the transition */
+  .clip-diagonal-reverse {
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 80% 0);
+  }
+</style>
+
+<script>
+  function initHeroAnimation() {
+    const hero = document.querySelector('.hero-editorial');
+
+    if (hero) {
+      // Trigger animations after a brief delay for page load
+      setTimeout(() => {
+        hero.classList.add('animate');
+      }, 100);
+    }
+  }
+
+  initHeroAnimation();
+  document.addEventListener('astro:page-load', initHeroAnimation);
+</script>

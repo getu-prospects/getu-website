@@ -1,7 +1,7 @@
-<section class="py-20 md:py-28 lg:py-32 bg-[var(--tp-grey-1)]">
+<section class="values-section py-20 md:py-28 lg:py-32 bg-warmth">
   <div class="container mx-auto px-4">
     <!-- Section Title -->
-    <div class="text-center mb-16 animate-fade-in">
+    <div class="text-center mb-16 values-header opacity-0">
       <p class="text-[var(--color-secondary)] font-medium mb-2">
         DAS FUNDAMENT UNSERER ARBEIT
       </p>
@@ -29,7 +29,8 @@
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-16">
       <!-- Value 1: Respekt & Würde -->
       <div
-        class="group hover-lift overflow-hidden bg-[#F9F6F2] hover:shadow-xl transition-all duration-500"
+        class="value-card group hover-lift overflow-hidden bg-white hover:bg-secondary-soft transition-all duration-500 opacity-0"
+        style="--card-delay: 0ms"
       >
         <div class="h-2 bg-[var(--color-secondary)]"></div>
         <div class="p-10 h-full flex flex-col">
@@ -74,7 +75,8 @@
 
       <!-- Value 2: Nächstenliebe -->
       <div
-        class="group hover-lift overflow-hidden bg-[#F2F7F7] hover:shadow-xl transition-all duration-500"
+        class="value-card group hover-lift overflow-hidden bg-white hover:bg-secondary-soft transition-all duration-500 opacity-0"
+        style="--card-delay: 100ms"
       >
         <div class="h-2 bg-[var(--tp-theme-2)]"></div>
         <div class="p-10 h-full flex flex-col">
@@ -117,7 +119,8 @@
 
       <!-- Value 3: Professionalität -->
       <div
-        class="group hover-lift overflow-hidden bg-[#F4F9F9] hover:shadow-xl transition-all duration-500"
+        class="value-card group hover-lift overflow-hidden bg-white hover:bg-secondary-soft transition-all duration-500 opacity-0"
+        style="--card-delay: 200ms"
       >
         <div class="h-2 bg-[var(--tp-theme-3)]"></div>
         <div class="p-10 h-full flex flex-col">
@@ -159,7 +162,8 @@
 
       <!-- Value 4: Vertrauen -->
       <div
-        class="group hover-lift overflow-hidden bg-[#F2F5F5] hover:shadow-xl transition-all duration-500"
+        class="value-card group hover-lift overflow-hidden bg-white hover:bg-secondary-soft transition-all duration-500 opacity-0"
+        style="--card-delay: 300ms"
       >
         <div class="h-2 bg-[var(--color-primary)]"></div>
         <div class="p-10 h-full flex flex-col">
@@ -201,7 +205,8 @@
 
       <!-- Value 5: Vielfalt -->
       <div
-        class="group hover-lift overflow-hidden bg-[#F9F6F2] hover:shadow-xl transition-all duration-500"
+        class="value-card group hover-lift overflow-hidden bg-white hover:bg-secondary-soft transition-all duration-500 opacity-0"
+        style="--card-delay: 400ms"
       >
         <div class="h-2 bg-[var(--color-secondary)]"></div>
         <div class="p-10 h-full flex flex-col">
@@ -246,7 +251,8 @@
 
       <!-- Value 6: Verantwortung -->
       <div
-        class="group hover-lift overflow-hidden bg-[#F2F7F7] hover:shadow-xl transition-all duration-500"
+        class="value-card group hover-lift overflow-hidden bg-white hover:bg-secondary-soft transition-all duration-500 opacity-0"
+        style="--card-delay: 500ms"
       >
         <div class="h-2 bg-[var(--tp-theme-2)]"></div>
         <div class="p-10 h-full flex flex-col">
@@ -291,7 +297,8 @@
       <div class="grid md:grid-cols-2 gap-10">
         <!-- Value 7: Nachhaltigkeit -->
         <div
-          class="group hover-lift overflow-hidden bg-[#F4F9F9] hover:shadow-xl transition-all duration-500"
+          class="value-card group hover-lift overflow-hidden bg-white hover:bg-secondary-soft transition-all duration-500 opacity-0"
+          style="--card-delay: 600ms"
         >
           <div class="h-2 bg-[var(--tp-theme-3)]"></div>
           <div class="p-10 h-full flex flex-col">
@@ -342,7 +349,8 @@
 
         <!-- Mission Statement -->
         <div
-          class="group animate-pulse-slow overflow-hidden bg-[var(--color-primary)] text-white hover:shadow-xl transition-all duration-500 flex items-center"
+          class="value-card group animate-pulse-slow overflow-hidden bg-[var(--color-primary)] text-white transition-all duration-500 flex items-center opacity-0"
+          style="--card-delay: 700ms"
         >
           <div class="p-10 h-full flex flex-col justify-center text-center">
             <svg
@@ -381,3 +389,75 @@
     </div>
   </div>
 </section>
+
+<style>
+  .value-card {
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out,
+      background-color 0.5s ease;
+    transform: translateY(30px);
+  }
+
+  .value-card.revealed {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  .values-header {
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
+    transform: translateY(20px);
+  }
+
+  .values-header.revealed {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+</style>
+
+<script>
+  function initValuesAnimation() {
+    const section = document.querySelector('.values-section');
+
+    if (!section) return;
+
+    const header = section.querySelector('.values-header');
+    const cards = section.querySelectorAll('.value-card');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Animate header first
+            if (header) {
+              header.classList.add('revealed');
+            }
+
+            // Animate cards with staggered delay
+            cards.forEach((card) => {
+              const delay = parseInt(
+                (card as HTMLElement).style.getPropertyValue('--card-delay') ||
+                  '0',
+                10
+              );
+
+              setTimeout(() => {
+                card.classList.add('revealed');
+              }, delay);
+            });
+
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(section);
+  }
+
+  initValuesAnimation();
+  document.addEventListener('astro:page-load', initValuesAnimation);
+</script>

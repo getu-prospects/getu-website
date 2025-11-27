@@ -1,0 +1,117 @@
+---
+// QuoteCallout.astro - Editorial quote with warm background
+interface Props {
+  quote: string;
+  author?: string;
+  role?: string;
+}
+
+const { quote, author, role } = Astro.props;
+---
+
+<section class="quote-callout relative py-32 md:py-40 bg-[#f5f0e8] overflow-hidden">
+  <!-- Left accent bar -->
+  <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#e85d3b]"></div>
+
+  <!-- Decorative large quote mark -->
+  <div class="absolute top-12 right-12 lg:right-24 opacity-[0.06] pointer-events-none">
+    <svg class="w-48 h-48 lg:w-64 lg:h-64 text-[#1a1a1a]" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
+    </svg>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 container mx-auto px-8 md:px-16 lg:px-24">
+    <div class="max-w-4xl">
+      <!-- Quote text - left aligned, editorial style -->
+      <blockquote class="quote-text opacity-0">
+        <p class="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-[#1a1a1a] leading-tight">
+          {quote}
+        </p>
+      </blockquote>
+
+      <!-- Bottom accent -->
+      <div class="quote-line mt-12 w-20 h-1 bg-[#e85d3b] origin-left scale-x-0"></div>
+
+      <!-- Attribution -->
+      {(author || role) && (
+        <div class="quote-author mt-8 opacity-0">
+          {author && (
+            <span class="block text-lg text-[#1a1a1a] font-semibold">{author}</span>
+          )}
+          {role && (
+            <span class="block mt-1 text-[#7a7a7a] text-sm uppercase tracking-wider">{role}</span>
+          )}
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .quote-callout.animate .quote-mark {
+    animation: fadeIn 1s ease-out 0.2s forwards;
+  }
+
+  .quote-callout.animate .quote-text {
+    animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  }
+
+  .quote-callout.animate .quote-line {
+    animation: lineExpand 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
+  }
+
+  .quote-callout.animate .quote-author {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+  }
+
+  .quote-callout.animate .quote-dots {
+    animation: fadeIn 1s ease-out 1.4s forwards;
+  }
+
+  @keyframes revealUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes lineExpand {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style>
+
+<script>
+  function initQuoteCallout() {
+    const section = document.querySelector('.quote-callout');
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(section);
+  }
+
+  initQuoteCallout();
+  document.addEventListener('astro:page-load', initQuoteCallout);
+</script>

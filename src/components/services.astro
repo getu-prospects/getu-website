@@ -1,225 +1,363 @@
 ---
-import Hands from '../assets/images/hands.jpg';
-import KidImg from '../assets/images/kid.jpg';
-import AboutUs from '../assets/images/ueber-uns.jpg';
 import Beratung from '../assets/images/services/beratung.jpg';
 import Erziehung from '../assets/images/services/erziehung.jpg';
 import SozialeProgramme from '../assets/images/christmas/gorlitz-3.jpeg';
+import KidImg from '../assets/images/kid.jpg';
+import Hands from '../assets/images/hands.jpg';
+
+const services = [
+  {
+    id: 'elternschaft',
+    number: '01',
+    title: 'Unterstützung bei der Elternschaft',
+    subtitle: 'Begleitung & Stärkung',
+    description: 'Eltern zu sein ist eine wundervolle, aber auch herausfordernde Aufgabe. Wir bieten praxisnahe Anleitungen, Workshops und Ressourcen, die Eltern dabei helfen, ihre Erziehungsfähigkeiten zu stärken und ein unterstützendes Familienumfeld zu schaffen.',
+    features: ['Elternworkshops', 'Individuelle Beratung', 'Praktische Ressourcen'],
+    image: Beratung.src,
+  },
+  {
+    id: 'beratung',
+    number: '02',
+    title: 'Familienberatung',
+    subtitle: 'Vertrauen & Bindung',
+    description: 'Eine starke Familie bildet das Fundament für eine stabile Gesellschaft. Unser Team bietet vertrauliche und einfühlsame Beratungen an, um familiäre Bindungen zu stärken, Konflikte zu lösen und eine gesunde Kommunikation innerhalb der Familie zu fördern.',
+    features: ['Konfliktlösung', 'Kommunikationstraining', 'Familientherapie'],
+    image: Erziehung.src,
+  },
+  {
+    id: 'sozial',
+    number: '03',
+    title: 'Soziale Programme',
+    subtitle: 'Gemeinschaft & Austausch',
+    description: 'Gemeinschaft und Zusammenhalt sind essenziell für persönliche Entwicklung und gesellschaftliche Integration. Unsere sozialen Programme schaffen Räume, in denen Menschen aus verschiedenen Hintergründen zusammenkommen und sich gegenseitig unterstützen.',
+    features: ['Kulturelle Events', 'Netzwerktreffen', 'Gruppenaktivitäten'],
+    image: SozialeProgramme.src,
+  },
+  {
+    id: 'empowerment',
+    number: '04',
+    title: 'Empowerment-Programme',
+    subtitle: 'Stärke & Resilienz',
+    description: 'Unser Ziel ist es, Menschen zu stärken – insbesondere Jugendliche, die oft vor wichtigen Entscheidungen und Herausforderungen stehen. Unsere Empowerment-Programme bieten gezielte Unterstützung, um Selbstbewusstsein, Resilienz und Führungsqualitäten zu entwickeln.',
+    features: ['Mentoring', 'Leadership-Training', 'Persönlichkeitsentwicklung'],
+    image: KidImg.src,
+  },
+  {
+    id: 'unterstuetzung',
+    number: '05',
+    title: 'Allgemeine Unterstützung',
+    subtitle: 'Praktische Hilfe',
+    description: 'Das Leben stellt uns manchmal vor unerwartete Herausforderungen. Wir bieten praktische Unterstützung in Bereichen wie Budgetplanung, Bewerbungstraining und Vernetzung mit relevanten Anlaufstellen, um langfristig Menschen zu befähigen.',
+    features: ['Bewerbungshilfe', 'Budgetberatung', 'Behördengänge'],
+    image: Hands.src,
+  },
+];
 ---
 
-<section class="py-32 bg-white overflow-hidden">
-  <div class="container mx-auto px-8">
-    <!-- Section header -->
-    <div class="text-center mb-24">
-      <p
-        class="text-secondary uppercase tracking-wider text-sm font-medium mb-5"
-      >
-        UNSERE DIENSTLEISTUNGEN
-      </p>
-      <h2 class="text-4xl md:text-5xl font-bold text-primary mb-8">
-        Vielfältige Unterstützung für jede Lebenslage
-      </h2>
-      <div class="flex justify-center">
-        <div class="h-px w-16 bg-secondary mb-10"></div>
-      </div>
-      <p class="max-w-3xl mx-auto font-light text-body">
-        Bei GeTu Prospects e.V. stehen Menschen im Mittelpunkt. Mit unseren
-        vielfältigen Angeboten unterstützen wir Familien, Jugendliche und
-        Einzelpersonen.
-      </p>
-    </div>
+<section class="services-showcase min-h-screen bg-[#1a1a1a] relative overflow-hidden" id="leistungen">
+  <!-- Header -->
+  <div class="container mx-auto px-8 md:px-16 pt-24 pb-12">
+    <span class="text-[#e85d3b] text-sm font-semibold uppercase tracking-[0.3em]">
+      Unsere Dienstleistungen
+    </span>
+    <h2 class="mt-4 text-4xl md:text-5xl lg:text-6xl font-display font-medium text-white leading-tight">
+      Was wir bieten
+    </h2>
+  </div>
 
-    <!-- Service grid with consistent backgrounds -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      <!-- Left Column -->
-      <div class="lg:col-span-1">
-        <!-- Service 1 -->
-        <div class="group relative mb-12 bg-[#f2f7f7]">
-          <!-- Image with hover effect and number -->
-          <div class="overflow-hidden relative">
-            <img
-              src={Beratung.src}
-              alt="Unterstützung bei der Elternschaft"
-              class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <!-- <img
-              src="https://images.unsplash.com/photo-1551516594-56cb78394645?ixlib=rb-4.0.3&auto=format&fit=crop&w=1216&q=80"
-              alt="Unterstützung bei der Elternschaft"
-              class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105"
-            /> -->
-            <!-- Number overlay -->
-            <div class="absolute top-6 right-6 z-10">
-              <div
-                class="bg-white text-secondary font-bold text-xl py-1 px-3 shadow-sm"
-              >
-                01
+  <!-- Interactive showcase -->
+  <div class="container mx-auto px-8 md:px-16 pb-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 min-h-[600px]">
+
+      <!-- Left: Service navigation -->
+      <div class="lg:col-span-4 xl:col-span-3 border-t border-white/10">
+        {services.map((service, index) => (
+          <button
+            class="service-tab w-full text-left p-6 border-b border-white/10 transition-all duration-300 group"
+            data-service={service.id}
+            data-index={index}
+          >
+            <div class="flex items-center gap-6">
+              <span class="text-5xl md:text-6xl font-display font-semibold text-white/20 group-hover:text-[#e85d3b] transition-colors service-number">
+                {service.number}
+              </span>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-lg font-semibold text-white/60 group-hover:text-white transition-colors truncate service-title">
+                  {service.title}
+                </h3>
+                <p class="text-sm text-white/30 mt-1 service-subtitle">
+                  {service.subtitle}
+                </p>
               </div>
+              <svg class="w-5 h-5 text-white/20 group-hover:text-[#e85d3b] transition-all transform group-hover:translate-x-1 service-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
             </div>
-          </div>
-
-          <!-- Content -->
-          <div class="p-8">
-            <h3 class="text-2xl font-bold text-primary mb-6">
-              Unterstützung bei der Elternschaft
-            </h3>
-            <p class="font-light text-body leading-relaxed">
-              Eltern zu sein ist eine wundervolle, aber auch herausfordernde
-              Aufgabe. Wir bieten praxisnahe Anleitungen, Workshops und
-              Ressourcen, die Eltern dabei helfen, ihre Erziehungsfähigkeiten zu
-              stärken und ein unterstützendes Familienumfeld zu schaffen.
-            </p>
-          </div>
-        </div>
+          </button>
+        ))}
       </div>
 
-      <!-- Middle Column -->
-      <div class="lg:col-span-1">
-        <!-- Service 2 -->
-        <div class="group relative mb-12 bg-orange-50">
-          <!-- Content first, then image (reverse order) -->
-          <div class="p-8">
-            <h3 class="text-2xl font-bold text-primary mb-6">
-              Familienberatung
-            </h3>
-            <p class="font-light text-body leading-relaxed">
-              Eine starke Familie bildet das Fundament für eine stabile
-              Gesellschaft. Unser Team bietet vertrauliche und einfühlsame
-              Beratungen an, um familiäre Bindungen zu stärken, Konflikte zu
-              lösen und eine gesunde Kommunikation innerhalb der Familie zu
-              fördern.
-            </p>
-          </div>
+      <!-- Right: Service content -->
+      <div class="lg:col-span-8 xl:col-span-9 relative bg-[#242424]">
+        {services.map((service, index) => (
+          <div
+            class="service-content absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-500"
+            data-content={service.id}
+          >
+            <div class="h-full grid grid-cols-1 xl:grid-cols-2">
+              <!-- Image -->
+              <div class="relative h-64 xl:h-full overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  class="absolute inset-0 w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-[#1a1a1a]/30"></div>
 
-          <!-- Image with hover effect and number -->
-          <div class="overflow-hidden relative">
-            <img
-              src={Erziehung.src}
-              alt="Familienberatung"
-              class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <!-- <img
-              src="https://images.unsplash.com/photo-1536809188428-e8ecf663d0be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
-              alt="Familienberatung"
-              class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
-            /> -->
-            <!-- Number overlay -->
-            <div class="absolute top-6 left-6 z-10">
-              <div
-                class="bg-white text-secondary font-bold text-xl py-1 px-3 shadow-sm"
-              >
-                02
+                <!-- Large number overlay -->
+                <div class="absolute bottom-6 left-6 xl:bottom-12 xl:left-12">
+                  <span class="text-[120px] xl:text-[200px] font-display font-bold text-white/10 leading-none">
+                    {service.number}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="p-8 xl:p-12 flex flex-col justify-center">
+                <span class="text-[#e85d3b] text-sm font-semibold uppercase tracking-wider">
+                  {service.subtitle}
+                </span>
+
+                <h3 class="mt-4 text-2xl xl:text-3xl font-display font-semibold text-white">
+                  {service.title}
+                </h3>
+
+                <p class="mt-6 text-white/70 leading-relaxed">
+                  {service.description}
+                </p>
+
+                <!-- Features -->
+                <ul class="mt-8 space-y-3">
+                  {service.features.map((feature) => (
+                    <li class="flex items-center gap-3 text-white/60">
+                      <span class="w-1.5 h-1.5 bg-[#e85d3b]"></span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                <!-- CTA -->
+                <a
+                  href="/kontakt"
+                  class="mt-10 inline-flex items-center gap-2 text-[#e85d3b] font-medium group/cta"
+                >
+                  Mehr erfahren
+                  <svg class="w-5 h-5 transform transition-transform group-hover/cta:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Service 3 -->
-        <div class="group relative bg-blue-50">
-          <!-- Content first, then image (reverse order) -->
-          <div class="p-8">
-            <h3 class="text-2xl font-bold text-primary mb-6">
-              Soziale Programme
-            </h3>
-            <p class="font-light text-body leading-relaxed">
-              Gemeinschaft und Zusammenhalt sind essenziell für persönliche
-              Entwicklung und gesellschaftliche Integration. Unsere sozialen
-              Programme schaffen Räume, in denen Menschen aus verschiedenen
-              Hintergründen zusammenkommen und sich gegenseitig unterstützen.
-            </p>
-          </div>
-
-          <!-- Image with hover effect and number -->
-          <div class="overflow-hidden relative">
-            <img
-              src={SozialeProgramme.src}
-              alt="Soziale Programme"
-              class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <!-- <img
-              src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
-              alt="Soziale Programme"
-              class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
-            /> -->
-            <!-- Number overlay -->
-            <div class="absolute top-6 left-6 z-10">
-              <div
-                class="bg-white text-secondary font-bold text-xl py-1 px-3 shadow-sm"
-              >
-                03
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Column -->
-      <div class="lg:col-span-1">
-        <!-- Service 4 -->
-        <div class="group relative mb-12 bg-green-50">
-          <!-- Image with hover effect and number -->
-          <div class="overflow-hidden relative">
-            <img
-              src={KidImg.src}
-              alt="Empowerment-Programme für Jugendliche"
-              class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <!-- Number overlay -->
-            <div class="absolute top-6 right-6 z-10">
-              <div
-                class="bg-white text-secondary font-bold text-xl py-1 px-3 shadow-sm"
-              >
-                04
-              </div>
-            </div>
-          </div>
-
-          <!-- Content -->
-          <div class="p-8">
-            <h3 class="text-2xl font-bold text-primary mb-6">
-              Empowerment-Programme
-            </h3>
-            <p class="font-light text-body leading-relaxed">
-              Unser Ziel ist es, Menschen zu stärken – insbesondere Jugendliche,
-              die oft vor wichtigen Entscheidungen und Herausforderungen stehen.
-              Unsere Empowerment-Programme bieten gezielte Unterstützung, um
-              Selbstbewusstsein, Resilienz und Führungsqualitäten zu entwickeln.
-            </p>
-          </div>
-        </div>
-
-        <!-- Service 5 -->
-        <div class="group relative bg-orange-50">
-          <!-- Image with hover effect and number -->
-          <div class="overflow-hidden relative">
-            <img
-              src={Hands.src}
-              alt="Allgemeine Unterstützung"
-              class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <!-- Number overlay -->
-            <div class="absolute top-6 right-6 z-10">
-              <div
-                class="bg-white text-secondary font-bold text-xl py-1 px-3 shadow-sm"
-              >
-                05
-              </div>
-            </div>
-          </div>
-
-          <!-- Content -->
-          <div class="p-8">
-            <h3 class="text-2xl font-bold text-primary mb-6">
-              Allgemeine Unterstützung
-            </h3>
-            <p class="font-light text-body leading-relaxed">
-              Das Leben stellt uns manchmal vor unerwartete Herausforderungen.
-              Wir bieten praktische Unterstützung in Bereichen wie
-              Budgetplanung, Bewerbungstraining und Vernetzung mit relevanten
-              Anlaufstellen, um langfristig Menschen zu befähigen.
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </div>
+
+  <!-- Progress indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+    {services.map((service, index) => (
+      <button
+        class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"
+        data-progress={service.id}
+      ></button>
+    ))}
+  </div>
 </section>
+
+<style>
+  .service-tab.active {
+    background: rgba(232, 93, 59, 0.1);
+  }
+
+  .service-tab.active .service-number {
+    color: #e85d3b;
+  }
+
+  .service-tab.active .service-title {
+    color: white;
+  }
+
+  .service-tab.active .service-arrow {
+    color: #e85d3b;
+    transform: translateX(4px);
+  }
+
+  .service-content.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .progress-dot.active {
+    width: 2rem;
+    background: #e85d3b;
+  }
+
+  /* Entrance animation */
+  .services-showcase.loaded .service-tab {
+    animation: slideIn 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  .services-showcase.loaded .service-tab:nth-child(1) { animation-delay: 0.1s; }
+  .services-showcase.loaded .service-tab:nth-child(2) { animation-delay: 0.2s; }
+  .services-showcase.loaded .service-tab:nth-child(3) { animation-delay: 0.3s; }
+  .services-showcase.loaded .service-tab:nth-child(4) { animation-delay: 0.4s; }
+  .services-showcase.loaded .service-tab:nth-child(5) { animation-delay: 0.5s; }
+
+  @keyframes slideIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>
+
+<script>
+  function initServicesShowcase() {
+    const section = document.querySelector('.services-showcase');
+    if (!section) return;
+
+    const tabs = section.querySelectorAll('.service-tab');
+    const contents = section.querySelectorAll('.service-content');
+    const dots = section.querySelectorAll('.progress-dot');
+
+    let currentIndex = 0;
+    let autoScrollInterval: ReturnType<typeof setInterval> | null = null;
+    let isPaused = false;
+    const AUTO_SCROLL_DELAY = 5000; // 5 seconds
+
+    function setActiveService(serviceId: string) {
+      // Update tabs
+      tabs.forEach((tab, index) => {
+        if (tab.getAttribute('data-service') === serviceId) {
+          tab.classList.add('active');
+          currentIndex = index;
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+
+      // Update content
+      contents.forEach(content => {
+        if (content.getAttribute('data-content') === serviceId) {
+          content.classList.add('active');
+        } else {
+          content.classList.remove('active');
+        }
+      });
+
+      // Update dots
+      dots.forEach(dot => {
+        if (dot.getAttribute('data-progress') === serviceId) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    function goToNext() {
+      const nextIndex = (currentIndex + 1) % tabs.length;
+      const nextServiceId = tabs[nextIndex]?.getAttribute('data-service');
+
+      if (nextServiceId) {
+        setActiveService(nextServiceId);
+      }
+    }
+
+    function startAutoScroll() {
+      if (autoScrollInterval) return;
+
+      autoScrollInterval = setInterval(() => {
+        if (!isPaused) {
+          goToNext();
+        }
+      }, AUTO_SCROLL_DELAY);
+    }
+
+    function stopAutoScroll() {
+      if (autoScrollInterval) {
+        clearInterval(autoScrollInterval);
+        autoScrollInterval = null;
+      }
+    }
+
+    function pauseAutoScroll() {
+      isPaused = true;
+    }
+
+    function resumeAutoScroll() {
+      isPaused = false;
+    }
+
+    // Set first service as active
+    const firstServiceId = tabs[0]?.getAttribute('data-service');
+
+    if (firstServiceId) {
+      setActiveService(firstServiceId);
+    }
+
+    // Add click handlers
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const serviceId = tab.getAttribute('data-service');
+
+        if (serviceId) {
+          setActiveService(serviceId);
+          // Reset timer on manual interaction
+          stopAutoScroll();
+          startAutoScroll();
+        }
+      });
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const serviceId = dot.getAttribute('data-progress');
+
+        if (serviceId) {
+          setActiveService(serviceId);
+          // Reset timer on manual interaction
+          stopAutoScroll();
+          startAutoScroll();
+        }
+      });
+    });
+
+    // Pause on hover
+    section.addEventListener('mouseenter', pauseAutoScroll);
+    section.addEventListener('mouseleave', resumeAutoScroll);
+
+    // Trigger entrance animation and start auto-scroll on scroll into view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('loaded');
+            startAutoScroll();
+          } else {
+            stopAutoScroll();
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(section);
+  }
+
+  initServicesShowcase();
+  document.addEventListener('astro:page-load', initServicesShowcase);
+</script>

@@ -1,0 +1,738 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Mentoring-Programm - GeTu Prospects e.V.">
+  <!-- Hero - Balanced for Both Audiences -->
+  <section class="hero relative min-h-screen flex items-center bg-[#1a1a1a] overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80"
+        alt="Menschen im Gesprach"
+        class="w-full h-full object-cover opacity-30"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#1a1a1a]/90 via-[#1a1a1a]/80 to-[#1a1a1a]"></div>
+    </div>
+
+    <div class="relative z-20 container mx-auto px-8 md:px-16 py-20">
+      <!-- Centered headline -->
+      <div class="text-center max-w-4xl mx-auto mb-16">
+        <div class="hero-badge opacity-0 inline-flex items-center gap-2 bg-[#e85d3b]/20 border border-[#e85d3b]/40 px-4 py-2 mb-8">
+          <span class="w-2 h-2 bg-[#e85d3b] rounded-full animate-pulse"></span>
+          <span class="text-[#e85d3b] text-sm font-medium">100% Kostenlos - 50+ erfolgreiche Matches</span>
+        </div>
+
+        <h1 class="hero-title opacity-0 text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6">
+          Mentoring, das<br/>
+          <span class="text-[#e85d3b]">Leben verandert</span>
+        </h1>
+
+        <p class="hero-subtitle opacity-0 text-xl text-white/70 leading-relaxed max-w-2xl mx-auto">
+          Wir bringen Menschen zusammen: Newcomer, die Orientierung suchen,
+          und erfahrene Berliner, die ihr Wissen teilen mochten.
+        </p>
+      </div>
+
+      <!-- Two paths -->
+      <div class="hero-paths opacity-0 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <!-- Mentee Path -->
+        <a
+          href="#mentee-section"
+          class="group relative bg-white/5 border border-white/10 p-8 hover:bg-white/10 hover:border-[#e85d3b]/50 transition-all"
+        >
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 bg-[#e85d3b] flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-xl font-display font-semibold text-white mb-1 group-hover:text-[#e85d3b] transition-colors">
+                Ich suche einen Mentor
+              </h2>
+              <p class="text-white/50 text-sm">Fur Newcomer in Deutschland</p>
+            </div>
+          </div>
+
+          <p class="text-white/70 leading-relaxed mb-6">
+            Du bist neu in Deutschland und brauchst Unterstutzung bei Job, Behorden oder einfach jemanden zum Reden?
+            Finde deinen personlichen Wegbegleiter.
+          </p>
+
+          <div class="flex items-center gap-2 text-[#e85d3b] font-medium">
+            <span>Mehr erfahren</span>
+            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </div>
+        </a>
+
+        <!-- Mentor Path -->
+        <a
+          href="#mentor-section"
+          class="group relative bg-white/5 border border-white/10 p-8 hover:bg-white/10 hover:border-[#e85d3b]/50 transition-all"
+        >
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 bg-[#e85d3b] flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-xl font-display font-semibold text-white mb-1 group-hover:text-[#e85d3b] transition-colors">
+                Ich mochte Mentor werden
+              </h2>
+              <p class="text-white/50 text-sm">Fur alle, die etwas zuruckgeben wollen</p>
+            </div>
+          </div>
+
+          <p class="text-white/70 leading-relaxed mb-6">
+            Du kennst Deutschland gut und mochtest dein Wissen teilen?
+            Hilf einem Newcomer, hier anzukommen - mit deiner Erfahrung und deiner Zeit.
+          </p>
+
+          <div class="flex items-center gap-2 text-[#e85d3b] font-medium">
+            <span>Mehr erfahren</span>
+            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="hero-stats opacity-0 flex justify-center gap-12 mt-16">
+        <div class="text-center">
+          <span class="block text-3xl font-display font-bold text-white">50+</span>
+          <span class="text-white/50 text-sm">Aktive Mentoren</span>
+        </div>
+        <div class="w-px bg-white/20"></div>
+        <div class="text-center">
+          <span class="block text-3xl font-display font-bold text-white">100%</span>
+          <span class="text-white/50 text-sm">Kostenlos</span>
+        </div>
+        <div class="w-px bg-white/20"></div>
+        <div class="text-center">
+          <span class="block text-3xl font-display font-bold text-white">1:1</span>
+          <span class="text-white/50 text-sm">Personlich</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+      <span class="text-white/40 text-xs uppercase tracking-widest">Wahle deinen Weg</span>
+      <div class="w-px h-8 bg-gradient-to-b from-[#e85d3b] to-transparent animate-pulse"></div>
+    </div>
+  </section>
+
+  <!-- MENTEE SECTION -->
+  <section id="mentee-section" class="py-20 lg:py-32 bg-[#fffcf7] scroll-mt-20">
+    <div class="container mx-auto px-8 md:px-16">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Problem -->
+        <div class="problem-section opacity-0">
+          <span class="text-[#e85d3b] text-sm font-semibold uppercase tracking-[0.3em] mb-4 block">
+            Kennst du das?
+          </span>
+          <h2 class="text-3xl md:text-4xl font-display font-semibold text-[#1a1a1a] leading-tight mb-8">
+            Neu in Deutschland.<br/>
+            <span class="text-[#4a4a4a]">Allein mit tausend Fragen.</span>
+          </h2>
+
+          <ul class="space-y-6">
+            <li class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-8 h-8 bg-[#1a1a1a]/10 flex items-center justify-center mt-1">
+                <svg class="w-5 h-5 text-[#1a1a1a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-lg text-[#1a1a1a] font-medium">Wie funktioniert das deutsche Steuersystem?</p>
+                <p class="text-[#4a4a4a]">Anmeldung, Versicherungen, Behorden - alles ist anders.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-8 h-8 bg-[#1a1a1a]/10 flex items-center justify-center mt-1">
+                <svg class="w-5 h-5 text-[#1a1a1a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-lg text-[#1a1a1a] font-medium">Wie finde ich einen Job, der zu mir passt?</p>
+                <p class="text-[#4a4a4a]">Bewerbungen schreiben, Vorstellungsgesprache, Networking.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-8 h-8 bg-[#1a1a1a]/10 flex items-center justify-center mt-1">
+                <svg class="w-5 h-5 text-[#1a1a1a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-lg text-[#1a1a1a] font-medium">Wo finde ich Menschen, die mich verstehen?</p>
+                <p class="text-[#4a4a4a]">Freunde finden, sich integrieren, nicht allein sein.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Solution -->
+        <div class="solution-section opacity-0 bg-[#1a1a1a] p-10 lg:p-12">
+          <span class="text-[#e85d3b] text-sm font-semibold uppercase tracking-[0.3em] mb-4 block">
+            Die Losung
+          </span>
+          <h3 class="text-2xl md:text-3xl font-display font-semibold text-white leading-tight mb-6">
+            Ein Mentor, der schon dort war, wo du hinwillst.
+          </h3>
+          <p class="text-white/80 leading-relaxed mb-8">
+            Stell dir vor, du hattest jemanden an deiner Seite - jemanden, der die gleichen
+            Herausforderungen gemeistert hat und dir zeigt, wie es geht. Genau das bieten
+            wir dir: Eine personliche Verbindung zu einem erfahrenen Menschen, der dich
+            auf deinem Weg begleitet.
+          </p>
+
+          <div class="space-y-4 mb-8">
+            <div class="flex items-center gap-3">
+              <svg class="w-6 h-6 text-[#e85d3b]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-white">Personliche 1:1 Begleitung</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-6 h-6 text-[#e85d3b]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-white">Flexible Termine, die zu dir passen</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-6 h-6 text-[#e85d3b]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-white">Komplett kostenlos, ohne Verpflichtung</span>
+            </div>
+          </div>
+
+          <a
+            href="https://mentorship.getu-prospects.de/mentee/apply"
+            target="_blank"
+            class="inline-flex items-center gap-2 bg-[#e85d3b] text-white px-8 py-4 font-semibold hover:bg-[#d14e2e] transition-colors"
+          >
+            Jetzt Mentor finden
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works - Simple 3 Steps -->
+  <section class="py-20 lg:py-32 bg-[#1a1a1a]">
+    <div class="container mx-auto px-8 md:px-16">
+      <div class="text-center mb-16">
+        <span class="text-[#e85d3b] text-sm font-semibold uppercase tracking-[0.3em]">
+          In 3 einfachen Schritten
+        </span>
+        <h2 class="mt-4 text-3xl md:text-4xl font-display font-semibold text-white">
+          So findest du deinen Mentor
+        </h2>
+        <p class="mt-4 text-white/60 max-w-2xl mx-auto">
+          Keine komplizierten Formulare. Keine Wartezeiten. Innerhalb weniger Tage
+          bist du mit deinem personlichen Mentor verbunden.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Step 1 -->
+        <div class="step-card opacity-0 text-center" style="--step-delay: 0ms">
+          <div class="relative mb-8">
+            <div class="w-20 h-20 mx-auto bg-[#e85d3b] flex items-center justify-center">
+              <span class="text-3xl font-display font-bold text-white">1</span>
+            </div>
+            <div class="hidden md:block absolute top-1/2 left-full w-full h-px bg-gradient-to-r from-[#e85d3b]/50 to-transparent -translate-y-1/2"></div>
+          </div>
+          <h3 class="text-xl font-display font-semibold text-white mb-3">Anmelden</h3>
+          <p class="text-white/60">
+            Fulle das kurze Formular aus und erzahle uns, wobei du Hilfe brauchst.
+            Dauert nur 2 Minuten.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card opacity-0 text-center" style="--step-delay: 150ms">
+          <div class="relative mb-8">
+            <div class="w-20 h-20 mx-auto bg-[#e85d3b] flex items-center justify-center">
+              <span class="text-3xl font-display font-bold text-white">2</span>
+            </div>
+            <div class="hidden md:block absolute top-1/2 left-full w-full h-px bg-gradient-to-r from-[#e85d3b]/50 to-transparent -translate-y-1/2"></div>
+          </div>
+          <h3 class="text-xl font-display font-semibold text-white mb-3">Matching</h3>
+          <p class="text-white/60">
+            Wir finden den perfekten Mentor fur dich - basierend auf deinen
+            Bedurfnissen und Zielen.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card opacity-0 text-center" style="--step-delay: 300ms">
+          <div class="relative mb-8">
+            <div class="w-20 h-20 mx-auto bg-[#e85d3b] flex items-center justify-center">
+              <span class="text-3xl font-display font-bold text-white">3</span>
+            </div>
+          </div>
+          <h3 class="text-xl font-display font-semibold text-white mb-3">Los geht's</h3>
+          <p class="text-white/60">
+            Triff deinen Mentor und starte deine Reise. Online oder personlich -
+            wie es fur dich passt.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-16">
+        <a
+          href="https://mentorship.getu-prospects.de/mentee/apply"
+          target="_blank"
+          class="inline-flex items-center gap-2 bg-[#e85d3b] text-white px-10 py-5 font-semibold text-lg hover:bg-[#d14e2e] transition-colors"
+        >
+          Jetzt in 2 Minuten anmelden
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <p class="mt-4 text-white/40 text-sm">Keine Kosten. Keine Verpflichtung. Jederzeit kundbar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-20 lg:py-32 bg-[#fffcf7]">
+    <div class="container mx-auto px-8 md:px-16">
+      <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="mb-16">
+          <span class="text-[#e85d3b] text-sm font-semibold uppercase tracking-[0.3em] block mb-4">
+            Deine Vorteile
+          </span>
+          <h2 class="text-3xl md:text-4xl font-display font-semibold text-[#1a1a1a]">
+            Was du von deinem Mentor bekommst
+          </h2>
+        </div>
+
+        <!-- Benefits List - Clean Editorial Style -->
+        <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+          <div class="benefit-item opacity-0 group" style="--benefit-delay: 0ms">
+            <div class="flex items-start gap-5">
+              <span class="text-[#e85d3b] text-2xl font-display font-bold shrink-0 leading-none pt-1">01</span>
+              <div>
+                <h3 class="text-xl font-display font-semibold text-[#1a1a1a] mb-2 group-hover:text-[#e85d3b] transition-colors">Karriere-Boost</h3>
+                <p class="text-[#4a4a4a] leading-relaxed">Bewerbungstipps, Lebenslauf-Check und Vorbereitung auf Vorstellungsgesprache - alles, um beruflich durchzustarten.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="benefit-item opacity-0 group" style="--benefit-delay: 100ms">
+            <div class="flex items-start gap-5">
+              <span class="text-[#e85d3b] text-2xl font-display font-bold shrink-0 leading-none pt-1">02</span>
+              <div>
+                <h3 class="text-xl font-display font-semibold text-[#1a1a1a] mb-2 group-hover:text-[#e85d3b] transition-colors">Behorden-Navigator</h3>
+                <p class="text-[#4a4a4a] leading-relaxed">Anmeldung, Versicherungen, Steuern, Formulare - dein Mentor kennt das System und fuhrt dich durch.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="benefit-item opacity-0 group" style="--benefit-delay: 200ms">
+            <div class="flex items-start gap-5">
+              <span class="text-[#e85d3b] text-2xl font-display font-bold shrink-0 leading-none pt-1">03</span>
+              <div>
+                <h3 class="text-xl font-display font-semibold text-[#1a1a1a] mb-2 group-hover:text-[#e85d3b] transition-colors">Sprach-Partner</h3>
+                <p class="text-[#4a4a4a] leading-relaxed">Echte Gesprache statt trockener Ubungen. Deutsch lernen, wie es wirklich gesprochen wird.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="benefit-item opacity-0 group" style="--benefit-delay: 300ms">
+            <div class="flex items-start gap-5">
+              <span class="text-[#e85d3b] text-2xl font-display font-bold shrink-0 leading-none pt-1">04</span>
+              <div>
+                <h3 class="text-xl font-display font-semibold text-[#1a1a1a] mb-2 group-hover:text-[#e85d3b] transition-colors">Soziales Netzwerk</h3>
+                <p class="text-[#4a4a4a] leading-relaxed">Neue Kontakte knupfen, Freundschaften aufbauen und Teil einer unterstutzenden Community werden.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="benefit-item opacity-0 group" style="--benefit-delay: 400ms">
+            <div class="flex items-start gap-5">
+              <span class="text-[#e85d3b] text-2xl font-display font-bold shrink-0 leading-none pt-1">05</span>
+              <div>
+                <h3 class="text-xl font-display font-semibold text-[#1a1a1a] mb-2 group-hover:text-[#e85d3b] transition-colors">Emotionale Stutze</h3>
+                <p class="text-[#4a4a4a] leading-relaxed">Jemand, der zuhhort, versteht und da ist - auch wenn es mal schwierig wird.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="benefit-item opacity-0 group" style="--benefit-delay: 500ms">
+            <div class="flex items-start gap-5">
+              <span class="text-[#e85d3b] text-2xl font-display font-bold shrink-0 leading-none pt-1">06</span>
+              <div>
+                <h3 class="text-xl font-display font-semibold text-[#1a1a1a] mb-2 group-hover:text-[#e85d3b] transition-colors">Flexible Zeiten</h3>
+                <p class="text-[#4a4a4a] leading-relaxed">Treffen, wann und wie es dir passt. Online oder vor Ort - du entscheidest.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENTOR SECTION -->
+  <section id="mentor-section" class="py-20 lg:py-32 bg-[#1a1a1a] scroll-mt-20">
+    <div class="container mx-auto px-8 md:px-16">
+      <!-- Section header -->
+      <div class="mentor-section opacity-0 max-w-3xl mb-16">
+        <span class="text-[#e85d3b] text-sm font-semibold uppercase tracking-[0.3em] mb-4 block">
+          Fur Mentoren
+        </span>
+        <h2 class="text-3xl md:text-4xl font-display font-semibold text-white leading-tight mb-6">
+          Teile dein Wissen.<br/>
+          <span class="text-white/60">Verandere ein Leben.</span>
+        </h2>
+        <p class="text-lg text-white/70 leading-relaxed">
+          Du hast den Weg gemeistert und mochtest anderen helfen? Als Mentor
+          gibst du nicht nur - du gewinnst auch: Neue Perspektiven, interkulturelle
+          Erfahrungen und das Gefuhl, wirklich etwas zu bewirken.
+        </p>
+      </div>
+
+      <!-- Why become a mentor -->
+      <div class="grid lg:grid-cols-2 gap-16 items-start mb-20">
+        <div class="mentor-why opacity-0">
+          <h3 class="text-2xl font-display font-semibold text-white mb-8">
+            Warum Mentor werden?
+          </h3>
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-[#e85d3b] flex items-center justify-center shrink-0 mt-1">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-white mb-1">Erweitere deinen Horizont</h4>
+                <p class="text-white/60">Lerne neue Kulturen kennen und gewinne frische Perspektiven auf dein eigenes Leben.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-[#e85d3b] flex items-center justify-center shrink-0 mt-1">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-white mb-1">Mach einen echten Unterschied</h4>
+                <p class="text-white/60">Dein Wissen kann jemandem helfen, in Deutschland Fuss zu fassen - das ist unbezahlbar.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-[#e85d3b] flex items-center justify-center shrink-0 mt-1">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-white mb-1">Werde Teil einer Community</h4>
+                <p class="text-white/60">Vernetze dich mit anderen Mentoren und engagierten Menschen bei unseren Events.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- What we ask from you -->
+        <div class="mentor-ask opacity-0 bg-white/5 border border-white/10 p-8">
+          <h3 class="text-2xl font-display font-semibold text-white mb-6">
+            Was wir von dir erwarten
+          </h3>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-[#e85d3b] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-white/80"><strong class="text-white">2-4 Stunden pro Monat</strong> - du bestimmst das Tempo</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-[#e85d3b] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-white/80"><strong class="text-white">Offenheit und Geduld</strong> - jeder lernt unterschiedlich</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-[#e85d3b] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-white/80"><strong class="text-white">Erfahrung in Deutschland</strong> - beruflich oder privat</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-[#e85d3b] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-white/80"><strong class="text-white">Mindestens 6 Monate</strong> - fur eine stabile Beziehung</span>
+            </li>
+          </ul>
+          <p class="text-white/50 text-sm">
+            Keine Sorge: Du bekommst Unterstutzung von unserem Team und Zugang zu Ressourcen fur Mentoren.
+          </p>
+        </div>
+      </div>
+
+      <!-- How it works for mentors -->
+      <div class="mb-16">
+        <h3 class="text-2xl font-display font-semibold text-white mb-8 text-center">
+          So wirst du Mentor
+        </h3>
+        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div class="mentor-step opacity-0 text-center" style="--step-delay: 0ms">
+            <div class="relative mb-6">
+              <div class="w-16 h-16 mx-auto bg-[#e85d3b] flex items-center justify-center">
+                <span class="text-2xl font-display font-bold text-white">1</span>
+              </div>
+              <div class="hidden md:block absolute top-1/2 left-full w-full h-px bg-gradient-to-r from-[#e85d3b]/50 to-transparent -translate-y-1/2"></div>
+            </div>
+            <h4 class="text-lg font-semibold text-white mb-2">Bewerbung</h4>
+            <p class="text-white/60 text-sm">Fulle das kurze Formular aus und erzahl uns von dir.</p>
+          </div>
+          <div class="mentor-step opacity-0 text-center" style="--step-delay: 150ms">
+            <div class="relative mb-6">
+              <div class="w-16 h-16 mx-auto bg-[#e85d3b] flex items-center justify-center">
+                <span class="text-2xl font-display font-bold text-white">2</span>
+              </div>
+              <div class="hidden md:block absolute top-1/2 left-full w-full h-px bg-gradient-to-r from-[#e85d3b]/50 to-transparent -translate-y-1/2"></div>
+            </div>
+            <h4 class="text-lg font-semibold text-white mb-2">Kennenlernen</h4>
+            <p class="text-white/60 text-sm">Kurzes Gesprach mit unserem Team - wir schauen, ob es passt.</p>
+          </div>
+          <div class="mentor-step opacity-0 text-center" style="--step-delay: 300ms">
+            <div class="relative mb-6">
+              <div class="w-16 h-16 mx-auto bg-[#e85d3b] flex items-center justify-center">
+                <span class="text-2xl font-display font-bold text-white">3</span>
+              </div>
+            </div>
+            <h4 class="text-lg font-semibold text-white mb-2">Matching</h4>
+            <p class="text-white/60 text-sm">Wir finden einen Mentee, der zu deinen Starken passt.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center">
+        <a
+          href="https://mentorship.getu-prospects.de/mentor/apply"
+          target="_blank"
+          class="inline-flex items-center gap-3 bg-[#e85d3b] text-white px-10 py-5 font-semibold text-lg hover:bg-[#d14e2e] transition-colors"
+        >
+          Jetzt Mentor werden
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <p class="mt-4 text-white/40 text-sm">Dauert nur 5 Minuten - wir melden uns innerhalb von 48 Stunden</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA - Both Audiences -->
+  <section class="py-24 lg:py-32 bg-[#e85d3b] relative overflow-hidden">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="container mx-auto px-8 md:px-16 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-6">
+          Bereit, den nachsten<br/>Schritt zu machen?
+        </h2>
+        <p class="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
+          Ob du Unterstutzung suchst oder sie geben mochtest - hier beginnt deine Reise.
+        </p>
+
+        <!-- Two clear paths -->
+        <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          <a
+            href="https://mentorship.getu-prospects.de/mentee/apply"
+            target="_blank"
+            class="group bg-white p-6 text-left hover:scale-[1.02] transition-transform"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 bg-[#e85d3b]/10 flex items-center justify-center">
+                <svg class="w-5 h-5 text-[#e85d3b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+              </div>
+              <span class="text-[#e85d3b] text-sm font-medium uppercase tracking-wider">Fur Mentees</span>
+            </div>
+            <h3 class="text-xl font-display font-bold text-[#1a1a1a] mb-2 group-hover:text-[#e85d3b] transition-colors">
+              Mentor finden
+            </h3>
+            <p class="text-[#4a4a4a] text-sm mb-4">
+              Finde jemanden, der dich auf deinem Weg begleitet.
+            </p>
+            <span class="inline-flex items-center gap-2 text-[#e85d3b] font-semibold">
+              Jetzt anmelden
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </span>
+          </a>
+
+          <a
+            href="https://mentorship.getu-prospects.de/mentor/apply"
+            target="_blank"
+            class="group bg-white/10 border border-white/20 p-6 text-left hover:bg-white/20 transition-all"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 bg-white/10 flex items-center justify-center">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </div>
+              <span class="text-white/70 text-sm font-medium uppercase tracking-wider">Fur Mentoren</span>
+            </div>
+            <h3 class="text-xl font-display font-bold text-white mb-2">
+              Mentor werden
+            </h3>
+            <p class="text-white/70 text-sm mb-4">
+              Teile dein Wissen und verandere ein Leben.
+            </p>
+            <span class="inline-flex items-center gap-2 text-white font-semibold">
+              Jetzt bewerben
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        <p class="mt-8 text-white/60 text-sm">
+          100% kostenlos - Keine Verpflichtung - Jederzeit kundbar
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="py-16 bg-[#1a1a1a]">
+    <div class="container mx-auto px-8 md:px-16">
+      <div class="flex justify-between items-center">
+        <a href="/projekte" class="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
+          <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
+          </svg>
+          <span>Alle Projekte</span>
+        </a>
+        <a href="/projekte/stammtisch" class="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
+          <span>Nachstes Projekt</span>
+          <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero animations */
+  .hero.animate .hero-badge {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .hero.animate .hero-title {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+  }
+
+  .hero.animate .hero-subtitle {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  }
+
+  .hero.animate .hero-stats {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+  }
+
+  .hero.animate .hero-paths {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  }
+
+  /* Section animations */
+  .problem-section.animate,
+  .solution-section.animate,
+  .mentor-section.animate,
+  .mentor-why.animate,
+  .mentor-ask.animate {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .step-card.animate,
+  .mentor-step.animate {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--step-delay);
+  }
+
+  .benefit-item.animate {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--benefit-delay);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>
+
+<script>
+  function initMentoringPage() {
+    const hero = document.querySelector('.hero');
+    const sections = document.querySelectorAll('.problem-section, .solution-section, .step-card, .benefit-item, .mentor-section, .mentor-why, .mentor-ask, .mentor-step');
+
+    if (hero) {
+      setTimeout(() => hero.classList.add('animate'), 100);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  }
+
+  initMentoringPage();
+  document.addEventListener('astro:page-load', initMentoringPage);
+</script>

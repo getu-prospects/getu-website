@@ -1,0 +1,176 @@
+---
+interface Stat {
+  value: number;
+  suffix: string;
+  label: string;
+}
+
+interface Props {
+  stats?: Stat[];
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  stats = [
+    { value: 150, suffix: '+', label: 'Menschen erreicht' },
+    { value: 8, suffix: '+', label: 'Jahre aktiv' },
+    { value: 4, suffix: '', label: 'Laufende Projekte' },
+    { value: 20, suffix: '+', label: 'Ehrenamtliche' },
+  ],
+  title = 'UNSER EINFLUSS',
+  subtitle,
+} = Astro.props;
+---
+
+<section class="impact-stats py-20 md:py-28 relative overflow-hidden">
+  <!-- Gradient background -->
+  <div
+    class="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary/20"
+  >
+  </div>
+
+  <!-- Subtle pattern overlay -->
+  <div class="absolute inset-0 opacity-5">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern
+          id="impact-grid"
+          width="60"
+          height="60"
+          patternUnits="userSpaceOnUse"
+        >
+          <path
+            d="M 60 0 L 0 0 0 60"
+            fill="none"
+            stroke="white"
+            stroke-width="0.5"></path>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#impact-grid)"></rect>
+    </svg>
+  </div>
+
+  <div class="container mx-auto px-8 relative z-10">
+    <!-- Section header -->
+    <div class="text-center mb-12 md:mb-16">
+      <p
+        class="text-secondary uppercase tracking-[0.2em] text-sm font-semibold mb-4"
+      >
+        {title}
+      </p>
+      <div class="h-px w-16 bg-secondary mx-auto"></div>
+      {subtitle && <p class="text-white/80 mt-4 max-w-2xl mx-auto">{subtitle}</p>}
+    </div>
+
+    <!-- Stats grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+      {
+        stats.map((stat, index) => (
+          <div
+            class="text-center stat-item opacity-0"
+            data-target={stat.value}
+            data-suffix={stat.suffix}
+            style={`animation-delay: ${index * 150}ms`}
+          >
+            <div class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2">
+              <span class="stat-number">0</span>
+              <span class="stat-suffix">{stat.suffix}</span>
+            </div>
+            <p class="text-white/70 font-light text-sm md:text-base">
+              {stat.label}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .stat-item {
+    animation: countUp 0.6s ease-out forwards;
+  }
+
+  @keyframes countUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  function initCounters() {
+    const statsSection = document.querySelector('.impact-stats');
+
+    if (!statsSection) return;
+
+    const statItems = statsSection.querySelectorAll('.stat-item');
+    let hasAnimated = false;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            hasAnimated = true;
+
+            statItems.forEach((item) => {
+              const numberEl = item.querySelector('.stat-number');
+              const target = parseInt(
+                (item as HTMLElement).dataset.target || '0',
+                10
+              );
+
+              if (numberEl) {
+                animateCounter(numberEl as HTMLElement, target);
+              }
+            });
+
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(statsSection);
+  }
+
+  function animateCounter(
+    element: HTMLElement,
+    target: number,
+    duration = 2000
+  ) {
+    let start: number | null = null;
+
+    const step = (timestamp: number) => {
+      if (!start) start = timestamp;
+
+      const progress = Math.min((timestamp - start) / duration, 1);
+      // Ease-out cubic for natural deceleration
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      element.textContent = Math.floor(eased * target).toString();
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        element.textContent = target.toString();
+      }
+    };
+
+    requestAnimationFrame(step);
+  }
+
+  // Run on initial load
+  initCounters();
+
+  // Run on Astro page transitions
+  document.addEventListener('astro:page-load', initCounters);
+</script>

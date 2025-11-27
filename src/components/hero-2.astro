@@ -2,85 +2,88 @@
 import MainHeroImage from '../assets/images/main-hero/1.jpg';
 ---
 
-<section class="relative min-h-screen flex items-center">
+<section class="relative min-h-screen flex items-center overflow-hidden">
   <!-- Mobile-only solid background (deep green) -->
   <div class="absolute inset-0 z-0 bg-deepgreen md:hidden"></div>
 
-  <!-- Desktop-only background image (hidden on mobile) -->
-  <div class="absolute inset-0 z-0 hidden md:block">
+  <!-- Desktop-only background image with Ken Burns effect -->
+  <div class="absolute inset-0 z-0 hidden md:block overflow-hidden">
     <img
       src={MainHeroImage.src}
       alt="Diverse group collaborating"
-      class="w-full h-full object-cover"
+      class="w-full h-full object-cover animate-ken-burns"
     />
-    <!-- Subtle darkening overlay -->
-    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+    <!-- Warm diagonal gradient overlay -->
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-primary/60 via-primary/40 to-transparent"
+    >
+    </div>
   </div>
 
   <!-- Content container -->
   <div
     class="container mx-auto px-4 sm:px-6 md:px-8 py-16 sm:py-20 relative z-20 w-full"
   >
-    <!-- Text box that spans full width on mobile, partial on desktop -->
-    <div
-      class="bg-white w-full md:w-7/12 lg:w-5/12 p-8 sm:p-10 md:p-16 lg:p-16 animate-fade-down"
-    >
+    <!-- Text box with staggered animations -->
+    <div class="bg-white w-full md:w-7/12 lg:w-5/12 p-8 sm:p-10 md:p-16 lg:p-16">
       <div class="space-y-6 sm:space-y-8">
-        <!-- Organization name -->
+        <!-- Organization name - delay 200ms -->
         <h6
-          class="text-secondary uppercase tracking-widest text-base sm:text-lg font-semibold"
+          class="text-secondary uppercase tracking-widest text-base sm:text-lg font-semibold opacity-0 animate-fade-up delay-200"
         >
           GETU PROSPECTS E.V.
         </h6>
 
-        <!-- Main headings -->
+        <!-- Main headings - delay 300-400ms -->
         <div>
           <h1
-            class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-primary"
+            class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-primary opacity-0 animate-fade-up delay-300"
           >
             Vielfalt leben
           </h1>
-          <h2 class="text-2xl sm:text-3xl font-medium pt-2 text-primary">
+          <h2
+            class="text-2xl sm:text-3xl font-medium pt-2 text-primary opacity-0 animate-fade-up delay-400"
+          >
             Träume stärken
           </h2>
         </div>
 
-        <!-- Divider -->
-        <div class="h-1 w-24 bg-secondary"></div>
+        <!-- Divider - delay 500ms with expand animation -->
+        <div
+          class="h-1 w-24 bg-secondary opacity-0 animate-fade-up delay-500"
+          style="--target-width: 6rem;"
+        >
+        </div>
 
-        <!-- Description paragraph -->
-        <p class="text-base sm:text-lg text-body leading-relaxed">
+        <!-- Description paragraph - delay 600ms -->
+        <p
+          class="text-base sm:text-lg text-body leading-relaxed opacity-0 animate-fade-up delay-600"
+        >
           Als Interkultureller Verein verbinden wir Kulturen und begleiten
           Familien und junge Menschen dabei, neue Perspektiven im Leben zu
           schaffen.
         </p>
 
-        <!-- Buttons with proper vertical alignment -->
-        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-4">
-          <a
-            href="/ueber-uns#vision"
-            class="bg-primary text-white py-3 px-8 sm:py-4 sm:px-10 text-center font-medium transition-all hover:bg-opacity-90 inline-flex items-center justify-center"
-            >Unsere Vision</a
-          >
+        <!-- Buttons - delay 700ms -->
+        <div
+          class="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-4 opacity-0 animate-fade-up delay-700"
+        >
           <a
             href="/kontakt"
-            class="bg-secondary text-white py-3 px-8 sm:py-4 sm:px-10 text-center font-medium transition-all hover:bg-opacity-90 inline-flex items-center justify-center"
-            >Mitmachen</a
+            class="bg-secondary text-white py-3 px-8 sm:py-4 sm:px-10 text-center font-medium transition-all hover:bg-opacity-90 hover:scale-[1.02] inline-flex items-center justify-center"
+            >Jetzt mitmachen</a
+          >
+          <a
+            href="/projekte"
+            class="bg-primary text-white py-3 px-8 sm:py-4 sm:px-10 text-center font-medium transition-all hover:bg-opacity-90 hover:scale-[1.02] inline-flex items-center justify-center"
+            >Unsere Projekte</a
           >
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Decorative element - only visible on larger screens -->
-  <!-- <div
-    class="absolute top-32 right-8 md:right-16 lg:right-32 z-10 hidden md:block"
-  >
-    <div class="w-32 h-32 md:w-40 md:h-40 border-2 border-white opacity-30">
-    </div>
-  </div> -->
-
-  <!-- Bottom decorative accent -->
-  <div class="absolute bottom-0 left-0 right-0 h-2 sm:h-4 bg-secondary z-10">
+  <!-- Bottom decorative gradient accent -->
+  <div class="absolute bottom-0 left-0 right-0 h-2 sm:h-4 bg-gradient-bar z-10">
   </div>
 </section>

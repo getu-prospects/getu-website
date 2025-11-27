@@ -7,13 +7,20 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Manrope', ...defaultTheme.fontFamily.sans],
+        sans: ['DM Sans', ...defaultTheme.fontFamily.sans],
+        display: ['Playfair Display', ...defaultTheme.fontFamily.serif],
       },
       colors: {
         primary: 'var(--color-primary)',
         secondary: 'var(--color-secondary)',
+        accent: 'var(--color-accent)',
         body: 'var(--color-text-body)',
         deepgreen: 'var(--color-deep-green)',
+        warmth: 'var(--color-warmth)',
+        'warmth-medium': 'var(--color-warmth-medium)',
+        'secondary-soft': 'var(--color-secondary-soft)',
+        cream: 'var(--color-cream)',
+        sand: 'var(--color-sand)',
       },
     },
   },

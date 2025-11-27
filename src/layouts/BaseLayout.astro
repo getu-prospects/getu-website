@@ -1,7 +1,7 @@
 ---
 // BaseLayout.astro
 import '../assets/global.css';
-import GetuLogo from '../assets/images/getu-logo.png';
+import NavEditorial from '../components/NavEditorial.astro';
 import AltFooter from '../components/AltFooter.astro';
 
 interface Props {
@@ -9,9 +9,6 @@ interface Props {
 }
 
 const { title } = Astro.props;
-
-// Get current path to determine active page
-const currentPath = Astro.url.pathname;
 ---
 
 <html lang="de">
@@ -75,198 +72,62 @@ const currentPath = Astro.url.pathname;
     </script>
   </head>
   <body class="font-sans text-body antialiased">
-    <!-- Header - spacious and minimal -->
-    <header
-      class="fixed w-full top-0 left-0 z-50 transition-all duration-300 nav-background"
-      id="header"
-    >
-      <div class="container mx-auto px-8 py-4">
-        <div class="flex justify-between items-center">
-          <!-- Logo -->
-          <a href="/" class="relative z-10">
-            <img
-              src={GetuLogo.src}
-              alt="GeTu Prospects e.V. Logo"
-              class="h-12 md:h-20"
-            />
-          </a>
-
-          <!-- Desktop Navigation -->
-          <div class="hidden lg:flex items-center space-x-12">
-            <nav class="flex space-x-10">
-              <a
-                href="/"
-                class={`font-medium py-2 transition-colors duration-300 ${
-                  currentPath === '/'
-                    ? 'text-secondary'
-                    : 'text-white hover:text-secondary'
-                }`}>Startseite</a
-              >
-              <a
-                href="/ueber-uns"
-                class={`font-medium py-2 transition-colors duration-300 ${
-                  currentPath === '/ueber-uns'
-                    ? 'text-secondary'
-                    : 'text-white hover:text-secondary'
-                }`}>Über uns</a
-              >
-              <!-- <a
-                href="/jugend"
-                class="text-white hover:text-secondary font-medium py-2 transition-colors duration-300"
-                >Jugend</a
-              > -->
-              <a
-                href="/projekte"
-                class={`font-medium py-2 transition-colors duration-300 ${
-                  currentPath === '/projekte'
-                    ? 'text-secondary'
-                    : 'text-white hover:text-secondary'
-                }`}>Projekte</a
-              >
-              <a
-                href="/kontakt"
-                class={`font-medium py-2 transition-colors duration-300 ${
-                  currentPath === '/kontakt'
-                    ? 'text-secondary'
-                    : 'text-white hover:text-secondary'
-                }`}>Kontakt</a
-              >
-            </nav>
-          </div>
-
-          <!-- Mobile Menu Button -->
-          <button
-            id="mobileMenuButton"
-            class="lg:hidden text-white relative z-10"
-            aria-label="Toggle menu"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              class="w-8 h-8"
-            >
-              <path
-                stroke-linecap="square"
-                stroke-linejoin="miter"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Mobile Navigation Overlay -->
-      <div
-        id="mobileMenu"
-        class="fixed inset-0 bg-deepgreen bg-opacity-98 z-40 hidden flex items-center justify-center"
-      >
-        <nav class="text-center">
-          <ul class="space-y-8">
-            <li>
-              <a
-                href="/"
-                class={`text-2xl font-medium block py-2 transition-colors duration-300 ${
-                  currentPath === '/'
-                    ? 'text-secondary'
-                    : 'text-white hover:text-secondary'
-                }`}>Startseite</a
-              >
-            </li>
-            <li>
-              <a
-                href="/ueber-uns"
-                class={`text-2xl font-medium block py-2 transition-colors duration-300 ${
-                  currentPath === '/ueber-uns'
-                    ? 'text-secondary'
-                    : 'text-white hover:text-secondary'
-                }`}>Über uns</a
-              >
-            </li>
-            <li>
-              <!-- <a
-                href="/jugend"
-                class="text-white text-2xl font-medium hover:text-secondary block py-2 transition-colors duration-300"
-                >Jugend</a
-              > -->
-            </li>
-            <li>
-              <a
-                href="/projekte"
-                class={`text-2xl font-medium block py-2 transition-colors duration-300 ${
-                  currentPath === '/projekte'
-                    ? 'text-secondary'
-                    : 'text-white hover:text-secondary'
-                }`}>Projekte</a
-              >
-            </li>
-            <li>
-              <a
-                href="/kontakt"
-                class={`text-2xl font-medium block py-2 transition-colors duration-300 ${
-                  currentPath === '/kontakt'
-                    ? 'text-secondary'
-                    : 'text-white hover:text-secondary'
-                }`}>Kontakt</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <!-- Editorial Navigation -->
+    <NavEditorial />
 
     <!-- Main Content -->
     <main>
       <slot />
     </main>
+
     <AltFooter />
 
-    <!-- Header and mobile menu script -->
+    <!-- Back to top button -->
+    <button
+      id="backToTop"
+      class="back-to-top"
+      aria-label="Nach oben scrollen"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+      </svg>
+    </button>
+
+    <!-- Back to top script -->
     <script>
-      // Header scroll behavior
-      const header = document.getElementById('header')!;
-      const handleScroll = () => {
-        if (window.scrollY > 20) {
-          header.classList.add('header-scrolled');
-          header.classList.remove('nav-background');
-        } else {
-          header.classList.add('nav-background');
-          header.classList.remove('header-scrolled');
-        }
-      };
+      function initBackToTop() {
+        const backToTop = document.getElementById('backToTop');
 
-      // Initial check
-      handleScroll();
+        if (!backToTop) return;
 
-      // Add scroll event listener
-      window.addEventListener('scroll', handleScroll);
-
-      // Mobile menu toggle
-      const mobileMenuButton = document.getElementById('mobileMenuButton');
-      const mobileMenu = document.getElementById('mobileMenu');
-
-      if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-          const isOpen =
-            mobileMenu.classList.contains('flex') &&
-            !mobileMenu.classList.contains('hidden');
-
-          if (isOpen) {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('flex');
-            mobileMenuButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
-              <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>`;
+        const handleScroll = () => {
+          if (window.scrollY > 500) {
+            backToTop.classList.add('visible');
           } else {
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.classList.add('flex');
-            mobileMenuButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
-              <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>`;
+            backToTop.classList.remove('visible');
           }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+
+        backToTop.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       }
+
+      initBackToTop();
+      document.addEventListener('astro:page-load', initBackToTop);
     </script>
   </body>
 </html>

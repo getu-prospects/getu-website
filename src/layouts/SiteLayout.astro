@@ -1,6 +1,6 @@
 ---
 import '../assets/styles.css';
-import Nav from '../components/Nav.astro';
+import NavEditorial from '../components/NavEditorial.astro';
 import Footer from '../components/foot.astro';
 
 interface Props {
@@ -24,7 +24,7 @@ const {
     <title>{title}</title>
   </head>
   <body class="flex flex-col min-h-full font-sans text-body bg-[#f9fafa]">
-    <Nav />
+    <NavEditorial />
 
     <main class="flex-grow">
       <slot />
