@@ -1,12 +1,17 @@
 ---
 // Projects section - Clean horizontal card grid
+import ChristmasPhoto from '../../assets/images/christmas/getu-ausgabe-1.jpeg';
+import StammtischPhoto from '../../assets/images/stammtisch/meeting-01.jpg';
+import YouthPhoto from '../../assets/images/youth/IMG_7606.jpg';
+import MentoringPhoto from '../../assets/images/mentorship-auftakt/IMG_8711.jpg';
+
 const projects = [
   {
     number: '01',
     title: 'Youth with Perspective',
     tagline: 'Finde deinen Weg',
     description: 'Ein Programm fur junge Menschen, die gemeinsam Antworten auf die grossen Fragen des Lebens suchen.',
-    image: 'https://images.unsplash.com/photo-1529390079861-591f8a33b1e1?w=800&q=80',
+    image: YouthPhoto.src,
     href: '/projekte/youth',
     schedule: 'Jeden 3. Samstag',
   },
@@ -15,7 +20,7 @@ const projects = [
     title: 'Mentoring-Programm',
     tagline: 'Gemeinsam ankommen',
     description: 'Wir verbinden Neuankommlinge mit erfahrenen Mentor*innen fur den Start in Deutschland.',
-    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80',
+    image: MentoringPhoto.src,
     href: '/projekte/mentoring',
     schedule: 'Seit Oktober 2025',
     isNew: true,
@@ -25,7 +30,7 @@ const projects = [
     title: 'Stammtisch gegen Einsamkeit',
     tagline: 'Ein offener Treffpunkt',
     description: 'Ein Raum fur Begegnung und echte Gesprache - offen fur alle Altersgruppen.',
-    image: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=800&q=80',
+    image: StammtischPhoto.src,
     href: '/projekte/stammtisch',
     schedule: 'Jeden 3. Freitag',
   },
@@ -34,7 +39,7 @@ const projects = [
     title: 'Weihnachtsaktion',
     tagline: 'Hoffnung schenken',
     description: 'Seit 2016 schenken wir obdachlosen Menschen in Berlin Unterstutzung und Warme.',
-    image: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&q=80',
+    image: ChristmasPhoto.src,
     href: '/projekte/weihnachtsaktion',
     schedule: 'Jahrlich im Dezember',
   },
@@ -71,12 +76,14 @@ const projects = [
         >
           <div class="relative">
             <!-- Image -->
-            <div class="aspect-[16/10] overflow-hidden">
+            <div class="aspect-[16/10] overflow-hidden relative">
               <img
                 src={project.image}
                 alt={project.title}
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
+              <!-- Thin overlay -->
+              <div class="absolute inset-0 bg-cream/15 pointer-events-none"></div>
               {project.isNew && (
                 <span class="absolute top-4 left-4 bg-terracotta text-white px-3 py-1 text-xs font-semibold uppercase tracking-wider">
                   Neu

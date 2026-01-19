@@ -1,5 +1,7 @@
 ---
 // Volunteer recruitment section - Split editorial layout
+import VolunteerPhoto from '../../assets/images/christmas/essen-ausgabe-02.jpg';
+
 const benefits = [
   {
     number: '01',
@@ -29,8 +31,8 @@ const benefits = [
     <!-- Left: Image with quote -->
     <div class="relative min-h-[500px] lg:min-h-[700px] reveal">
       <img
-        src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1200&q=80"
-        alt="Volunteers working together"
+        src={VolunteerPhoto.src}
+        alt="Freiwillige bei der Essensausgabe"
         class="absolute inset-0 w-full h-full object-cover"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent"></div>

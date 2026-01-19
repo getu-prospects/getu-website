@@ -1,0 +1,320 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Images for real articles
+import EhrenamtstagImage from '../assets/images/ehrenamtstag/IMG_8725.jpg';
+import WaidmannslustImage from '../assets/images/waidmannslust/IMG_7979.jpg';
+import StammtischAuftaktImage from '../assets/images/stammtisch-auftakt/IMG_7925.jpg';
+import MentoringAuftaktImage from '../assets/images/mentorship-auftakt/IMG_8705.jpg';
+import NigeriaVisitImage from '../assets/images/nigeria-visit/IMG_8683.jpg';
+
+// Featured article
+const featuredArticle = {
+  title: 'GeTu Prospects auf der Reinickendorfer Freiwilligenbörse',
+  excerpt: 'Am 11. Oktober 2025 präsentierten wir unseren Verein auf der Reinickendorfer Freiwilligenbörse im Fontane Haus. Zahlreiche interessierte Ehrenamtliche informierten sich über unsere Projekte und Möglichkeiten zur Mitarbeit.',
+  date: '11. Oktober 2025',
+  category: 'Veranstaltung',
+  image: EhrenamtstagImage.src,
+  slug: '/aktuelles/freiwilligenboerse',
+};
+
+// News articles (chronological, newest first)
+const newsArticles = [
+  {
+    title: 'Auftakt des Mentoring-Programms 2025',
+    excerpt: 'Am Tag der Deutschen Einheit starteten wir in die neue Runde unseres Mentoring-Programms. Mentoren und Mentees trafen sich zum ersten Kennenlernen.',
+    date: '3. Oktober 2025',
+    category: 'Mentoring',
+    image: MentoringAuftaktImage.src,
+    slug: '/aktuelles/mentoring-auftakt',
+  },
+  {
+    title: 'Besuch von Studierenden aus Nigeria',
+    excerpt: 'Junge Studierende aus Nigeria besuchten uns während ihrer Bildungsexkursion. Wir sprachen über Chancen und wie sie sich für die globale Bühne positionieren können.',
+    date: '12. September 2025',
+    category: 'Internationaler Austausch',
+    image: NigeriaVisitImage.src,
+    slug: '/aktuelles/nigeria-besuch',
+  },
+  {
+    title: 'GeTu Prospects beim Jubiläum 150 Jahre Waidmannslust',
+    excerpt: 'Am 20. Juli 2025 feierte der Ortsteil Waidmannslust sein 150-jähriges Bestehen. Wir waren mit einem Stand dabei und Teil dieser besonderen Feier.',
+    date: '20. Juli 2025',
+    category: 'Nachbarschaftsfest',
+    image: WaidmannslustImage.src,
+    slug: '/aktuelles/waidmannslust-150',
+  },
+  {
+    title: 'Feierliche Eröffnung: Stammtisch gegen Einsamkeit',
+    excerpt: 'Mit der Bezirksbürgermeisterin und der Einsamkeitsbeauftragten feierten wir den offiziellen Start unseres neuen Projekts in der Alten Fasanerie.',
+    date: '30. Juni 2025',
+    category: 'Projekteröffnung',
+    image: StammtischAuftaktImage.src,
+    slug: '/aktuelles/stammtisch-eroeffnung',
+  },
+];
+---
+
+<BaseLayout title="Aktuelles - GeTu Prospects e.V.">
+  <!-- Hero Section -->
+  <section class="news-hero relative min-h-[70vh] lg:min-h-[80vh] overflow-hidden bg-charcoal">
+    <div class="absolute inset-0">
+      <img
+        src={EhrenamtstagImage.src}
+        alt="GeTu Prospects Aktuelles"
+        class="w-full h-full object-cover opacity-30 scale-105 animate-ken-burns"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-charcoal/80 to-transparent"></div>
+    </div>
+
+    <!-- Decorative elements -->
+    <div class="absolute top-1/4 right-0 w-px h-48 bg-terracotta/30 hidden lg:block"></div>
+    <div class="absolute bottom-1/3 left-12 w-32 h-px bg-terracotta/30 hidden lg:block"></div>
+
+    <div class="relative z-10 container mx-auto px-8 md:px-16 min-h-[70vh] lg:min-h-[80vh] flex items-end pb-16 lg:pb-20">
+      <div class="max-w-3xl">
+        <div class="hero-label opacity-0 flex items-center gap-4 mb-6">
+          <span class="text-6xl lg:text-8xl font-display font-bold text-white/15">News</span>
+          <span class="label-editorial text-terracotta tracking-[0.3em]">
+            Neuigkeiten & Updates
+          </span>
+        </div>
+
+        <h1 class="hero-headline opacity-0">
+          <span class="headline-large text-white block">Aktuelles</span>
+        </h1>
+
+        <div class="hero-line mt-6 w-24 h-1 bg-terracotta scale-x-0 origin-left"></div>
+
+        <p class="hero-tagline opacity-0 mt-6 text-xl text-white/70 max-w-xl">
+          Was bei GeTu Prospects passiert - Veranstaltungen, Projekte und Geschichten aus unserer Gemeinschaft.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <article class="py-16 lg:py-24 bg-cream">
+    <div class="container mx-auto px-8 md:px-16">
+
+      <!-- Featured Article -->
+      <section class="featured-section mb-20 opacity-0">
+        <div class="grid lg:grid-cols-12 gap-8">
+          <!-- Image -->
+          <div class="lg:col-span-7 relative overflow-hidden group">
+            <a href={featuredArticle.slug} class="block">
+              <div class="aspect-[16/10] overflow-hidden">
+                <img
+                  src={featuredArticle.image}
+                  alt={featuredArticle.title}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+              <div class="absolute top-0 left-0 bg-terracotta text-white px-4 py-2 text-xs font-semibold uppercase tracking-wider">
+                {featuredArticle.category}
+              </div>
+            </a>
+          </div>
+
+          <!-- Content -->
+          <div class="lg:col-span-5 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-xs text-charcoal-light uppercase tracking-wider">{featuredArticle.date}</span>
+              <div class="flex-1 h-px bg-charcoal/10"></div>
+            </div>
+
+            <a href={featuredArticle.slug} class="group">
+              <h2 class="text-3xl lg:text-4xl font-display font-semibold text-charcoal leading-tight mb-4 group-hover:text-terracotta transition-colors">
+                {featuredArticle.title}
+              </h2>
+            </a>
+
+            <p class="text-lg text-charcoal-light leading-relaxed mb-6">
+              {featuredArticle.excerpt}
+            </p>
+
+            <a
+              href={featuredArticle.slug}
+              class="inline-flex items-center gap-3 text-terracotta font-semibold group"
+            >
+              <span>Weiterlesen</span>
+              <svg class="w-5 h-5 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Divider -->
+      <div class="flex items-center gap-6 mb-12">
+        <span class="label-editorial text-terracotta tracking-[0.3em]">Weitere Artikel</span>
+        <div class="flex-1 h-px bg-charcoal/10"></div>
+      </div>
+
+      <!-- News Grid -->
+      <section class="news-grid-section opacity-0">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {newsArticles.map((article, index) => (
+            <article class="news-card group" style={`--card-delay: ${index * 100}ms`}>
+              <a href={article.slug} class="block">
+                <div class="relative aspect-[4/3] overflow-hidden mb-5">
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div class="absolute top-0 left-0 bg-sand text-charcoal px-3 py-1 text-xs font-semibold uppercase tracking-wider">
+                    {article.category}
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="text-xs text-charcoal-light">{article.date}</span>
+                </div>
+
+                <h3 class="text-xl font-display font-semibold text-charcoal mb-3 leading-tight group-hover:text-terracotta transition-colors">
+                  {article.title}
+                </h3>
+
+                <p class="text-charcoal-light text-sm leading-relaxed line-clamp-3">
+                  {article.excerpt}
+                </p>
+
+                <span class="inline-flex items-center gap-2 mt-4 text-terracotta text-sm font-medium">
+                  Mehr lesen
+                  <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </span>
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+    </div>
+  </article>
+
+  <!-- Newsletter / Social CTA -->
+  <section class="bg-charcoal py-16 lg:py-20">
+    <div class="container mx-auto px-8 md:px-16">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="label-editorial text-terracotta tracking-[0.3em] mb-4 block">Bleiben Sie informiert</span>
+          <h2 class="text-3xl lg:text-4xl font-display font-semibold text-white leading-tight mb-4">
+            Folgen Sie uns auf<br/>
+            <span class="italic text-white/70">Social Media</span>
+          </h2>
+          <p class="text-white/60 leading-relaxed">
+            Verpassen Sie keine Neuigkeiten und erfahren Sie als Erste*r von unseren Veranstaltungen und Aktionen.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="https://www.instagram.com/getuprospects/"
+            target="_blank"
+            rel="noopener"
+            class="flex items-center gap-4 bg-white/5 border border-white/10 px-6 py-4 hover:bg-terracotta hover:border-terracotta transition-all group"
+          >
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <div>
+              <span class="block text-white font-semibold">Instagram</span>
+              <span class="block text-white/50 text-sm">@getuprospects</span>
+            </div>
+          </a>
+
+          <a
+            href="https://www.facebook.com/getuprospects"
+            target="_blank"
+            rel="noopener"
+            class="flex items-center gap-4 bg-white/5 border border-white/10 px-6 py-4 hover:bg-terracotta hover:border-terracotta transition-all group"
+          >
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            <div>
+              <span class="block text-white font-semibold">Facebook</span>
+              <span class="block text-white/50 text-sm">GeTu Prospects</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero animations */
+  .news-hero .hero-label {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  }
+
+  .news-hero .hero-headline {
+    animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  }
+
+  .news-hero .hero-line {
+    animation: lineExpand 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+  }
+
+  .news-hero .hero-tagline {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+  }
+
+  @keyframes revealUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes lineExpand {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  /* Section animations */
+  .featured-section.animate,
+  .news-grid-section.animate {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Stagger news cards */
+  .news-grid-section.animate .news-card {
+    animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--card-delay, 0ms);
+    opacity: 0;
+  }
+</style>
+
+<script>
+  function initNewsPage() {
+    const sections = document.querySelectorAll('.featured-section, .news-grid-section');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  }
+
+  initNewsPage();
+  document.addEventListener('astro:page-load', initNewsPage);
+</script>

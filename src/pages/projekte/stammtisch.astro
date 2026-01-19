@@ -4,6 +4,60 @@ import ProjectSubNav from '../../components/ProjectSubNav.astro';
 import ProjectBottomNav from '../../components/ProjectBottomNav.astro';
 import StammtischPhoto from '../../assets/images/projects/einsamkeit.jpg';
 import EinsamkeitLogo from '../../assets/images/projects/einsamkeit-logo.png';
+
+// Meeting photos
+import Meeting01 from '../../assets/images/stammtisch/meeting-01.jpg';
+import Meeting02 from '../../assets/images/stammtisch/meeting-02.jpg';
+import Meeting03 from '../../assets/images/stammtisch/meeting-03.jpg';
+import Meeting04 from '../../assets/images/stammtisch/meeting-04.jpg';
+import Meeting05 from '../../assets/images/stammtisch/meeting-05.jpg';
+import Meeting06 from '../../assets/images/stammtisch/meeting-06.jpg';
+import Meeting07 from '../../assets/images/stammtisch/meeting-07.jpg';
+import Meeting08 from '../../assets/images/stammtisch/meeting-08.jpg';
+import Meeting09 from '../../assets/images/stammtisch/meeting-09.jpg';
+import Meeting10 from '../../assets/images/stammtisch/meeting-10.jpg';
+import Meeting11 from '../../assets/images/stammtisch/meeting-11.jpg';
+import Meeting12 from '../../assets/images/stammtisch/meeting-12.jpg';
+import Meeting13 from '../../assets/images/stammtisch/meeting-13.jpg';
+import Meeting14 from '../../assets/images/stammtisch/meeting-14.jpg';
+
+// Opening ceremony photos (June 2025)
+import Auftakt01 from '../../assets/images/stammtisch-auftakt/IMG_7925.jpg';
+import Auftakt02 from '../../assets/images/stammtisch-auftakt/IMG_7930.jpg';
+import Auftakt03 from '../../assets/images/stammtisch-auftakt/IMG_7935.jpg';
+import Auftakt04 from '../../assets/images/stammtisch-auftakt/IMG_7939.jpg';
+import Auftakt05 from '../../assets/images/stammtisch-auftakt/IMG_7945.jpg';
+import Auftakt06 from '../../assets/images/stammtisch-auftakt/IMG_7956.jpg';
+import Auftakt07 from '../../assets/images/stammtisch-auftakt/IMG_7957.jpg';
+import Auftakt08 from '../../assets/images/stammtisch-auftakt/IMG_7959.jpg';
+
+const auftaktImages = [
+  { src: Auftakt01, alt: 'Eroffnungsfeier mit Gasten' },
+  { src: Auftakt02, alt: 'Bezirksburgermeisterin Reinickendorf' },
+  { src: Auftakt03, alt: 'Einsamkeitsbeauftragte des Bezirks' },
+  { src: Auftakt04, alt: 'Vertreter des Elisabethstifts' },
+  { src: Auftakt05, alt: 'Gemeinschaft bei der Eroffnung' },
+  { src: Auftakt06, alt: 'Festliche Atmosphare' },
+  { src: Auftakt07, alt: 'Gemeinsamer Austausch' },
+  { src: Auftakt08, alt: 'Auftakt des Projekts' },
+];
+
+const galleryImages = [
+  { src: Meeting01, alt: 'Stammtisch Treffen Oktober 2025' },
+  { src: Meeting02, alt: 'Stammtisch Treffen Oktober 2025' },
+  { src: Meeting03, alt: 'Stammtisch Treffen Oktober 2025' },
+  { src: Meeting04, alt: 'Stammtisch Treffen Oktober 2025' },
+  { src: Meeting05, alt: 'Stammtisch Treffen Oktober 2025' },
+  { src: Meeting06, alt: 'Stammtisch Treffen Oktober 2025' },
+  { src: Meeting07, alt: 'Stammtisch Treffen Oktober 2025' },
+  { src: Meeting08, alt: 'Stammtisch Treffen Oktober 2025' },
+  { src: Meeting09, alt: 'Stammtisch Treffen Oktober 2025' },
+  { src: Meeting10, alt: 'Stammtisch Treffen Oktober 2025' },
+  { src: Meeting11, alt: 'Stammtisch Treffen Oktober 2025' },
+  { src: Meeting12, alt: 'Stammtisch Treffen Oktober 2025' },
+  { src: Meeting13, alt: 'Stammtisch Treffen Oktober 2025' },
+  { src: Meeting14, alt: 'Stammtisch Treffen Oktober 2025' },
+];
 ---
 
 <BaseLayout title="Stammtisch gegen Einsamkeit - GeTu Prospects e.V.">
@@ -27,7 +81,7 @@ import EinsamkeitLogo from '../../assets/images/projects/einsamkeit-logo.png';
     <div class="absolute top-32 right-24 w-20 h-20 border border-terracotta/20 hidden xl:block animate-float"></div>
 
     <!-- Content -->
-    <div class="relative z-10 container mx-auto px-8 md:px-16 h-full flex items-end pb-20 lg:pb-28">
+    <div class="relative z-10 container mx-auto px-8 md:px-16 min-h-[75vh] lg:min-h-[85vh] flex items-end pb-20 lg:pb-28">
       <div class="max-w-4xl">
         <!-- Label -->
         <div class="hero-label opacity-0 flex items-center gap-4 mb-6">
@@ -123,6 +177,93 @@ import EinsamkeitLogo from '../../assets/images/projects/einsamkeit-logo.png';
         </p>
       </div>
 
+      <!-- Offizieller Auftakt - Opening Ceremony Section -->
+      <section class="auftakt-section mb-24 opacity-0">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-16 mb-12">
+          <div class="lg:col-span-5">
+            <span class="label-editorial text-terracotta tracking-[0.3em]">
+              Offizieller Auftakt
+            </span>
+            <h2 class="mt-4 text-3xl md:text-4xl font-display font-semibold text-charcoal leading-[1.05]">
+              Feierliche<br/>
+              <span class="italic text-sage-dark">Eröffnung</span>
+            </h2>
+          </div>
+          <div class="lg:col-span-7 lg:pt-8">
+            <p class="text-lg text-charcoal-light leading-relaxed">
+              Am 30. Juni 2025 feierten wir die offizielle Eröffnung des Stammtischs
+              gegen Einsamkeit - mit prominenter Unterstützung aus Politik und Gesellschaft.
+            </p>
+          </div>
+        </div>
+
+        <!-- Auftakt Photo Grid - Feature Layout -->
+        <div class="grid lg:grid-cols-12 gap-4 mb-8">
+          <!-- Large featured image - Slideshow -->
+          <div class="lg:col-span-7 auftakt-item relative overflow-hidden group" style="--auftakt-delay: 0ms">
+            <div class="auftakt-slideshow aspect-[4/3] lg:aspect-auto lg:h-[500px] relative">
+              {auftaktImages.map((image, index) => (
+                <img
+                  src={image.src.src}
+                  alt={image.alt}
+                  class={`auftakt-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+                  data-slide-index={index}
+                />
+              ))}
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 lg:p-8 pointer-events-none">
+              <span class="inline-block px-3 py-1 bg-terracotta text-white text-xs font-semibold uppercase tracking-wider mb-3">
+                30. Juni 2025
+              </span>
+              <h3 class="text-xl lg:text-2xl font-display text-white">
+                Eröffnungsfeier in der Alten Fasanerie
+              </h3>
+            </div>
+            <!-- Slide indicators -->
+            <div class="absolute bottom-24 lg:bottom-28 left-6 lg:left-8 flex gap-2">
+              {auftaktImages.map((_, index) => (
+                <button
+                  class={`auftakt-indicator w-2 h-2 transition-all duration-300 ${index === 0 ? 'bg-white w-6' : 'bg-white/40'}`}
+                  data-indicator-index={index}
+                  aria-label={`Bild ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <!-- Side article panel -->
+          <div class="lg:col-span-5 bg-charcoal p-8 lg:p-10 flex flex-col justify-center auftakt-item" style="--auftakt-delay: 100ms">
+            <div class="h-1 w-16 bg-terracotta mb-6"></div>
+            <h3 class="font-display text-2xl text-white mb-6 leading-tight">
+              Ein starkes Zeichen gegen Einsamkeit
+            </h3>
+            <div class="space-y-4 text-white/70 leading-relaxed">
+              <p>
+                Mit der Bezirksbürgermeisterin von Reinickendorf und der
+                Einsamkeitsbeauftragten des Bezirks kamen hochrangige Vertreter
+                der Politik, um den Stammtisch offiziell zu eröffnen.
+              </p>
+              <p>
+                Das Elisabethstift, dessen Räumlichkeiten in der Alten Fasanerie
+                wir nutzen dürfen, war ebenfalls vertreten und unterstrich damit
+                die enge Partnerschaft vor Ort.
+              </p>
+              <p>
+                Die zahlreichen Gäste zeigten: Das Thema Einsamkeit bewegt Menschen
+                jeden Alters. Gemeinsam schaffen wir einen Ort der Begegnung.
+              </p>
+            </div>
+            <div class="mt-8 pt-6 border-t border-white/10">
+              <span class="text-terracotta text-sm font-medium">Alte Fasanerie Lübars</span>
+              <span class="text-white/40 text-sm mx-2">·</span>
+              <span class="text-white/40 text-sm">30. Juni 2025</span>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
       <!-- Two-Column Layout: Info + Partner - Asymmetric -->
       <section class="details-section mb-24 opacity-0">
         <div class="grid lg:grid-cols-12 gap-8 lg:gap-0">
@@ -160,7 +301,7 @@ import EinsamkeitLogo from '../../assets/images/projects/einsamkeit-logo.png';
                 </div>
                 <div>
                   <h3 class="font-semibold text-charcoal">Wo</h3>
-                  <p class="mt-1 text-lg font-medium text-charcoal">Alte Fasanerie Lübars</p>
+                  <p class="mt-1 text-lg font-medium text-charcoal">Alte Fasanerie "Hofstube" Lübars</p>
                   <p class="text-charcoal-light">Fasanerie 10<br/>13469 Berlin</p>
                 </div>
               </div>
@@ -177,6 +318,20 @@ import EinsamkeitLogo from '../../assets/images/projects/einsamkeit-logo.png';
                   <p class="text-charcoal-light">Kaffee und Kuchen inklusive</p>
                 </div>
               </div>
+
+              <div class="flex gap-5">
+                <div class="flex-shrink-0 w-14 h-14 bg-sand flex items-center justify-center">
+                  <svg class="w-6 h-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-charcoal">Kontakt</h3>
+                  <a href="mailto:grace.adenmosun@getu-prospects.de" class="mt-1 text-terracotta hover:underline block">
+                    grace.adenmosun@getu-prospects.de
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -187,7 +342,7 @@ import EinsamkeitLogo from '../../assets/images/projects/einsamkeit-logo.png';
 
             <span class="label-editorial text-terracotta tracking-[0.2em]">Kooperation</span>
             <h2 class="mt-4 text-2xl md:text-3xl font-display font-semibold">
-              In Zusammenarbeit mit
+              In Zusammenarbeit mit dem Bezirksamt Reinickendorf
             </h2>
 
             <img
@@ -197,14 +352,27 @@ import EinsamkeitLogo from '../../assets/images/projects/einsamkeit-logo.png';
             />
 
             <p class="text-white/80 leading-relaxed">
-              Der Stammtisch gegen Einsamkeit ist ein Gemeinschaftsprojekt
-              mit dem Bezirksamt Reinickendorf, das sich aktiv für die
-              Bekämpfung von Einsamkeit in unserer Gesellschaft einsetzt.
+              Das Bezirksamt beschreibt die Stammtische als "eine der aktivsten
+              Säulen der Reinickendorfer Strategie gegen Isolation". Wir sind
+              einer von fünf Standorten im Bezirk und betreuen den Stammtisch
+              in der Alten Fasanerie Lübars.
             </p>
             <p class="mt-6 text-white/80 leading-relaxed">
-              Gemeinsam schaffen wir Räume, in denen Menschen zusammenkommen
-              und soziale Verbindungen aufbauen können.
+              Gemeinsam schaffen wir niedrigschwellige Treffpunkte, an denen
+              Menschen zusammenkommen und soziale Verbindungen aufbauen können.
             </p>
+
+            <a
+              href="https://www.berlin.de/ba-reinickendorf/politik-und-verwaltung/beauftragte/einsamkeit/artikel.1609231.php"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-2 mt-6 text-terracotta font-medium hover:gap-3 transition-all"
+            >
+              Mehr auf berlin.de
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
           </div>
         </div>
       </section>
@@ -263,6 +431,103 @@ import EinsamkeitLogo from '../../assets/images/projects/einsamkeit-logo.png';
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Gallery Section - Impressionen -->
+      <section class="gallery-section mb-24 opacity-0">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-16 mb-12">
+          <div class="lg:col-span-5">
+            <span class="label-editorial text-terracotta tracking-[0.3em]">
+              Impressionen
+            </span>
+            <h2 class="mt-4 text-3xl md:text-4xl font-display font-semibold text-charcoal leading-[1.05]">
+              Einblicke in<br/>
+              <span class="italic text-sage-dark">unsere Treffen</span>
+            </h2>
+          </div>
+          <div class="lg:col-span-7 lg:pt-8">
+            <p class="text-lg text-charcoal-light leading-relaxed">
+              Bei jedem Stammtisch entstehen neue Verbindungen und Gespräche.
+              Hier sehen Sie Eindrücke von unseren Treffen.
+            </p>
+          </div>
+        </div>
+
+        <!-- Featured image + Grid layout -->
+        <div class="gallery-featured-grid">
+          <!-- Featured large image -->
+          <div class="gallery-item featured-main relative overflow-hidden group">
+            <img
+              src={galleryImages[0].src.src}
+              alt={galleryImages[0].alt}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/20 transition-colors duration-300"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-charcoal/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span class="text-white text-sm">Oktober 2025</span>
+            </div>
+          </div>
+
+          <!-- Side images -->
+          <div class="gallery-item featured-side-1 relative overflow-hidden group">
+            <img
+              src={galleryImages[1].src.src}
+              alt={galleryImages[1].alt}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/20 transition-colors duration-300"></div>
+          </div>
+          <div class="gallery-item featured-side-2 relative overflow-hidden group">
+            <img
+              src={galleryImages[2].src.src}
+              alt={galleryImages[2].alt}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/20 transition-colors duration-300"></div>
+          </div>
+        </div>
+
+        <!-- Second row - 4 equal columns -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 mt-2">
+          {galleryImages.slice(3, 7).map((image, index) => (
+            <div class="gallery-item relative aspect-square overflow-hidden group" style={`--gallery-delay: ${index * 100}ms`}>
+              <img
+                src={image.src.src}
+                alt={image.alt}
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/20 transition-colors duration-300"></div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Third row - 4 equal columns -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 mt-2">
+          {galleryImages.slice(7, 11).map((image, index) => (
+            <div class="gallery-item relative aspect-square overflow-hidden group" style={`--gallery-delay: ${(index + 4) * 100}ms`}>
+              <img
+                src={image.src.src}
+                alt={image.alt}
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/20 transition-colors duration-300"></div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Fourth row - remaining 3 images -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-2">
+          {galleryImages.slice(11).map((image, index) => (
+            <div class="gallery-item relative aspect-[4/3] overflow-hidden group" style={`--gallery-delay: ${(index + 8) * 100}ms`}>
+              <img
+                src={image.src.src}
+                alt={image.alt}
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/20 transition-colors duration-300"></div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -559,12 +824,10 @@ import EinsamkeitLogo from '../../assets/images/projects/einsamkeit-logo.png';
     from {
       opacity: 0;
       transform: translateY(60px);
-      filter: blur(10px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
-      filter: blur(0);
     }
   }
 
@@ -580,13 +843,69 @@ import EinsamkeitLogo from '../../assets/images/projects/einsamkeit-logo.png';
 
   /* Content section animations */
   .intro-section.animate,
+  .auftakt-section.animate,
   .details-section.animate,
   .offer-section.animate,
+  .gallery-section.animate,
   .audience-section.animate,
   .map-section.animate,
   .dates-section.animate,
   .cta-section.animate {
     animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Auftakt items stagger */
+  .auftakt-section.animate .auftakt-item {
+    animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--auftakt-delay, 0ms);
+    opacity: 0;
+  }
+
+  /* Gallery items stagger */
+  .gallery-section.animate .gallery-item {
+    animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--gallery-delay, 0ms);
+  }
+
+  /* Featured gallery grid */
+  .gallery-featured-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 0.5rem;
+  }
+
+  .gallery-featured-grid .featured-main {
+    aspect-ratio: 4/3;
+  }
+
+  .gallery-featured-grid .featured-side-1,
+  .gallery-featured-grid .featured-side-2 {
+    aspect-ratio: 16/9;
+  }
+
+  @media (min-width: 1024px) {
+    .gallery-featured-grid {
+      grid-template-columns: 7fr 5fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .gallery-featured-grid .featured-main {
+      grid-row: 1 / 3;
+      aspect-ratio: auto;
+    }
+
+    .gallery-featured-grid .featured-side-1 {
+      grid-column: 2;
+      grid-row: 1;
+      aspect-ratio: auto;
+    }
+
+    .gallery-featured-grid .featured-side-2 {
+      grid-column: 2;
+      grid-row: 2;
+      aspect-ratio: auto;
+    }
   }
 
   /* Stagger offer cards */
@@ -618,7 +937,7 @@ import EinsamkeitLogo from '../../assets/images/projects/einsamkeit-logo.png';
     }
 
     // Scroll-triggered sections
-    const sections = document.querySelectorAll('.intro-section, .details-section, .offer-section, .audience-section, .map-section, .dates-section, .cta-section');
+    const sections = document.querySelectorAll('.intro-section, .auftakt-section, .details-section, .offer-section, .gallery-section, .audience-section, .map-section, .dates-section, .cta-section');
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -633,6 +952,54 @@ import EinsamkeitLogo from '../../assets/images/projects/einsamkeit-logo.png';
     );
 
     sections.forEach((section) => observer.observe(section));
+
+    // Auftakt slideshow
+    initAuftaktSlideshow();
+  }
+
+  function initAuftaktSlideshow() {
+    const slides = document.querySelectorAll('.auftakt-slide');
+    const indicators = document.querySelectorAll('.auftakt-indicator');
+
+    if (slides.length === 0) return;
+
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    function showSlide(index: number) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('opacity-100', i === index);
+        slide.classList.toggle('opacity-0', i !== index);
+      });
+
+      indicators.forEach((indicator, i) => {
+        indicator.classList.toggle('bg-white', i === index);
+        indicator.classList.toggle('w-6', i === index);
+        indicator.classList.toggle('bg-white/40', i !== index);
+        indicator.classList.toggle('w-2', i !== index);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    // Auto-advance every 4 seconds
+    const interval = setInterval(nextSlide, 4000);
+
+    // Click indicators to jump to slide
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+      });
+    });
+
+    // Clean up on page navigation
+    document.addEventListener('astro:before-swap', () => {
+      clearInterval(interval);
+    }, { once: true });
   }
 
   initStammtischPage();

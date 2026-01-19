@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitgliederversammlung 2025 - GeTu Prospects e.V.</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --teal: #2D6A6A;
+            --coral: #E8896B;
+            --dark: #1A1A2E;
+            --light-gray: #F8F9FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--dark);
+            background: white;
+            line-height: 1.6;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 25mm 25mm 20mm 25mm;
+            margin: 0 auto;
+            background: white;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8mm;
+            padding-bottom: 5mm;
+            border-bottom: 3px solid var(--teal);
+        }
+
+        .logo {
+            height: 70px;
+            width: auto;
+        }
+
+        .header-text {
+            text-align: right;
+        }
+
+        .org-name {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--coral);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .date-info {
+            font-size: 13px;
+            color: var(--teal);
+            font-weight: 500;
+        }
+
+        .title-section {
+            text-align: center;
+            margin-bottom: 6mm;
+        }
+
+        .main-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--teal);
+            margin-bottom: 2mm;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .agenda {
+            margin-top: 5mm;
+            padding-bottom: 20mm;
+        }
+
+        .agenda-item {
+            margin-bottom: 4mm;
+        }
+
+        .agenda-item.main {
+            margin-bottom: 5mm;
+        }
+
+        .item-number {
+            display: inline-block;
+            width: 10mm;
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 15px;
+        }
+
+        .item-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .sub-items {
+            margin-left: 10mm;
+            margin-top: 2mm;
+        }
+
+        .sub-item {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 2mm;
+        }
+
+        .sub-number {
+            width: 12mm;
+            font-weight: 500;
+            color: #555;
+            font-size: 13px;
+        }
+
+        .sub-title {
+            font-size: 13px;
+            color: var(--dark);
+        }
+
+        .divider {
+            height: 1px;
+            background: #ccc;
+            margin: 5mm 0;
+            border-radius: 1px;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 10mm;
+            left: 25mm;
+            right: 25mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 9px;
+            color: #666;
+            padding-top: 4mm;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer-tagline {
+            color: #555;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .footer-website {
+            color: #666;
+        }
+
+        @media print {
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .page {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <img src="logo.png" alt="GeTu Prospects e.V." class="logo">
+            <div class="header-text">
+                <div class="org-name">GeTu Prospects e.V.</div>
+                <div class="date-info">27. Dezember 2025 | 13:00 Uhr</div>
+            </div>
+        </header>
+
+        <section class="title-section">
+            <h1 class="main-title">MITGLIEDERVERSAMMLUNG 2025</h1>
+            <p class="subtitle">Tagesordnung</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="agenda">
+            <div class="agenda-item main">
+                <span class="item-number">1.</span>
+                <span class="item-title">Eröffnungsgebet</span>
+            </div>
+
+            <div class="agenda-item main">
+                <span class="item-number">2.</span>
+                <span class="item-title">Begrüßung</span>
+            </div>
+
+            <div class="agenda-item main">
+                <span class="item-number">3.</span>
+                <span class="item-title">Tätigkeitsbericht</span>
+                <div class="sub-items">
+                    <div class="sub-item">
+                        <span class="sub-number">3.1</span>
+                        <span class="sub-title">Allgemeiner Bericht</span>
+                    </div>
+                    <div class="sub-item">
+                        <span class="sub-number">3.2</span>
+                        <span class="sub-title">Bericht Projekt Einsamkeit</span>
+                    </div>
+                    <div class="sub-item">
+                        <span class="sub-number">3.3</span>
+                        <span class="sub-title">Bericht GeTu Prospects e.V. Mentorship Program</span>
+                    </div>
+                    <div class="sub-item">
+                        <span class="sub-number">3.4</span>
+                        <span class="sub-title">Bericht Youth with Perspective</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="agenda-item main">
+                <span class="item-number">4.</span>
+                <span class="item-title">Pläne für 2026</span>
+                <div class="sub-items">
+                    <div class="sub-item">
+                        <span class="sub-number">4.1</span>
+                        <span class="sub-title">Anschaffung Lautsprecher für Outdoor-Einsätze</span>
+                    </div>
+                    <div class="sub-item">
+                        <span class="sub-number">4.2</span>
+                        <span class="sub-title">Anschaffung Beamer</span>
+                    </div>
+                    <div class="sub-item">
+                        <span class="sub-number">4.3</span>
+                        <span class="sub-title">Anschaffung Diensthandy</span>
+                    </div>
+                    <div class="sub-item">
+                        <span class="sub-number">4.4</span>
+                        <span class="sub-title">Neue Webseite und Verstärkung der Social-Media-Präsenz</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="agenda-item main">
+                <span class="item-number">5.</span>
+                <span class="item-title">Diskussionspunkte</span>
+                <div class="sub-items">
+                    <div class="sub-item">
+                        <span class="sub-number">5.1</span>
+                        <span class="sub-title">Neues Geschäftsjahr für die Finanzberichterstattung</span>
+                    </div>
+                    <div class="sub-item">
+                        <span class="sub-number">5.2</span>
+                        <span class="sub-title">Terminänderung der Mitgliederversammlung</span>
+                    </div>
+                    <div class="sub-item">
+                        <span class="sub-number">5.3</span>
+                        <span class="sub-title">Erinnerung und Ermutigung für Ehrenamtliche</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="agenda-item main">
+                <span class="item-number">6.</span>
+                <span class="item-title">Fragen und Antworten</span>
+            </div>
+
+            <div class="agenda-item main">
+                <span class="item-number">7.</span>
+                <span class="item-title">Schlussgebet</span>
+            </div>
+        </section>
+
+        <div class="footer">
+            <div class="footer-tagline">Vielfalt leben. Träume stärken.</div>
+            <div class="footer-website">www.getu-prospects.de</div>
+        </div>
+    </div>
+</body>
+</html>

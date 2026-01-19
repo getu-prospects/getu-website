@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/oladayo.fagbemi/llm-memory/**)",
+      "Read(//Users/oladayo.fagbemi/code/projects/getu-mentorship/**)",
+      "WebFetch(domain:mentorship.getu-prospects.de)",
+      "Bash(pnpm build:*)",
+      "Bash(pnpm dev)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

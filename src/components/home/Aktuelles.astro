@@ -1,46 +1,48 @@
 ---
-// Aktuelles - Latest news / highlights section with newspaper-style layout
+// Aktuelles - Interactive news section
+// Click any item to make it featured
+import EhrenamtstagImage from '../../assets/images/ehrenamtstag/IMG_8725.jpg';
+import MentoringAuftaktImage from '../../assets/images/mentorship-auftakt/IMG_8705.jpg';
+import NigeriaVisitImage from '../../assets/images/nigeria-visit/IMG_8683.jpg';
+import WaidmannslustImage from '../../assets/images/waidmannslust/IMG_7979.jpg';
+
 const highlights = [
   {
-    type: 'Neues Programm',
-    title: 'Mentoring-Programm gestartet',
-    excerpt: 'Ab Oktober 2025 verbinden wir Neuankommlinge mit erfahrenen Mentor*innen. Jetzt als Mentor*in oder Mentee anmelden.',
-    date: 'Oktober 2025',
-    image: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=800&q=80',
-    href: '/projekte/mentoring',
-    featured: true,
-  },
-  {
     type: 'Veranstaltung',
-    title: 'Stammtisch jeden 3. Freitag',
-    excerpt: 'Ein offener Raum gegen Einsamkeit. Kommen Sie vorbei!',
-    date: 'Monatlich',
-    href: '/projekte/stammtisch',
-    featured: false,
+    title: 'GeTu Prospects auf der Reinickendorfer Freiwilligenbörse',
+    excerpt: 'Am 11. Oktober 2025 präsentierten wir unseren Verein auf der Reinickendorfer Freiwilligenbörse im Fontane Haus.',
+    date: '11. Oktober 2025',
+    image: EhrenamtstagImage.src,
+    href: '/aktuelles/freiwilligenboerse',
   },
   {
-    type: 'Aktion',
-    title: 'Weihnachtsaktion 2025',
-    excerpt: 'Planung fur unsere jahrliche Aktion lauft. Freiwillige gesucht.',
-    date: 'Dezember 2025',
-    href: '/projekte/weihnachtsaktion',
-    featured: false,
+    type: 'Mentoring',
+    title: 'Auftakt des Mentoring-Programms 2025',
+    excerpt: 'Am Tag der Deutschen Einheit starteten wir in die neue Runde unseres Mentoring-Programms.',
+    date: '3. Oktober 2025',
+    image: MentoringAuftaktImage.src,
+    href: '/aktuelles/mentoring-auftakt',
   },
   {
-    type: 'Jugend',
-    title: 'Youth with Perspective',
-    excerpt: 'Neue Staffel startet - jetzt anmelden.',
-    date: 'Laufend',
-    href: '/projekte/youth',
-    featured: false,
+    type: 'Internationaler Austausch',
+    title: 'Besuch von Studierenden aus Nigeria',
+    excerpt: 'Junge Studierende aus Nigeria besuchten uns während ihrer Bildungsexkursion.',
+    date: '12. September 2025',
+    image: NigeriaVisitImage.src,
+    href: '/aktuelles/nigeria-besuch',
+  },
+  {
+    type: 'Nachbarschaftsfest',
+    title: 'GeTu Prospects beim Jubiläum 150 Jahre Waidmannslust',
+    excerpt: 'Am 20. Juli 2025 feierte der Ortsteil Waidmannslust sein 150-jähriges Bestehen.',
+    date: '20. Juli 2025',
+    image: WaidmannslustImage.src,
+    href: '/aktuelles/waidmannslust-150',
   },
 ];
-
-const featured = highlights.find(h => h.featured);
-const others = highlights.filter(h => !h.featured);
 ---
 
-<section class="section-padding bg-white border-y border-charcoal/10">
+<section class="section-padding bg-white border-y border-charcoal/10" data-aktuelles>
   <div class="container-wide">
     <!-- Section header - newspaper style -->
     <div class="flex items-end justify-between border-b-2 border-charcoal pb-4 mb-12 reveal">
@@ -56,52 +58,60 @@ const others = highlights.filter(h => !h.featured);
     <!-- News grid - asymmetric layout -->
     <div class="grid lg:grid-cols-12 gap-8 lg:gap-12">
       <!-- Featured item - large -->
-      {featured && (
-        <div class="lg:col-span-7 reveal">
-          <a href={featured.href} class="group block">
-            <div class="relative aspect-[16/10] overflow-hidden mb-6">
-              <img
-                src={featured.image}
-                alt={featured.title}
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div class="absolute top-0 left-0 bg-terracotta text-white px-4 py-2 text-xs font-semibold uppercase tracking-wider">
-                {featured.type}
+      <div class="lg:col-span-7 reveal">
+        {highlights.map((item, index) => (
+          <div
+            class:list={["featured-item", index === 0 ? "active" : ""]}
+            data-featured={index}
+          >
+            <a href={item.href} class="group block">
+              <div class="relative aspect-[16/10] overflow-hidden mb-6">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div class="absolute top-0 left-0 bg-terracotta text-white px-4 py-2 text-xs font-semibold uppercase tracking-wider">
+                  {item.type}
+                </div>
               </div>
-            </div>
-            <div class="flex items-center gap-4 mb-3">
-              <span class="text-xs text-charcoal-light uppercase tracking-wider">{featured.date}</span>
-              <div class="flex-1 h-px bg-charcoal/10"></div>
-            </div>
-            <h3 class="text-2xl md:text-3xl font-display text-charcoal mb-4 group-hover:text-terracotta transition-colors">
-              {featured.title}
-            </h3>
-            <p class="text-charcoal-light leading-relaxed mb-4">
-              {featured.excerpt}
-            </p>
-            <span class="inline-flex items-center gap-2 text-terracotta font-medium text-sm">
-              Mehr lesen
-              <svg class="w-4 h-4 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
-            </span>
-          </a>
-        </div>
-      )}
+              <div class="flex items-center gap-4 mb-3">
+                <span class="text-xs text-charcoal-light uppercase tracking-wider">{item.date}</span>
+                <div class="flex-1 h-px bg-charcoal/10"></div>
+              </div>
+              <h3 class="text-2xl md:text-3xl font-display text-charcoal mb-4 group-hover:text-terracotta transition-colors">
+                {item.title}
+              </h3>
+              <p class="text-charcoal-light leading-relaxed mb-4">
+                {item.excerpt}
+              </p>
+              <span class="inline-flex items-center gap-2 text-terracotta font-medium text-sm">
+                Mehr lesen
+                <svg class="w-4 h-4 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+        ))}
+      </div>
 
       <!-- Other items - stacked list -->
       <div class="lg:col-span-5">
         <div class="divide-y divide-charcoal/10">
-          {others.map((item, index) => (
-            <a
-              href={item.href}
-              class="group block py-6 first:pt-0 reveal"
-              style={`animation-delay: ${(index + 1) * 100}ms`}
+          {highlights.map((item, index) => (
+            <button
+              type="button"
+              class:list={[
+                "news-item group w-full text-left py-6 first:pt-0 transition-all cursor-pointer",
+                index === 0 ? "active" : ""
+              ]}
+              data-item={index}
             >
               <div class="flex items-start justify-between gap-4">
                 <div class="flex-1">
                   <div class="flex items-center gap-3 mb-2">
-                    <span class="bg-sand text-charcoal px-2 py-0.5 text-xs font-semibold uppercase tracking-wider">
+                    <span class="news-badge bg-sand text-charcoal px-2 py-0.5 text-xs font-semibold uppercase tracking-wider transition-colors">
                       {item.type}
                     </span>
                     <span class="text-xs text-charcoal-light">{item.date}</span>
@@ -113,16 +123,14 @@ const others = highlights.filter(h => !h.featured);
                     {item.excerpt}
                   </p>
                 </div>
-                <svg class="w-5 h-5 text-charcoal-light/40 group-hover:text-terracotta group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
+                <div class="news-indicator w-2 h-2 rounded-full border border-charcoal/20 flex-shrink-0 mt-2 transition-all"></div>
               </div>
-            </a>
+            </button>
           ))}
         </div>
 
         <!-- Newsletter signup mini -->
-        <div class="mt-8 pt-8 border-t border-charcoal/10 reveal" style="animation-delay: 400ms">
+        <div class="mt-8 pt-8 border-t border-charcoal/10 reveal" style="animation-delay: 500ms">
           <div class="bg-charcoal p-6">
             <h4 class="font-display text-lg text-white mb-2">Auf dem Laufenden bleiben</h4>
             <p class="text-white/60 text-sm mb-4">Folgen Sie uns auf Social Media fur Updates.</p>
@@ -144,3 +152,79 @@ const others = highlights.filter(h => !h.featured);
     </div>
   </div>
 </section>
+
+<style>
+  .featured-item {
+    display: none;
+  }
+
+  .featured-item.active {
+    display: block;
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Ensure all news items are always visible */
+  .news-item {
+    opacity: 1 !important;
+    display: block !important;
+  }
+
+  .news-item.active {
+    background: linear-gradient(to right, transparent, rgba(232, 93, 59, 0.08));
+  }
+
+  .news-item.active .news-indicator {
+    background-color: #e85d3b;
+    border-color: #e85d3b;
+  }
+
+  .news-item.active .news-badge {
+    background-color: #e85d3b;
+    color: white;
+  }
+
+  .news-item:hover:not(.active) {
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.02));
+  }
+</style>
+
+<script>
+  function initAktuelles() {
+    const section = document.querySelector('[data-aktuelles]');
+
+    if (!section) return;
+
+    const items = section.querySelectorAll('.news-item');
+    const featured = section.querySelectorAll('.featured-item');
+
+    function setActive(index: number) {
+      items.forEach((item, i) => {
+        item.classList.toggle('active', i === index);
+      });
+
+      featured.forEach((f, i) => {
+        f.classList.toggle('active', i === index);
+      });
+    }
+
+    items.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        setActive(index);
+      });
+    });
+  }
+
+  initAktuelles();
+  document.addEventListener('astro:page-load', initAktuelles);
+</script>

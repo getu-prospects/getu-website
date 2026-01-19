@@ -1,5 +1,6 @@
 ---
 // Mission section - Who we are - staggered/overlapping editorial layout
+import MissionImage from '../../assets/images/ehrenamtstag/IMG_8730.jpg';
 ---
 
 <section class="py-24 lg:py-32 bg-cream relative">
@@ -28,10 +29,12 @@
       <!-- Background image - full width -->
       <div class="relative lg:absolute lg:left-0 lg:top-0 lg:bottom-0 lg:w-7/12 reveal">
         <img
-          src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&q=80"
-          alt="Community gathering"
+          src={MissionImage.src}
+          alt="GeTu Prospects Gemeinschaft"
           class="w-full h-[400px] lg:h-full object-cover"
         />
+        <!-- Thin overlay -->
+        <div class="absolute inset-0 bg-cream/15"></div>
         <!-- Year badge -->
         <div class="absolute bottom-0 left-0 bg-terracotta p-6 text-white">
           <span class="block text-4xl font-display">2014</span>

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AboutHeroImage from '../assets/images/stammtisch-auftakt/IMG_7935.jpg';
+import AboutStoryImage from '../assets/images/ehrenamtstag/IMG_8730.jpg';
 ---
 
 <BaseLayout title="Uber uns - GeTu Prospects e.V.">
@@ -8,8 +10,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <!-- Background with Ken Burns -->
     <div class="absolute inset-0">
       <img
-        src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1920&q=80"
-        alt="Community gathering"
+        src={AboutHeroImage.src}
+        alt="GeTu Prospects Gemeinschaftstreffen"
         class="w-full h-full object-cover opacity-40 scale-105 animate-ken-burns"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent"></div>
@@ -83,8 +85,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="lg:col-span-5 story-image opacity-0">
           <div class="relative">
             <img
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
-              alt="Team collaboration"
+              src={AboutStoryImage.src}
+              alt="GeTu Prospects Team beim Ehrenamtstag"
               class="w-full aspect-[4/5] object-cover"
             />
             <!-- Floating year badge -->

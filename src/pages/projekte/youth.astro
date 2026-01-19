@@ -2,6 +2,25 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectSubNav from '../../components/ProjectSubNav.astro';
 import ProjectBottomNav from '../../components/ProjectBottomNav.astro';
+
+// Youth with Perspective images
+import YouthImg01 from '../../assets/images/youth/IMG_7606.jpg';
+import YouthImg02 from '../../assets/images/youth/IMG_7607.jpg';
+import YouthImg03 from '../../assets/images/youth/IMG_7608.jpg';
+import YouthImg04 from '../../assets/images/youth/IMG_7609.jpg';
+import YouthImg05 from '../../assets/images/youth/IMG_7610.jpg';
+import YouthImg06 from '../../assets/images/youth/IMG_7611.jpg';
+import YouthImg07 from '../../assets/images/youth/IMG_7612.jpg';
+
+const galleryImages = [
+  { src: YouthImg01, alt: 'Youth with Perspective Treffen' },
+  { src: YouthImg02, alt: 'Junge Menschen im Austausch' },
+  { src: YouthImg03, alt: 'Gemeinsame Aktivität' },
+  { src: YouthImg04, alt: 'Workshop Session' },
+  { src: YouthImg05, alt: 'Gruppenarbeit' },
+  { src: YouthImg06, alt: 'Gemeinschaft erleben' },
+  { src: YouthImg07, alt: 'Zukunft gestalten' },
+];
 ---
 
 <BaseLayout title="Youth with Perspective - GeTu Prospects e.V.">
@@ -12,7 +31,7 @@ import ProjectBottomNav from '../../components/ProjectBottomNav.astro';
     <!-- Background with Ken Burns -->
     <div class="absolute inset-0">
       <img
-        src="https://images.unsplash.com/photo-1529390079861-591f8a33b1e1?w=1920&q=80"
+        src={YouthImg01.src}
         alt="Youth with Perspective - Junge Menschen"
         class="w-full h-full object-cover opacity-40 scale-105 animate-ken-burns"
       />
@@ -139,7 +158,7 @@ import ProjectBottomNav from '../../components/ProjectBottomNav.astro';
         <!-- Background image -->
         <div class="about-image opacity-0 relative lg:absolute lg:left-0 lg:top-0 lg:bottom-0 lg:w-7/12">
           <img
-            src="/jugend.jpg"
+            src={YouthImg03.src}
             alt="Junge Menschen bei einer gemeinsamen Aktivitat"
             class="w-full h-[400px] lg:h-full object-cover"
           />
@@ -247,7 +266,7 @@ import ProjectBottomNav from '../../components/ProjectBottomNav.astro';
   <section class="grow-section opacity-0 relative min-h-[80vh] flex items-center overflow-hidden">
     <div class="absolute inset-0">
       <img
-        src="/youth-holding.jpg"
+        src={YouthImg05.src}
         alt="Junge Menschen im Gesprach"
         class="w-full h-full object-cover"
       />
@@ -326,8 +345,37 @@ import ProjectBottomNav from '../../components/ProjectBottomNav.astro';
     </div>
   </section>
 
+  <!-- Gallery Section -->
+  <section class="py-24 lg:py-32 bg-cream">
+    <div class="container mx-auto px-8 md:px-16">
+      <div class="gallery-header opacity-0 mb-16">
+        <span class="text-terracotta text-sm font-semibold uppercase tracking-[0.3em] block mb-4">
+          Impressionen
+        </span>
+        <h2 class="text-3xl md:text-4xl font-display font-semibold text-charcoal">
+          Momente aus unseren Treffen
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
+        {galleryImages.map((image, index) => (
+          <div
+            class="gallery-item opacity-0 aspect-square overflow-hidden group"
+            style={`--gallery-delay: ${index * 100}ms`}
+          >
+            <img
+              src={image.src.src}
+              alt={image.alt}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- Final CTA -->
-  <section class="py-20 lg:py-24 bg-cream">
+  <section class="py-20 lg:py-24 bg-cream border-t border-charcoal/10">
     <div class="container mx-auto px-8 md:px-16">
       <div class="final-cta opacity-0 max-w-2xl mx-auto text-center">
         <h2 class="text-2xl md:text-3xl font-display font-semibold text-charcoal mb-4">
@@ -445,12 +493,22 @@ import ProjectBottomNav from '../../components/ProjectBottomNav.astro';
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     animation-delay: var(--topic-delay);
   }
+
+  /* Gallery animations */
+  .gallery-header.animate {
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .gallery-item.animate {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--gallery-delay);
+  }
 </style>
 
 <script>
   function initYouthPage() {
     const hero = document.querySelector('.youth-hero');
-    const sections = document.querySelectorAll('.intro-section, .about-image, .about-content, .topics-header, .topic-card, .grow-section, .cta-content, .cta-details, .final-cta');
+    const sections = document.querySelectorAll('.intro-section, .about-image, .about-content, .topics-header, .topic-card, .grow-section, .cta-content, .cta-details, .gallery-header, .gallery-item, .final-cta');
 
     if (hero) {
       setTimeout(() => hero.classList.add('animate'), 100);

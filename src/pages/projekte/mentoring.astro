@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectSubNav from '../../components/ProjectSubNav.astro';
 import ProjectBottomNav from '../../components/ProjectBottomNav.astro';
+import HeroImage from '../../assets/images/mentorship-auftakt/IMG_8717.jpg';
 ---
 
 <BaseLayout title="Mentoring-Programm - GeTu Prospects e.V.">
@@ -11,7 +12,7 @@ import ProjectBottomNav from '../../components/ProjectBottomNav.astro';
     <!-- Background -->
     <div class="absolute inset-0">
       <img
-        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80"
+        src={HeroImage.src}
         alt="Menschen im Gesprach"
         class="w-full h-full object-cover opacity-30"
       />
@@ -105,17 +106,17 @@ import ProjectBottomNav from '../../components/ProjectBottomNav.astro';
       </div>
 
       <!-- Stats row -->
-      <div class="hero-stats opacity-0 flex justify-center gap-12 mt-16">
+      <div class="hero-stats opacity-0 flex flex-wrap justify-center gap-6 md:gap-12 mt-16">
         <div class="text-center">
           <span class="block text-3xl font-display font-bold text-white">50+</span>
           <span class="text-white/50 text-sm">Aktive Mentoren</span>
         </div>
-        <div class="w-px bg-white/20"></div>
+        <div class="hidden md:block w-px bg-white/20"></div>
         <div class="text-center">
           <span class="block text-3xl font-display font-bold text-white">100%</span>
           <span class="text-white/50 text-sm">Kostenlos</span>
         </div>
-        <div class="w-px bg-white/20"></div>
+        <div class="hidden md:block w-px bg-white/20"></div>
         <div class="text-center">
           <span class="block text-3xl font-display font-bold text-white">1:1</span>
           <span class="text-white/50 text-sm">Personlich</span>

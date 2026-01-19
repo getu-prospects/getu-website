@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import StammtischMeeting from '../assets/images/stammtisch/meeting-01.jpg';
+import ChristmasPhoto from '../assets/images/christmas/getu-ausgabe-1.jpeg';
+import YouthPhoto from '../assets/images/youth/IMG_7606.jpg';
+import MentoringPhoto from '../assets/images/mentorship-auftakt/IMG_8706.jpg';
 ---
 
 <BaseLayout title="Projekte">
@@ -58,7 +62,7 @@ import ProjectCard from '../components/ProjectCard.astro';
             title="Mentoring-Programm"
             tagline="Gemeinsam ankommen, gemeinsam wachsen"
             summary="Unser Mentoring-Programm verbindet Neuankommlinge mit erfahrenen Mentor*innen, die ihnen helfen, in Deutschland Fuss zu fassen und sich heimisch zu fuhlen."
-            image="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80"
+            image={MentoringPhoto.src}
             href="/projekte/mentoring"
             category="Neues Programm"
             badge="Neu"
@@ -76,7 +80,7 @@ import ProjectCard from '../components/ProjectCard.astro';
             title="Stammtisch gegen Einsamkeit"
             tagline="Ein offener Treffpunkt fur alle"
             summary="Einsamkeit betrifft Menschen aller Altersgruppen. Mit unserem Stammtisch schaffen wir jeden dritten Freitag im Monat einen Raum fur Begegnung."
-            image="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1200&q=80"
+            image={StammtischMeeting.src}
             href="/projekte/stammtisch"
             category="Gemeinschaft"
             reversed={true}
@@ -94,7 +98,7 @@ import ProjectCard from '../components/ProjectCard.astro';
             title="Weihnachtsaktion"
             tagline="Hoffnung fur Berlins Obdachlose"
             summary="Seit 2016 organisieren wir jedes Jahr eine Weihnachtsausgabe-Aktion in Berlin, um obdachlosen Menschen Unterstutzung und Weihnachtsfreude zu schenken."
-            image="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1200&q=80"
+            image={ChristmasPhoto.src}
             href="/projekte/weihnachtsaktion"
             category="Jahrliche Aktion"
             facts={[
@@ -111,7 +115,7 @@ import ProjectCard from '../components/ProjectCard.astro';
             title="Youth with Perspective"
             tagline="Finde deinen Weg, entfalte dein Potenzial"
             summary="Ein Raum fur junge Menschen, die gemeinsam Antworten auf die grossen Fragen des Lebens suchen: Identität, Lebenssinn und Potenzialentfaltung."
-            image="https://images.unsplash.com/photo-1529390079861-591f8a33b1e1?w=1200&q=80"
+            image={YouthPhoto.src}
             href="/projekte/youth"
             category="Jugendprogramm"
             reversed={true}

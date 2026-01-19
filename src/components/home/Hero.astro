@@ -1,5 +1,17 @@
 ---
 // Hero section - Editorial magazine style with asymmetric layout
+// Slideshow with Ken Burns effect
+import HeroImage1 from '../../assets/images/ehrenamtstag/IMG_8725.jpg';
+import HeroImage2 from '../../assets/images/stammtisch-auftakt/IMG_7935.jpg';
+import HeroImage3 from '../../assets/images/nigeria-visit/IMG_8686.jpg';
+import HeroImage4 from '../../assets/images/waidmannslust/IMG_7992.jpg';
+
+const heroImages = [
+  { src: HeroImage1.src, alt: 'GeTu Team mit Banner' },
+  { src: HeroImage2.src, alt: 'Gemeinschaftstreffen am Tisch' },
+  { src: HeroImage3.src, alt: 'Nigeria Besuch' },
+  { src: HeroImage4.src, alt: 'Waidmannslust Event' },
+];
 ---
 
 <section class="relative min-h-screen bg-cream overflow-hidden">
@@ -68,19 +80,22 @@
       </div>
     </div>
 
-    <!-- Right image column -->
+    <!-- Right image column - Slideshow -->
     <div class="lg:col-span-7 relative order-1 lg:order-2 min-h-[50vh] lg:min-h-screen">
-      <img
-        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&q=80"
-        alt="Diverse community members together"
-        class="absolute inset-0 w-full h-full object-cover"
-        loading="eager"
-      />
-      <!-- Overlay with text -->
-      <div class="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent lg:bg-gradient-to-l lg:from-charcoal/50 lg:via-transparent lg:to-cream/80"></div>
+      <!-- Slideshow images with Ken Burns effect -->
+      {heroImages.map((image, index) => (
+        <img
+          src={image.src}
+          alt={image.alt}
+          class={`hero-slide hero-slide-${index + 1} absolute inset-0 w-full h-full object-cover`}
+          loading={index === 0 ? 'eager' : 'lazy'}
+        />
+      ))}
+      <!-- Gradient overlay for text readability -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent z-10"></div>
 
       <!-- Caption -->
-      <div class="absolute bottom-8 left-8 right-8 lg:bottom-12 lg:left-12 lg:right-auto lg:max-w-sm">
+      <div class="absolute bottom-8 left-8 right-8 lg:bottom-12 lg:left-12 lg:right-auto lg:max-w-sm z-20">
         <div class="bg-charcoal/90 backdrop-blur-sm p-6">
           <p class="text-white/80 text-sm leading-relaxed">
             "Wir glauben an eine Gesellschaft, in der jeder Mensch
@@ -93,7 +108,7 @@
       </div>
 
       <!-- Decorative element -->
-      <div class="absolute top-12 right-12 hidden lg:block">
+      <div class="absolute top-12 right-12 hidden lg:block z-20">
         <div class="w-20 h-20 border border-white/30"></div>
       </div>
     </div>
@@ -105,3 +120,57 @@
     <div class="w-px h-8 bg-charcoal/30"></div>
   </div>
 </section>
+
+<style>
+  /* Ken Burns crossfade slideshow - 4 images, 6 seconds each = 24 second cycle */
+  .hero-slide {
+    opacity: 0;
+    animation: kenburns 24s infinite;
+  }
+
+  .hero-slide-1 { animation-delay: 0s; }
+  .hero-slide-2 { animation-delay: 6s; }
+  .hero-slide-3 { animation-delay: 12s; }
+  .hero-slide-4 { animation-delay: 18s; }
+
+  @keyframes kenburns {
+    /* Fade in */
+    0% {
+      opacity: 0;
+      transform: scale(1);
+    }
+    /* Fully visible, start zoom */
+    4% {
+      opacity: 1;
+    }
+    /* Stay visible, continue zoom */
+    21% {
+      opacity: 1;
+    }
+    /* Fade out */
+    25% {
+      opacity: 0;
+      transform: scale(1.08);
+    }
+    /* Stay hidden for rest of cycle */
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-slide {
+      animation: crossfade 24s infinite;
+    }
+
+    @keyframes crossfade {
+      0% { opacity: 0; }
+      4% { opacity: 1; }
+      21% { opacity: 1; }
+      25% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+  }
+</style>

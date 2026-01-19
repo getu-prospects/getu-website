@@ -1,0 +1,394 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Import nigeria-visit images
+import Img01 from '../../assets/images/nigeria-visit/IMG_8683.jpg';
+import Img02 from '../../assets/images/nigeria-visit/IMG_8684.jpg';
+import Img03 from '../../assets/images/nigeria-visit/IMG_8685.jpg';
+import Img04 from '../../assets/images/nigeria-visit/IMG_8686.jpg';
+import Img05 from '../../assets/images/nigeria-visit/IMG_8687.jpg';
+import Img06 from '../../assets/images/nigeria-visit/IMG_8688.jpg';
+import Img07 from '../../assets/images/nigeria-visit/IMG_8689.jpg';
+import Img08 from '../../assets/images/nigeria-visit/IMG_8690.jpg';
+import Img09 from '../../assets/images/nigeria-visit/IMG_8691.jpg';
+import Img10 from '../../assets/images/nigeria-visit/IMG_8692.jpg';
+import Img11 from '../../assets/images/nigeria-visit/IMG_8693.jpg';
+import Img12 from '../../assets/images/nigeria-visit/IMG_8694.jpg';
+
+const galleryImages = [
+  { src: Img01, alt: 'Besuch nigerianischer Studenten' },
+  { src: Img02, alt: 'Austausch mit jungen Menschen aus Nigeria' },
+  { src: Img03, alt: 'Vortrag und Diskussion' },
+  { src: Img04, alt: 'Internationale Begegnung' },
+  { src: Img05, alt: 'Studenten aus Nigeria bei GeTu' },
+  { src: Img06, alt: 'Gemeinsamer Austausch' },
+  { src: Img07, alt: 'Inspirierendes Gespräch' },
+  { src: Img08, alt: 'Junge Talente fördern' },
+  { src: Img09, alt: 'Globale Perspektiven' },
+  { src: Img10, alt: 'Begegnung und Vernetzung' },
+  { src: Img11, alt: 'Gruppenfoto mit Studenten' },
+  { src: Img12, alt: 'Abschluss des Besuchs' },
+];
+
+const articleMeta = {
+  title: 'Besuch von Studierenden aus Nigeria',
+  date: '12. September 2025',
+  category: 'Internationaler Austausch',
+  location: 'Berlin',
+  readTime: '3 Min. Lesezeit',
+};
+---
+
+<BaseLayout title={`${articleMeta.title} - GeTu Prospects e.V.`}>
+  <!-- Hero Section -->
+  <section class="article-hero relative min-h-[70vh] lg:min-h-[80vh] overflow-hidden bg-charcoal">
+    <div class="absolute inset-0">
+      <img
+        src={Img01.src}
+        alt={articleMeta.title}
+        class="w-full h-full object-cover opacity-40 scale-105 animate-ken-burns"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-charcoal/80 to-transparent"></div>
+    </div>
+
+    <!-- Back link -->
+    <div class="absolute top-24 left-0 right-0 z-20">
+      <div class="container mx-auto px-8 md:px-16">
+        <a href="/aktuelles" class="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Zurück zu Aktuelles
+        </a>
+      </div>
+    </div>
+
+    <div class="relative z-10 container mx-auto px-8 md:px-16 min-h-[70vh] lg:min-h-[80vh] flex items-end pb-16 lg:pb-20">
+      <div class="max-w-3xl">
+        <!-- Meta -->
+        <div class="hero-meta opacity-0 flex flex-wrap items-center gap-4 mb-6">
+          <span class="bg-terracotta text-white px-3 py-1 text-xs font-semibold uppercase tracking-wider">
+            {articleMeta.category}
+          </span>
+          <span class="text-white/60 text-sm">{articleMeta.date}</span>
+          <span class="text-white/40">·</span>
+          <span class="text-white/60 text-sm">{articleMeta.location}</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="hero-title opacity-0 text-4xl md:text-5xl lg:text-6xl font-display font-semibold text-white leading-[1.1]">
+          {articleMeta.title}
+        </h1>
+
+        <div class="hero-line mt-8 w-24 h-1 bg-terracotta scale-x-0 origin-left"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <article class="py-16 lg:py-24 bg-cream">
+    <div class="container mx-auto px-8 md:px-16">
+      <div class="max-w-3xl mx-auto">
+
+        <!-- Lead paragraph -->
+        <div class="article-intro opacity-0 mb-12">
+          <p class="text-xl lg:text-2xl text-charcoal leading-relaxed first-letter:text-6xl first-letter:font-display first-letter:font-semibold first-letter:text-terracotta first-letter:float-left first-letter:mr-4 first-letter:mt-2">
+            Am 12. September 2025 durften wir eine besondere Gruppe junger
+            Menschen bei uns begrüßen: Studierende aus Nigeria, die im Rahmen
+            einer Bildungsexkursion Deutschland besuchten. Ein inspirierender
+            Tag voller Austausch und Ermutigung.
+          </p>
+        </div>
+
+        <!-- Article body -->
+        <div class="article-body opacity-0 prose prose-lg max-w-none">
+          <p>
+            Die jungen Studierenden kamen nach Berlin als Teil einer
+            Exkursion, um Einblicke in das Leben, Arbeiten und Studieren
+            in Deutschland zu gewinnen. GeTu Prospects war eine ihrer
+            Stationen - und wir nutzten die Gelegenheit, um mit ihnen
+            über ihre Zukunft zu sprechen.
+          </p>
+
+          <h2>Vorbereitung auf die globale Bühne</h2>
+
+          <p>
+            Im Mittelpunkt unseres Austauschs stand die Frage: Wie können
+            sich junge Menschen aus Nigeria optimal positionieren, um auf
+            der globalen Bühne erfolgreich zu sein? Wir teilten unsere
+            Erfahrungen und ermutigten die Studierenden, ihre Stärken
+            zu erkennen und selbstbewusst zu nutzen.
+          </p>
+
+          <p>
+            Die Diskussion umfasste Themen wie internationale Karrierewege,
+            interkulturelle Kompetenzen und die Bedeutung von Netzwerken.
+            Viele der Studierenden zeigten großes Interesse an den
+            Möglichkeiten, die Deutschland bietet.
+          </p>
+
+          <h2>Ermutigung und Inspiration</h2>
+
+          <p>
+            Wir betonten, wie wichtig es ist, sich nicht von Herausforderungen
+            entmutigen zu lassen. Die globale Arbeitswelt bietet enorme
+            Chancen für motivierte junge Menschen - unabhängig davon,
+            wo sie herkommen.
+          </p>
+
+          <p>
+            Die Studierenden brachten frische Perspektiven und viel
+            Enthusiasmus mit. Der Austausch war für beide Seiten
+            bereichernd und zeigte einmal mehr, wie wertvoll
+            internationale Begegnungen sind.
+          </p>
+
+          <h2>Brücken bauen</h2>
+
+          <p>
+            Als Organisation, die sich für Integration und Empowerment
+            einsetzt, war dieser Besuch eine willkommene Gelegenheit,
+            unsere Mission auch international zu leben. Wir hoffen,
+            dass die Studierenden mit neuen Ideen und gestärktem
+            Selbstvertrauen nach Nigeria zurückkehren.
+          </p>
+
+          <p>
+            Wir danken der Gruppe für ihren Besuch und wünschen allen
+            Studierenden viel Erfolg auf ihrem weiteren Weg. Die Türen
+            von GeTu Prospects stehen für zukünftige Austausche
+            jederzeit offen.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Photo Gallery -->
+      <section class="gallery-section mt-20 opacity-0">
+        <div class="max-w-3xl mx-auto mb-12">
+          <span class="label-editorial text-terracotta tracking-[0.3em]">Impressionen</span>
+          <h2 class="mt-4 text-3xl font-display font-semibold text-charcoal">
+            Bilder vom Besuch
+          </h2>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+          {galleryImages.map((image, index) => (
+            <div
+              class="gallery-item relative aspect-square overflow-hidden group cursor-pointer"
+              style={`--gallery-delay: ${index * 50}ms`}
+              data-gallery-index={index}
+            >
+              <img
+                src={image.src.src}
+                alt={image.alt}
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/30 transition-colors duration-300"></div>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                </svg>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Article Footer -->
+      <div class="max-w-3xl mx-auto mt-16 pt-8 border-t border-charcoal/10">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-4 text-sm text-charcoal-light">
+            <span>{articleMeta.date}</span>
+            <span>·</span>
+            <span>{articleMeta.location}</span>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <a
+              href="/aktuelles"
+              class="inline-flex items-center gap-2 text-charcoal-light font-medium hover:text-terracotta"
+            >
+              Alle Artikel
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 z-50 bg-charcoal/95 hidden items-center justify-center">
+    <button id="lightbox-close" class="absolute top-6 right-6 text-white/60 hover:text-white transition-colors">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+
+    <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors p-2">
+      <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+      </svg>
+    </button>
+
+    <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors p-2">
+      <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </button>
+
+    <img id="lightbox-image" src="" alt="" class="max-w-[90vw] max-h-[85vh] object-contain" />
+
+    <div id="lightbox-counter" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 text-sm"></div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Hero animations */
+  .article-hero .hero-meta {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  }
+
+  .article-hero .hero-title {
+    animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  }
+
+  .article-hero .hero-line {
+    animation: lineExpand 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+  }
+
+  @keyframes revealUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes lineExpand {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  /* Section animations */
+  .article-intro.animate,
+  .article-body.animate,
+  .gallery-section.animate {
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Gallery items stagger */
+  .gallery-section.animate .gallery-item {
+    animation: revealUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--gallery-delay, 0ms);
+    opacity: 0;
+  }
+
+  /* Prose styling */
+  .prose h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--color-charcoal);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose p {
+    color: var(--color-charcoal-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Lightbox */
+  #lightbox.active {
+    display: flex;
+  }
+</style>
+
+<script>
+  function initArticlePage() {
+    // Scroll-triggered sections
+    const sections = document.querySelectorAll('.article-intro, .article-body, .gallery-section');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image') as HTMLImageElement;
+    const lightboxCounter = document.getElementById('lightbox-counter');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    if (!lightbox || !lightboxImage || !lightboxCounter) return;
+
+    const images: string[] = [];
+    galleryItems.forEach((item) => {
+      const img = item.querySelector('img');
+
+      if (img) images.push(img.src);
+    });
+
+    let currentIndex = 0;
+
+    function showImage(index: number) {
+      currentIndex = (index + images.length) % images.length;
+      lightboxImage.src = images[currentIndex];
+      lightboxCounter!.textContent = `${currentIndex + 1} / ${images.length}`;
+    }
+
+    function openLightbox(index: number) {
+      showImage(index);
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', () => openLightbox(index));
+    });
+
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightboxPrev?.addEventListener('click', () => showImage(currentIndex - 1));
+    lightboxNext?.addEventListener('click', () => showImage(currentIndex + 1));
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+      if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+    });
+  }
+
+  initArticlePage();
+  document.addEventListener('astro:page-load', initArticlePage);
+</script>
