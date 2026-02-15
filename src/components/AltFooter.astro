@@ -1,3 +1,7 @@
+---
+import spLogo from '../assets/images/partners/sp-logo-primary.svg';
+---
+
 <footer class="bg-[var(--color-primary)] py-20 lg:py-24">
   <div class="container mx-auto px-6">
     <!-- Top Section with Logo and CTA -->
@@ -60,7 +64,7 @@
         Unsere Partner
       </h3>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10">
         <!-- Via Movement Partner -->
         <div class="flex items-center">
           <div
@@ -119,6 +123,31 @@
               class="text-[var(--tp-grey-2)] hover:text-white transition-colors text-lg"
             >
               gfberlin.de
+            </a>
+          </div>
+        </div>
+        <!-- Samaritan's Purse Partner -->
+        <div class="flex items-center">
+          <div
+            class="bg-white p-4 rounded mr-6 w-24 h-24 flex items-center justify-center"
+          >
+            <img
+              src={spLogo.src}
+              alt="Samaritan's Purse"
+              class="w-full h-full object-contain"
+            />
+          </div>
+          <div>
+            <p class="text-white text-xl font-medium mb-1">
+              Samaritan's Purse
+            </p>
+            <a
+              href="https://www.die-samariter.org"
+              target="_blank"
+              rel="noopener"
+              class="text-[var(--tp-grey-2)] hover:text-white transition-colors text-lg"
+            >
+              die-samariter.org
             </a>
           </div>
         </div>
