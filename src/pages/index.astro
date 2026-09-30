@@ -19,15 +19,16 @@ const [latestNewsItem] = (await getCollection('aktuelles')).sort(
 
   {
     latestNewsItem && (
-      <section class="bg-tp-grey-1 py-20">
+      <section class="pt-20">
         <div class="container mx-auto px-8">
-          <div class="max-w-3xl mx-auto border-l-4 border-secondary pl-8">
+          <div class="max-w-3xl mx-auto bg-[var(--tp-grey-1)] p-8 sm:p-12">
             <h6 class="text-secondary uppercase tracking-widest text-sm font-semibold mb-4">
               AKTUELLES
             </h6>
-            <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-primary">
               {latestNewsItem.data.title}
             </h2>
+            <div class="h-1 w-16 bg-secondary my-6" />
             <p class="text-body font-light leading-relaxed mb-6">
               {latestNewsItem.data.summary}
             </p>
