@@ -1,0 +1,141 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const newsItems = await getCollection('aktuelles');
+  return newsItems.map((newsItem) => ({
+    params: { id: newsItem.id },
+    props: { newsItem },
+  }));
+}
+
+const { newsItem } = Astro.props;
+const { Content } = await render(newsItem);
+const { title, summary, date, donationReference } = newsItem.data;
+---
+
+<BaseLayout title={`${title} - GeTu Prospects e.V.`}>
+  <section class="bg-primary text-white">
+    <div class="container mx-auto px-8">
+      <div class="pt-40 pb-6 text-center">
+        <time
+          datetime={date.toISOString()}
+          class="text-secondary uppercase tracking-wider text-sm font-medium"
+        >
+          AKTUELLES ·{' '}
+          {
+            date.toLocaleDateString('de-DE', {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric',
+            })
+          }
+        </time>
+      </div>
+
+      <div class="text-center max-w-4xl mx-auto">
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+        >
+          {title}
+        </h1>
+        <div class="flex justify-center">
+          <div class="h-1 w-16 bg-secondary mb-12"></div>
+        </div>
+      </div>
+
+      <div class="max-w-3xl mx-auto text-center pb-32">
+        <p class="text-lg md:text-xl font-light leading-relaxed text-gray-100">
+          {summary}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-32 bg-white">
+    <div class="container mx-auto px-8">
+      <div class="max-w-3xl mx-auto">
+        <div class="news-content text-body text-lg font-light leading-relaxed">
+          <Content />
+        </div>
+
+        {
+          donationReference && (
+            <aside class="bg-primary text-white p-6 sm:p-12 mt-16">
+              <span class="text-secondary uppercase tracking-wider text-sm font-medium">
+                Spenden
+              </span>
+              <h2 class="text-3xl font-bold mt-3">So können Sie helfen</h2>
+              <div class="h-1 w-16 bg-secondary my-6" />
+              <p class="text-gray-100 font-light leading-relaxed">
+                Überweisen Sie Ihre Spende bitte mit dem angegebenen
+                Verwendungszweck. So kommt sie genau diesem Anliegen zugute.
+              </p>
+              <dl class="grid sm:grid-cols-2 gap-4 mt-8">
+                <div class="bg-white/5 p-4 sm:p-5">
+                  <dt class="text-secondary uppercase tracking-wider text-xs font-medium mb-1">
+                    Empfänger
+                  </dt>
+                  <dd class="text-lg">GeTu Prospects e.V.</dd>
+                </div>
+                <div class="bg-white/5 p-4 sm:p-5">
+                  <dt class="text-secondary uppercase tracking-wider text-xs font-medium mb-1">
+                    Bank
+                  </dt>
+                  <dd class="text-lg">Postbank</dd>
+                </div>
+                <div class="bg-white/5 p-4 sm:p-5">
+                  <dt class="text-secondary uppercase tracking-wider text-xs font-medium mb-1">
+                    IBAN
+                  </dt>
+                  <dd class="text-lg whitespace-nowrap">
+                    DE94 1001 0010 0064 0711 43
+                  </dd>
+                </div>
+                <div class="bg-white/5 p-4 sm:p-5">
+                  <dt class="text-secondary uppercase tracking-wider text-xs font-medium mb-1">
+                    Verwendungszweck
+                  </dt>
+                  <dd class="text-lg">{donationReference}</dd>
+                </div>
+              </dl>
+              <p class="text-gray-300 font-light leading-relaxed mt-8">
+                Auf Wunsch stellen wir Ihnen eine Zuwendungsbestätigung aus.
+                Schreiben Sie uns dazu eine E-Mail:{' '}
+                <a
+                  href="mailto:info@getu-prospects.de"
+                  class="text-secondary hover:underline"
+                >
+                  info@getu-prospects.de
+                </a>
+              </p>
+            </aside>
+          )
+        }
+
+        <a
+          href="/aktuelles"
+          class="inline-flex items-center text-secondary font-medium mt-16"
+        >
+          ← Alle Neuigkeiten
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .news-content :global(p) {
+    margin-bottom: 1.5rem;
+  }
+
+  .news-content :global(h2) {
+    color: var(--color-primary);
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+</style>

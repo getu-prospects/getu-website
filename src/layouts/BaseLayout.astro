@@ -124,6 +124,14 @@ const currentPath = Astro.url.pathname;
                 }`}>Projekte</a
               >
               <a
+                href="/aktuelles"
+                class={`font-medium py-2 transition-colors duration-300 ${
+                  currentPath.startsWith('/aktuelles')
+                    ? 'text-secondary'
+                    : 'text-white hover:text-secondary'
+                }`}>Aktuelles</a
+              >
+              <a
                 href="/kontakt"
                 class={`font-medium py-2 transition-colors duration-300 ${
                   currentPath === '/kontakt'
@@ -199,6 +207,16 @@ const currentPath = Astro.url.pathname;
                     ? 'text-secondary'
                     : 'text-white hover:text-secondary'
                 }`}>Projekte</a
+              >
+            </li>
+            <li>
+              <a
+                href="/aktuelles"
+                class={`text-2xl font-medium block py-2 transition-colors duration-300 ${
+                  currentPath.startsWith('/aktuelles')
+                    ? 'text-secondary'
+                    : 'text-white hover:text-secondary'
+                }`}>Aktuelles</a
               >
             </li>
             <li>
