@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Manrope', ...defaultTheme.fontFamily.sans],
+        sans: ['Manrope Variable', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: 'var(--color-primary)',
