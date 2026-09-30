@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an Astro-based static website for GeTu Prospects e.V., a German non-profit organization. The site is bilingual (German/English) and deployed on Netlify.
+This is an Astro-based static website for GeTu Prospects e.V., a German non-profit organization. The site is bilingual (German/English) and deployed on Cloudflare Workers (static assets).
 
 ## Development Commands
 
@@ -69,4 +69,4 @@ The project uses Astro's component-based architecture with the following key pat
 
 ## Deployment
 
-The site auto-deploys to Netlify on pushes to the main branch. Check the deployment status badge in README.md before making significant changes.
+Cloudflare Workers Builds deploys the Worker `getu-website` (`wrangler.jsonc`) on pushes to `main`. Other branches get a preview version. Response headers (CSP and other security headers) are in `public/_headers`; add any new external origin to the CSP there.
