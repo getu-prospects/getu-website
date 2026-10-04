@@ -6,9 +6,15 @@ import AltFooter from '../components/AltFooter.astro';
 
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = 'GeTu Prospects e.V. - Interkultureller Verein in Berlin, der sich für gemeinsame Zukunft und Unterstützung Jugendlicher einsetzt.',
+} = Astro.props;
+const pageTitle = `${title} | GeTu Prospects e.V.`;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
 // Get current path to determine active page
 const currentPath = Astro.url.pathname;
@@ -18,10 +24,7 @@ const currentPath = Astro.url.pathname;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="GeTu Prospects e.V. - Interkultureller Verein in Berlin, der sich für gemeinsame Zukunft und Unterstützung Jugendlicher einsetzt."
-    />
+    <meta name="description" content={description} />
     <meta
       name="keywords"
       content="GeTu Prospects, Berlin, Interkulturell, Verein, Jugendförderung, Gemeinnützig, Youth with Perspective"
@@ -31,22 +34,14 @@ const currentPath = Astro.url.pathname;
     <meta name="robots" content="index, follow" />
     <meta name="geo.region" content="DE-BE" />
     <meta name="geo.placename" content="Berlin" />
-    <title>{title} | GeTu Prospects e.V.</title>
+    <title>{pageTitle}</title>
     <link rel="icon" type="images/png" href="/getu.png" />
-    <link rel="canonical" href="https://getu-prospects.de" />
+    <link rel="canonical" href={canonicalUrl} />
 
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://getu-prospects.de" />
-    <meta
-      property="og:title"
-      content={title
-        ? `${title} | GeTu Prospects e.V.`
-        : 'GeTu Prospects e.V. - Interkultureller Verein in Berlin'}
-    />
-    <meta
-      property="og:description"
-      content="GeTu Prospects e.V. - Interkultureller Verein in Berlin, der sich für gemeinsame Zukunft und Unterstützung Jugendlicher einsetzt."
-    />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
     <meta property="og:image" content="https://getu-prospects.de/getu.png" />
     <meta property="og:locale" content="de_DE" />
     <meta property="og:site_name" content="GeTu Prospects e.V." />
