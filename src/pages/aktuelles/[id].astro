@@ -67,6 +67,18 @@ const giroCodeSvg = donationReference
               <div class="h-1 w-16 bg-secondary mt-6 lg:my-8" />
             </div>
 
+            <div class="lg:col-start-1 lg:row-start-2 lg:self-start">
+              <p class="text-lg md:text-xl font-light leading-relaxed text-gray-100">
+                {summary}
+              </p>
+              <a
+                href="#geschichte"
+                class="hidden lg:inline-flex items-center text-secondary font-medium mt-8"
+              >
+                Die ganze Geschichte lesen ↓
+              </a>
+            </div>
+
             <aside
               id="spenden"
               class="bg-white text-body p-6 sm:p-8 scroll-mt-32 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center"
@@ -78,20 +90,11 @@ const giroCodeSvg = donationReference
                 Am besten monatlich per Dauerauftrag.
               </p>
               <dl class="space-y-3 mt-6">
-                <div class="relative bg-secondary text-white p-4">
+                <div class="bg-secondary text-white p-4">
                   <dt class="uppercase tracking-wider text-xs font-medium mb-1">
                     Verwendungszweck
                   </dt>
                   <dd class="text-xl font-bold">{donationReference}</dd>
-                  <button
-                    type="button"
-                    data-copy={donationReference}
-                    data-copy-name="Verwendungszweck"
-                    aria-label="Verwendungszweck kopieren"
-                    class="absolute top-3 right-3 text-xs font-medium uppercase tracking-wider bg-white/20 hover:bg-white/30 px-2 py-1"
-                  >
-                    Kopieren
-                  </button>
                 </div>
                 <div class="relative bg-[var(--tp-grey-1)] p-4">
                   <dt class="text-secondary uppercase tracking-wider text-xs font-medium mb-1">
@@ -130,18 +133,6 @@ const giroCodeSvg = donationReference
                 Mehr zum Spenden ↓
               </a>
             </aside>
-
-            <div class="lg:col-start-1 lg:row-start-2 lg:self-start">
-              <p class="text-lg md:text-xl font-light leading-relaxed text-gray-100">
-                {summary}
-              </p>
-              <a
-                href="#geschichte"
-                class="hidden lg:inline-flex items-center text-secondary font-medium mt-8"
-              >
-                Die ganze Geschichte lesen ↓
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -192,10 +183,36 @@ const giroCodeSvg = donationReference
               </h2>
               <p class="text-body font-light leading-relaxed mt-3">
                 Am meisten hilft ein monatlicher Dauerauftrag, schon ab 10 €.
-                Bitte überweisen Sie immer mit dem Verwendungszweck{' '}
-                {`„${donationReference}“`}, damit Ihre Spende genau hier
-                ankommt.
+                Bitte immer mit dem Verwendungszweck überweisen, damit Ihre
+                Spende genau hier ankommt.
               </p>
+              <dl class="mt-6 border-y border-gray-300 divide-y divide-gray-300">
+                <div class="grid sm:grid-cols-[10rem,1fr] sm:items-baseline gap-x-6 gap-y-1 py-3">
+                  <dt class="text-sm text-body">Verwendungszweck</dt>
+                  <dd class="text-secondary text-lg font-bold">
+                    {donationReference}
+                  </dd>
+                </div>
+                <div class="grid sm:grid-cols-[10rem,1fr] sm:items-baseline gap-x-6 gap-y-1 py-3">
+                  <dt class="text-sm text-body">IBAN</dt>
+                  <dd class="flex flex-wrap items-center gap-x-4 text-primary text-lg font-medium">
+                    <span class="whitespace-nowrap">{formattedIban}</span>
+                    <button
+                      type="button"
+                      data-copy={donationIban}
+                      data-copy-name="IBAN"
+                      aria-label="IBAN kopieren"
+                      class="text-xs font-medium uppercase tracking-wider text-secondary hover:underline"
+                    >
+                      Kopieren
+                    </button>
+                  </dd>
+                </div>
+                <div class="grid sm:grid-cols-[10rem,1fr] sm:items-baseline gap-x-6 gap-y-1 py-3">
+                  <dt class="text-sm text-body">Empfänger</dt>
+                  <dd class="text-primary">{donationRecipient}, Postbank</dd>
+                </div>
+              </dl>
               <div class="hidden lg:flex items-center gap-5 mt-6">
                 <div
                   role="img"
@@ -219,12 +236,6 @@ const giroCodeSvg = donationReference
                   info@getu-prospects.de
                 </a>
               </p>
-              <a
-                href="#spenden"
-                class="inline-block bg-secondary text-white py-4 px-10 font-medium mt-8 transition-all hover:bg-opacity-90"
-              >
-                Zu den Spendendaten ↑
-              </a>
             </div>
           )
         }
