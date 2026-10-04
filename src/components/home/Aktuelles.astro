@@ -125,8 +125,9 @@ const newsItems = (await getCollection('aktuelles'))
       <!-- Other items - stacked list -->
       <div class="lg:col-span-5">
         <div class="divide-y divide-primary/10">
-          {newsItems.map((item, index) => <button
-            type="button"
+          {newsItems.map((item, index) => <a
+            href={item.href}
+            aria-current={index === 0 ? 'true' : undefined}
             class:list={[
               'news-item group block w-full text-left py-6 first:pt-0 transition-all cursor-pointer',
               index === 0 && 'active',
@@ -155,7 +156,7 @@ const newsItems = (await getCollection('aktuelles'))
                 class="news-indicator w-2 h-2 border border-primary/20 flex-shrink-0 mt-2 transition-all"
               />
             </div>
-          </button>)}
+          </a>)}
         </div>
 
         <!-- Social media box -->
@@ -224,6 +225,12 @@ const newsItems = (await getCollection('aktuelles'))
     animation: featured-fade-in 0.4s ease-out;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .featured-item.active {
+      animation: none;
+    }
+  }
+
   @keyframes featured-fade-in {
     from {
       opacity: 0;
@@ -264,10 +271,19 @@ const newsItems = (await getCollection('aktuelles'))
     '[data-aktuelles] .featured-item',
   );
 
+  // Below lg the featured block sits above the list, so a swap would happen
+  // off-screen; there the entries simply link to the article.
+  const swapsFeatured = window.matchMedia('(min-width: 1024px)');
+
   listItems.forEach((listItem, selectedIndex) => {
-    listItem.addEventListener('click', () => {
+    listItem.addEventListener('click', (event) => {
+      if (!swapsFeatured.matches) return;
+      event.preventDefault();
       listItems.forEach((item, index) => {
-        item.classList.toggle('active', index === selectedIndex);
+        const isSelected = index === selectedIndex;
+        item.classList.toggle('active', isSelected);
+        if (isSelected) item.setAttribute('aria-current', 'true');
+        else item.removeAttribute('aria-current');
       });
       featuredItems.forEach((item, index) => {
         item.classList.toggle('active', index === selectedIndex);

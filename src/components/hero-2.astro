@@ -103,7 +103,7 @@ const slides = [
     {slides.map((slide, slideIndex) => (
       <Image
         src={slide.image}
-        alt={slide.alt}
+        alt={slideIndex === 0 ? slide.alt : ''}
         layout="constrained"
         width={1200}
         fit="cover"
@@ -149,8 +149,10 @@ const slides = [
 </section>
 
 <style>
-  /* Six slides, 6 s each. A slide fades in over the one before it, so the
-     fade-out runs under the next slide and the background never shows. */
+  /* Six slides, 6 s each. A slide stays opaque until the next one has faded
+     in over it, so the background never shows. The last slide is below the
+     first in the stack and fades out instead, which dims the picture once per
+     cycle. */
   .hero-slideshow :global(img) {
     opacity: 0;
     animation: hero-kenburns 36s infinite;
@@ -170,9 +172,32 @@ const slides = [
   }
   .hero-slideshow :global(img:nth-of-type(6)) {
     animation-delay: 30s;
+    animation-name: hero-kenburns-last;
   }
 
   @keyframes hero-kenburns {
+    0% {
+      opacity: 0;
+      transform: scale(1);
+    }
+    4% {
+      opacity: 1;
+    }
+    20.667% {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+    20.668% {
+      opacity: 0;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes hero-kenburns-last {
     0% {
       opacity: 0;
       transform: scale(1);
@@ -193,27 +218,12 @@ const slides = [
     }
   }
 
-  @keyframes hero-crossfade {
-    0% {
-      opacity: 0;
-    }
-    4% {
-      opacity: 1;
-    }
-    16.667% {
-      opacity: 1;
-    }
-    20.667% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .hero-slideshow :global(img) {
-      animation-name: hero-crossfade;
+      animation: none;
+    }
+    .hero-slideshow :global(img:first-of-type) {
+      opacity: 1;
     }
   }
 </style>

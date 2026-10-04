@@ -204,6 +204,15 @@ a.arrow-link svg {
   @apply bg-white text-primary hover:bg-white/90;
 }
 
+/* Entrance animations complete at once for people who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-down {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+  }
+}
+
 /* Disable rounded corners globally */
 * {
   border-radius: 0 !important;
