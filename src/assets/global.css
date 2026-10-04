@@ -175,10 +175,8 @@ a.arrow-link svg {
 
 /* Hero section */
 .hero-section {
-  background-image: linear-gradient(
-      rgba(30, 55, 55, 0.85),
-      rgba(30, 55, 55, 0.85)
-    ),
+  background-image:
+    linear-gradient(rgba(30, 55, 55, 0.85), rgba(30, 55, 55, 0.85)),
     url('/hero.jpg');
   background-size: cover;
   background-position: center;

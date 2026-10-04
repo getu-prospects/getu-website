@@ -30,7 +30,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- Main text with improved width constraints and spacing -->
       <div class="max-w-3xl mx-auto text-center pb-16 sm:pb-24 md:pb-32">
         <p class="text-lg md:text-xl font-light leading-relaxed text-gray-100">
-          Die von Ihnen gesuchte Seite existiert leider nicht oder wurde verschoben.
+          Die von Ihnen gesuchte Seite existiert leider nicht oder wurde
+          verschoben.
         </p>
       </div>
     </div>
@@ -43,66 +44,75 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <!-- Creative 404 icon with layered design -->
         <div class="flex justify-center mb-8 sm:mb-10 relative">
           <!-- Outer decorative element -->
-          <div class="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-16 h-16 sm:w-20 md:w-24 sm:h-20 md:h-24 sm:border-t-4 sm:border-l-4 border-secondary"></div>
-          
+          <div
+            class="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-16 h-16 sm:w-20 md:w-24 sm:h-20 md:h-24 sm:border-t-4 sm:border-l-4 border-secondary"
+          ></div>
+
           <!-- Main icon container with gradient background -->
           <div class="bg-primary p-5 sm:p-6 md:p-8 rounded-lg relative z-10">
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              class="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 text-white" 
-              fill="none" 
-              viewBox="0 0 24 24" 
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path 
-                stroke-linecap="round" 
-                stroke-linejoin="round" 
-                stroke-width="2" 
-                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" 
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
               />
             </svg>
           </div>
-          
+
           <!-- Bottom right decorative element -->
-          <div class="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-16 h-16 sm:w-20 md:w-24 sm:h-20 md:h-24 sm:border-b-4 sm:border-r-4 border-secondary"></div>
+          <div
+            class="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-16 h-16 sm:w-20 md:w-24 sm:h-20 md:h-24 sm:border-b-4 sm:border-r-4 border-secondary"
+          ></div>
         </div>
-        
+
         <!-- 404 message content -->
         <div class="bg-tp-grey-1 p-6 sm:p-8 md:p-12 rounded-lg">
           <h2 class="text-primary text-3xl font-bold mb-6">
             Diese Seite wurde nicht gefunden
           </h2>
-          
+
           <!-- Divider matching the header section -->
           <div class="flex justify-center mb-8">
             <div class="h-1 w-16 bg-secondary"></div>
           </div>
-          
+
           <p class="text-body text-lg mb-4">
-            Die von Ihnen angeforderte Seite existiert nicht oder wurde verschoben.
+            Die von Ihnen angeforderte Seite existiert nicht oder wurde
+            verschoben.
           </p>
-          
+
           <p class="text-body text-lg mb-10">
-            Sie werden in <span id="countdown" class="text-secondary font-bold text-xl">10</span> Sekunden zur Startseite weitergeleitet.
+            Sie werden in
+            <span id="countdown" class="text-secondary font-bold text-xl"
+              >10</span
+            >
+            Sekunden zur Startseite weitergeleitet.
           </p>
-          
+
           <!-- Navigation button -->
           <div class="mt-8 sm:mt-10 md:mt-12 flex justify-center">
-            <a 
-              href="/kontakt" 
+            <a
+              href="/kontakt"
               class="btn btn-secondary hover-lift text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 flex items-center justify-center"
             >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                class="h-5 w-5 mr-2" 
-                fill="none" 
-                viewBox="0 0 24 24" 
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path 
-                  stroke-linecap="round" 
-                  stroke-linejoin="round" 
-                  stroke-width="2" 
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
@@ -119,19 +129,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     document.addEventListener('DOMContentLoaded', () => {
       const countdownElement = document.getElementById('countdown');
       let secondsLeft = 10;
-      
+
       const countdownInterval = setInterval(() => {
         secondsLeft -= 1;
-        
+
         if (countdownElement) {
           countdownElement.textContent = secondsLeft.toString();
         }
-        
+
         if (secondsLeft <= 0) {
           clearInterval(countdownInterval);
           window.location.href = '/';
         }
       }, 1000);
     });
-  </script>
-</BaseLayout>
+  </script></BaseLayout>

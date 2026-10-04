@@ -17,54 +17,50 @@ const [latestNewsItem] = (await getCollection('aktuelles')).sort(
   <!-- Hero Section with improved layout and spacing -->
   <Hero2 />
 
-  {
-    latestNewsItem && (
-      <section class="pt-20">
-        <div class="container mx-auto px-8">
-          <div class="max-w-3xl mx-auto bg-(--tp-grey-1) p-8 sm:p-12">
-            <h6 class="text-secondary uppercase tracking-widest text-sm font-semibold mb-4">
-              AKTUELLES
-            </h6>
-            <h2 class="text-2xl md:text-3xl font-bold text-primary">
-              {latestNewsItem.data.title}
-            </h2>
-            <div class="h-1 w-16 bg-secondary my-6" />
-            <p class="text-body font-light leading-relaxed mb-6">
-              {latestNewsItem.data.summary}
-            </p>
-            <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
-              {latestNewsItem.data.donationReference && (
-                <a
-                  href={`/aktuelles/${latestNewsItem.id}#spenden`}
-                  class="inline-block bg-secondary text-white py-3 px-8 font-medium transition-all"
-                >
-                  Jetzt spenden
-                </a>
-              )}
-              <a
-                href={`/aktuelles/${latestNewsItem.id}`}
-                class="group inline-flex items-center text-secondary font-medium"
-              >
-                Weiterlesen
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
+  {latestNewsItem && <section class="pt-20">
+    <div class="container mx-auto px-8">
+      <div class="max-w-3xl mx-auto bg-(--tp-grey-1) p-8 sm:p-12">
+        <h6
+          class="text-secondary uppercase tracking-widest text-sm font-semibold mb-4"
+        >
+          AKTUELLES
+        </h6>
+        <h2 class="text-2xl md:text-3xl font-bold text-primary">
+          {latestNewsItem.data.title}
+        </h2>
+        <div class="h-1 w-16 bg-secondary my-6" />
+        <p class="text-body font-light leading-relaxed mb-6">
+          {latestNewsItem.data.summary}
+        </p>
+        <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
+          {latestNewsItem.data.donationReference && <a
+            href={`/aktuelles/${latestNewsItem.id}#spenden`}
+            class="inline-block bg-secondary text-white py-3 px-8 font-medium transition-all"
+          >
+            Jetzt spenden
+          </a>}
+          <a
+            href={`/aktuelles/${latestNewsItem.id}`}
+            class="group inline-flex items-center text-secondary font-medium"
+          >
+            Weiterlesen
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
         </div>
-      </section>
-    )
-  }
+      </div>
+    </div>
+  </section>}
 
   <!-- Upcoming Events Section - Live Countdown Component -->
   <!-- <UpcomingEvents /> -->
@@ -82,8 +78,7 @@ const [latestNewsItem] = (await getCollection('aktuelles')).sort(
             />
             <div
               class="absolute -bottom-8 -left-8 w-16 h-16 bg-secondary hidden md:block"
-            >
-            </div>
+            ></div>
           </div>
         </div>
         <div class="md:col-span-3 order-1 md:order-2">
@@ -134,7 +129,8 @@ const [latestNewsItem] = (await getCollection('aktuelles')).sort(
                 <path
                   fill-rule="evenodd"
                   d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"></path>
+                  clip-rule="evenodd"
+                ></path>
               </svg>
             </a>
           </div>
@@ -192,7 +188,8 @@ const [latestNewsItem] = (await getCollection('aktuelles')).sort(
                 <path
                   fill-rule="evenodd"
                   d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"></path>
+                  clip-rule="evenodd"
+                ></path>
               </svg>
             </a>
           </div>
@@ -232,7 +229,8 @@ const [latestNewsItem] = (await getCollection('aktuelles')).sort(
                 <path
                   fill-rule="evenodd"
                   d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"></path>
+                  clip-rule="evenodd"
+                ></path>
               </svg>
             </a>
           </div>
@@ -272,7 +270,8 @@ const [latestNewsItem] = (await getCollection('aktuelles')).sort(
                 <path
                   fill-rule="evenodd"
                   d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"></path>
+                  clip-rule="evenodd"
+                ></path>
               </svg>
             </a>
           </div>
@@ -316,8 +315,7 @@ const [latestNewsItem] = (await getCollection('aktuelles')).sort(
           />
           <div
             class="absolute -bottom-8 -left-8 w-16 h-16 bg-secondary hidden md:block"
-          >
-          </div>
+          ></div>
         </div>
 
         <div class="space-y-6 font-light leading-relaxed text-body">
@@ -352,7 +350,8 @@ const [latestNewsItem] = (await getCollection('aktuelles')).sort(
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       stroke-width="2"
-                      d="M5 13l4 4L19 7"></path>
+                      d="M5 13l4 4L19 7"
+                    ></path>
                   </svg>
                 </span>
                 <span>Identitätsentwicklung und Selbstfindung</span>
@@ -370,7 +369,8 @@ const [latestNewsItem] = (await getCollection('aktuelles')).sort(
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       stroke-width="2"
-                      d="M5 13l4 4L19 7"></path>
+                      d="M5 13l4 4L19 7"
+                    ></path>
                   </svg>
                 </span>
                 <span>Orientierung in wichtigen Lebensfragen</span>
@@ -388,7 +388,8 @@ const [latestNewsItem] = (await getCollection('aktuelles')).sort(
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       stroke-width="2"
-                      d="M5 13l4 4L19 7"></path>
+                      d="M5 13l4 4L19 7"
+                    ></path>
                   </svg>
                 </span>
                 <span>Aufbau einer unterstützenden Gemeinschaft</span>
@@ -410,7 +411,8 @@ const [latestNewsItem] = (await getCollection('aktuelles')).sort(
               <path
                 fill-rule="evenodd"
                 d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                clip-rule="evenodd"></path>
+                clip-rule="evenodd"
+              ></path>
             </svg>
           </a>
         </div>
