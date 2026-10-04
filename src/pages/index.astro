@@ -78,7 +78,7 @@ const projects = [
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {latestNewsItems.map((newsItem, newsIndex) => <article
+        {latestNewsItems.map((newsItem) => <article
           class="bg-(--tp-grey-1) flex flex-col"
         >
           {newsItem.data.image ? (
@@ -106,17 +106,23 @@ const projects = [
                 day: 'numeric',
                 month: 'long',
                 year: 'numeric',
+                timeZone: 'UTC',
               })}
             </time>
             <h3 class="text-xl font-bold text-primary mt-3">
-              {newsItem.data.title}
+              <a
+                href={`/aktuelles/${newsItem.id}`}
+                class="hover:text-secondary"
+              >
+                {newsItem.data.title}
+              </a>
             </h3>
             <div class="h-1 w-16 bg-secondary my-6" />
             <p class="text-body font-light leading-relaxed mb-6">
               {newsItem.data.summary}
             </p>
             <div class="flex flex-wrap items-center gap-x-8 gap-y-4 mt-auto">
-              {newsIndex === 0 && newsItem.data.donationReference && <a
+              {newsItem.data.donationReference && <a
                 href={`/aktuelles/${newsItem.id}#spenden`}
                 class="inline-block bg-secondary text-white py-3 px-8 font-medium transition-all"
               >
@@ -418,7 +424,9 @@ const projects = [
               {project.tagline}
             </p>
             <h3 class="text-2xl font-bold text-primary mb-6">
-              {project.title}
+              <a href={`/projekte#${project.id}`} class="hover:text-secondary">
+                {project.title}
+              </a>
             </h3>
             <p class="text-body font-light mb-8 leading-relaxed">
               {project.description}
