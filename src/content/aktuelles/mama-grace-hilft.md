@@ -3,6 +3,7 @@ title: 'Mama Grace hilft: Hilfe, die zu den Menschen kommt'
 summary: 'Grace Lola Adenmosun besucht Menschen in Not in Berlin zu Hause. Eine private Spende macht es möglich, dass GeTu Prospects sie dafür anstellt. Jetzt suchen wir Menschen, die diesen Dienst mittragen.'
 date: 2026-09-30
 donationReference: 'Spende Mama Grace'
+image: '../../assets/images/ehrenamtstag/grace-am-stand.jpg'
 ---
 
 Seit Jahren ist Grace Lola Adenmosun für Menschen in Not in Berlin da. Sie hilft ganz praktisch, hört zu, tröstet und ermutigt, und wer möchte, betet mit ihr. So, wie es eine Mutter, Schwester oder Freundin tun würde. Vor allem aber kommt sie zu den Menschen: Sie besucht sie zu Hause.
