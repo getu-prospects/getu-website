@@ -23,4 +23,6 @@ Das Geld ist ausschließlich für einen Minijob bestimmt, über den GeTu Prospec
 
 Die Spende ist ausdrücklich als Anstoß gedacht. Sie endet im Dezember 2026 und soll andere ermutigen, sich ebenfalls zu beteiligen. Damit Grace ihre Arbeit ab Januar 2027 fortsetzen kann, brauchen wir Menschen, die diesen Dienst regelmäßig mittragen. Am meisten hilft ein Dauerauftrag: Schon 10 Euro im Monat machen einen Unterschied. Auch jede einmalige Spende hilft, und Sie helfen ebenso, wenn Sie diese Geschichte weitererzählen.
 
+Auf Wunsch stellen wir Ihnen eine Zuwendungsbestätigung aus. Schreiben Sie uns dazu an [info@getu-prospects.de](mailto:info@getu-prospects.de).
+
 Jeder Beitrag hilft, dass Menschen in Not in Berlin nicht allein bleiben.
