@@ -1,35 +1,46 @@
 ---
 import { Image } from 'astro:assets';
-import MainHeroImage from '../assets/images/ehrenamtstag/IMG_8725.jpg';
+import VolunteerFairPhoto from '../assets/images/ehrenamtstag/IMG_8725.jpg';
+import YouthPhoto from '../assets/images/youth/IMG_7606.jpg';
+import MentoringPhoto from '../assets/images/mentorship-auftakt/IMG_8711.jpg';
+import StammtischPhoto from '../assets/images/stammtisch-auftakt/IMG_7935.jpg';
+import ChristmasPhoto from '../assets/images/christmas/getu-ausgabe-4.jpeg';
+import StreetFestivalPhoto from '../assets/images/waidmannslust/IMG_7998.jpg';
+
+const slides = [
+  {
+    image: VolunteerFairPhoto,
+    alt: 'Zwei Mitglieder von GeTu Prospects am Stand des Vereins auf der Reinickendorfer Freiwilligenbörse',
+  },
+  {
+    image: YouthPhoto,
+    alt: 'Junge Menschen sitzen mit aufgeschlagenen Büchern an einem Tisch und lachen',
+  },
+  {
+    image: MentoringPhoto,
+    alt: 'Teilnehmende des Mentoring-Auftakts verfolgen eine Präsentation',
+  },
+  {
+    image: StammtischPhoto,
+    alt: 'Menschen sitzen beim Stammtisch an einer langen, mit Blumen geschmückten Tafel',
+  },
+  {
+    image: ChristmasPhoto,
+    alt: 'Ehrenamtliche verteilen bei der Weihnachtsaktion am Kottbusser Tor Essen',
+  },
+  {
+    image: StreetFestivalPhoto,
+    alt: 'Stand von GeTu Prospects mit Banner und gedecktem Tisch auf einem Fest in Waidmannslust',
+  },
+];
 ---
 
-<section class="relative min-h-screen flex items-center">
-  <!-- Mobile-only solid background (deep green) -->
-  <div class="absolute inset-0 z-0 bg-deepgreen md:hidden"></div>
-
-  <!-- Desktop-only background image (hidden on mobile) -->
-  <div class="absolute inset-0 z-0 hidden md:block">
-    <Image
-      src={MainHeroImage}
-      alt="Zwei Mitglieder von GeTu Prospects am Stand des Vereins auf der Reinickendorfer Freiwilligenbörse"
-      layout="constrained"
-      width={1920}
-      sizes="(min-width: 768px) 100vw, 1px"
-      priority
-      class="w-full h-full object-cover"
-    />
-    <!-- Subtle darkening overlay -->
-    <div class="absolute inset-0 bg-black/30"></div>
-  </div>
-
-  <!-- Content container -->
+<section class="relative flex flex-col md:grid md:grid-cols-12 md:min-h-[85vh]">
+  <!-- Text column -->
   <div
-    class="container mx-auto px-4 sm:px-6 md:px-8 py-16 sm:py-20 relative z-20 w-full"
+    class="order-2 md:order-1 md:col-span-6 lg:col-span-5 bg-white flex items-center px-4 sm:px-6 md:px-0 py-8 sm:py-10 md:py-16"
   >
-    <!-- Text box that spans full width on mobile, partial on desktop -->
-    <div
-      class="bg-white w-full md:w-7/12 lg:w-5/12 p-8 sm:p-10 md:p-16 lg:p-16 animate-fade-down"
-    >
+    <div class="w-full p-8 sm:p-10 lg:p-12 xl:p-16 animate-fade-down">
       <div class="space-y-6 sm:space-y-8">
         <!-- Organization name -->
         <h6
@@ -41,7 +52,7 @@ import MainHeroImage from '../assets/images/ehrenamtstag/IMG_8725.jpg';
         <!-- Main headings -->
         <div>
           <h1
-            class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-primary"
+            class="text-4xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-primary"
           >
             Vielfalt leben
           </h1>
@@ -61,7 +72,7 @@ import MainHeroImage from '../assets/images/ehrenamtstag/IMG_8725.jpg';
         </p>
 
         <!-- Buttons with proper vertical alignment -->
-        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-4">
+        <div class="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-6 pt-4">
           <a
             href="/ueber-uns#vision"
             class="bg-primary text-white py-3 px-8 sm:py-4 sm:px-10 text-center font-medium transition-all inline-flex items-center justify-center"
@@ -77,16 +88,114 @@ import MainHeroImage from '../assets/images/ehrenamtstag/IMG_8725.jpg';
     </div>
   </div>
 
-  <!-- Decorative element - only visible on larger screens -->
-  <!-- <div
-    class="absolute top-32 right-8 md:right-16 lg:right-32 z-10 hidden md:block"
+  <!-- Photo slideshow -->
+  <div
+    class="order-1 md:order-2 md:col-span-6 lg:col-span-7 relative aspect-[4/3] md:aspect-auto overflow-hidden bg-deepgreen"
+    data-hero-slideshow
   >
-    <div class="w-32 h-32 md:w-40 md:h-40 border-2 border-white opacity-30">
+    {slides.map((slide, slideIndex) => (
+      <Image
+        src={slide.image}
+        alt={slide.alt}
+        layout="constrained"
+        width={1200}
+        fit="cover"
+        sizes="(min-width: 1024px) 58vw, (min-width: 768px) 50vw, 100vw"
+        priority={slideIndex === 0}
+        aria-hidden={slideIndex === 0 ? undefined : 'true'}
+        data-hero-slide
+        class:list={[
+          'absolute inset-0 w-full h-full max-w-none object-cover opacity-0 transition-opacity duration-1000 motion-reduce:transition-none [&.is-active]:opacity-100',
+          slideIndex === 0 && 'is-active',
+        ]}
+      />
+    ))}
+
+    <div
+      class="absolute bottom-6 sm:bottom-8 right-4 sm:right-6 z-10 flex bg-primary/70 px-1"
+    >
+      {slides.map((_, slideIndex) => <button
+        type="button"
+        aria-label={`Bild ${slideIndex + 1} anzeigen`}
+        aria-current={slideIndex === 0 ? 'true' : undefined}
+        data-hero-dot
+        class="group p-2 cursor-pointer"
+      >
+        <span
+          class="block w-2.5 h-2.5 bg-white transition-colors group-aria-[current=true]:bg-secondary"
+        />
+      </button>)}
     </div>
-  </div> -->
+  </div>
 
   <!-- Bottom decorative accent -->
   <div
     class="absolute bottom-0 left-0 right-0 h-2 sm:h-4 bg-secondary z-10"
   ></div>
 </section>
+
+<script>
+  const SLIDE_INTERVAL_MS = 6000;
+
+  const slideshow = document.querySelector<HTMLElement>(
+    '[data-hero-slideshow]',
+  );
+
+  if (slideshow) {
+    const slideImages = [
+      ...slideshow.querySelectorAll<HTMLElement>('[data-hero-slide]'),
+    ];
+    const dotButtons = [
+      ...slideshow.querySelectorAll<HTMLElement>('[data-hero-dot]'),
+    ];
+    const autoplayAllowed = !window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches;
+
+    let activeIndex = 0;
+    let intervalId: number | undefined;
+
+    const showSlide = (nextIndex: number) => {
+      activeIndex = nextIndex;
+      slideImages.forEach((slideImage, slideIndex) => {
+        const isActive = slideIndex === nextIndex;
+        slideImage.classList.toggle('is-active', isActive);
+        if (isActive) slideImage.removeAttribute('aria-hidden');
+        else slideImage.setAttribute('aria-hidden', 'true');
+      });
+      dotButtons.forEach((dotButton, dotIndex) => {
+        if (dotIndex === nextIndex)
+          dotButton.setAttribute('aria-current', 'true');
+        else dotButton.removeAttribute('aria-current');
+      });
+    };
+
+    const stopAutoplay = () => {
+      window.clearInterval(intervalId);
+      intervalId = undefined;
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      if (!autoplayAllowed || document.hidden || slideshow.matches(':hover'))
+        return;
+      intervalId = window.setInterval(
+        () => showSlide((activeIndex + 1) % slideImages.length),
+        SLIDE_INTERVAL_MS,
+      );
+    };
+
+    dotButtons.forEach((dotButton, dotIndex) => {
+      dotButton.addEventListener('click', () => {
+        showSlide(dotIndex);
+        startAutoplay();
+      });
+    });
+
+    slideshow.addEventListener('mouseenter', stopAutoplay);
+    slideshow.addEventListener('mouseleave', startAutoplay);
+    document.addEventListener('visibilitychange', startAutoplay);
+
+    startAutoplay();
+  }
+</script>
