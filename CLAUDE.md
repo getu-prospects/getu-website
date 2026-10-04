@@ -54,7 +54,7 @@ The project uses Astro's component-based architecture with the following key pat
 ## Key Configuration Files
 
 - `astro.config.mjs`: Main Astro configuration (integrations, i18n settings)
-- `tailwind.config.mjs`: Custom theme colors, fonts (Manrope), animation plugin
+- `src/assets/global.css`: Tailwind 4 theme (`@theme`: colors, Manrope font), animation plugin, custom utilities
 - `tsconfig.json`: TypeScript configuration extending Astro's strict preset
 
 ## Important Patterns

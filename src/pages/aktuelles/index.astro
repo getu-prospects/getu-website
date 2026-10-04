@@ -42,7 +42,7 @@ const newsItems = (await getCollection('aktuelles')).sort(
       <div class="max-w-3xl mx-auto space-y-16">
         {
           newsItems.map((newsItem) => (
-            <article class="bg-[var(--tp-grey-1)] p-8 sm:p-12">
+            <article class="bg-(--tp-grey-1) p-8 sm:p-12">
               <time
                 datetime={newsItem.data.date.toISOString()}
                 class="text-secondary uppercase tracking-wider text-sm font-medium"

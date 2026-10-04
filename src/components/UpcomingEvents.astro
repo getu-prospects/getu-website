@@ -6,7 +6,7 @@ import KatharinaSchulzPhoto from '../assets/images/katharina-schulz.png';
 
 <!-- Upcoming Events Section - Eye-catching and prominent -->
 <section
-  class="bg-gradient-to-r from-secondary to-primary py-32 relative overflow-hidden"
+  class="bg-linear-to-r/srgb from-secondary to-primary py-32 relative overflow-hidden"
 >
   <!-- Breaking News Banner -->
   <div
@@ -14,7 +14,7 @@ import KatharinaSchulzPhoto from '../assets/images/katharina-schulz.png';
   >
     <div class="container mx-auto px-8">
       <div class="flex items-center justify-between">
-        <div class="flex items-center space-x-2 flex-shrink-0">
+        <div class="flex items-center space-x-2 shrink-0">
           <div class="w-3 h-3 bg-white rounded-full animate-pulse"></div>
           <span class="font-bold uppercase tracking-wider text-sm">LIVE</span>
         </div>
@@ -33,16 +33,16 @@ import KatharinaSchulzPhoto from '../assets/images/katharina-schulz.png';
   <!-- Dynamic Background Elements -->
   <div class="absolute inset-0">
     <div
-      class="absolute top-20 left-10 w-32 h-32 bg-white bg-opacity-10 rounded-full animate-pulse-slow"
+      class="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full animate-pulse-slow"
     >
     </div>
     <div
-      class="absolute bottom-20 right-10 w-24 h-24 bg-white bg-opacity-10 rounded-full animate-pulse-slow"
+      class="absolute bottom-20 right-10 w-24 h-24 bg-white/10 rounded-full animate-pulse-slow"
       style="animation-delay: 2s;"
     >
     </div>
     <div
-      class="absolute top-1/2 left-1/4 w-16 h-16 bg-white bg-opacity-10 rounded-full animate-pulse-slow"
+      class="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-full animate-pulse-slow"
       style="animation-delay: 4s;"
     >
     </div>
@@ -53,7 +53,7 @@ import KatharinaSchulzPhoto from '../assets/images/katharina-schulz.png';
       <!-- Attention-grabbing header -->
       <div class="mb-16">
         <div
-          class="inline-block bg-white bg-opacity-20 backdrop-blur-sm px-6 py-3 rounded-full mb-6 relative"
+          class="inline-block bg-white/20 backdrop-blur-xs px-6 py-3 rounded-full mb-6 relative"
         >
           <div
             class="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full animate-ping"
@@ -78,7 +78,7 @@ import KatharinaSchulzPhoto from '../assets/images/katharina-schulz.png';
 
       <!-- Live Countdown with Seconds -->
       <div
-        class="bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl p-8 mb-16 relative"
+        class="bg-white/20 backdrop-blur-xs rounded-2xl p-8 mb-16 relative"
       >
         <div class="flex items-center justify-center mb-6">
           <div class="w-3 h-3 bg-secondary rounded-full animate-pulse mr-3">
@@ -144,16 +144,16 @@ import KatharinaSchulzPhoto from '../assets/images/katharina-schulz.png';
       <!-- Event Teaser -->
       <div class="max-w-4xl mx-auto mb-16">
         <div
-          class="bg-white bg-opacity-15 backdrop-blur-sm rounded-2xl p-8 text-center"
+          class="bg-white/15 backdrop-blur-xs rounded-2xl p-8 text-center"
         >
-          <p class="text-xl leading-relaxed mb-8 text-white text-opacity-95">
+          <p class="text-xl leading-relaxed mb-8 text-white/95">
             Ein neues Kapitel beginnt! Wir starten unser innovatives Projekt
             gegen Einsamkeit und schaffen Räume für echte Begegnungen in unserer
             Gemeinschaft.
           </p>
 
           <!-- Special Guests Highlight -->
-          <div class="bg-white bg-opacity-10 rounded-xl p-6 mb-6">
+          <div class="bg-white/10 rounded-xl p-6 mb-6">
             <h4 class="text-lg font-bold mb-6 flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -176,7 +176,7 @@ import KatharinaSchulzPhoto from '../assets/images/katharina-schulz.png';
               <!-- Katharina Schulz -->
               <div class="text-center">
                 <div
-                  class="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden border-2 border-white border-opacity-50"
+                  class="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden border-2 border-white/50"
                 >
                   <img
                     src={KatharinaSchulzPhoto.src}
@@ -184,7 +184,7 @@ import KatharinaSchulzPhoto from '../assets/images/katharina-schulz.png';
                     class="w-full h-full object-cover"
                   />
                 </div>
-                <p class="text-white text-opacity-90 text-sm">
+                <p class="text-white/90 text-sm">
                   <strong>Katharina Schulz</strong><br />
                   Einsamkeitsbeauftragte Reinickendorf
                 </p>
@@ -193,7 +193,7 @@ import KatharinaSchulzPhoto from '../assets/images/katharina-schulz.png';
               <!-- Bezirksbürgermeisterin -->
               <div class="text-center">
                 <div
-                  class="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden border-2 border-white border-opacity-50"
+                  class="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden border-2 border-white/50"
                 >
                   <img
                     src={BuergermeisterinPhoto.src}
@@ -201,7 +201,7 @@ import KatharinaSchulzPhoto from '../assets/images/katharina-schulz.png';
                     class="w-full h-full object-cover"
                   />
                 </div>
-                <p class="text-white text-opacity-90 text-sm">
+                <p class="text-white/90 text-sm">
                   <strong>Emine Demirbüken-Wegner</strong><br />
                   Bezirksbürgermeisterin<br />
                   Bezirk Reinickendorf
@@ -216,11 +216,11 @@ import KatharinaSchulzPhoto from '../assets/images/katharina-schulz.png';
       <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
         <a
           href="/projekte#gemeinsam-statt-einsam"
-          class="bg-white text-primary py-4 px-8 font-bold text-lg hover:bg-opacity-90 transition-all transform hover:scale-105 relative overflow-hidden group"
+          class="bg-white text-primary py-4 px-8 font-bold text-lg hover:bg-white/90 transition-all transform hover:scale-105 relative overflow-hidden group"
         >
           <span class="relative z-10">Alle Details erfahren →</span>
           <div
-            class="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-10 transition-opacity"
+            class="absolute inset-0 bg-linear-to-r/srgb from-primary to-secondary opacity-0 group-hover:opacity-10 transition-opacity"
           >
           </div>
         </a>

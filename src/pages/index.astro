@@ -21,7 +21,7 @@ const [latestNewsItem] = (await getCollection('aktuelles')).sort(
     latestNewsItem && (
       <section class="pt-20">
         <div class="container mx-auto px-8">
-          <div class="max-w-3xl mx-auto bg-[var(--tp-grey-1)] p-8 sm:p-12">
+          <div class="max-w-3xl mx-auto bg-(--tp-grey-1) p-8 sm:p-12">
             <h6 class="text-secondary uppercase tracking-widest text-sm font-semibold mb-4">
               AKTUELLES
             </h6>
@@ -36,7 +36,7 @@ const [latestNewsItem] = (await getCollection('aktuelles')).sort(
               {latestNewsItem.data.donationReference && (
                 <a
                   href={`/aktuelles/${latestNewsItem.id}#spenden`}
-                  class="inline-block bg-secondary text-white py-3 px-8 font-medium transition-all hover:bg-opacity-90"
+                  class="inline-block bg-secondary text-white py-3 px-8 font-medium transition-all"
                 >
                   Jetzt spenden
                 </a>
@@ -281,7 +281,7 @@ const [latestNewsItem] = (await getCollection('aktuelles')).sort(
       <div class="text-center mt-16">
         <a
           href="/ueber-uns#leistungen"
-          class="inline-block bg-secondary text-white py-4 px-10 font-medium transition-all hover:bg-opacity-90"
+          class="inline-block bg-secondary text-white py-4 px-10 font-medium transition-all"
         >
           Alle Dienstleistungen ansehen
         </a>

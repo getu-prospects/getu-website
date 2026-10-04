@@ -1,4 +1,32 @@
 @import '@fontsource-variable/manrope';
+@import 'tailwindcss';
+@import 'tailwindcss-animated';
+
+@theme inline reference {
+  --font-sans:
+    'Manrope Variable', ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-body: var(--color-text-body);
+  --color-deepgreen: var(--color-deep-green);
+}
+
+/* Tailwind 4 changed these defaults. Keep the Tailwind 3 behaviour. */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
 
 /* Navigation bar with logo background */
 .nav-background {
@@ -32,10 +60,6 @@
   --tp-border-2: #edefef;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* Base styles */
 html {
   scroll-behavior: smooth;
@@ -55,46 +79,44 @@ body {
 }
 
 /* Additional custom utility classes */
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@utility text-balance {
+  text-wrap: balance;
+}
 
-  /* Container width adjustments for more space */
-  .container {
-    @apply max-w-screen-xl mx-auto;
-  }
+/* Container width adjustments for more space */
+@utility container {
+  @apply max-w-(--breakpoint-xl) mx-auto;
+}
 
-  /* Animation classes */
-  .animate-fade-in {
-    animation: fadeIn 1s ease-in-out;
-  }
+/* Animation classes */
+@utility animate-fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
 
-  .animate-fade-in-left {
-    animation: fadeInLeft 1.2s ease-out;
-  }
+@utility animate-fade-in-left {
+  animation: fadeInLeft 1.2s ease-out;
+}
 
-  .animate-fade-in-right {
-    animation: fadeInRight 1.2s ease-out;
-  }
+@utility animate-fade-in-right {
+  animation: fadeInRight 1.2s ease-out;
+}
 
-  .animate-pulse-slow {
-    animation: pulseSlow 7s infinite;
-  }
+@utility animate-pulse-slow {
+  animation: pulseSlow 7s infinite;
+}
 
-  /* Responsive padding adjustments */
-  .section-padding {
-    @apply py-20 md:py-28 lg:py-32;
-  }
+/* Responsive padding adjustments */
+@utility section-padding {
+  @apply py-20 md:py-28 lg:py-32;
+}
 
-  /* Hover effects */
-  .hover-lift {
-    @apply transition-transform duration-300 hover:-translate-y-2;
-  }
+/* Hover effects */
+@utility hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-2;
+}
 
-  .hover-scale {
-    @apply transition-transform duration-500 hover:scale-105;
-  }
+@utility hover-scale {
+  @apply transition-transform duration-500 hover:scale-105;
 }
 
 /* Animation keyframes */
@@ -168,15 +190,15 @@ a.arrow-link svg {
 }
 
 .btn-primary {
-  @apply bg-primary text-white hover:bg-opacity-90;
+  @apply bg-primary text-white;
 }
 
 .btn-secondary {
-  @apply bg-secondary text-white hover:bg-opacity-90;
+  @apply bg-secondary text-white;
 }
 
 .btn-white {
-  @apply bg-white text-primary hover:bg-opacity-90;
+  @apply bg-white text-primary hover:bg-white/90;
 }
 
 /* Disable rounded corners globally */
