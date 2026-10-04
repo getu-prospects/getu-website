@@ -2,12 +2,19 @@
 import { Image } from 'astro:assets';
 import VolunteerPhoto from '../assets/images/christmas/essen-ausgabe-02.jpg';
 import spLogo from '../assets/images/partners/sp-logo-primary.svg';
+
+interface Props {
+  // The landing page has its own volunteer section right above the footer.
+  showEngagementBanner?: boolean;
+}
+
+const { showEngagementBanner = true } = Astro.props;
 ---
 
 <footer class="bg-primary py-20 lg:py-24">
   <div class="container mx-auto px-6">
     <!-- Top Section with Logo and CTA -->
-    <div
+    {showEngagementBanner && <div
       class="flex flex-col lg:flex-row justify-between items-start mb-20 lg:mb-28 border-b border-(--tp-border-1) pb-20"
     >
       <!-- Logo & Message -->
@@ -69,7 +76,7 @@ import spLogo from '../assets/images/partners/sp-logo-primary.svg';
           JETZT MITMACHEN
         </a>
       </div>
-    </div>
+    </div>}
 
     <!-- Partners Section -->
     <!-- Add this right after the "Engagieren Sie sich" section -->

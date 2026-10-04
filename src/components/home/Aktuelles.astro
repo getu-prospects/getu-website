@@ -51,7 +51,6 @@ const newsItems = (await getCollection('aktuelles'))
       <div class="lg:col-span-7 reveal">
         {newsItems.map((item, index) => <div
           class:list={['featured-item', index === 0 && 'active']}
-          data-featured={index}
         >
           <a href={item.href} class="group block">
             <div class="relative aspect-[16/10] overflow-hidden mb-6">
@@ -132,7 +131,6 @@ const newsItems = (await getCollection('aktuelles'))
               'news-item group block w-full text-left py-6 first:pt-0 transition-all cursor-pointer',
               index === 0 && 'active',
             ]}
-            data-item={index}
           >
             <div class="flex items-start justify-between gap-4">
               <div class="flex-1">
@@ -261,21 +259,19 @@ const newsItems = (await getCollection('aktuelles'))
 </style>
 
 <script>
-  const section = document.querySelector('[data-aktuelles]');
+  const listItems = document.querySelectorAll('[data-aktuelles] .news-item');
+  const featuredItems = document.querySelectorAll(
+    '[data-aktuelles] .featured-item',
+  );
 
-  if (section) {
-    const listItems = section.querySelectorAll('.news-item');
-    const featuredItems = section.querySelectorAll('.featured-item');
-
-    listItems.forEach((listItem, selectedIndex) => {
-      listItem.addEventListener('click', () => {
-        listItems.forEach((item, index) => {
-          item.classList.toggle('active', index === selectedIndex);
-        });
-        featuredItems.forEach((item, index) => {
-          item.classList.toggle('active', index === selectedIndex);
-        });
+  listItems.forEach((listItem, selectedIndex) => {
+    listItem.addEventListener('click', () => {
+      listItems.forEach((item, index) => {
+        item.classList.toggle('active', index === selectedIndex);
+      });
+      featuredItems.forEach((item, index) => {
+        item.classList.toggle('active', index === selectedIndex);
       });
     });
-  }
+  });
 </script>

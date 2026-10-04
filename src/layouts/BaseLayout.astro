@@ -9,11 +9,13 @@ interface Props {
   description?: string;
   // Set when the page paints its own header backdrop, e.g. the landing-page hero.
   plainHeader?: boolean;
+  footerEngagementBanner?: boolean;
 }
 
 const {
   title,
   plainHeader = false,
+  footerEngagementBanner = true,
   description = 'GeTu Prospects e.V. - Interkultureller Verein in Berlin, der sich für gemeinsame Zukunft und Unterstützung Jugendlicher einsetzt.',
 } = Astro.props;
 const pageTitle = `${title} | GeTu Prospects e.V.`;
@@ -249,7 +251,7 @@ const currentPath = Astro.url.pathname;
     <main>
       <slot />
     </main>
-    <AltFooter />
+    <AltFooter showEngagementBanner={footerEngagementBanner} />
 
     <!-- Header and mobile menu script -->
     <script>
