@@ -13,47 +13,129 @@ export async function getStaticPaths() {
 const { newsItem } = Astro.props;
 const { Content } = await render(newsItem);
 const { title, summary, date, donationReference } = newsItem.data;
+const formattedDate = date.toLocaleDateString('de-DE', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
 ---
 
 <BaseLayout title={`${title} - GeTu Prospects e.V.`}>
-  <section class="bg-primary text-white">
-    <div class="container mx-auto px-8">
-      <div class="pt-40 pb-6 text-center">
-        <time
-          datetime={date.toISOString()}
-          class="text-secondary uppercase tracking-wider text-sm font-medium"
-        >
-          AKTUELLES ·{' '}
-          {
-            date.toLocaleDateString('de-DE', {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-            })
-          }
-        </time>
-      </div>
+  {
+    donationReference ? (
+      <section class="bg-primary text-white">
+        <div class="container mx-auto px-8 pt-28 lg:pt-40 pb-16 lg:pb-24">
+          <div class="grid lg:grid-cols-[1fr,minmax(0,28rem)] gap-x-16 gap-y-8 lg:gap-y-0">
+            <div class="lg:self-end">
+              <time
+                datetime={date.toISOString()}
+                class="text-secondary uppercase tracking-wider text-sm font-medium"
+              >
+                AKTUELLES · {formattedDate}
+              </time>
+              <h1 class="text-3xl md:text-5xl font-bold leading-tight mt-4">
+                {title}
+              </h1>
+              <div class="h-1 w-16 bg-secondary mt-6 lg:my-8" />
+            </div>
 
-      <div class="text-center max-w-4xl mx-auto">
-        <h1
-          class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
-        >
-          {title}
-        </h1>
-        <div class="flex justify-center">
-          <div class="h-1 w-16 bg-secondary mb-12"></div>
+            <aside
+              id="spenden"
+              class="bg-white text-body p-6 sm:p-8 scroll-mt-32 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center"
+            >
+              <span class="text-secondary uppercase tracking-wider text-sm font-medium">
+                Spenden
+              </span>
+              <h2 class="text-primary text-2xl font-bold mt-2">
+                So können Sie spenden
+              </h2>
+              <p class="font-light leading-relaxed mt-3">
+                Bitte mit diesem Verwendungszweck überweisen, damit Ihre Spende
+                genau hier ankommt.
+              </p>
+              <dl class="space-y-3 mt-6">
+                <div class="bg-secondary text-white p-4">
+                  <dt class="uppercase tracking-wider text-xs font-medium mb-1">
+                    Verwendungszweck
+                  </dt>
+                  <dd class="text-xl font-bold">{donationReference}</dd>
+                </div>
+                <div class="bg-[var(--tp-grey-1)] p-4">
+                  <dt class="text-secondary uppercase tracking-wider text-xs font-medium mb-1">
+                    IBAN
+                  </dt>
+                  <dd class="text-primary text-lg font-medium whitespace-nowrap">
+                    DE94 1001 0010 0064 0711 43
+                  </dd>
+                </div>
+                <div class="bg-[var(--tp-grey-1)] p-4">
+                  <dt class="text-secondary uppercase tracking-wider text-xs font-medium mb-1">
+                    Empfänger
+                  </dt>
+                  <dd class="text-primary text-lg font-medium">
+                    GeTu Prospects e.V.
+                    <span class="block text-body text-sm font-light">
+                      Postbank
+                    </span>
+                  </dd>
+                </div>
+              </dl>
+              <p class="text-sm font-light leading-relaxed mt-6">
+                Auf Wunsch stellen wir Ihnen eine Zuwendungsbestätigung aus.
+                Schreiben Sie uns dazu eine E-Mail:{' '}
+                <a
+                  href="mailto:info@getu-prospects.de"
+                  class="text-secondary hover:underline whitespace-nowrap"
+                >
+                  info@getu-prospects.de
+                </a>
+              </p>
+            </aside>
+
+            <div class="lg:col-start-1 lg:row-start-2 lg:self-start">
+              <p class="text-lg md:text-xl font-light leading-relaxed text-gray-100">
+                {summary}
+              </p>
+              <a
+                href="#geschichte"
+                class="hidden lg:inline-flex items-center text-secondary font-medium mt-8"
+              >
+                Die ganze Geschichte lesen ↓
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+    ) : (
+      <section class="bg-primary text-white">
+        <div class="container mx-auto px-8">
+          <div class="pt-40 pb-6 text-center">
+            <time
+              datetime={date.toISOString()}
+              class="text-secondary uppercase tracking-wider text-sm font-medium"
+            >
+              AKTUELLES · {formattedDate}
+            </time>
+          </div>
+          <div class="text-center max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              {title}
+            </h1>
+            <div class="flex justify-center">
+              <div class="h-1 w-16 bg-secondary mb-12" />
+            </div>
+          </div>
+          <div class="max-w-3xl mx-auto text-center pb-32">
+            <p class="text-lg md:text-xl font-light leading-relaxed text-gray-100">
+              {summary}
+            </p>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
-      <div class="max-w-3xl mx-auto text-center pb-32">
-        <p class="text-lg md:text-xl font-light leading-relaxed text-gray-100">
-          {summary}
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-32 bg-white">
+  <section id="geschichte" class="py-24 lg:py-32 bg-white scroll-mt-24">
     <div class="container mx-auto px-8">
       <div class="max-w-3xl mx-auto">
         <div class="news-content text-body text-lg font-light leading-relaxed">
@@ -62,55 +144,20 @@ const { title, summary, date, donationReference } = newsItem.data;
 
         {
           donationReference && (
-            <aside class="bg-primary text-white p-6 sm:p-12 mt-16">
-              <span class="text-secondary uppercase tracking-wider text-sm font-medium">
-                Spenden
-              </span>
-              <h2 class="text-3xl font-bold mt-3">So können Sie helfen</h2>
-              <div class="h-1 w-16 bg-secondary my-6" />
-              <p class="text-gray-100 font-light leading-relaxed">
-                Überweisen Sie Ihre Spende bitte mit dem angegebenen
-                Verwendungszweck. So kommt sie genau diesem Anliegen zugute.
+            <div class="bg-[var(--tp-grey-1)] p-8 sm:p-10 mt-16 text-center">
+              <h2 class="text-primary text-2xl font-bold">
+                Helfen Sie mit, diesen Dienst zu tragen
+              </h2>
+              <p class="text-body font-light leading-relaxed mt-3">
+                Verwendungszweck: {`„${donationReference}“`}
               </p>
-              <dl class="grid sm:grid-cols-2 gap-4 mt-8">
-                <div class="bg-white/5 p-4 sm:p-5">
-                  <dt class="text-secondary uppercase tracking-wider text-xs font-medium mb-1">
-                    Empfänger
-                  </dt>
-                  <dd class="text-lg">GeTu Prospects e.V.</dd>
-                </div>
-                <div class="bg-white/5 p-4 sm:p-5">
-                  <dt class="text-secondary uppercase tracking-wider text-xs font-medium mb-1">
-                    Bank
-                  </dt>
-                  <dd class="text-lg">Postbank</dd>
-                </div>
-                <div class="bg-white/5 p-4 sm:p-5">
-                  <dt class="text-secondary uppercase tracking-wider text-xs font-medium mb-1">
-                    IBAN
-                  </dt>
-                  <dd class="text-lg whitespace-nowrap">
-                    DE94 1001 0010 0064 0711 43
-                  </dd>
-                </div>
-                <div class="bg-white/5 p-4 sm:p-5">
-                  <dt class="text-secondary uppercase tracking-wider text-xs font-medium mb-1">
-                    Verwendungszweck
-                  </dt>
-                  <dd class="text-lg">{donationReference}</dd>
-                </div>
-              </dl>
-              <p class="text-gray-300 font-light leading-relaxed mt-8">
-                Auf Wunsch stellen wir Ihnen eine Zuwendungsbestätigung aus.
-                Schreiben Sie uns dazu eine E-Mail:{' '}
-                <a
-                  href="mailto:info@getu-prospects.de"
-                  class="text-secondary hover:underline"
-                >
-                  info@getu-prospects.de
-                </a>
-              </p>
-            </aside>
+              <a
+                href="#spenden"
+                class="inline-block bg-secondary text-white py-4 px-10 font-medium mt-6 transition-all hover:bg-opacity-90"
+              >
+                Zu den Spendendaten
+              </a>
+            </div>
           )
         }
 
