@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import QRCode from 'qrcode';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
@@ -18,9 +19,36 @@ const formattedDate = date.toLocaleDateString('de-DE', {
   month: 'long',
   year: 'numeric',
 });
+
+const donationRecipient = 'GeTu Prospects e.V.';
+const donationIban = 'DE94100100100064071143';
+const formattedIban = donationIban.replace(/(.{4})/g, '$1 ').trim();
+// EPC069-12 "GiroCode" payload: banking apps fill in the transfer from it.
+// Fields are positional, so the empty lines must stay: BIC (optional in
+// version 002), amount (left to the donor), purpose code, structured reference.
+const giroCodePayload = [
+  'BCD',
+  '002',
+  '1',
+  'SCT',
+  '',
+  donationRecipient,
+  donationIban,
+  '',
+  '',
+  '',
+  donationReference,
+].join('\n');
+const giroCodeSvg = donationReference
+  ? await QRCode.toString(giroCodePayload, {
+      type: 'svg',
+      errorCorrectionLevel: 'M',
+      margin: 0,
+    })
+  : '';
 ---
 
-<BaseLayout title={`${title} - GeTu Prospects e.V.`}>
+<BaseLayout title={title} description={summary}>
   {
     donationReference ? (
       <section class="bg-primary text-white">
@@ -43,53 +71,64 @@ const formattedDate = date.toLocaleDateString('de-DE', {
               id="spenden"
               class="bg-white text-body p-6 sm:p-8 scroll-mt-32 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center"
             >
-              <span class="text-secondary uppercase tracking-wider text-sm font-medium">
-                Spenden
-              </span>
-              <h2 class="text-primary text-2xl font-bold mt-2">
+              <h2 class="text-primary text-2xl font-bold">
                 So können Sie spenden
               </h2>
-              <p class="font-light leading-relaxed mt-3">
-                Bitte mit diesem Verwendungszweck überweisen, damit Ihre Spende
-                genau hier ankommt.
+              <p class="text-sm font-light mt-2">
+                Am besten monatlich per Dauerauftrag.
               </p>
               <dl class="space-y-3 mt-6">
-                <div class="bg-secondary text-white p-4">
+                <div class="relative bg-secondary text-white p-4">
                   <dt class="uppercase tracking-wider text-xs font-medium mb-1">
                     Verwendungszweck
                   </dt>
                   <dd class="text-xl font-bold">{donationReference}</dd>
+                  <button
+                    type="button"
+                    data-copy={donationReference}
+                    data-copy-name="Verwendungszweck"
+                    aria-label="Verwendungszweck kopieren"
+                    class="absolute top-3 right-3 text-xs font-medium uppercase tracking-wider bg-white/20 hover:bg-white/30 px-2 py-1"
+                  >
+                    Kopieren
+                  </button>
                 </div>
-                <div class="bg-[var(--tp-grey-1)] p-4">
+                <div class="relative bg-[var(--tp-grey-1)] p-4">
                   <dt class="text-secondary uppercase tracking-wider text-xs font-medium mb-1">
                     IBAN
                   </dt>
                   <dd class="text-primary text-lg font-medium whitespace-nowrap">
-                    DE94 1001 0010 0064 0711 43
+                    {formattedIban}
                   </dd>
+                  <button
+                    type="button"
+                    data-copy={donationIban}
+                    data-copy-name="IBAN"
+                    aria-label="IBAN kopieren"
+                    class="absolute top-3 right-3 text-xs font-medium uppercase tracking-wider text-secondary bg-white hover:bg-secondary hover:text-white px-2 py-1"
+                  >
+                    Kopieren
+                  </button>
                 </div>
                 <div class="bg-[var(--tp-grey-1)] p-4">
                   <dt class="text-secondary uppercase tracking-wider text-xs font-medium mb-1">
                     Empfänger
                   </dt>
                   <dd class="text-primary text-lg font-medium">
-                    GeTu Prospects e.V.
+                    {donationRecipient}
                     <span class="block text-body text-sm font-light">
                       Postbank
                     </span>
                   </dd>
                 </div>
               </dl>
-              <p class="text-sm font-light leading-relaxed mt-6">
-                Auf Wunsch stellen wir Ihnen eine Zuwendungsbestätigung aus.
-                Schreiben Sie uns dazu eine E-Mail:{' '}
-                <a
-                  href="mailto:info@getu-prospects.de"
-                  class="text-secondary hover:underline whitespace-nowrap"
-                >
-                  info@getu-prospects.de
-                </a>
-              </p>
+              <p id="copy-status" class="sr-only" aria-live="polite" />
+              <a
+                href="#mehr-zum-spenden"
+                class="inline-block text-sm text-secondary font-medium mt-5 hover:underline"
+              >
+                Mehr zum Spenden ↓
+              </a>
             </aside>
 
             <div class="lg:col-start-1 lg:row-start-2 lg:self-start">
@@ -144,18 +183,47 @@ const formattedDate = date.toLocaleDateString('de-DE', {
 
         {
           donationReference && (
-            <div class="bg-[var(--tp-grey-1)] p-8 sm:p-10 mt-16 text-center">
+            <div
+              id="mehr-zum-spenden"
+              class="bg-[var(--tp-grey-1)] p-8 sm:p-10 mt-16 scroll-mt-28"
+            >
               <h2 class="text-primary text-2xl font-bold">
                 Helfen Sie mit, diesen Dienst zu tragen
               </h2>
               <p class="text-body font-light leading-relaxed mt-3">
-                Verwendungszweck: {`„${donationReference}“`}
+                Am meisten hilft ein monatlicher Dauerauftrag, schon ab 10 €.
+                Bitte überweisen Sie immer mit dem Verwendungszweck{' '}
+                {`„${donationReference}“`}, damit Ihre Spende genau hier
+                ankommt.
+              </p>
+              <div class="hidden lg:flex items-center gap-5 mt-6">
+                <div
+                  role="img"
+                  aria-label="GiroCode für die Überweisung"
+                  class="w-28 shrink-0 [&>svg]:w-full [&>svg]:h-auto"
+                  set:html={giroCodeSvg}
+                />
+                <p class="text-sm font-light leading-relaxed">
+                  <span class="font-medium text-primary">GiroCode:</span> Mit
+                  Ihrer Banking-App scannen. Empfänger, IBAN und
+                  Verwendungszweck werden automatisch ausgefüllt.
+                </p>
+              </div>
+              <p class="text-sm font-light leading-relaxed mt-6">
+                Auf Wunsch stellen wir Ihnen eine Zuwendungsbestätigung aus.
+                Schreiben Sie uns dazu eine E-Mail:{' '}
+                <a
+                  href="mailto:info@getu-prospects.de"
+                  class="text-secondary hover:underline whitespace-nowrap"
+                >
+                  info@getu-prospects.de
+                </a>
               </p>
               <a
                 href="#spenden"
-                class="inline-block bg-secondary text-white py-4 px-10 font-medium mt-6 transition-all hover:bg-opacity-90"
+                class="inline-block bg-secondary text-white py-4 px-10 font-medium mt-8 transition-all hover:bg-opacity-90"
               >
-                Zu den Spendendaten
+                Zu den Spendendaten ↑
               </a>
             </div>
           )
@@ -171,6 +239,28 @@ const formattedDate = date.toLocaleDateString('de-DE', {
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  const copyStatus = document.getElementById('copy-status')!;
+  for (const copyButton of document.querySelectorAll<HTMLButtonElement>(
+    '[data-copy]',
+  )) {
+    const buttonLabel = copyButton.textContent;
+    copyButton.addEventListener('click', async () => {
+      const copyName = copyButton.dataset.copyName;
+      try {
+        await navigator.clipboard.writeText(copyButton.dataset.copy ?? '');
+        copyButton.textContent = 'Kopiert';
+        copyStatus.textContent = `${copyName} kopiert`;
+      } catch {
+        // Some in-app browsers block the clipboard; the value stays visible.
+        copyButton.textContent = 'Bitte manuell kopieren';
+        copyStatus.textContent = `${copyName} konnte nicht kopiert werden`;
+      }
+      setTimeout(() => (copyButton.textContent = buttonLabel), 2000);
+    });
+  }
+</script>
 
 <style>
   .news-content :global(p) {

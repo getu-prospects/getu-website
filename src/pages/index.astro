@@ -13,7 +13,7 @@ const [latestNewsItem] = (await getCollection('aktuelles')).sort(
 );
 ---
 
-<BaseLayout title="GeTu Prospects e.V. - Interkultureller Verein in Berlin">
+<BaseLayout title="Interkultureller Verein in Berlin">
   <!-- Hero Section with improved layout and spacing -->
   <Hero2 />
 
@@ -32,24 +32,34 @@ const [latestNewsItem] = (await getCollection('aktuelles')).sort(
             <p class="text-body font-light leading-relaxed mb-6">
               {latestNewsItem.data.summary}
             </p>
-            <a
-              href={`/aktuelles/${latestNewsItem.id}`}
-              class="group inline-flex items-center text-secondary font-medium"
-            >
-              Weiterlesen
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
-                viewBox="0 0 20 20"
-                fill="currentColor"
+            <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
+              {latestNewsItem.data.donationReference && (
+                <a
+                  href={`/aktuelles/${latestNewsItem.id}#spenden`}
+                  class="inline-block bg-secondary text-white py-3 px-8 font-medium transition-all hover:bg-opacity-90"
+                >
+                  Jetzt spenden
+                </a>
+              )}
+              <a
+                href={`/aktuelles/${latestNewsItem.id}`}
+                class="group inline-flex items-center text-secondary font-medium"
               >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </a>
+                Weiterlesen
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </section>

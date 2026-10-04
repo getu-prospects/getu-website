@@ -8,7 +8,14 @@ const aktuelles = defineCollection({
     summary: z.string(),
     date: z.coerce.date(),
     // Set to show a donation box with this bank transfer reference.
-    donationReference: z.string().optional(),
+    // Also the GiroCode remittance line: one line, at most 140 characters.
+    donationReference: z
+      .string()
+      .trim()
+      .min(1)
+      .max(140)
+      .regex(/^[^\r\n]+$/)
+      .optional(),
   }),
 });
 
