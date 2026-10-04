@@ -1,5 +1,6 @@
 ---
-import MainHeroImage from '../assets/images/main-hero/1.jpg';
+import { Image } from 'astro:assets';
+import MainHeroImage from '../assets/images/ehrenamtstag/IMG_8725.jpg';
 ---
 
 <section class="relative min-h-screen flex items-center">
@@ -8,9 +9,13 @@ import MainHeroImage from '../assets/images/main-hero/1.jpg';
 
   <!-- Desktop-only background image (hidden on mobile) -->
   <div class="absolute inset-0 z-0 hidden md:block">
-    <img
-      src={MainHeroImage.src}
-      alt="Diverse group collaborating"
+    <Image
+      src={MainHeroImage}
+      alt="Zwei Mitglieder von GeTu Prospects am Stand des Vereins auf der Reinickendorfer Freiwilligenbörse"
+      layout="constrained"
+      width={1920}
+      sizes="(min-width: 768px) 100vw, 1px"
+      priority
       class="w-full h-full object-cover"
     />
     <!-- Subtle darkening overlay -->

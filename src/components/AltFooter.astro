@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import VolunteerPhoto from '../assets/images/christmas/essen-ausgabe-02.jpg';
 import spLogo from '../assets/images/partners/sp-logo-primary.svg';
 ---
 
@@ -47,8 +49,19 @@ import spLogo from '../assets/images/partners/sp-logo-primary.svg';
         </div>
       </div>
 
-      <!-- CTA Button -->
-      <div class="ml-0 lg:ml-6 self-start">
+      <!-- Volunteer Photo & CTA Button -->
+      <div class="ml-0 lg:ml-6 self-start w-full sm:w-80 shrink-0">
+        <Image
+          src={VolunteerPhoto}
+          alt="Ein Ehrenamtlicher bereitet die Getränkeausgabe bei der Weihnachtsaktion vor"
+          layout="constrained"
+          width={640}
+          height={640}
+          fit="cover"
+          position="top"
+          sizes="(min-width: 640px) 320px, calc(100vw - 3rem)"
+          class="w-full mb-6"
+        />
         <a
           href="/kontakt"
           class="inline-block bg-secondary text-white py-4 px-8 font-medium tracking-wide transition-all duration-300 hover:translate-y-[-2px]"
