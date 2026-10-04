@@ -1,0 +1,186 @@
+---
+// Projects section - two-column card grid
+import { Image } from 'astro:assets';
+import YouthPhoto from '../../assets/images/youth/IMG_7606.jpg';
+import MentoringPhoto from '../../assets/images/mentorship-auftakt/IMG_8711.jpg';
+import StammtischPhoto from '../../assets/images/stammtisch/meeting-01.jpg';
+import ChristmasPhoto from '../../assets/images/christmas/getu-ausgabe-1.jpeg';
+
+const projects = [
+  {
+    id: 'youth',
+    number: '01',
+    title: 'Youth with Perspective',
+    tagline: 'Finde deinen Weg',
+    description:
+      'Ein Programm für junge Menschen, die gemeinsam Antworten auf die großen Fragen des Lebens suchen.',
+    image: YouthPhoto,
+    imageAlt:
+      'Junge Menschen sitzen mit aufgeschlagenen Büchern an einem Tisch',
+    schedule: 'Jeden 3. Samstag',
+    delay: 'animate-delay-100',
+  },
+  {
+    id: 'mentorship',
+    number: '02',
+    title: 'Mentoring-Programm',
+    tagline: 'Gemeinsam ankommen',
+    description:
+      'Wir verbinden Neuankömmlinge mit erfahrenen Mentor*innen für den Start in Deutschland.',
+    image: MentoringPhoto,
+    imageAlt: 'Teilnehmende des Mentoring-Auftakts hören einem Vortrag zu',
+    schedule: 'Seit Oktober 2025',
+    isNew: true,
+    delay: 'animate-delay-200',
+  },
+  {
+    id: 'stammtisch',
+    number: '03',
+    title: 'Stammtisch gegen Einsamkeit',
+    tagline: 'Ein offener Treffpunkt',
+    description:
+      'Ein Raum für Begegnung und echte Gespräche – offen für alle Altersgruppen.',
+    image: StammtischPhoto,
+    imageAlt: 'Gruppenfoto der Teilnehmenden des Stammtischs',
+    schedule: 'Jeden 3. Freitag',
+    delay: 'animate-delay-300',
+  },
+  {
+    id: 'weihnachten',
+    number: '04',
+    title: 'Weihnachtsaktion',
+    tagline: 'Hoffnung schenken',
+    description:
+      'Seit 2016 schenken wir obdachlosen Menschen in Berlin Unterstützung und Wärme.',
+    image: ChristmasPhoto,
+    imageAlt:
+      'Ehrenamtliche mit gefüllten Taschen bei der Weihnachtsaktion am Kottbusser Tor',
+    schedule: 'Jährlich im Dezember',
+    delay: 'animate-delay-400',
+  },
+];
+---
+
+<section class="py-24 lg:py-32 bg-white">
+  <div class="max-w-[90rem] mx-auto px-6">
+    <!-- Section header -->
+    <div class="grid lg:grid-cols-12 gap-8 mb-16">
+      <div class="lg:col-span-5 reveal">
+        <span
+          class="text-xs font-semibold tracking-widest uppercase text-secondary mb-4 block"
+        >
+          Unsere Arbeit
+        </span>
+        <h2
+          class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-[1.05]"
+        >
+          Vier Wege,<br /> <span class="text-secondary">Veränderung</span><br />
+          zu schaffen
+        </h2>
+      </div>
+      <div
+        class="lg:col-span-6 lg:col-start-7 flex items-end reveal animate-delay-100"
+      >
+        <p class="text-xl text-body leading-relaxed">
+          Durch gezielte Programme und persönliche Begleitung unterstützen wir
+          Menschen auf ihrem Weg zu einem selbstbestimmten Leben.
+        </p>
+      </div>
+    </div>
+
+    <!-- Projects grid -->
+    <div class="grid md:grid-cols-2 gap-px bg-primary/10">
+      {projects.map((project) => <a
+        href={`/projekte#${project.id}`}
+        class:list={['group block bg-white reveal', project.delay]}
+      >
+        <div class="relative">
+          <div class="aspect-[16/10] overflow-hidden relative">
+            <Image
+              src={project.image}
+              alt={project.imageAlt}
+              layout="constrained"
+              width={800}
+              height={500}
+              fit="cover"
+              sizes="(min-width: 768px) 50vw, calc(100vw - 3rem)"
+              class="w-full h-full max-w-none object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <!-- Thin overlay -->
+            <div class="absolute inset-0 bg-white/15 pointer-events-none" />
+            {project.isNew && <span
+              class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 text-xs font-semibold uppercase tracking-wider"
+            >
+              Neu
+            </span>}
+          </div>
+
+          <div class="p-8 lg:p-10">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-4xl font-bold text-primary/10">
+                {project.number}
+              </span>
+              <span class="text-xs uppercase tracking-wider text-body">
+                {project.schedule}
+              </span>
+            </div>
+
+            <h3
+              class="text-2xl lg:text-3xl font-bold text-primary mb-2 group-hover:text-secondary transition-colors"
+            >
+              {project.title}
+            </h3>
+            <p class="text-secondary font-medium mb-4">{project.tagline}</p>
+            <p class="text-body leading-relaxed mb-6">
+              {project.description}
+            </p>
+
+            <span
+              class="inline-flex items-center gap-2 text-primary font-medium text-sm group-hover:text-secondary transition-colors"
+            >
+              Mehr erfahren
+              <svg
+                class="w-4 h-4 transition-transform group-hover:translate-x-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>)}
+    </div>
+
+    <!-- View all -->
+    <div class="flex justify-center mt-16 reveal">
+      <a
+        href="/projekte"
+        class="inline-flex items-center justify-center gap-2 bg-primary text-white py-5 px-10 font-medium"
+      >
+        Alle Projekte entdecken
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"
+          ></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

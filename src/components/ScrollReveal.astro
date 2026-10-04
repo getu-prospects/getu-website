@@ -1,0 +1,32 @@
+---
+// Reveals every `.reveal` element with the fade-up entrance when it scrolls into view.
+---
+
+<script>
+  const revealElements = document.querySelectorAll<HTMLElement>('.reveal');
+  const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)',
+  ).matches;
+
+  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.remove('opacity-0');
+          entry.target.classList.add('animate-fade-up');
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' },
+    );
+
+    // Only elements below the viewport are hidden, so visible content never flashes
+    // and the page stays readable without JavaScript.
+    revealElements.forEach((element) => {
+      if (element.getBoundingClientRect().top < window.innerHeight) return;
+      element.classList.add('opacity-0');
+      observer.observe(element);
+    });
+  }
+</script>

@@ -1,0 +1,281 @@
+---
+// Aktuelles - interactive news section. A click on a list item makes it the featured item.
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+
+const newsItems = (await getCollection('aktuelles'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4)
+  .map((newsItem) => ({
+    href: `/aktuelles/${newsItem.id}`,
+    title: newsItem.data.title,
+    summary: newsItem.data.summary,
+    image: newsItem.data.image,
+    hasDonation: Boolean(newsItem.data.donationReference),
+    label: newsItem.data.donationReference ? 'Spendenaktion' : 'Aktuelles',
+    isoDate: newsItem.data.date.toISOString(),
+    date: newsItem.data.date.toLocaleDateString('de-DE', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      timeZone: 'UTC',
+    }),
+  }));
+---
+
+{newsItems.length > 0 && <section
+  class="section-padding bg-(--tp-grey-1) border-y border-primary/10"
+  data-aktuelles
+>
+  <div class="max-w-[90rem] mx-auto px-6">
+    <!-- Section header - newspaper style -->
+    <div
+      class="flex items-end justify-between border-b-2 border-primary pb-4 mb-12 reveal"
+    >
+      <div>
+        <span
+          class="text-xs font-semibold tracking-widest uppercase text-secondary mb-2 block"
+        >
+          Was passiert
+        </span>
+        <h2 class="text-4xl md:text-5xl font-bold text-primary">Aktuelles</h2>
+      </div>
+      <span class="text-xs text-body uppercase tracking-wider hidden md:block">
+        Neuigkeiten & Highlights
+      </span>
+    </div>
+
+    <!-- News grid - asymmetric layout -->
+    <div class="grid lg:grid-cols-12 gap-8 lg:gap-12">
+      <!-- Featured item - large -->
+      <div class="lg:col-span-7 reveal">
+        {newsItems.map((item, index) => <div
+          class:list={['featured-item', index === 0 && 'active']}
+          data-featured={index}
+        >
+          <a href={item.href} class="group block">
+            <div class="relative aspect-[16/10] overflow-hidden mb-6">
+              {item.image ? (
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  layout="constrained"
+                  width={960}
+                  height={600}
+                  fit="cover"
+                  sizes="(min-width: 1024px) 58vw, calc(100vw - 3rem)"
+                  class="w-full h-full max-w-none object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              ) : (
+                <div
+                  class="w-full h-full bg-primary flex items-center justify-center"
+                >
+                  <div class="h-1 w-16 bg-secondary" />
+                </div>
+              )}
+              <div
+                class="absolute top-0 left-0 bg-secondary text-white px-4 py-2 text-xs font-semibold uppercase tracking-wider"
+              >
+                {item.label}
+              </div>
+            </div>
+            <div class="flex items-center gap-4 mb-3">
+              <time
+                datetime={item.isoDate}
+                class="text-xs text-body uppercase tracking-wider"
+              >
+                {item.date}
+              </time>
+              <div class="flex-1 h-px bg-primary/10" />
+            </div>
+            <h3
+              class="text-2xl md:text-3xl font-bold text-primary mb-4 group-hover:text-secondary transition-colors"
+            >
+              {item.title}
+            </h3>
+            <p class="text-body leading-relaxed mb-4">{item.summary}</p>
+            <span
+              class="inline-flex items-center gap-2 text-secondary font-medium text-sm"
+            >
+              Mehr lesen
+              <svg
+                class="w-4 h-4 transition-transform group-hover:translate-x-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </span>
+          </a>
+          {item.hasDonation && <a
+            href={`${item.href}#spenden`}
+            class="inline-block mt-6 bg-secondary text-white py-3 px-8 font-medium"
+          >
+            Jetzt spenden
+          </a>}
+        </div>)}
+      </div>
+
+      <!-- Other items - stacked list -->
+      <div class="lg:col-span-5">
+        <div class="divide-y divide-primary/10">
+          {newsItems.map((item, index) => <button
+            type="button"
+            class:list={[
+              'news-item group block w-full text-left py-6 first:pt-0 transition-all cursor-pointer',
+              index === 0 && 'active',
+            ]}
+            data-item={index}
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex-1">
+                <div class="flex items-center gap-3 mb-2">
+                  <span
+                    class="news-badge bg-white text-primary px-2 py-0.5 text-xs font-semibold uppercase tracking-wider transition-colors"
+                  >
+                    {item.label}
+                  </span>
+                  <span class="text-xs text-body">{item.date}</span>
+                </div>
+                <h4
+                  class="text-lg font-bold text-primary mb-2 group-hover:text-secondary transition-colors"
+                >
+                  {item.title}
+                </h4>
+                <p class="text-sm text-body line-clamp-2">
+                  {item.summary}
+                </p>
+              </div>
+              <div
+                class="news-indicator w-2 h-2 border border-primary/20 flex-shrink-0 mt-2 transition-all"
+              />
+            </div>
+          </button>)}
+        </div>
+
+        <!-- Social media box -->
+        <div
+          class="mt-8 pt-8 border-t border-primary/10 reveal animate-delay-500"
+        >
+          <div class="bg-primary p-6">
+            <h4 class="font-bold text-lg text-white mb-2">
+              Auf dem Laufenden bleiben
+            </h4>
+            <p class="text-white/60 text-sm mb-4">
+              Folgen Sie uns auf Social Media für Updates.
+            </p>
+            <div class="flex gap-3">
+              <a
+                href="https://www.instagram.com/getuprospects/"
+                target="_blank"
+                rel="noopener"
+                aria-label="GeTu Prospects auf Instagram"
+                class="w-10 h-10 border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-secondary hover:bg-secondary transition-all"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://www.facebook.com/getuprospects"
+                target="_blank"
+                rel="noopener"
+                aria-label="GeTu Prospects auf Facebook"
+                class="w-10 h-10 border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-secondary hover:bg-secondary transition-all"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>}
+
+<style>
+  .featured-item {
+    display: none;
+  }
+
+  .featured-item.active {
+    display: block;
+    animation: featured-fade-in 0.4s ease-out;
+  }
+
+  @keyframes featured-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .news-item.active {
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(254, 127, 76, 0.08)
+    );
+  }
+
+  .news-item.active .news-indicator {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+  }
+
+  .news-item.active .news-badge {
+    background-color: var(--color-secondary);
+    color: white;
+  }
+
+  .news-item:hover:not(.active) {
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.02));
+  }
+</style>
+
+<script>
+  const section = document.querySelector('[data-aktuelles]');
+
+  if (section) {
+    const listItems = section.querySelectorAll('.news-item');
+    const featuredItems = section.querySelectorAll('.featured-item');
+
+    listItems.forEach((listItem, selectedIndex) => {
+      listItem.addEventListener('click', () => {
+        listItems.forEach((item, index) => {
+          item.classList.toggle('active', index === selectedIndex);
+        });
+        featuredItems.forEach((item, index) => {
+          item.classList.toggle('active', index === selectedIndex);
+        });
+      });
+    });
+  }
+</script>

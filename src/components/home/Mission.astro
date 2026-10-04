@@ -1,0 +1,112 @@
+---
+// Mission section - who we are - overlapping editorial layout
+import { Image } from 'astro:assets';
+import MissionPhoto from '../../assets/images/ehrenamtstag/IMG_8730.jpg';
+
+const values = [
+  { number: '01', title: 'Gemeinschaft', description: 'Zusammenhalt stärken' },
+  { number: '02', title: 'Vielfalt', description: 'Kulturen verbinden' },
+  { number: '03', title: 'Perspektive', description: 'Wege eröffnen' },
+  { number: '04', title: 'Engagement', description: 'Ehrenamtlich wirken' },
+];
+---
+
+<section class="py-24 lg:py-32 bg-white relative">
+  <div class="max-w-[90rem] mx-auto px-6">
+    <!-- Section intro -->
+    <div class="grid lg:grid-cols-12 gap-8 lg:gap-16 mb-20">
+      <div class="lg:col-span-5 reveal">
+        <span
+          class="text-xs font-semibold tracking-widest uppercase text-secondary mb-4 block"
+        >
+          Über uns
+        </span>
+        <h2
+          class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-[1.05]"
+        >
+          Wer wir<br />
+          <span class="text-secondary">sind</span>
+        </h2>
+      </div>
+      <div class="lg:col-span-7 lg:pt-8 reveal animate-delay-100">
+        <p class="text-xl text-body leading-relaxed">
+          GeTu Prospects e.V. ist ein interkultureller Verein in Berlin. Seit
+          2014 setzen wir uns für Menschen aller Kulturen ein – geprägt von
+          christlichen Werten und dem Glauben an das Potenzial jedes Einzelnen.
+        </p>
+      </div>
+    </div>
+
+    <!-- Overlapping image/content layout -->
+    <div class="relative">
+      <div
+        class="relative lg:absolute lg:left-0 lg:top-0 lg:bottom-0 lg:w-7/12 reveal"
+      >
+        <Image
+          src={MissionPhoto}
+          alt="Zwei Mitglieder von GeTu Prospects sitzen am Stand des Vereins"
+          layout="constrained"
+          width={1000}
+          fit="cover"
+          sizes="(min-width: 1024px) 58vw, calc(100vw - 3rem)"
+          class="w-full h-[400px] lg:h-full max-w-none object-cover"
+        />
+        <!-- Thin overlay -->
+        <div class="absolute inset-0 bg-white/15"></div>
+        <!-- Year badge -->
+        <div class="absolute bottom-0 left-0 bg-secondary p-6 text-white">
+          <span class="block text-4xl font-bold">2014</span>
+          <span class="text-xs uppercase tracking-wider text-white/80">
+            Gegründet
+          </span>
+        </div>
+      </div>
+
+      <!-- Content card - overlapping -->
+      <div class="relative lg:ml-auto lg:w-6/12 lg:py-16">
+        <div class="bg-primary text-white p-8 lg:p-12 reveal animate-delay-200">
+          <div class="max-w-lg">
+            <h3 class="font-bold text-2xl lg:text-3xl mb-6">Unsere Vision</h3>
+            <p class="text-white/70 leading-relaxed mb-8">
+              Eine Gesellschaft, in der jeder Mensch wertgeschätzt, unterstützt
+              und befähigt wird, sein volles Potenzial zu entfalten. Eine
+              Gemeinschaft voller Verbundenheit, Würde und Sinn.
+            </p>
+
+            <!-- Values grid -->
+            <div class="grid grid-cols-2 gap-6 pt-8 border-t border-white/10">
+              {values.map((value) => <div>
+                <div class="text-secondary font-bold text-2xl mb-1">
+                  {value.number}
+                </div>
+                <h4 class="text-white font-medium mb-1">{value.title}</h4>
+                <p class="text-white/50 text-sm">{value.description}</p>
+              </div>)}
+            </div>
+
+            <a
+              href="/ueber-uns"
+              class="inline-flex items-center gap-2 mt-10 text-secondary hover:text-white transition-colors"
+            >
+              Mehr über uns
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
