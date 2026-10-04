@@ -30,15 +30,15 @@ const slides = [
   },
   {
     image: StreetFestivalPhoto,
-    alt: 'Stand von GeTu Prospects mit Banner und gedecktem Tisch auf einem Fest in Waidmannslust',
+    alt: 'Stand von GeTu Prospects mit Banner und gedecktem Tisch beim Fest 150 Jahre Waidmannslust',
   },
 ];
 ---
 
-<section class="relative flex flex-col md:grid md:grid-cols-12 md:min-h-[85vh]">
+<section class="relative flex flex-col lg:grid lg:grid-cols-12 lg:min-h-[85vh]">
   <!-- Text column -->
   <div
-    class="order-2 md:order-1 md:col-span-6 lg:col-span-5 bg-white flex items-center px-4 sm:px-6 md:px-0 py-8 sm:py-10 md:py-16"
+    class="order-2 lg:order-1 lg:col-span-6 xl:col-span-5 bg-white flex items-center px-4 sm:px-6 lg:px-0 py-8 sm:py-10 lg:py-16"
   >
     <div class="w-full p-8 sm:p-10 lg:p-12 xl:p-16 animate-fade-down">
       <div class="space-y-6 sm:space-y-8">
@@ -52,7 +52,7 @@ const slides = [
         <!-- Main headings -->
         <div>
           <h1
-            class="text-4xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-primary"
+            class="text-4xl sm:text-5xl xl:text-6xl font-bold leading-tight text-primary"
           >
             Vielfalt leben
           </h1>
@@ -90,7 +90,7 @@ const slides = [
 
   <!-- Photo slideshow -->
   <div
-    class="order-1 md:order-2 md:col-span-6 lg:col-span-7 relative aspect-[4/3] md:aspect-auto overflow-hidden bg-deepgreen"
+    class="order-1 lg:order-2 lg:col-span-6 xl:col-span-7 relative aspect-[4/3] lg:aspect-auto overflow-hidden bg-deepgreen"
     data-hero-slideshow
   >
     {slides.map((slide, slideIndex) => (
@@ -100,7 +100,7 @@ const slides = [
         layout="constrained"
         width={1200}
         fit="cover"
-        sizes="(min-width: 1024px) 58vw, (min-width: 768px) 50vw, 100vw"
+        sizes="(min-width: 1280px) 58vw, (min-width: 1024px) 50vw, 100vw"
         priority={slideIndex === 0}
         aria-hidden={slideIndex === 0 ? undefined : 'true'}
         data-hero-slide
@@ -110,6 +110,11 @@ const slides = [
         ]}
       />
     ))}
+
+    <!-- Keeps the header links legible over the photo; the header itself has no gradient on this page -->
+    <div
+      class="absolute inset-x-0 top-0 h-32 nav-background pointer-events-none"
+    ></div>
 
     <div
       class="absolute bottom-6 sm:bottom-8 right-4 sm:right-6 z-10 flex bg-primary/70 px-1"

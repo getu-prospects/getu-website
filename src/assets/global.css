@@ -37,6 +37,11 @@
   );
 }
 
+/* A page with its own header backdrop (landing-page hero) hides the gradient. */
+#header[data-plain-header].nav-background {
+  background: none;
+}
+
 /* Header on scroll */
 .header-scrolled {
   background-color: #1a2e2e !important;

@@ -7,10 +7,13 @@ import AltFooter from '../components/AltFooter.astro';
 interface Props {
   title: string;
   description?: string;
+  // Set when the page paints its own header backdrop, e.g. the landing-page hero.
+  plainHeader?: boolean;
 }
 
 const {
   title,
+  plainHeader = false,
   description = 'GeTu Prospects e.V. - Interkultureller Verein in Berlin, der sich für gemeinsame Zukunft und Unterstützung Jugendlicher einsetzt.',
 } = Astro.props;
 const pageTitle = `${title} | GeTu Prospects e.V.`;
@@ -75,6 +78,7 @@ const currentPath = Astro.url.pathname;
     <header
       class="fixed w-full top-0 left-0 z-50 transition-all duration-300 nav-background"
       id="header"
+      data-plain-header={plainHeader ? '' : undefined}
     >
       <div class="container mx-auto px-8 py-4">
         <div class="flex justify-between items-center">
