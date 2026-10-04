@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
@@ -40,46 +41,65 @@ const newsItems = (await getCollection('aktuelles')).sort(
   <section class="py-32 bg-white">
     <div class="container mx-auto px-8">
       <div class="max-w-3xl mx-auto space-y-16">
-        {newsItems.map((newsItem) => <article
-          class="bg-(--tp-grey-1) p-8 sm:p-12"
-        >
-          <time
-            datetime={newsItem.data.date.toISOString()}
-            class="text-secondary uppercase tracking-wider text-sm font-medium"
-          >
-            {newsItem.data.date.toLocaleDateString('de-DE', {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-            })}
-          </time>
-          <h2 class="text-primary text-2xl md:text-3xl font-bold mt-3">
-            <a href={`/aktuelles/${newsItem.id}`} class="hover:text-secondary">
-              {newsItem.data.title}
-            </a>
-          </h2>
-          <div class="h-1 w-16 bg-secondary my-6" />
-          <p class="text-body font-light leading-relaxed mb-6">
-            {newsItem.data.summary}
-          </p>
-          <a
+        {newsItems.map((newsItem) => <article class="bg-(--tp-grey-1)">
+          {newsItem.data.image && <a
             href={`/aktuelles/${newsItem.id}`}
-            class="group inline-flex items-center text-secondary font-medium"
+            tabindex="-1"
+            aria-hidden="true"
           >
-            Weiterlesen
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
-              viewBox="0 0 20 20"
-              fill="currentColor"
+            <Image
+              src={newsItem.data.image}
+              alt=""
+              layout="constrained"
+              width={768}
+              height={432}
+              fit="cover"
+              sizes="(min-width: 832px) 768px, calc(100vw - 4rem)"
+              class="w-full"
+            />
+          </a>}
+          <div class="p-8 sm:p-12">
+            <time
+              datetime={newsItem.data.date.toISOString()}
+              class="text-secondary uppercase tracking-wider text-sm font-medium"
             >
-              <path
-                fill-rule="evenodd"
-                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </a>
+              {newsItem.data.date.toLocaleDateString('de-DE', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+              })}
+            </time>
+            <h2 class="text-primary text-2xl md:text-3xl font-bold mt-3">
+              <a
+                href={`/aktuelles/${newsItem.id}`}
+                class="hover:text-secondary"
+              >
+                {newsItem.data.title}
+              </a>
+            </h2>
+            <div class="h-1 w-16 bg-secondary my-6" />
+            <p class="text-body font-light leading-relaxed mb-6">
+              {newsItem.data.summary}
+            </p>
+            <a
+              href={`/aktuelles/${newsItem.id}`}
+              class="group inline-flex items-center text-secondary font-medium"
+            >
+              Weiterlesen
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+          </div>
         </article>)}
       </div>
     </div>

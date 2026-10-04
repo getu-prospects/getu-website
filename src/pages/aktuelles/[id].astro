@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
@@ -12,7 +13,7 @@ export async function getStaticPaths() {
 
 const { newsItem } = Astro.props;
 const { Content } = await render(newsItem);
-const { title, summary, date, donationReference } = newsItem.data;
+const { title, summary, date, image, donationReference } = newsItem.data;
 const formattedDate = date.toLocaleDateString('de-DE', {
   day: 'numeric',
   month: 'long',
@@ -145,6 +146,18 @@ const formattedIban = donationIban.replace(/(.{4})/g, '$1 ').trim();
   <section id="geschichte" class="py-24 lg:py-32 bg-white scroll-mt-24">
     <div class="container mx-auto px-8">
       <div class="max-w-3xl mx-auto">
+        {image && (
+          <Image
+            src={image}
+            alt=""
+            layout="constrained"
+            width={768}
+            height={512}
+            fit="cover"
+            sizes="(min-width: 832px) 768px, calc(100vw - 4rem)"
+            class="w-full mb-12"
+          />
+        )}
         <div class="news-content text-body text-lg font-light leading-relaxed">
           <Content />
         </div>
@@ -184,6 +197,12 @@ const formattedIban = donationIban.replace(/(.{4})/g, '$1 ').trim();
 
 <style>
   .news-content :global(p) {
+    margin-bottom: 1.5rem;
+  }
+
+  .news-content :global(ul) {
+    list-style: disc;
+    padding-left: 1.5rem;
     margin-bottom: 1.5rem;
   }
 
