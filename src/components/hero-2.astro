@@ -1,97 +1,130 @@
 ---
 import { Image } from 'astro:assets';
-import VolunteerFairPhoto from '../assets/images/ehrenamtstag/IMG_8725.jpg';
-import YouthPhoto from '../assets/images/youth/IMG_7606.jpg';
-import MentoringPhoto from '../assets/images/mentorship-auftakt/IMG_8711.jpg';
-import StammtischPhoto from '../assets/images/stammtisch-auftakt/IMG_7935.jpg';
+import StreetFestivalPhoto from '../assets/images/waidmannslust/strassenfest-stand.jpg';
+import VolunteerDayPhoto from '../assets/images/ehrenamtstag/buehne-publikum.jpg';
+import MentoringPhoto from '../assets/images/mentorship-auftakt/teilnehmende.jpg';
+import YouthPhoto from '../assets/images/youth/lerngruppe.jpg';
 import ChristmasPhoto from '../assets/images/christmas/getu-ausgabe-4.jpeg';
-import StreetFestivalPhoto from '../assets/images/waidmannslust/IMG_7998.jpg';
+import NigeriaVisitPhoto from '../assets/images/nigeria-visit/gruppenfoto.jpg';
 
 const slides = [
   {
-    image: VolunteerFairPhoto,
-    alt: 'Zwei Mitglieder von GeTu Prospects am Stand des Vereins auf der Reinickendorfer Freiwilligenbörse',
+    image: StreetFestivalPhoto,
+    alt: 'Stand von GeTu Prospects mit Banner und gedecktem Tisch beim Fest 150 Jahre Waidmannslust',
   },
   {
-    image: YouthPhoto,
-    alt: 'Junge Menschen sitzen mit aufgeschlagenen Büchern an einem Tisch und lachen',
+    image: VolunteerDayPhoto,
+    alt: 'Publikum verfolgt eine Rede auf der Bühne beim Reinickendorfer Ehrenamtstag',
   },
   {
     image: MentoringPhoto,
-    alt: 'Teilnehmende des Mentoring-Auftakts verfolgen eine Präsentation',
+    alt: 'Teilnehmende des Mentoring-Auftakts sitzen im Stuhlkreis und machen sich Notizen',
   },
   {
-    image: StammtischPhoto,
-    alt: 'Menschen sitzen beim Stammtisch an einer langen, mit Blumen geschmückten Tafel',
+    image: YouthPhoto,
+    alt: 'Jugendliche sitzen mit aufgeschlagenen Büchern an einem Tisch und arbeiten zusammen',
   },
   {
     image: ChristmasPhoto,
     alt: 'Ehrenamtliche verteilen bei der Weihnachtsaktion am Kottbusser Tor Essen',
   },
   {
-    image: StreetFestivalPhoto,
-    alt: 'Stand von GeTu Prospects mit Banner und gedecktem Tisch beim Fest 150 Jahre Waidmannslust',
+    image: NigeriaVisitPhoto,
+    alt: 'Gruppenfoto von Mitgliedern und Gästen aus Nigeria vor einem Hauseingang',
   },
+];
+
+const stats = [
+  { value: '10+', label: 'Jahre' },
+  { value: '500+', label: 'Menschen' },
+  { value: '4', label: 'Projekte' },
 ];
 ---
 
-<section class="relative flex flex-col lg:grid lg:grid-cols-12 lg:min-h-[85vh]">
+<section class="relative bg-white grid lg:grid-cols-12 lg:min-h-screen">
   <!-- Text column -->
   <div
-    class="order-2 lg:order-1 lg:col-span-6 xl:col-span-5 bg-white flex items-center px-4 sm:px-6 lg:px-0 py-8 sm:py-10 lg:py-16"
+    class="relative lg:col-span-5 flex flex-col justify-center px-8 lg:px-16 py-16 lg:py-28"
   >
-    <div class="w-full p-8 sm:p-10 lg:p-12 xl:p-16 animate-fade-down">
-      <div class="space-y-6 sm:space-y-8">
-        <!-- Organization name -->
-        <h6
-          class="text-secondary uppercase tracking-widest text-base sm:text-lg font-semibold"
-        >
-          GETU PROSPECTS E.V.
-        </h6>
-
-        <!-- Main headings -->
-        <div>
-          <h1
-            class="text-4xl sm:text-5xl xl:text-6xl font-bold leading-tight text-primary"
-          >
-            Vielfalt leben
-          </h1>
-          <h2 class="text-2xl sm:text-3xl font-medium pt-2 text-primary">
-            Träume stärken
-          </h2>
-        </div>
-
-        <!-- Divider -->
-        <div class="h-1 w-24 bg-secondary"></div>
-
-        <!-- Description paragraph -->
-        <p class="text-base sm:text-lg text-body leading-relaxed">
-          Als Interkultureller Verein verbinden wir Kulturen und begleiten
-          Familien und junge Menschen dabei, neue Perspektiven im Leben zu
-          schaffen.
-        </p>
-
-        <!-- Buttons with proper vertical alignment -->
-        <div class="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-6 pt-4">
-          <a
-            href="/ueber-uns#vision"
-            class="bg-primary text-white py-3 px-8 sm:py-4 sm:px-10 text-center font-medium transition-all inline-flex items-center justify-center"
-            >Unsere Vision</a
-          >
-          <a
-            href="/kontakt"
-            class="bg-secondary text-white py-3 px-8 sm:py-4 sm:px-10 text-center font-medium transition-all inline-flex items-center justify-center"
-            >Mitmachen</a
-          >
-        </div>
+    <div class="max-w-lg">
+      <div class="flex items-center gap-4 mb-8 animate-fade-up">
+        <div class="w-12 h-px bg-secondary"></div>
+        <span class="text-xs uppercase tracking-[0.2em] text-body font-medium">
+          Berlin · Seit 2014
+        </span>
       </div>
+
+      <h1
+        class="text-5xl md:text-6xl lg:text-7xl font-bold leading-[0.95] animate-fade-up animate-delay-100"
+      >
+        <span class="block text-primary">Gemeinsam</span>
+        <span class="block text-secondary mt-2">Zukunft</span>
+        <span class="block text-primary mt-2">gestalten</span>
+      </h1>
+
+      <p
+        class="mt-8 text-lg text-body leading-relaxed animate-fade-up animate-delay-200"
+      >
+        Ein interkultureller Verein in Berlin, der Menschen verbindet,
+        Jugendliche fördert und Brücken zwischen Kulturen baut.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-4 animate-fade-up animate-delay-300">
+        <a
+          href="/kontakt"
+          class="inline-flex items-center justify-center gap-2 border-2 border-secondary bg-secondary text-white py-3 px-8 font-medium"
+        >
+          Engagieren
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            ></path>
+          </svg>
+        </a>
+        <a
+          href="/ueber-uns"
+          class="inline-flex items-center justify-center border-2 border-primary text-primary py-3 px-8 font-medium"
+        >
+          Wer wir sind
+        </a>
+      </div>
+
+      <dl
+        class="mt-16 pt-8 border-t border-primary/10 grid grid-cols-3 gap-4 animate-fade-up animate-delay-[400ms]"
+      >
+        {stats.map((stat) => <div class="flex flex-col-reverse">
+          <dt class="text-xs text-body uppercase tracking-wider">
+            {stat.label}
+          </dt>
+          <dd class="text-3xl lg:text-4xl font-bold text-primary">
+            {stat.value}
+          </dd>
+        </div>)}
+      </dl>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div
+      class="absolute bottom-10 left-16 hidden lg:flex items-center gap-3 text-body"
+      aria-hidden="true"
+    >
+      <span class="text-xs uppercase tracking-[0.2em]">Scroll</span>
+      <div class="w-px h-8 bg-primary/30"></div>
     </div>
   </div>
 
   <!-- Photo slideshow -->
   <div
-    class="order-1 lg:order-2 lg:col-span-6 xl:col-span-7 relative aspect-[4/3] lg:aspect-auto overflow-hidden bg-deepgreen"
-    data-hero-slideshow
+    class="hero-slideshow order-first lg:order-none lg:col-span-7 relative min-h-[50vh] lg:min-h-screen overflow-hidden bg-primary"
   >
     {slides.map((slide, slideIndex) => (
       <Image
@@ -100,37 +133,36 @@ const slides = [
         layout="constrained"
         width={1200}
         fit="cover"
-        sizes="(min-width: 1280px) 58vw, (min-width: 1024px) 50vw, 100vw"
+        sizes="(min-width: 1024px) 58vw, 100vw"
         priority={slideIndex === 0}
-        aria-hidden={slideIndex === 0 ? undefined : 'true'}
-        data-hero-slide
-        class:list={[
-          'absolute inset-0 w-full h-full max-w-none object-cover opacity-0 transition-opacity duration-1000 motion-reduce:transition-none [&.is-active]:opacity-100',
-          slideIndex === 0 && 'is-active',
-        ]}
+        class="absolute inset-0 w-full h-full max-w-none object-cover"
       />
     ))}
+
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent pointer-events-none"
+    ></div>
 
     <!-- Keeps the header links legible over the photo; the header itself has no gradient on this page -->
     <div
       class="absolute inset-x-0 top-0 h-32 nav-background pointer-events-none"
     ></div>
 
-    <div
-      class="absolute bottom-6 sm:bottom-8 right-4 sm:right-6 z-10 flex bg-primary/70 px-1"
+    <figure
+      class="absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-8 lg:bottom-12 lg:left-12 lg:right-auto lg:max-w-sm bg-primary/90 backdrop-blur-sm p-4 sm:p-6"
     >
-      {slides.map((_, slideIndex) => <button
-        type="button"
-        aria-label={`Bild ${slideIndex + 1} anzeigen`}
-        aria-current={slideIndex === 0 ? 'true' : undefined}
-        data-hero-dot
-        class="group p-2 cursor-pointer"
-      >
-        <span
-          class="block w-2.5 h-2.5 bg-white transition-colors group-aria-[current=true]:bg-secondary"
-        />
-      </button>)}
-    </div>
+      <blockquote class="text-white/80 text-sm leading-relaxed">
+        „Wir glauben an eine Gesellschaft, in der jeder Mensch wertgeschätzt
+        wird.“
+      </blockquote>
+      <figcaption class="mt-3 text-secondary text-xs uppercase tracking-wider">
+        — GeTu Prospects e.V.
+      </figcaption>
+    </figure>
+
+    <div
+      class="absolute top-32 right-12 hidden lg:block w-20 h-20 border border-white/30"
+    ></div>
   </div>
 
   <!-- Bottom decorative accent -->
@@ -139,65 +171,72 @@ const slides = [
   ></div>
 </section>
 
-<script>
-  const SLIDE_INTERVAL_MS = 6000;
-
-  const slideshow = document.querySelector<HTMLElement>(
-    '[data-hero-slideshow]',
-  );
-
-  if (slideshow) {
-    const slideImages = [
-      ...slideshow.querySelectorAll<HTMLElement>('[data-hero-slide]'),
-    ];
-    const dotButtons = [
-      ...slideshow.querySelectorAll<HTMLElement>('[data-hero-dot]'),
-    ];
-    const autoplayAllowed = !window.matchMedia(
-      '(prefers-reduced-motion: reduce)',
-    ).matches;
-
-    let activeIndex = 0;
-    let intervalId: number | undefined;
-
-    const showSlide = (nextIndex: number) => {
-      activeIndex = nextIndex;
-      slideImages.forEach((slideImage, slideIndex) => {
-        const isActive = slideIndex === nextIndex;
-        slideImage.classList.toggle('is-active', isActive);
-        if (isActive) slideImage.removeAttribute('aria-hidden');
-        else slideImage.setAttribute('aria-hidden', 'true');
-      });
-      dotButtons.forEach((dotButton, dotIndex) => {
-        if (dotIndex === nextIndex)
-          dotButton.setAttribute('aria-current', 'true');
-        else dotButton.removeAttribute('aria-current');
-      });
-    };
-
-    const stopAutoplay = () => {
-      window.clearInterval(intervalId);
-      intervalId = undefined;
-    };
-
-    const startAutoplay = () => {
-      stopAutoplay();
-      if (!autoplayAllowed || document.hidden) return;
-      intervalId = window.setInterval(
-        () => showSlide((activeIndex + 1) % slideImages.length),
-        SLIDE_INTERVAL_MS,
-      );
-    };
-
-    dotButtons.forEach((dotButton, dotIndex) => {
-      dotButton.addEventListener('click', () => {
-        showSlide(dotIndex);
-        startAutoplay();
-      });
-    });
-
-    document.addEventListener('visibilitychange', startAutoplay);
-
-    startAutoplay();
+<style>
+  /* Six slides, 6 s each. A slide fades in over the one before it, so the
+     fade-out runs under the next slide and the background never shows. */
+  .hero-slideshow :global(img) {
+    opacity: 0;
+    animation: hero-kenburns 36s infinite;
   }
-</script>
+
+  .hero-slideshow :global(img:nth-of-type(2)) {
+    animation-delay: 6s;
+  }
+  .hero-slideshow :global(img:nth-of-type(3)) {
+    animation-delay: 12s;
+  }
+  .hero-slideshow :global(img:nth-of-type(4)) {
+    animation-delay: 18s;
+  }
+  .hero-slideshow :global(img:nth-of-type(5)) {
+    animation-delay: 24s;
+  }
+  .hero-slideshow :global(img:nth-of-type(6)) {
+    animation-delay: 30s;
+  }
+
+  @keyframes hero-kenburns {
+    0% {
+      opacity: 0;
+      transform: scale(1);
+    }
+    4% {
+      opacity: 1;
+    }
+    16.667% {
+      opacity: 1;
+    }
+    20.667% {
+      opacity: 0;
+      transform: scale(1.08);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes hero-crossfade {
+    0% {
+      opacity: 0;
+    }
+    4% {
+      opacity: 1;
+    }
+    16.667% {
+      opacity: 1;
+    }
+    20.667% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-slideshow :global(img) {
+      animation-name: hero-crossfade;
+    }
+  }
+</style>
